@@ -377,6 +377,67 @@
                 <p>Las Reliquias del Carbonífero son <strong>objetos de un solo uso</strong> (excepto armaduras). Una vez activadas, se consumen. Piénsalo dos veces antes de usar un artefacto de 300 millones de años en una pelea contra una cucaracha carroñera.</p>
             </div>
 
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- SECCIÓN 9: SISTEMA DE OXÍGENO VS. CALOR (NeoPlaga) -->
+            <!-- ═══════════════════════════════════════════════════ -->
+            <h2>🌡️ Sistema de Oxígeno vs. Calor (NeoPlaga — Año 20.000)</h2>
+            <div class="info-box warning">
+                <h4>⚠️ Mecánica Exclusiva de NeoPlaga</h4>
+                <p>En el año 20.000, el Holoceno agoniza. El frío avanza. El oxígeno baja. Estas dos variables definen la supervivencia de toda Plaga. No es HP directo — es un sistema ambiental que modifica TODO lo demás.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>🫁 Barra de Oxígeno (O₂)</h3>
+                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0% — 100%</span></div>
+                <div class="stat-row"><span class="stat-label">Nivel Global Actual</span><span class="stat-value">16% (y bajando cada década)</span></div>
+                <div class="stat-row"><span class="stat-label">Efecto de O₂ bajo</span><span class="stat-value">Reduce Velocidad y Hemolinfa máxima</span></div>
+                <div class="stat-row"><span class="stat-label">Efecto de O₂ alto (zonas Sembradores)</span><span class="stat-value">+Stats pero items de fuego hacen DOBLE daño</span></div>
+            </div>
+
+            <div class="stat-block">
+                <h3>🌡️ Barra de Calor Corporal</h3>
+                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0 — 10 unidades</span></div>
+                <div class="stat-row"><span class="stat-label">Inicio</span><span class="stat-value">5 (templado)</span></div>
+                <div class="stat-row"><span class="stat-label">Pérdida</span><span class="stat-value">-1 por turno en zonas exteriores sin refugio</span></div>
+                <div class="stat-row"><span class="stat-label">Calor 0</span><span class="stat-value">Congelación: -50% Velocidad, -30% Fuerza, no puede huir</span></div>
+            </div>
+
+            <h3>Efectos por Nivel de Calor</h3>
+            <table>
+                <tr><th>Calor</th><th>Estado</th><th>Efecto Mecánico</th></tr>
+                <tr><td><strong>8-10</strong></td><td>🔥 Caliente</td><td>+2 Velocidad, +1 Fuerza. Óptimo. Los Taxones de Terror generan esto con pánico humano.</td></tr>
+                <tr><td><strong>5-7</strong></td><td>🟢 Templado</td><td>Sin modificadores. Estado normal.</td></tr>
+                <tr><td><strong>3-4</strong></td><td>🟡 Frío</td><td>-1 Velocidad. Movimiento reducido. Empiezas a sentirlo.</td></tr>
+                <tr><td><strong>1-2</strong></td><td>🟠 Hipotermia</td><td>-2 Velocidad, -1 Fuerza. Habilidades cuestan +1 Hemolinfa extra.</td></tr>
+                <tr><td><strong>0</strong></td><td>🔴 Congelación</td><td>-50% Velocidad, -30% Fuerza, NO puede huir. 3 turnos en 0 = muerte.</td></tr>
+            </table>
+
+            <h3>Fuentes de Calor</h3>
+            <table>
+                <tr><th>Fuente</th><th>Calor Ganado</th><th>Notas</th></tr>
+                <tr><td>Refugio/Nido</td><td>+3</td><td>Descansar en zona segura</td></tr>
+                <tr><td>Cúpula de Sembradores</td><td>+2/turno</td><td>Pero cobran diezmo de biomasa</td></tr>
+                <tr><td>Catacumbas Térmicas</td><td>+1/turno</td><td>Calor geotérmico residual</td></tr>
+                <tr><td>Sangre humana fresca</td><td>+2</td><td>Los Taxones de Terror la calientan con pánico</td></tr>
+                <tr><td>Items de fuego (Fósforo, Brasa)</td><td>+1</td><td>Peligroso en zonas de alto O₂</td></tr>
+                <tr><td>Combate (adrenalina propia)</td><td>+1 por ronda</td><td>Pelear calienta. Huir enfría.</td></tr>
+            </table>
+
+            <h3>Fuentes de Pérdida de Calor</h3>
+            <table>
+                <tr><th>Situación</th><th>Calor Perdido</th><th>Notas</th></tr>
+                <tr><td>Zona exterior sin refugio</td><td>-1/turno</td><td>El frío avanza constantemente</td></tr>
+                <tr><td>Zona de hielo (bordes del Charco)</td><td>-2/turno</td><td>Muerte rápida sin protección</td></tr>
+                <tr><td>Huir de combate</td><td>-1</td><td>El miedo enfría. Literalmente.</td></tr>
+                <tr><td>Usar habilidades de Encanto (sedación)</td><td>-1</td><td>Relajar al objetivo te relaja a ti</td></tr>
+                <tr><td>Ser atacado por Taxón de Encanto</td><td>-2</td><td>Te sedan, tu metabolismo baja</td></tr>
+            </table>
+
+            <div class="info-box lore">
+                <h4>🎮 Impacto en Gameplay</h4>
+                <p>El sistema de Calor crea un <strong>loop de supervivencia</strong>: necesitas calor para funcionar, necesitas pelear para generar calor, pero pelear gasta Hemolinfa y arriesga Esencia. Los Taxones de Terror tienen ventaja (generan calor con pánico), pero los de Encanto conservan recursos (no gastan en combate). Es un trade-off constante entre agresión y conservación.</p>
+            </div>
+
         </article>
     </main>
 </body>
