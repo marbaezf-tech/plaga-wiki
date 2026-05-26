@@ -1,10 +1,9 @@
-# 🦟 Plaga: La Mascarada — Wiki
+# 🦟 Plaga: La Descarada — Wiki
 
-Wiki del lore de **Plaga: La Mascarada**, un RPG de parodia que transforma Vampiro: La Mascarada en un mundo de insectos y artrópodos.
+Wiki del lore de **Plaga: La Descarada**, un RPG de parodia que transforma el universo de Vampiro: La Mascarada en un mundo de insectos y artrópodos descarados que consideran a los humanos como ganado torpe.
 
 ## 🌐 Ver Online
 
-Esta wiki está desplegada con GitHub Pages:  
 **https://marbaezf-tech.github.io/plaga-wiki/**
 
 ## 📖 Contenido
