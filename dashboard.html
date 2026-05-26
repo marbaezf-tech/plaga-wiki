@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+        .dash-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+        .dash-card h3 { margin: 0 0 12px; color: var(--accent); font-size: 1em; }
+        .progress-bar { background: var(--bg-dark); border-radius: 4px; height: 24px; overflow: hidden; margin: 8px 0; }
+        .progress-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 0.8em; font-weight: 600; }
+        .fill-green { background: var(--accent-green); }
+        .fill-yellow { background: var(--accent-gold); }
+        .fill-red { background: var(--accent-red); }
+        .fill-purple { background: var(--accent-purple); }
+        .task-list { list-style: none; padding: 0; }
+        .task-list li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 0.85em; color: var(--text-secondary); }
+        .task-list li:last-child { border-bottom: none; }
+        .task-done { color: var(--accent-green); }
+        .task-pending { color: var(--accent-gold); }
+        .task-blocked { color: var(--accent-red); }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; font-weight: 600; }
+        .badge-done { background: rgba(63,185,80,0.2); color: var(--accent-green); }
+        .badge-pending { background: rgba(210,153,34,0.2); color: var(--accent-gold); }
+        .badge-blocked { background: rgba(248,81,73,0.2); color: var(--accent-red); }
+        .stat-number { font-size: 2em; font-weight: 700; color: var(--text-primary); }
+        .stat-label-sm { font-size: 0.8em; color: var(--text-muted); }
+        @media (max-width: 768px) { .dashboard-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Dashboard</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Wiki</a></li>
+            <li><a href="dashboard.html" class="active">📊 Dashboard</a></li>
+            <li class="section-title">Proyecto</li>
+            <li><a href="https://github.com/marbaezf-tech/plaga-wiki" target="_blank">🐙 GitHub</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>📊 Dashboard de Desarrollo</h1>
+            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 26 Mayo 2026</p>
+
+            <!-- Resumen rápido -->
+            <div class="dashboard-grid">
+                <div class="dash-card">
+                    <h3>🎯 Avance General</h3>
+                    <div class="stat-number">64%</div>
+                    <div class="stat-label-sm">52 de 81 tareas completadas</div>
+                    <div class="progress-bar"><div class="progress-fill fill-green" style="width:64%">64%</div></div>
+                </div>
+                <div class="dash-card">
+                    <h3>📝 Tareas Hoy</h3>
+                    <div class="stat-number">52</div>
+                    <div class="stat-label-sm">completadas en sesión 1</div>
+                </div>
+                <div class="dash-card">
+                    <h3>🔴 Bloqueantes</h3>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label-sm">proyecto Godot + assets gráficos</div>
+                </div>
+                <div class="dash-card">
+                    <h3>📄 Páginas Wiki</h3>
+                    <div class="stat-number">25</div>
+                    <div class="stat-label-sm">online en GitHub Pages</div>
+                </div>
+            </div>
+
+            <!-- Progreso por área -->
+            <h2>📈 Progreso por Área</h2>
+            <div class="dash-card">
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Lore / Diseño de Mundo</span><span class="badge badge-done">100%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">12/12</div></div>
+
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Wiki (páginas HTML)</span><span class="badge badge-done">93%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-green" style="width:93%">25/27</div></div>
+
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Requirements / Spec</span><span class="badge badge-done">100%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">14/14</div></div>
+
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Código Godot</span><span class="badge badge-pending">12%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-yellow" style="width:12%">1/8</div></div>
+
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Assets Gráficos</span><span class="badge badge-blocked">0%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-red" style="width:2%">0/15</div></div>
+
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Audio / Música</span><span class="badge badge-blocked">0%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-red" style="width:2%">0/5</div></div>
+            </div>
+
+            <!-- Tareas completadas -->
+            <h2>✅ Completado (Sesión 1)</h2>
+            <div class="dash-card">
+                <ul class="task-list">
+                    <li class="task-done">✅ 13 Taxones definidos con stats, recursos y defectos</li>
+                    <li class="task-done">✅ Mitología fundacional: Gran Éter, Progenitores, Caída</li>
+                    <li class="task-done">✅ 13 Semidioses (artrópodos extremófilos reales)</li>
+                    <li class="task-done">✅ Sistema Silencio Verde (Cordyceps/degeneración)</li>
+                    <li class="task-done">✅ 4 Facciones con filosofías y conflictos</li>
+                    <li class="task-done">✅ Mapa: Santiago → El Gran Charco (10 zonas)</li>
+                    <li class="task-done">✅ Fauna no-jugable (hormigas, escarabajos, mantis, etc.)</li>
+                    <li class="task-done">✅ Items adaptados: 13 armas CC, 10 proyectiles, 7 especiales, 9 armaduras, 13 equipo, 14 consumibles</li>
+                    <li class="task-done">✅ Wiki desplegada en GitHub Pages (25 páginas)</li>
+                    <li class="task-done">✅ GameManager.gd (Autoload para Godot)</li>
+                    <li class="task-done">✅ Requirements document (14 requisitos EARS)</li>
+                    <li class="task-done">✅ Título oficial: "Plaga: La Descarada"</li>
+                    <li class="task-done">✅ Tono narrativo: cinismo y arrogancia</li>
+                </ul>
+            </div>
+
+            <!-- Próximas tareas -->
+            <h2>⏭️ Próximas Tareas (Roadmap)</h2>
+            <div class="dash-card">
+                <ul class="task-list">
+                    <li class="task-pending">🟡 1. Crear proyecto Godot 4.x (project.godot + estructura)</li>
+                    <li class="task-pending">🟡 2. Configurar GameManager como Autoload</li>
+                    <li class="task-pending">🟡 3. TileMap básico — zona "El Laboratorio"</li>
+                    <li class="task-pending">🟡 4. CharacterBody2D — Zancudo con movimiento 4 dirs</li>
+                    <li class="task-pending">🟡 5. 3 Spots interactivos (Area2D + menú)</li>
+                    <li class="task-pending">🟡 6. HUD: barras Quitina/Hemolinfa/Esencia</li>
+                    <li class="task-pending">🟡 7. Menú de Spot (Inspeccionar/Recolectar/Cobrar)</li>
+                    <li class="task-pending">🟡 8. Combate por turnos (1 encuentro básico)</li>
+                </ul>
+            </div>
+
+            <!-- Bloqueantes -->
+            <h2>🔴 Bloqueantes</h2>
+            <div class="dash-card">
+                <table>
+                    <tr><th>#</th><th>Bloqueante</th><th>Impacto</th><th>Solución</th></tr>
+                    <tr><td>1</td><td class="task-blocked">No hay proyecto Godot creado</td><td>No se puede testear código</td><td>Crear project.godot + carpetas</td></tr>
+                    <tr><td>2</td><td class="task-blocked">No hay sprites/assets</td><td>No se puede visualizar</td><td>Placeholders o generar con IA</td></tr>
+                    <tr><td>3</td><td style="color:var(--accent-green)">ngrok agotado ✅ RESUELTO</td><td>—</td><td>GitHub Pages</td></tr>
+                </table>
+            </div>
+
+            <!-- Archivos del proyecto -->
+            <h2>📁 Estructura del Proyecto</h2>
+            <div class="dash-card">
+                <pre style="color:var(--text-secondary); font-size:0.8em; overflow-x:auto;">
+c:\Taxones\Taxones\
+├── BITACORA.md              ← Este archivo
+├── lore_fundacional.md      ← Lore completo
+├── godot/
+│   └── scripts/
+│       └── game_manager.gd  ← Autoload principal
+└── wiki/
+    ├── server.js            ← Servidor local (puerto 3001)
+    ├── style.css            ← Estilos (dark theme, responsive)
+    ├── index.html           ← Página principal
+    ├── dashboard.html       ← Este dashboard
+    ├── gran-eter.html       ← Lore: El Gran Éter
+    ├── progenitores.html    ← Lore: Meganeura + Arthropleura
+    ├── semidioses.html      ← Lore: 13 Semidioses
+    ├── caida.html           ← Lore: La Caída
+    ├── profecias.html       ← Lore: El Retorno del 35%
+    ├── silencio-verde.html  ← Lore: Cordyceps
+    ├── taxones.html         ← Resumen 13 Taxones
+    ├── taxon-*.html (x13)   ← Páginas individuales
+    ├── facciones.html       ← 4 Facciones
+    ├── santiago.html        ← El Gran Charco (mapa)
+    ├── fauna.html           ← Fauna no-jugable
+    ├── items.html           ← Armas y objetos
+    ├── reliquias.html       ← Loot legendario
+    ├── glosario.html        ← Terminología
+    └── equivalencias.html   ← VTM → Plaga
+                </pre>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
