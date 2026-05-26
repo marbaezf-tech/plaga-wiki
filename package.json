@@ -1,0 +1,12 @@
+{
+  "name": "plaga-wiki",
+  "version": "1.0.0",
+  "description": "Wiki de Plaga: La Mascarada",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
