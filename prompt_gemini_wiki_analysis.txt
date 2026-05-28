@@ -1,0 +1,120 @@
+# PROMPT PARA GEMINI — Análisis Completo de la Wiki de "Plaga: La Descarada"
+
+## CONTEXTO
+Eres un analista experto en game design, narrativa y documentación técnica. Te voy a entregar la wiki completa de un proyecto de videojuego RPG llamado **"Plaga: La Descarada"**. Necesito que la analices en profundidad.
+
+## EL PROYECTO
+- **Nombre:** Plaga: La Descarada
+- **Género:** RPG Parodia / Top-down / Combate por turnos
+- **Motor:** Godot Engine 4.6
+- **Plataformas:** Android (APK) + Windows
+- **Tono:** Cinismo, arrogancia, humor negro. Los insectos son la especie dominante.
+- **Wiki online:** https://marbaezf-tech.github.io/plaga-wiki/
+- **Repo:** https://github.com/marbaezf-tech/plaga-wiki
+
+## PÁGINAS DE LA WIKI (49 páginas HTML)
+
+### 🌍 Lore y Mundo (12 páginas)
+1. **gran-eter.html** — El Gran Éter: era del Carbonífero (350M años), oxígeno al 35%, insectos gigantes
+2. **progenitores.html** — Meganeura y Arthropleura: los 2 dioses creadores
+3. **semidioses.html** — Los 14 Semidioses: artrópodos extremófilos reales (Ramazzottius, Youti Yuanshi, etc.)
+4. **caida.html** — La Caída del Éter: cómo los insectos se redujeron a plagas
+5. **profecias.html** — El Retorno del 35%: profecía del regreso del oxígeno alto
+6. **silencio-verde.html** — El Silencio Verde: Cordyceps como amenaza existencial
+7. **neoplaga.html** — NeoPlaga: Era del Umbral (Año 20.000), Holoceno muriendo
+8. **neoplaga-panteon.html** — Panteón de 13 dioses + El Primer Jardinero
+9. **neoplaga-tardigrado.html** — Ramazzottius: narrador omnisciente de 530M años
+10. **neoplaga-mundo.html** — Mundo del futuro: glaciación, nuevas facciones
+11. **neoplaga-geografia.html** — Geografía post-humana
+12. **colmena-silenciosa.html** — La Colmena Silenciosa: amenaza que avanza desde el sur (Antártica)
+
+### 🧬 Taxones — 14 Clanes Jugables (15 páginas)
+13. **taxones.html** — Resumen de los 14 taxones con stats comparativos
+14-27. **taxon-[nombre].html** — Página individual de cada taxón:
+    - Zancudos, Cucarachas, Avispas, Garrapatas, Chinches, Mariposas, Arañas, Escorpiones, Vinchucas, Moscas, Sanguijuelas, Polillas, Pulgas, Típulas
+    - Cada uno tiene: lore, Espécimen Alfa (fundador), stats, recurso único, defecto genético, atavismos, facción
+
+### 🏙️ Mundo y Facciones (7 páginas)
+28. **facciones.html** — 4 facciones: La Colmena, El Enjambre Negro, Los Sueltos, Los Parásitos Libres
+29. **sembradores.html** — Secta del Enjambre Negro: rituales del Cordyceps
+30. **santiago.html** — El Gran Charco: Santiago de Chile como mapa (10 zonas)
+31. **fauna.html** — Fauna no-jugable: hormigas, abejas, termitas, escarabajos, blandos
+32. **npcs.html** — 20+ NPCs con motivaciones secretas
+33. **items.html** — Armas y objetos del juego
+34. **reliquias.html** — Reliquias del Gran Éter (items legendarios)
+
+### ⚙️ Sistemas de Juego (3 páginas)
+35. **sistemas.html** — TODO el game design:
+    - Combate por turnos (fórmulas de daño, velocidad, escape)
+    - 42 Atavismos (3 por taxón: melee/social/utilidad)
+    - Danza de Antenas (sistema social: 4 posturas, piedra-papel-tijera)
+    - Grados de Estabilidad Genética (I-V)
+    - Deglución 2.0 (mecánica de ascenso)
+    - Vestigios de los Antiguos (reliquias consumibles)
+    - Vocaciones del Gran Charco (14 roles narrativos)
+    - Sistema de Esencia / Silencio Verde
+    - Spawn tables, loot, equipamiento
+    - Sistema O₂ vs Calor
+36. **glosario.html** — Todos los términos del universo definidos
+37. **equivalencias.html** — Tabla de equivalencias con Vampiro: La Mascarada (inspiración)
+
+### 📊 Desarrollo y QA (6 páginas)
+38. **dashboard.html** — Estado del proyecto: 97% completado (175/181 tareas)
+39. **trazabilidad.html** — Mapeo mecánica → código → estado → wiki
+40. **qa.html** — 53 casos de prueba, bugs conocidos, plan de regresión
+41. **arquitectura.html** — Diagramas UML (Mermaid.js): clases, flujo, estados, secuencia
+42. **bestiario.html** — Enemigos del juego con stats y lore
+
+### ⚔️ Balance y Simulaciones (3 páginas)
+43. **torneo_pvp.html** — Torneo PvP v1 (Escorpión 100% winrate — desbalanceado)
+44. **torneo_pvp_v2.html** — Torneo PvP v2 con Antenas (spread 17.6% — balanceado)
+45. **torneo_social.html** — Torneo Social: Danza de Antenas (Típula #1, Pulga #14)
+
+### 📄 Otros
+46. **index.html** — Página principal con resumen del universo
+47. **ciclos-vida.html** — Ciclos de vida de los insectos
+48. **primigenios.html** — Los primeros artrópodos
+49. **balance_report.html** — Reporte de balance
+
+## LO QUE NECESITO QUE ANALICES
+
+### 1. COHERENCIA NARRATIVA
+- ¿El lore es consistente entre páginas?
+- ¿Hay contradicciones en fechas, nombres o eventos?
+- ¿Los 14 Semidioses tienen sentido biológico real?
+- ¿La cronología (530M años → 350M → 252M → 245M → presente → año 20.000) es coherente?
+
+### 2. GAME DESIGN
+- ¿Las fórmulas de combate están balanceadas?
+- ¿El sistema de Antenas Sociales (0-10) crea tensión estratégica real?
+- ¿La Danza de Antenas (4 posturas) tiene suficiente profundidad?
+- ¿Los 42 atavismos (melee/social/utilidad) dan variedad a cada taxón?
+- ¿El balance cruzado PvP vs Social funciona? (guerreros malos socialmente, diplomáticos frágiles)
+
+### 3. COMPLETITUD
+- ¿Qué falta por documentar?
+- ¿Hay mecánicas mencionadas pero no desarrolladas?
+- ¿Los NPCs tienen suficiente profundidad para quests?
+- ¿Las zonas del mapa están suficientemente detalladas?
+
+### 4. CALIDAD DE ESCRITURA
+- ¿El tono "descarado" es consistente?
+- ¿Las citas de Ramazzottius funcionan como narrador?
+- ¿El humor negro es efectivo sin ser ofensivo?
+
+### 5. SUGERENCIAS
+- ¿Qué agregarías al lore?
+- ¿Qué mecánica falta para que el juego sea más interesante?
+- ¿Qué taxón necesita más desarrollo?
+- ¿Qué evento narrativo podría ser un DLC o expansión?
+
+## FORMATO DE RESPUESTA
+Responde con:
+1. **Resumen ejecutivo** (3 párrafos)
+2. **Análisis por categoría** (los 5 puntos de arriba)
+3. **Top 10 sugerencias priorizadas**
+4. **Bugs narrativos encontrados** (si hay)
+5. **Nota final** (como si fueras Ramazzottius opinando del proyecto)
+
+## TONO
+Analiza como un game designer senior + editor narrativo. Sé directo, crítico constructivo, y si algo es bueno dilo sin rodeos. Si algo es malo o inconsistente, señálalo con la página exacta donde está el problema.
