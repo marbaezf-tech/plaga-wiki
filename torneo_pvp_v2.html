@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torneo PvP v2 — Con Antenas — Plaga: La Descarada</title>
+    <title>Torneo PvP v2 — Plaga: La Descarada</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .rank-1 td { color: var(--accent-gold); font-weight: 700; }
@@ -13,6 +13,7 @@
         .perfil-social { color: #66ccff; }
         .perfil-hibrido { color: #ffcc44; }
         .spread-good { color: var(--accent-green); font-weight: 700; font-size: 1.2em; }
+        .section-divider { border: none; border-top: 2px solid var(--border); margin: 3em 0; }
     </style>
 </head>
 <body>
@@ -21,27 +22,25 @@
         <ul class="nav-links">
             <li><a href="index.html">🏠 Inicio</a></li>
             <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Desarrollo</li>
             <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
             <li><a href="qa.html">🧪 QA</a></li>
+            <li><a href="arquitectura.html">� UML</a></li>
             <li class="section-title">Torneos</li>
-            <li><a href="torneo_pvp.html">⚔️ Torneo PvP v1</a></li>
-            <li><a href="torneo_pvp_v2.html">⚔️🐜 Torneo PvP v2</a></li>
-            <li><a href="torneo_social.html">💃 Torneo Social</a></li>
-            <li class="section-title">Referencia</li>
-            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
-            <li><a href="arquitectura.html">📐 Arquitectura UML</a></li>
-            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP v2 (actual)</a></li>
+            <li><a href="torneo_social.html">� Social</a></li>
+            <li><a href="torneo_pvp.html">⚔️ PvP v1</a></li>
         </ul>
     </nav>
     <main id="content">
         <article>
-            <h1>⚔️🐜 Torneo PvP v2 — Con Antenas, Evasión y Danza</h1>
+            <!-- ===== SECCIÓN 1: PvP v2.0 ORIGINAL (28 Mayo) ===== -->
+            <h1>⚔️🐜 Torneo PvP v2.0 — Con Antenas, Evasión y Danza</h1>
+            <p style="color:var(--text-muted);">28 Mayo 2026 — IA genérica, pre-rework</p>
             <div class="intro-box">
-                <p>Simulación de <strong>2000 rondas</strong> con el sistema completo: ataques físicos con evasión, atavismos (melee/social/utilidad), Danza de Antenas, y el sistema de <strong>Antenas Sociales</strong> donde la violencia pura te consume.</p>
-                <p class="spread-good">📏 Spread: 17.6% — ¡Balance real!</p>
+                <p>Primera simulación con el sistema completo: evasión, atavismos, Danza de Antenas, y <strong>Antenas Sociales</strong>. 2000 rondas.</p>
+                <p class="spread-good">📏 Spread: 17.6%</p>
             </div>
-
-            <h2>🏆 Ranking PvP v2 — Todos vs Todos</h2>
             <table>
                 <tr><th>#</th><th>Taxón</th><th>Wins</th><th>Losses</th><th>Winrate</th><th>Perfil</th></tr>
                 <tr class="rank-1"><td>1</td><td>🦂 Escorpión</td><td>15,927</td><td>10,073</td><td>61.3%</td><td class="perfil-guerrero">Guerrero</td></tr>
@@ -59,137 +58,43 @@
                 <tr><td>13</td><td>🕸️ Araña</td><td>11,511</td><td>14,489</td><td>44.3%</td><td class="perfil-social">Social</td></tr>
                 <tr><td>14</td><td>🕷️ Garrapata</td><td>11,362</td><td>14,638</td><td>43.7%</td><td class="perfil-guerrero">Guerrero</td></tr>
             </table>
+            <blockquote>"El Escorpión del v1 era un dios. El del v2 es un adicto a la violencia que se come a sí mismo si no aprende a hablar."<br>— Ramazzottius</blockquote>
 
-            <h2>⚖️ Balance Cruzado (PvP v2 vs Social)</h2>
-            <div class="info-box mechanic">
-                <h4>⚙️ Suma ideal = 15</h4>
-                <p>PvP rank + Social rank. Cuanto más cerca de 15, más equilibrado. 🌟 = Versátil (≤10) | ⚖️ = Equilibrado (11-18) | 💀 = Especialista débil (>18)</p>
-            </div>
-            <table>
-                <tr><th>Taxón</th><th>PvP v2</th><th>Social</th><th>Suma</th><th>Veredicto</th></tr>
-                <tr><td>🗡️ Vinchuca</td><td>#3</td><td>#3</td><td>6</td><td>🌟 La más versátil del Charco</td></tr>
-                <tr><td>🦟 Típula</td><td>#4</td><td>#1</td><td>5</td><td>🌟 Diplomática que sobrevive</td></tr>
-                <tr><td>🦋 Mariposa</td><td>#6</td><td>#2</td><td>8</td><td>🌟 Social que esquiva todo</td></tr>
-                <tr><td>🦂 Escorpión</td><td>#1</td><td>#9</td><td>10</td><td>🌟 Guerrero puro</td></tr>
-                <tr><td>🐝 Avispa</td><td>#2</td><td>#8</td><td>10</td><td>🌟 Berserker con algo de social</td></tr>
-                <tr><td>🛏️ Chinche</td><td>#9</td><td>#5</td><td>14</td><td>⚖️ Político equilibrado</td></tr>
-                <tr><td>🦟 Zancudo</td><td>#5</td><td>#10</td><td>15</td><td>⚖️ Equilibrio perfecto</td></tr>
-                <tr><td>💉 Sanguijuela</td><td>#8</td><td>#7</td><td>15</td><td>⚖️ Equilibrio perfecto</td></tr>
-                <tr><td>🌙 Polilla</td><td>#11</td><td>#4</td><td>15</td><td>⚖️ Equilibrio perfecto</td></tr>
-                <tr><td>🪳 Cucaracha</td><td>#7</td><td>#11</td><td>18</td><td>⚖️ Tanque sin carisma</td></tr>
-                <tr><td>🕸️ Araña</td><td>#13</td><td>#6</td><td>19</td><td>💀 Emboscadora frágil</td></tr>
-                <tr><td>🪰 Mosca</td><td>#10</td><td>#13</td><td>23</td><td>💀 Mediocre en todo</td></tr>
-                <tr><td>⚡ Pulga</td><td>#12</td><td>#14</td><td>26</td><td>💀 Caótica inútil</td></tr>
-                <tr><td>🕷️ Garrapata</td><td>#14</td><td>#12</td><td>26</td><td>💀 Tanque obsoleto</td></tr>
-            </table>
-
-            <h2>🐜 Impacto del Sistema de Antenas</h2>
-            <div class="info-box lore">
-                <h4>📜 Por qué el spread bajó de 100% a 17%</h4>
-                <p>En v1, el Escorpión ganaba 100% porque solo importaba TOR+QUI. En v2, si solo ataca pierde antenas → el Cordyceps lo daña → se autodestruye. Los taxones sociales ganan antenas → bonus en Danza → ganan turnos gratis → compensan su daño bajo.</p>
-            </div>
-            <table>
-                <tr><th>Mecánica</th><th>Efecto en Antenas</th><th>Quién se beneficia</th></tr>
-                <tr><td>Atacar ×3 sin socializar</td><td>🐜 -1</td><td>Penaliza guerreros puros</td></tr>
-                <tr><td>Atavismo melee (veneno, crítico, drenar)</td><td>🐜 -1</td><td>Penaliza berserkers</td></tr>
-                <tr><td>Atavismo intimidar/miedo</td><td>🐜 -1</td><td>Penaliza terroristas</td></tr>
-                <tr><td>Atavismo social (confuso, stun, revelar)</td><td>🐜 +1</td><td>Beneficia diplomáticos</td></tr>
-                <tr><td>Danza de Antenas (victoria)</td><td>🐜 +1</td><td>Beneficia FER/SEN altos</td></tr>
-                <tr><td>Atavismo utilidad (evasión, heal)</td><td>🐜 0</td><td>Neutral para todos</td></tr>
-                <tr><td>Antenas = 0</td><td>-5 HP/turno + -5% Esencia</td><td>Castiga violencia pura</td></tr>
-                <tr><td>Antenas ≥ 9</td><td>+3 a tiradas de Danza</td><td>Premia socialización</td></tr>
-            </table>
-
-            <blockquote>"El Escorpión del v1 era un dios. El del v2 es un adicto a la violencia que se come a sí mismo si no aprende a hablar. Eso es evolución, queridos."<br>— Ramazzottius, sobre el balance v2</blockquote>
-
-            <blockquote>"Mis hijos no necesitan pinzas. Necesitan antenas. 520 millones de años me costó entender que la fuerza sin conexión es solo ruido."<br>— Youti Yuanshi, El Primer Padre</blockquote>
-        </article>
-    </main>
-</body>
-</html>
-
-            <hr style="margin: 3em 0; border-color: var(--border);">
-
-            <h1>⚔️🐜 Torneo PvP v2.1 — Post-Rework (29 Mayo 2026)</h1>
+            <!-- ===== SECCIÓN 2: PvP v2.1 POST-REWORK (29 Mayo) ===== -->
+            <hr class="section-divider">
+            <h1>⚔️🐜 Torneo PvP v2.1 — Post-Rework</h1>
+            <p style="color:var(--text-muted);">29 Mayo 2026 — Araña (TOR+2, 2 stuns), Mosca (nigromante), Pulga (evasión 70%), Garrapata (regen 3%/turno)</p>
             <div class="intro-box">
-                <p>Resultados después del rework de Araña (TOR+2, 2 stuns), Mosca (nigromante), Pulga (evasión maestra 70%), Garrapata (tanque regen 3%/turno). <strong>2000 rondas.</strong></p>
-                <p class="spread-good">📏 Spread: 12.9% — ¡El más balanceado hasta ahora!</p>
+                <p>Resultados después del rework de los 4 taxones débiles. 2000 rondas, IA genérica.</p>
+                <p class="spread-good">📏 Spread: 12.9% — ¡El más comprimido!</p>
             </div>
-
-            <h2>🏆 Ranking PvP v2.1</h2>
             <table>
-                <tr><th>#</th><th>Taxón</th><th>Wins</th><th>Losses</th><th>Winrate</th><th>Cambio vs v2.0</th></tr>
-                <tr class="rank-1"><td>1</td><td>🕷️ Garrapata</td><td>15,087</td><td>10,913</td><td>58.0%</td><td>⬆️ #14→#1 (tanque regen)</td></tr>
-                <tr class="rank-2"><td>2</td><td>🦂 Escorpión</td><td>15,040</td><td>10,960</td><td>57.8%</td><td>⬇️ #1→#2</td></tr>
-                <tr class="rank-3"><td>3</td><td>🐝 Avispa</td><td>14,586</td><td>11,414</td><td>56.1%</td><td>⬆️ #2→#3 (estable)</td></tr>
-                <tr><td>4</td><td>🕸️ Araña</td><td>14,536</td><td>11,464</td><td>55.9%</td><td>⬆️ #13→#4 (stun combo)</td></tr>
-                <tr><td>5</td><td>🗡️ Vinchuca</td><td>13,188</td><td>12,812</td><td>50.7%</td><td>⬇️ #3→#5</td></tr>
-                <tr><td>6</td><td>🦟 Típula</td><td>12,856</td><td>13,144</td><td>49.4%</td><td>⬇️ #4→#6</td></tr>
-                <tr><td>7</td><td>🦋 Mariposa</td><td>12,461</td><td>13,539</td><td>47.9%</td><td>⬇️ #6→#7</td></tr>
-                <tr><td>8</td><td>💉 Sanguijuela</td><td>12,302</td><td>13,698</td><td>47.3%</td><td>= estable</td></tr>
-                <tr><td>9</td><td>🛏️ Chinche</td><td>12,166</td><td>13,834</td><td>46.8%</td><td>= estable</td></tr>
-                <tr><td>10</td><td>🌙 Polilla</td><td>12,159</td><td>13,841</td><td>46.8%</td><td>⬆️ #11→#10</td></tr>
-                <tr><td>11</td><td>🦟 Zancudo</td><td>12,146</td><td>13,854</td><td>46.7%</td><td>⬇️ #5→#11</td></tr>
-                <tr><td>12</td><td>🪳 Cucaracha</td><td>11,887</td><td>14,113</td><td>45.7%</td><td>⬇️ #7→#12</td></tr>
-                <tr><td>13</td><td>🪰 Mosca</td><td>11,847</td><td>14,153</td><td>45.6%</td><td>⬆️ #10→#13 (nigromante)</td></tr>
-                <tr><td>14</td><td>⚡ Pulga</td><td>11,739</td><td>14,261</td><td>45.1%</td><td>⬆️ #12→#14 (evasión no basta sola)</td></tr>
+                <tr><th>#</th><th>Taxón</th><th>Winrate</th><th>Cambio vs v2.0</th></tr>
+                <tr class="rank-1"><td>1</td><td>🕷️ Garrapata</td><td>58.0%</td><td>⬆️ #14→#1</td></tr>
+                <tr class="rank-2"><td>2</td><td>🦂 Escorpión</td><td>57.8%</td><td>⬇️ #1→#2</td></tr>
+                <tr class="rank-3"><td>3</td><td>🐝 Avispa</td><td>56.1%</td><td>estable</td></tr>
+                <tr><td>4</td><td>🕸️ Araña</td><td>55.9%</td><td>⬆️ #13→#4</td></tr>
+                <tr><td>5</td><td>🗡️ Vinchuca</td><td>50.7%</td><td>⬇️ #3→#5</td></tr>
+                <tr><td>6</td><td>🦟 Típula</td><td>49.4%</td><td>⬇️ #4→#6</td></tr>
+                <tr><td>7</td><td>🦋 Mariposa</td><td>47.9%</td><td>⬇️ #6→#7</td></tr>
+                <tr><td>8</td><td>💉 Sanguijuela</td><td>47.3%</td><td>estable</td></tr>
+                <tr><td>9</td><td>🛏️ Chinche</td><td>46.8%</td><td>estable</td></tr>
+                <tr><td>10</td><td>🌙 Polilla</td><td>46.8%</td><td>⬆️ #11→#10</td></tr>
+                <tr><td>11</td><td>🦟 Zancudo</td><td>46.7%</td><td>⬇️ #5→#11</td></tr>
+                <tr><td>12</td><td>🪳 Cucaracha</td><td>45.7%</td><td>⬇️ #7→#12</td></tr>
+                <tr><td>13</td><td>🪰 Mosca</td><td>45.6%</td><td>⬆️ nigromante</td></tr>
+                <tr><td>14</td><td>⚡ Pulga</td><td>45.1%</td><td>evasión no basta sola</td></tr>
             </table>
+            <blockquote>"12.9% de spread. Cuando todos pueden matar a todos, la supervivencia depende de la estrategia, no de la genética."<br>— Ramazzottius</blockquote>
 
-            <h2>💃 Ranking Social (sin cambios en FER/SEN)</h2>
-            <table>
-                <tr><th>#</th><th>Taxón</th><th>Winrate</th></tr>
-                <tr><td>1</td><td>🦟 Típula</td><td>69.9%</td></tr>
-                <tr><td>2</td><td>🦋 Mariposa</td><td>69.5%</td></tr>
-                <tr><td>3</td><td>🌙 Polilla</td><td>61.7%</td></tr>
-                <tr><td>4</td><td>🛏️ Chinche</td><td>61.7%</td></tr>
-                <tr><td>5</td><td>🗡️ Vinchuca</td><td>61.2%</td></tr>
-                <tr><td>6</td><td>🕸️ Araña</td><td>55.9%</td></tr>
-                <tr><td>7</td><td>🐝 Avispa</td><td>48.7%</td></tr>
-                <tr><td>8</td><td>💉 Sanguijuela</td><td>47.5%</td></tr>
-                <tr><td>9</td><td>🦂 Escorpión</td><td>46.2%</td></tr>
-                <tr><td>10</td><td>🦟 Zancudo</td><td>43.7%</td></tr>
-                <tr><td>11</td><td>🪳 Cucaracha</td><td>41.8%</td></tr>
-                <tr><td>12</td><td>🕷️ Garrapata</td><td>38.1%</td></tr>
-                <tr><td>13</td><td>🪰 Mosca</td><td>32.9%</td></tr>
-                <tr><td>14</td><td>⚡ Pulga</td><td>21.3%</td></tr>
-            </table>
-
-            <h2>⚖️ Balance Cruzado v2.1</h2>
-            <table>
-                <tr><th>Taxón</th><th>PvP</th><th>Social</th><th>Suma</th><th>Veredicto</th></tr>
-                <tr><td>🗡️ Vinchuca</td><td>#5</td><td>#5</td><td>10</td><td>🌟 Versátil perfecta</td></tr>
-                <tr><td>🦟 Típula</td><td>#6</td><td>#1</td><td>7</td><td>🌟 Diplomática que sobrevive</td></tr>
-                <tr><td>🦋 Mariposa</td><td>#7</td><td>#2</td><td>9</td><td>🌟 Social que esquiva</td></tr>
-                <tr><td>🕸️ Araña</td><td>#4</td><td>#6</td><td>10</td><td>🌟 Emboscadora versátil</td></tr>
-                <tr><td>🦂 Escorpión</td><td>#2</td><td>#9</td><td>11</td><td>⚖️ Guerrero puro</td></tr>
-                <tr><td>🐝 Avispa</td><td>#3</td><td>#7</td><td>10</td><td>🌟 Berserker con algo de social</td></tr>
-                <tr><td>🕷️ Garrapata</td><td>#1</td><td>#12</td><td>13</td><td>⚖️ Tanque inmortal, 0 carisma</td></tr>
-                <tr><td>🌙 Polilla</td><td>#10</td><td>#3</td><td>13</td><td>⚖️ Vidente frágil</td></tr>
-                <tr><td>🛏️ Chinche</td><td>#9</td><td>#4</td><td>13</td><td>⚖️ Político</td></tr>
-                <tr><td>💉 Sanguijuela</td><td>#8</td><td>#8</td><td>16</td><td>⚖️ Equilibrio medio</td></tr>
-                <tr><td>🦟 Zancudo</td><td>#11</td><td>#10</td><td>21</td><td>💀 Necesita buff</td></tr>
-                <tr><td>🪳 Cucaracha</td><td>#12</td><td>#11</td><td>23</td><td>💀 Tanque sin nicho</td></tr>
-                <tr><td>⚡ Pulga</td><td>#14</td><td>#14</td><td>28</td><td>💀 Evasión no basta sola</td></tr>
-                <tr><td>🪰 Mosca</td><td>#13</td><td>#13</td><td>26</td><td>💀 Nigromante necesita más</td></tr>
-            </table>
-
-            <div class="info-box lore">
-                <h4>📜 Análisis v2.1</h4>
-                <p><strong>Mejoras:</strong> Spread bajó de 17.6% a 12.9%. Garrapata y Araña subieron dramáticamente. 8 de 14 taxones están entre 45-58% (zona saludable).</p>
-                <p><strong>Pendiente:</strong> Pulga (evasión maestra no compensa en simulación porque la IA no la explota bien), Mosca y Cucaracha siguen bajas. Zancudo cayó — necesita identidad más clara.</p>
-            </div>
-
-            <blockquote>"12.9% de spread. Eso es evolución convergente, queridos. Cuando todos pueden matar a todos, la supervivencia depende de la estrategia, no de la genética. Exactamente como debería ser."<br>— Ramazzottius, satisfecho por primera vez en 530 millones de años</blockquote>
-
-            <hr style="margin: 3em 0; border-color: var(--border);">
-
-            <h1>🧠 Torneo META — Cada taxón juega su estrategia óptima (29 Mayo 2026)</h1>
+            <!-- ===== SECCIÓN 3: TORNEO META (29 Mayo) ===== -->
+            <hr class="section-divider">
+            <h1>🧠 Torneo META — Cada taxón juega su estrategia óptima</h1>
+            <p style="color:var(--text-muted);">29 Mayo 2026 — IA personalizada por taxón, 2000 rondas</p>
             <div class="intro-box">
-                <p>Simulación donde cada taxón tiene <strong>IA personalizada</strong> que explota su nicho: la Pulga spamea evasión, la Araña hace stun lock, la Mosca invoca muertos, etc. <strong>2000 rondas.</strong></p>
-                <p><strong>📏 Spread: 42.5%</strong> — Más amplio que el genérico porque las metas extremas crean matchups polarizados.</p>
+                <p>Simulación donde cada taxón tiene <strong>IA personalizada</strong> que explota su nicho. La Pulga spamea evasión, la Araña hace stun lock, la Mosca invoca muertos, la Típula solo habla.</p>
+                <p><strong>📏 Spread: 42.5%</strong> — Más amplio porque las metas extremas crean matchups polarizados.</p>
             </div>
-
-            <h2>🏆 Ranking META</h2>
             <table>
                 <tr><th>#</th><th>Taxón</th><th>Winrate</th><th>Meta / Estrategia</th></tr>
                 <tr class="rank-1"><td>1</td><td>🗡️ Vinchuca</td><td>71.5%</td><td>Invisible → mordida letal</td></tr>
@@ -212,17 +117,61 @@
             <div class="info-box mechanic">
                 <h4>⚙️ Conclusiones</h4>
                 <ul>
-                    <li><strong>Vinchuca domina</strong> porque la invisibilidad (esquiva 100%) + mordida letal es el combo más eficiente del juego.</li>
-                    <li><strong>Pulga subió de #14 a #3</strong> — cuando explota su evasión maestra (70%), es casi intocable.</li>
-                    <li><strong>Mosca subió de #13 a #4</strong> — la nigromancia funciona: tanque absorbe daño mientras el espíritu mata.</li>
-                    <li><strong>Araña cayó a #14</strong> — su stun lock depende de que conecte (probabilidad), contra evasión alta falla mucho.</li>
-                    <li><strong>Típula se mantiene #7</strong> — la diplomacia pura funciona pero no domina en META.</li>
+                    <li><strong>Vinchuca domina</strong> — invisibilidad + mordida letal es el combo más eficiente.</li>
+                    <li><strong>Pulga #3</strong> — evasión maestra (70%) la hace casi intocable cuando se explota.</li>
+                    <li><strong>Mosca #4</strong> — nigromancia funciona: tanque + espíritu = daño pasivo.</li>
+                    <li><strong>Araña #14</strong> — stun lock depende de probabilidad, contra evasión alta falla.</li>
+                    <li><strong>Típula #7</strong> — diplomacia pura funciona pero no domina en META puro.</li>
                 </ul>
             </div>
-
             <div class="info-box lore">
                 <h4>📜 Interpretación</h4>
-                <p>El torneo META muestra que <strong>la evasión y la invisibilidad son las mecánicas más fuertes</strong> cuando se juegan óptimamente. Los taxones que pueden evitar daño (Vinchuca, Pulga, Polilla) dominan sobre los que dependen de conectar (Araña, Chinche). Esto sugiere que en gameplay real, los jugadores que dominen el timing de evasión serán los más fuertes.</p>
+                <p><strong>La evasión y la invisibilidad son las mecánicas más fuertes</strong> cuando se juegan óptimamente. Los taxones que evitan daño dominan sobre los que dependen de conectar golpes.</p>
             </div>
-
             <blockquote>"La Vinchuca no pelea. Desaparece, muerde, y cuando te das cuenta de que estás sangrando, ya se fue. Eso no es combate. Es arte."<br>— Ramazzottius, sobre la meta actual</blockquote>
+
+            <!-- ===== SECCIÓN 4: BALANCE CRUZADO FINAL ===== -->
+            <hr class="section-divider">
+            <h1>⚖️ Balance Cruzado Final (PvP META vs Social)</h1>
+            <div class="info-box mechanic">
+                <h4>⚙️ Suma = PvP rank + Social rank. Ideal = 15.</h4>
+                <p>🌟 Versátil (≤10) | ⚖️ Equilibrado (11-16) | 💀 Especialista débil (>16)</p>
+            </div>
+            <table>
+                <tr><th>Taxón</th><th>PvP META</th><th>Social</th><th>Suma</th><th>Veredicto</th></tr>
+                <tr><td>🗡️ Vinchuca</td><td>#1</td><td>#5</td><td>6</td><td>🌟 La reina del Charco</td></tr>
+                <tr><td>🦟 Típula</td><td>#7</td><td>#1</td><td>8</td><td>🌟 Diplomática suprema</td></tr>
+                <tr><td>🌙 Polilla</td><td>#5</td><td>#3</td><td>8</td><td>🌟 Vidente versátil</td></tr>
+                <tr><td>🦋 Mariposa</td><td>#10</td><td>#2</td><td>12</td><td>⚖️ Social pura</td></tr>
+                <tr><td>🦂 Escorpión</td><td>#2</td><td>#9</td><td>11</td><td>⚖️ Guerrero puro</td></tr>
+                <tr><td>🐝 Avispa</td><td>#8</td><td>#7</td><td>15</td><td>⚖️ Equilibrio perfecto</td></tr>
+                <tr><td>🛏️ Chinche</td><td>#13</td><td>#4</td><td>17</td><td>💀 Político sin músculo</td></tr>
+                <tr><td>⚡ Pulga</td><td>#3</td><td>#14</td><td>17</td><td>💀 Evasiva antisocial</td></tr>
+                <tr><td>🪰 Mosca</td><td>#4</td><td>#13</td><td>17</td><td>💀 Nigromante solitaria</td></tr>
+                <tr><td>🪳 Cucaracha</td><td>#6</td><td>#11</td><td>17</td><td>💀 Tanque sin carisma</td></tr>
+                <tr><td>💉 Sanguijuela</td><td>#11</td><td>#8</td><td>19</td><td>💀 Vampiro mediocre</td></tr>
+                <tr><td>🕸️ Araña</td><td>#14</td><td>#6</td><td>20</td><td>💀 Emboscadora inconsistente</td></tr>
+                <tr><td>🕷️ Garrapata</td><td>#9</td><td>#12</td><td>21</td><td>💀 Tanque lento</td></tr>
+                <tr><td>🦟 Zancudo</td><td>#12</td><td>#10</td><td>22</td><td>💀 Sin identidad clara</td></tr>
+            </table>
+
+            <!-- ===== SECCIÓN 5: SISTEMA DE ANTENAS ===== -->
+            <hr class="section-divider">
+            <h2>🐜 Sistema de Antenas Sociales</h2>
+            <table>
+                <tr><th>Acción</th><th>Efecto en Antenas</th><th>Quién se beneficia</th></tr>
+                <tr><td>Atacar ×3 sin socializar</td><td>🐜 -1</td><td>Penaliza guerreros puros</td></tr>
+                <tr><td>Atavismo melee (veneno, crítico, drenar)</td><td>🐜 -1</td><td>Penaliza berserkers</td></tr>
+                <tr><td>Atavismo intimidar/miedo</td><td>🐜 -1</td><td>Penaliza terroristas</td></tr>
+                <tr><td>Atavismo social (confuso, stun, revelar)</td><td>🐜 +1</td><td>Beneficia diplomáticos</td></tr>
+                <tr><td>Danza de Antenas (victoria)</td><td>🐜 +1</td><td>Beneficia FER/SEN altos</td></tr>
+                <tr><td>Atavismo utilidad (evasión, heal)</td><td>🐜 0</td><td>Neutral</td></tr>
+                <tr><td>Antenas = 0</td><td>-5 HP/turno + -5% Esencia</td><td>Castiga violencia pura</td></tr>
+                <tr><td>Antenas ≥ 9</td><td>+3 a tiradas de Danza</td><td>Premia socialización</td></tr>
+            </table>
+
+            <blockquote>"Mis hijos no necesitan pinzas. Necesitan antenas. 520 millones de años me costó entender que la fuerza sin conexión es solo ruido."<br>— Youti Yuanshi, El Primer Padre</blockquote>
+        </article>
+    </main>
+</body>
+</html>
