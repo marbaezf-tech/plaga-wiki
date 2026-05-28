@@ -307,6 +307,22 @@
 - [ ] Traición opcional (atacar aliado = -3 antenas, -10% Esencia)
 - [ ] Chat de feromonas (mensajes predefinidos in-game)
 
+### 🤖 Observaciones Gemini (Diagnóstico)
+#### Sugerencias priorizadas
+- [ ] Unificar línea de tiempo: definir si el jugador está en Presente o Año 20.000 (NeoPlaga = expansión/epílogo)
+- [ ] Mecánica activa de Silencio Verde: medidor de infección que suba con Reliquias/recursos impuros (100% = pierdes personaje)
+- [ ] Economía clara: definir recurso base (Biomasa/Hemolinfa) para subir stats Y sobornar en social
+- [ ] Sinergias de Facciones en combate: buff táctico si peleas junto a NPC de tu facción
+- [ ] Defectos Genéticos activos: se activan procedimentalmente en Danza (ej: Mosca pierde postura si hay basura)
+- [ ] Peligros de Entorno (O₂ vs Calor): zonas del mapa con efectos ambientales por taxón
+- [ ] Vocaciones con peso mecánico: NPCs dan quests solo si respetas su vocación
+- [ ] Bestiario PvE con social: intimidación funcione contra monstruos no pensantes
+- [ ] Polillas = monopolio de Profecías del 35%, Vinchucas = control de rumores/información
+- [ ] DLC "El Ascenso de los Blandos": humanos descubren la sociedad, fumigación masiva, cooperación entre facciones
+#### Bugs narrativos
+- [ ] Fix Sanguijuelas: son Anélidos, no Artrópodos — tratarlas como "Blandos Bastardos" o intrusos evolutivos tolerados
+- [ ] Fix Cordyceps geográfico: el hongo real es tropical, no antártico — justificar como "cepa criogénica mutada" en lore
+
 ---
 
 ## 🟡 Bloqueantes
