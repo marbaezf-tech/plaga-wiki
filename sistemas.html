@@ -1,791 +1,801 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas de Juego â€” Plaga: La Descarada</title>
+    <title>Sistemas de Juego — Plaga: La Descarada</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
         <nav id="sidebar">
-        <div class="logo"><h1>ğŸ¦Ÿ PLAGA</h1><span class="subtitle">La Descarada â€” Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">â˜°</button></div>
+        <div class="logo"><h1>?? PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">?</button></div>
         <ul class="nav-links">
-            <li><a href="index.html">ğŸ  Inicio</a></li>
-            <li><a href="dashboard.html">ğŸ“Š Dashboard</a></li>
+            <li><a href="index.html">?? Inicio</a></li>
+            <li><a href="dashboard.html">?? Dashboard</a></li>
             <li class="section-title">Lore</li>
-            <li><a href="gran-eter.html">âš— El Gran Ã‰ter</a></li>
-            <li><a href="progenitores.html">ğŸ‘‘ Progenitores Divinos</a></li>
-            <li><a href="semidioses.html">âš” Los 14 Semidioses</a></li>
-            <li><a href="caida.html">ğŸ’€ La CaÃ­da del Ã‰ter</a></li>
-            <li><a href="profecias.html">ğŸ”® El Retorno del 35%</a></li>
-            <li><a href="silencio-verde.html">ğŸ„ El Silencio Verde</a></li>
+            <li><a href="gran-eter.html">? El Gran Éter</a></li>
+            <li><a href="progenitores.html">?? Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">? Los 14 Semidioses</a></li>
+            <li><a href="caida.html">?? La Caída del Éter</a></li>
+            <li><a href="profecias.html">?? El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">?? El Silencio Verde</a></li>
             <li class="section-title">Taxones</li>
-            <li><a href="taxones.html">ğŸ§¬ Los 14 Taxones</a></li>
-            <li><a href="taxon-zancudos.html">ğŸ¦Ÿ Zancudos</a></li>
-            <li><a href="taxon-cucarachas.html">ğŸª³ Cucarachas</a></li>
-            <li><a href="taxon-avispas.html">ğŸ Avispas</a></li>
-            <li><a href="taxon-garrapatas.html">ğŸ•·ï¸ Garrapatas</a></li>
-            <li><a href="taxon-chinches.html">ğŸ›ï¸ Chinches</a></li>
-            <li><a href="taxon-mariposas.html">ğŸ¦‹ Mariposas</a></li>
-            <li><a href="taxon-aranas.html">ğŸ•¸ï¸ AraÃ±as</a></li>
-            <li><a href="taxon-escorpiones.html">ğŸ¦‚ Escorpiones</a></li>
-            <li><a href="taxon-vinchucas.html">ğŸ—¡ï¸ Vinchucas</a></li>
-            <li><a href="taxon-moscas.html">ğŸ’€ Moscas</a></li>
-            <li><a href="taxon-sanguijuelas.html">ğŸ§ª Sanguijuelas</a></li>
-            <li><a href="taxon-polillas.html">ğŸŒ™ Polillas</a></li>
-            <li><a href="taxon-pulgas.html">ğŸª Pulgas</a></li>
-            <li><a href="taxon-tipulas.html">ğŸ¦Ÿ TÃ­pulas</a></li>
+            <li><a href="taxones.html">?? Los 14 Taxones</a></li>
+            <li><a href="taxon-zancudos.html">?? Zancudos</a></li>
+            <li><a href="taxon-cucarachas.html">?? Cucarachas</a></li>
+            <li><a href="taxon-avispas.html">?? Avispas</a></li>
+            <li><a href="taxon-garrapatas.html">??? Garrapatas</a></li>
+            <li><a href="taxon-chinches.html">??? Chinches</a></li>
+            <li><a href="taxon-mariposas.html">?? Mariposas</a></li>
+            <li><a href="taxon-aranas.html">??? Arañas</a></li>
+            <li><a href="taxon-escorpiones.html">?? Escorpiones</a></li>
+            <li><a href="taxon-vinchucas.html">??? Vinchucas</a></li>
+            <li><a href="taxon-moscas.html">?? Moscas</a></li>
+            <li><a href="taxon-sanguijuelas.html">?? Sanguijuelas</a></li>
+            <li><a href="taxon-polillas.html">?? Polillas</a></li>
+            <li><a href="taxon-pulgas.html">?? Pulgas</a></li>
+            <li><a href="taxon-tipulas.html">?? Típulas</a></li>
             <li class="section-title">Mundo</li>
-            <li><a href="facciones.html">âš”ï¸ Facciones</a></li>
-            <li><a href="sembradores.html">ğŸ„ Sembradores</a></li>
-            <li><a href="santiago.html">ğŸ™ï¸ El Gran Charco</a></li>
-            <li><a href="fauna.html">ğŸœ Fauna</a></li>
-            <li><a href="npcs.html">ğŸ‘¤ NPCs</a></li>
-            <li><a href="items.html">âš”ï¸ Armas y Objetos</a></li>
-            <li><a href="reliquias.html">ğŸ’ Reliquias</a></li>
+            <li><a href="facciones.html">?? Facciones</a></li>
+            <li><a href="sembradores.html">?? Sembradores</a></li>
+            <li><a href="santiago.html">??? El Gran Charco</a></li>
+            <li><a href="fauna.html">?? Fauna</a></li>
+            <li><a href="npcs.html">?? NPCs</a></li>
+            <li><a href="items.html">?? Armas y Objetos</a></li>
+            <li><a href="reliquias.html">?? Reliquias</a></li>
             <li class="section-title">Referencia</li>
-            <li><a href="sistemas.html">âš™ï¸ Sistemas de Juego</a></li>
-            <li><a href="glosario.html">ğŸ“– Glosario</a></li>
-            <li><a href="equivalencias.html">ğŸ”„ Referencias</a></li>
+            <li><a href="sistemas.html">?? Sistemas de Juego</a></li>
+            <li><a href="glosario.html">?? Glosario</a></li>
+            <li><a href="equivalencias.html">?? Referencias</a></li>
+                    <li class="section-title">Desarrollo</li>
+            <li><a href="trazabilidad.html">?? Trazabilidad</a></li>
+            <li><a href="qa.html">?? QA</a></li>
+            <li><a href="arquitectura.html">?? UML</a></li>
+            <li><a href="diagnostico_gemini.html">?? Diagnóstico</a></li>
+            <li><a href="multiplayer.html">?? Multiplayer</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">???? PvP v2 + META</a></li>
+            <li><a href="torneo_social.html">?? Social</a></li>
+            <li><a href="torneo_pvp.html">?? PvP v1</a></li>
         </ul>
     </nav>
     <main id="content">
         <article>
-            <h1>âš™ï¸ Sistemas de Juego</h1>
+            <h1>?? Sistemas de Juego</h1>
             <div class="intro-box">
-                <p>Todas las mecÃ¡nicas, fÃ³rmulas y tablas que hacen funcionar <strong>Plaga: La Descarada</strong>. Desde cÃ³mo se calcula quiÃ©n golpea primero hasta la probabilidad exacta de que te caiga un item legendario. AquÃ­ no hay misterio â€” solo matemÃ¡ticas frÃ­as y despiadadas.</p>
+                <p>Todas las mecánicas, fórmulas y tablas que hacen funcionar <strong>Plaga: La Descarada</strong>. Desde cómo se calcula quién golpea primero hasta la probabilidad exacta de que te caiga un item legendario. Aquí no hay misterio — solo matemáticas frías y despiadadas.</p>
             </div>
 
-            <!-- SECCIÃ“N 1: SISTEMA DE COMBATE -->
-            <h2>âš”ï¸ Sistema de Combate</h2>
+            <!-- SECCIÓN 1: SISTEMA DE COMBATE -->
+            <h2>?? Sistema de Combate</h2>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ Combate por Turnos</h4>
-                <p>El combate en Plaga es <strong>por turnos</strong>. Cada ronda, todos los participantes actÃºan una vez en orden de Velocidad. No hay piedad, no hay pausa, y si eres lento... bueno, probablemente ya estÃ¡s muerto.</p>
+                <h4>?? Combate por Turnos</h4>
+                <p>El combate en Plaga es <strong>por turnos</strong>. Cada ronda, todos los participantes actúan una vez en orden de Velocidad. No hay piedad, no hay pausa, y si eres lento... bueno, probablemente ya estás muerto.</p>
             </div>
 
             <div class="stat-block">
-                <h3>FÃ³rmula de Velocidad</h3>
-                <div class="stat-row"><span class="stat-label">CÃ¡lculo</span><span class="stat-value">Velocidad = (Ganglios + Sensilios) / 2</span></div>
-                <div class="stat-row"><span class="stat-label">Desempate</span><span class="stat-value">Jugador actÃºa primero que NPC</span></div>
-                <div class="stat-row"><span class="stat-label">ExcepciÃ³n: Moscas</span><span class="stat-value">Siempre actÃºan Ãºltimas (son lentas y patÃ©ticas)</span></div>
-                <div class="stat-row"><span class="stat-label">ExcepciÃ³n: Pulgas</span><span class="stat-value">+20% bonus a Velocidad (son imposibles de atrapar)</span></div>
+                <h3>Fórmula de Velocidad</h3>
+                <div class="stat-row"><span class="stat-label">Cálculo</span><span class="stat-value">Velocidad = (Ganglios + Sensilios) / 2</span></div>
+                <div class="stat-row"><span class="stat-label">Desempate</span><span class="stat-value">Jugador actúa primero que NPC</span></div>
+                <div class="stat-row"><span class="stat-label">Excepción: Moscas</span><span class="stat-value">Siempre actúan últimas (son lentas y patéticas)</span></div>
+                <div class="stat-row"><span class="stat-label">Excepción: Pulgas</span><span class="stat-value">+20% bonus a Velocidad (son imposibles de atrapar)</span></div>
             </div>
 
             <h3>Acciones Disponibles por Turno</h3>
             <table>
-                <tr><th>AcciÃ³n</th><th>DescripciÃ³n</th><th>Notas</th></tr>
+                <tr><th>Acción</th><th>Descripción</th><th>Notas</th></tr>
                 <tr><td><strong>Atacar</strong></td><td>Ataque cuerpo a cuerpo con arma equipada</td><td>Usa Fuerza + Arma</td></tr>
                 <tr><td><strong>Proyectil</strong></td><td>Ataque a distancia con arma de proyectil</td><td>Requiere arma a distancia equipada</td></tr>
-                <tr><td><strong>Habilidad de TaxÃ³n</strong></td><td>Usa la habilidad especial de tu especie</td><td>Cuesta Hemolinfa</td></tr>
-                <tr><td><strong>Usar Ãtem</strong></td><td>Consume un objeto del inventario</td><td>Consume el turno completo</td></tr>
+                <tr><td><strong>Habilidad de Taxón</strong></td><td>Usa la habilidad especial de tu especie</td><td>Cuesta Hemolinfa</td></tr>
+                <tr><td><strong>Usar Ítem</strong></td><td>Consume un objeto del inventario</td><td>Consume el turno completo</td></tr>
                 <tr><td><strong>Huir</strong></td><td>Intenta escapar del combate</td><td>Probabilidad basada en Velocidad</td></tr>
             </table>
 
             <div class="stat-block">
-                <h3>FÃ³rmula de Escape</h3>
-                <div class="stat-row"><span class="stat-label">CÃ¡lculo</span><span class="stat-value">(Velocidad jugador / Velocidad enemigo mÃ¡s rÃ¡pido) Ã— 50%</span></div>
-                <div class="stat-row"><span class="stat-label">MÃ­nimo</span><span class="stat-value">20% (siempre hay una chance)</span></div>
-                <div class="stat-row"><span class="stat-label">MÃ¡ximo</span><span class="stat-value">95% (nunca es seguro al 100%)</span></div>
+                <h3>Fórmula de Escape</h3>
+                <div class="stat-row"><span class="stat-label">Cálculo</span><span class="stat-value">(Velocidad jugador / Velocidad enemigo más rápido) × 50%</span></div>
+                <div class="stat-row"><span class="stat-label">Mínimo</span><span class="stat-value">20% (siempre hay una chance)</span></div>
+                <div class="stat-row"><span class="stat-label">Máximo</span><span class="stat-value">95% (nunca es seguro al 100%)</span></div>
             </div>
 
             <div class="stat-block">
-                <h3>FÃ³rmula de DaÃ±o</h3>
-                <div class="stat-row"><span class="stat-label">CÃ¡lculo</span><span class="stat-value">Fuerza + Arma - Defensa</span></div>
-                <div class="stat-row"><span class="stat-label">VariaciÃ³n</span><span class="stat-value">Â±15% aleatorio por golpe</span></div>
-                <div class="stat-row"><span class="stat-label">DaÃ±o MÃ­nimo</span><span class="stat-value">1 (siempre haces algo, aunque sea cosquillas)</span></div>
+                <h3>Fórmula de Daño</h3>
+                <div class="stat-row"><span class="stat-label">Cálculo</span><span class="stat-value">Fuerza + Arma - Defensa</span></div>
+                <div class="stat-row"><span class="stat-label">Variación</span><span class="stat-value">±15% aleatorio por golpe</span></div>
+                <div class="stat-row"><span class="stat-label">Daño Mínimo</span><span class="stat-value">1 (siempre haces algo, aunque sea cosquillas)</span></div>
             </div>
 
             <div class="info-box warning">
-                <h4>âš ï¸ Regla de Oro del Combate</h4>
-                <p>Si tu Velocidad es 0 o menor (por debuffs, parÃ¡lisis, etc.), <strong>pierdes tu turno automÃ¡ticamente</strong>. No hay excusas. No hay apelaciÃ³n. Eres una estatua con patas.</p>
+                <h4>?? Regla de Oro del Combate</h4>
+                <p>Si tu Velocidad es 0 o menor (por debuffs, parálisis, etc.), <strong>pierdes tu turno automáticamente</strong>. No hay excusas. No hay apelación. Eres una estatua con patas.</p>
             </div>
 
-            <!-- SECCIÃ“N 2: HABILIDADES DE TAXÃ“N -->
-            <h2>ğŸ§¬ Habilidades de TaxÃ³n</h2>
+            <!-- SECCIÓN 2: HABILIDADES DE TAXÓN -->
+            <h2>?? Habilidades de Taxón</h2>
             <div class="info-box lore">
-                <h4>ğŸ“œ Herencia GenÃ©tica</h4>
-                <p>Cada TaxÃ³n posee una habilidad Ãºnica heredada de su SemidiÃ³s ancestral. Estas habilidades cuestan <strong>Hemolinfa</strong> â€” el recurso vital que circula por tus venas de insecto. Ãšsalas con sabidurÃ­a... o no. TÃº verÃ¡s.</p>
+                <h4>?? Herencia Genética</h4>
+                <p>Cada Taxón posee una habilidad única heredada de su Semidiós ancestral. Estas habilidades cuestan <strong>Hemolinfa</strong> — el recurso vital que circula por tus venas de insecto. Úsalas con sabiduría... o no. Tú verás.</p>
             </div>
 
             <table>
-                <tr><th>TaxÃ³n</th><th>Habilidad</th><th>Costo</th><th>Efecto</th></tr>
-                <tr><td>ğŸ¦Ÿ Zancudo</td><td>Micro-InyecciÃ³n de ParÃ¡lisis</td><td>3 Hemolinfa</td><td>-50% Agilidad enemigo, 2 turnos, anula esquiva</td></tr>
-                <tr><td>ğŸª³ Cucaracha</td><td>CaparazÃ³n de Emergencia</td><td>2 Hemolinfa</td><td>Inmune a daÃ±o por 1 turno, no puede atacar</td></tr>
-                <tr><td>ğŸ Avispa</td><td>Picada FrenÃ©tica</td><td>4 Hemolinfa</td><td>3 ataques rÃ¡pidos al 60% de daÃ±o cada uno</td></tr>
-                <tr><td>ğŸ•·ï¸ Garrapata</td><td>Anclaje Vital</td><td>3 Hemolinfa</td><td>Se engancha al enemigo: drena 10% HP/turno por 3 turnos</td></tr>
-                <tr><td>ğŸ›ï¸ Chinche</td><td>Decreto Real</td><td>2 Hemolinfa</td><td>Fuerza al enemigo a atacar Ãºltimo el prÃ³ximo turno</td></tr>
-                <tr><td>ğŸ¦‹ Mariposa</td><td>Polvo Cegador</td><td>2 Hemolinfa</td><td>-80% PrecisiÃ³n enemigo por 2 turnos</td></tr>
-                <tr><td>ğŸ•¸ï¸ AraÃ±a</td><td>Red de ContenciÃ³n</td><td>4 Hemolinfa</td><td>Inmoviliza enemigo 2 turnos (no puede moverse ni huir)</td></tr>
-                <tr><td>ğŸ¦‚ EscorpiÃ³n</td><td>Golpe de Pinza</td><td>5 Hemolinfa</td><td>DaÃ±o x2.5, ignora armadura</td></tr>
-                <tr><td>ğŸ—¡ï¸ Vinchuca</td><td>Mordida Silenciosa</td><td>3 Hemolinfa</td><td>Si ataque sorpresa: daÃ±o x3 + robar 1 item</td></tr>
-                <tr><td>ğŸ’€ Mosca</td><td>Invocar Larva</td><td>4 Hemolinfa</td><td>Invoca 1 aliado temporal (larva) que ataca por 3 turnos</td></tr>
-                <tr><td>ğŸ§ª Sanguijuela</td><td>Ã‰xtasis TÃ³xico</td><td>3 Hemolinfa</td><td>Enemigo pierde su turno (sedado), +20% Hemolinfa al usuario</td></tr>
-                <tr><td>ğŸŒ™ Polilla</td><td>VisiÃ³n del Foco</td><td>2 Hemolinfa</td><td>Revela stats ocultos del enemigo + debilidades</td></tr>
-                <tr><td>ğŸª Pulga</td><td>Salto Dimensional</td><td>1 Hemolinfa</td><td>Esquiva automÃ¡tica del prÃ³ximo ataque + reposicionar</td></tr>
-                <tr><td>ğŸ¦Ÿ TÃ­pula</td><td>AutotomÃ­a TÃ¡ctica</td><td>2 Hemolinfa + 5 Quitina</td><td>Desprende 1 pata como seÃ±uelo. Esquiva 100% del prÃ³ximo ataque. -10% PrecisiÃ³n enemigo (asco).</td></tr>
+                <tr><th>Taxón</th><th>Habilidad</th><th>Costo</th><th>Efecto</th></tr>
+                <tr><td>?? Zancudo</td><td>Micro-Inyección de Parálisis</td><td>3 Hemolinfa</td><td>-50% Agilidad enemigo, 2 turnos, anula esquiva</td></tr>
+                <tr><td>?? Cucaracha</td><td>Caparazón de Emergencia</td><td>2 Hemolinfa</td><td>Inmune a daño por 1 turno, no puede atacar</td></tr>
+                <tr><td>?? Avispa</td><td>Picada Frenética</td><td>4 Hemolinfa</td><td>3 ataques rápidos al 60% de daño cada uno</td></tr>
+                <tr><td>??? Garrapata</td><td>Anclaje Vital</td><td>3 Hemolinfa</td><td>Se engancha al enemigo: drena 10% HP/turno por 3 turnos</td></tr>
+                <tr><td>??? Chinche</td><td>Decreto Real</td><td>2 Hemolinfa</td><td>Fuerza al enemigo a atacar último el próximo turno</td></tr>
+                <tr><td>?? Mariposa</td><td>Polvo Cegador</td><td>2 Hemolinfa</td><td>-80% Precisión enemigo por 2 turnos</td></tr>
+                <tr><td>??? Araña</td><td>Red de Contención</td><td>4 Hemolinfa</td><td>Inmoviliza enemigo 2 turnos (no puede moverse ni huir)</td></tr>
+                <tr><td>?? Escorpión</td><td>Golpe de Pinza</td><td>5 Hemolinfa</td><td>Daño x2.5, ignora armadura</td></tr>
+                <tr><td>??? Vinchuca</td><td>Mordida Silenciosa</td><td>3 Hemolinfa</td><td>Si ataque sorpresa: daño x3 + robar 1 item</td></tr>
+                <tr><td>?? Mosca</td><td>Invocar Larva</td><td>4 Hemolinfa</td><td>Invoca 1 aliado temporal (larva) que ataca por 3 turnos</td></tr>
+                <tr><td>?? Sanguijuela</td><td>Éxtasis Tóxico</td><td>3 Hemolinfa</td><td>Enemigo pierde su turno (sedado), +20% Hemolinfa al usuario</td></tr>
+                <tr><td>?? Polilla</td><td>Visión del Foco</td><td>2 Hemolinfa</td><td>Revela stats ocultos del enemigo + debilidades</td></tr>
+                <tr><td>?? Pulga</td><td>Salto Dimensional</td><td>1 Hemolinfa</td><td>Esquiva automática del próximo ataque + reposicionar</td></tr>
+                <tr><td>?? Típula</td><td>Autotomía Táctica</td><td>2 Hemolinfa + 5 Quitina</td><td>Desprende 1 pata como señuelo. Esquiva 100% del próximo ataque. -10% Precisión enemigo (asco).</td></tr>
             </table>
 
-            <!-- SECCIÃ“N 2B: ATAVISMOS POR TAXÃ“N -->
-            <h2>ğŸ§¬ Atavismos por TaxÃ³n</h2>
+            <!-- SECCIÓN 2B: ATAVISMOS POR TAXÓN -->
+            <h2>?? Atavismos por Taxón</h2>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ 3 Atavismos por Linaje</h4>
-                <p>Cada TaxÃ³n tiene acceso a <strong>3 Atavismos</strong> (Adaptaciones). Estas definen su estilo de combate, sus habilidades fuera de combate y su rol en la sociedad del Gran Charco. Las Adaptaciones se desbloquean por niveles (1 a 3), siendo el nivel 3 el <strong>Poder Signature</strong> â€” la habilidad definitiva del linaje.</p>
+                <h4>?? 3 Atavismos por Linaje</h4>
+                <p>Cada Taxón tiene acceso a <strong>3 Atavismos</strong> (Adaptaciones). Estas definen su estilo de combate, sus habilidades fuera de combate y su rol en la sociedad del Gran Charco. Las Adaptaciones se desbloquean por niveles (1 a 3), siendo el nivel 3 el <strong>Poder Signature</strong> — la habilidad definitiva del linaje.</p>
             </div>
 
             <table>
-                <tr><th>TaxÃ³n</th><th>AdaptaciÃ³n 1</th><th>AdaptaciÃ³n 2</th><th>AdaptaciÃ³n 3</th></tr>
-                <tr><td>ğŸ¦Ÿ Zancudos</td><td>Vicisitud</td><td>Antenas Ancestrales</td><td>Llamada del Enjambre</td></tr>
-                <tr><td>ğŸª³ Cucarachas</td><td>Camuflaje Adaptativo</td><td>Exoesqueleto Ancestral</td><td>Llamada del Enjambre</td></tr>
-                <tr><td>ğŸ Avispas</td><td>Aleteo FrenÃ©tico</td><td>MandÃ­bula de Acero</td><td>Feromona Dominante</td></tr>
-                <tr><td>ğŸ•·ï¸ Garrapatas</td><td>Exoesqueleto Ancestral</td><td>Metamorfosis</td><td>Llamada del Enjambre</td></tr>
-                <tr><td>ğŸ›ï¸ Chinches</td><td>Feromona Dominante</td><td>ParÃ¡sito Neural</td><td>Exoesqueleto Ancestral</td></tr>
-                <tr><td>ğŸ¦‹ Mariposas</td><td>Aleteo FrenÃ©tico</td><td>Feromona Dominante</td><td>Antenas Ancestrales</td></tr>
-                <tr><td>ğŸ•¸ï¸ AraÃ±as</td><td>TejedurÃ­a de Ã‰ter</td><td>Antenas Ancestrales</td><td>ParÃ¡sito Neural</td></tr>
-                <tr><td>ğŸ¦‚ Escorpiones</td><td>Sombra de Pinza</td><td>MandÃ­bula de Acero</td><td>ParÃ¡sito Neural</td></tr>
-                <tr><td>ğŸ—¡ï¸ Vinchucas</td><td>Veneno Silencioso</td><td>Aleteo FrenÃ©tico</td><td>Camuflaje Adaptativo</td></tr>
-                <tr><td>ğŸ’€ Moscas</td><td>Necro-Larva</td><td>Exoesqueleto Ancestral</td><td>Antenas Ancestrales</td></tr>
-                <tr><td>ğŸ§ª Sanguijuelas</td><td>Camuflaje Adaptativo</td><td>Feromona Dominante</td><td>Metamorfosis</td></tr>
-                <tr><td>ğŸŒ™ Polillas</td><td>Antenas Ancestrales</td><td>Camuflaje Adaptativo</td><td>ParÃ¡sito Neural</td></tr>
-                <tr><td>ğŸª Pulgas</td><td>Espejismo de Alas</td><td>Exoesqueleto Ancestral</td><td>Aleteo FrenÃ©tico</td></tr>
-                <tr><td>ğŸ¦Ÿ TÃ­pulas</td><td>Ocelo Ancestral</td><td>Exoesqueleto Ancestral</td><td>Antenas Ancestrales</td></tr>
+                <tr><th>Taxón</th><th>Adaptación 1</th><th>Adaptación 2</th><th>Adaptación 3</th></tr>
+                <tr><td>?? Zancudos</td><td>Vicisitud</td><td>Antenas Ancestrales</td><td>Llamada del Enjambre</td></tr>
+                <tr><td>?? Cucarachas</td><td>Camuflaje Adaptativo</td><td>Exoesqueleto Ancestral</td><td>Llamada del Enjambre</td></tr>
+                <tr><td>?? Avispas</td><td>Aleteo Frenético</td><td>Mandíbula de Acero</td><td>Feromona Dominante</td></tr>
+                <tr><td>??? Garrapatas</td><td>Exoesqueleto Ancestral</td><td>Metamorfosis</td><td>Llamada del Enjambre</td></tr>
+                <tr><td>??? Chinches</td><td>Feromona Dominante</td><td>Parásito Neural</td><td>Exoesqueleto Ancestral</td></tr>
+                <tr><td>?? Mariposas</td><td>Aleteo Frenético</td><td>Feromona Dominante</td><td>Antenas Ancestrales</td></tr>
+                <tr><td>??? Arañas</td><td>Tejeduría de Éter</td><td>Antenas Ancestrales</td><td>Parásito Neural</td></tr>
+                <tr><td>?? Escorpiones</td><td>Sombra de Pinza</td><td>Mandíbula de Acero</td><td>Parásito Neural</td></tr>
+                <tr><td>??? Vinchucas</td><td>Veneno Silencioso</td><td>Aleteo Frenético</td><td>Camuflaje Adaptativo</td></tr>
+                <tr><td>?? Moscas</td><td>Necro-Larva</td><td>Exoesqueleto Ancestral</td><td>Antenas Ancestrales</td></tr>
+                <tr><td>?? Sanguijuelas</td><td>Camuflaje Adaptativo</td><td>Feromona Dominante</td><td>Metamorfosis</td></tr>
+                <tr><td>?? Polillas</td><td>Antenas Ancestrales</td><td>Camuflaje Adaptativo</td><td>Parásito Neural</td></tr>
+                <tr><td>?? Pulgas</td><td>Espejismo de Alas</td><td>Exoesqueleto Ancestral</td><td>Aleteo Frenético</td></tr>
+                <tr><td>?? Típulas</td><td>Ocelo Ancestral</td><td>Exoesqueleto Ancestral</td><td>Antenas Ancestrales</td></tr>
             </table>
 
-            <h3>âš”ï¸ Poderes Signature (Nivel 3)</h3>
+            <h3>?? Poderes Signature (Nivel 3)</h3>
             <div class="info-box lore">
-                <h4>ğŸ“œ La Cumbre del Linaje</h4>
-                <p>El Poder Signature es la habilidad mÃ¡xima de cada TaxÃ³n. Requiere nivel 3 en la AdaptaciÃ³n principal y un costo elevado de Hemolinfa. Usarlo define combates... y a veces, guerras enteras.</p>
+                <h4>?? La Cumbre del Linaje</h4>
+                <p>El Poder Signature es la habilidad máxima de cada Taxón. Requiere nivel 3 en la Adaptación principal y un costo elevado de Hemolinfa. Usarlo define combates... y a veces, guerras enteras.</p>
             </div>
 
             <table>
-                <tr><th>TaxÃ³n</th><th>Poder Signature</th><th>Costo</th><th>Efecto</th></tr>
-                <tr><td>ğŸ¦Ÿ Zancudos</td><td>CirugÃ­a EstÃ©tica de Cuneta</td><td>2 Hemolinfa</td><td>MutaciÃ³n grotesca al objetivo: -2 Apariencia, -1 a tiradas FÃ­sicas permanente hasta curaciÃ³n</td></tr>
-                <tr><td>ğŸª³ Cucarachas</td><td>Patrimonio de la Humanidad (Muerta)</td><td>1 Hemolinfa</td><td>Inmunidad total a un tipo de daÃ±o letal (fuego/veneno/aplastamiento) por 1 escena</td></tr>
-                <tr><td>ğŸ Avispas</td><td>Kamikaze de Chaqueta Amarilla</td><td>2 Hemolinfa</td><td>DaÃ±o de Aleteo + MandÃ­bula combinados en un ataque imparable. Si mata, causa Enjambre de miedo en aliados del objetivo</td></tr>
-                <tr><td>ğŸ•·ï¸ Garrapatas</td><td>BÃºnker de Sangre</td><td>3 Hemolinfa</td><td>Anclaje total: +4 AbsorciÃ³n, inamovible. Drena 10% HP/turno al anclado</td></tr>
-                <tr><td>ğŸ›ï¸ Chinches</td><td>El Rey Bajo la SÃ¡bana</td><td>2 Hemolinfa</td><td>Orden telepÃ¡tica: un insecto de menor Estatus te protege con su vida (tira Esencia para resistir)</td></tr>
-                <tr><td>ğŸ¦‹ Mariposas</td><td>Mirada Morpho</td><td>1 Hemolinfa</td><td>Todos en 5m tiran Voluntad o quedan fascinados (aturdidos) 1 turno completo</td></tr>
-                <tr><td>ğŸ•¸ï¸ AraÃ±as</td><td>Necrosis Clandestina</td><td>2 Hemolinfa</td><td>Veneno silencioso: corrompe 1 Atributo FÃ­sico permanentemente (sin curaciÃ³n de Ã‰ter)</td></tr>
-                <tr><td>ğŸ¦‚ Escorpiones</td><td>Ultravioleta y Abismo</td><td>2 Hemolinfa</td><td>Oscuridad sÃ³lida + pinzas de sombra a 5m de distancia. Ceguera en Ã¡rea</td></tr>
-                <tr><td>ğŸ—¡ï¸ Vinchucas</td><td>Regalo de Chagas</td><td>1 Hemolinfa</td><td>DaÃ±o agravado silencioso + reduce Esencia del objetivo en 10%</td></tr>
-                <tr><td>ğŸ’€ Moscas</td><td>GÃ³lem de Basural</td><td>3 Hemolinfa</td><td>Anima un exoesqueleto muerto como aliado temporal (1 escena, stats fÃ­sicos iguales a los tuyos)</td></tr>
-                <tr><td>ğŸ§ª Sanguijuelas</td><td>Anestesia ExtÃ¡tica</td><td>2 Hemolinfa</td><td>Mordida causa euforia: objetivo pierde 1 turno + queda "Adicto" a ti</td></tr>
-                <tr><td>ğŸŒ™ Polillas</td><td>SÃ­ndrome del Foco Fundido</td><td>2 Hemolinfa</td><td>AlucinaciÃ³n masiva: objetivo ataca la fuente de luz mÃ¡s cercana ignorando todo lo demÃ¡s</td></tr>
-                <tr><td>ğŸª Pulgas</td><td>Truco de la Moneda Rusa</td><td>1 Hemolinfa</td><td>Eco ilusorio: 50% fallo automÃ¡tico en ataques enemigos por 3 turnos</td></tr>
-                <tr><td>ğŸ¦Ÿ TÃ­pulas</td><td>ExtracciÃ³n del Terror</td><td>2 Hemolinfa</td><td>Sana daÃ±o agravado a aliado absorbiendo su miedo. +10% Esencia propia, -1 tiradas prÃ³ximo turno</td></tr>
+                <tr><th>Taxón</th><th>Poder Signature</th><th>Costo</th><th>Efecto</th></tr>
+                <tr><td>?? Zancudos</td><td>Cirugía Estética de Cuneta</td><td>2 Hemolinfa</td><td>Mutación grotesca al objetivo: -2 Apariencia, -1 a tiradas Físicas permanente hasta curación</td></tr>
+                <tr><td>?? Cucarachas</td><td>Patrimonio de la Humanidad (Muerta)</td><td>1 Hemolinfa</td><td>Inmunidad total a un tipo de daño letal (fuego/veneno/aplastamiento) por 1 escena</td></tr>
+                <tr><td>?? Avispas</td><td>Kamikaze de Chaqueta Amarilla</td><td>2 Hemolinfa</td><td>Daño de Aleteo + Mandíbula combinados en un ataque imparable. Si mata, causa Enjambre de miedo en aliados del objetivo</td></tr>
+                <tr><td>??? Garrapatas</td><td>Búnker de Sangre</td><td>3 Hemolinfa</td><td>Anclaje total: +4 Absorción, inamovible. Drena 10% HP/turno al anclado</td></tr>
+                <tr><td>??? Chinches</td><td>El Rey Bajo la Sábana</td><td>2 Hemolinfa</td><td>Orden telepática: un insecto de menor Estatus te protege con su vida (tira Esencia para resistir)</td></tr>
+                <tr><td>?? Mariposas</td><td>Mirada Morpho</td><td>1 Hemolinfa</td><td>Todos en 5m tiran Voluntad o quedan fascinados (aturdidos) 1 turno completo</td></tr>
+                <tr><td>??? Arañas</td><td>Necrosis Clandestina</td><td>2 Hemolinfa</td><td>Veneno silencioso: corrompe 1 Atributo Físico permanentemente (sin curación de Éter)</td></tr>
+                <tr><td>?? Escorpiones</td><td>Ultravioleta y Abismo</td><td>2 Hemolinfa</td><td>Oscuridad sólida + pinzas de sombra a 5m de distancia. Ceguera en área</td></tr>
+                <tr><td>??? Vinchucas</td><td>Regalo de Chagas</td><td>1 Hemolinfa</td><td>Daño agravado silencioso + reduce Esencia del objetivo en 10%</td></tr>
+                <tr><td>?? Moscas</td><td>Gólem de Basural</td><td>3 Hemolinfa</td><td>Anima un exoesqueleto muerto como aliado temporal (1 escena, stats físicos iguales a los tuyos)</td></tr>
+                <tr><td>?? Sanguijuelas</td><td>Anestesia Extática</td><td>2 Hemolinfa</td><td>Mordida causa euforia: objetivo pierde 1 turno + queda "Adicto" a ti</td></tr>
+                <tr><td>?? Polillas</td><td>Síndrome del Foco Fundido</td><td>2 Hemolinfa</td><td>Alucinación masiva: objetivo ataca la fuente de luz más cercana ignorando todo lo demás</td></tr>
+                <tr><td>?? Pulgas</td><td>Truco de la Moneda Rusa</td><td>1 Hemolinfa</td><td>Eco ilusorio: 50% fallo automático en ataques enemigos por 3 turnos</td></tr>
+                <tr><td>?? Típulas</td><td>Extracción del Terror</td><td>2 Hemolinfa</td><td>Sana daño agravado a aliado absorbiendo su miedo. +10% Esencia propia, -1 tiradas próximo turno</td></tr>
             </table>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Nota de Ramazzottius sobre las Adaptaciones</h4>
-                <p><em>"Cada linaje cree que sus poderes son Ãºnicos. Adorable. Llevan 300 millones de aÃ±os reinventando las mismas tres estrategias: esconderse, golpear o manipular. La Ãºnica diferencia es el envoltorio. Pero no se los digan â€” se ofenden."</em></p>
+                <h4>?? Nota de Ramazzottius sobre las Adaptaciones</h4>
+                <p><em>"Cada linaje cree que sus poderes son únicos. Adorable. Llevan 300 millones de años reinventando las mismas tres estrategias: esconderse, golpear o manipular. La única diferencia es el envoltorio. Pero no se los digan — se ofenden."</em></p>
             </div>
 
-            <!-- SECCIÃ“N 3: ARQUETIPOS -->
-            <h2>ğŸ­ Arquetipos</h2>
+            <!-- SECCIÓN 3: ARQUETIPOS -->
+            <h2>?? Arquetipos</h2>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ Personalidad MecÃ¡nica</h4>
-                <p>Al crear tu personaje, eliges un <strong>Arquetipo</strong> que define tu estilo de juego. No es una clase â€” es una actitud. Y como toda actitud, tiene consecuencias.</p>
+                <h4>?? Personalidad Mecánica</h4>
+                <p>Al crear tu personaje, eliges un <strong>Arquetipo</strong> que define tu estilo de juego. No es una clase — es una actitud. Y como toda actitud, tiene consecuencias.</p>
             </div>
 
             <table>
-                <tr><th>Arquetipo</th><th>Bonus</th><th>PenalizaciÃ³n</th><th>Estilo de Juego</th></tr>
-                <tr><td><strong>El Estratega</strong></td><td>+2 PercepciÃ³n</td><td>-1 TÃ³rax</td><td>Habilidades, sigilo, informaciÃ³n</td></tr>
+                <tr><th>Arquetipo</th><th>Bonus</th><th>Penalización</th><th>Estilo de Juego</th></tr>
+                <tr><td><strong>El Estratega</strong></td><td>+2 Percepción</td><td>-1 Tórax</td><td>Habilidades, sigilo, información</td></tr>
                 <tr><td><strong>El Ejecutor</strong></td><td>+2 Quitina</td><td>-1 Feromonas</td><td>Combate frontal, tanque</td></tr>
                 <tr><td><strong>El Infiltrado</strong></td><td>+2 Cripsis</td><td>-1 Quitina</td><td>Ataques sorpresa, robo</td></tr>
-                <tr><td><strong>El DiplomÃ¡tico</strong></td><td>+2 Feromonas</td><td>-1 Cripsis</td><td>Comercio, NPCs, facciones</td></tr>
+                <tr><td><strong>El Diplomático</strong></td><td>+2 Feromonas</td><td>-1 Cripsis</td><td>Comercio, NPCs, facciones</td></tr>
             </table>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Nota de DiseÃ±o</h4>
-                <p>El Arquetipo se combina con el TaxÃ³n. Un <strong>EscorpiÃ³n DiplomÃ¡tico</strong> es tan vÃ¡lido como una <strong>Mariposa Ejecutora</strong> â€” solo que uno negocia con pinzas y la otra aplasta con alas. La diversiÃ³n estÃ¡ en la contradicciÃ³n.</p>
+                <h4>?? Nota de Diseño</h4>
+                <p>El Arquetipo se combina con el Taxón. Un <strong>Escorpión Diplomático</strong> es tan válido como una <strong>Mariposa Ejecutora</strong> — solo que uno negocia con pinzas y la otra aplasta con alas. La diversión está en la contradicción.</p>
             </div>
 
-            <!-- SECCIÃ“N 4: SISTEMA DE ESENCIA (EL SILENCIO VERDE) -->
-            <h2>ğŸ„ Sistema de Esencia â€” El Silencio Verde</h2>
+            <!-- SECCIÓN 4: SISTEMA DE ESENCIA (EL SILENCIO VERDE) -->
+            <h2>?? Sistema de Esencia — El Silencio Verde</h2>
             <div class="info-box warning">
-                <h4>âš ï¸ La Amenaza Invisible</h4>
-                <p>El Silencio Verde es un hongo parÃ¡sito que infecta a los insectos y los convierte en marionetas. Tu barra de Esencia (Individualidad) mide cuÃ¡nto control tienes sobre tu propia mente. Si llega a 0%... ya no eres tÃº.</p>
+                <h4>?? La Amenaza Invisible</h4>
+                <p>El Silencio Verde es un hongo parásito que infecta a los insectos y los convierte en marionetas. Tu barra de Esencia (Individualidad) mide cuánto control tienes sobre tu propia mente. Si llega a 0%... ya no eres tú.</p>
             </div>
 
             <div class="stat-block">
                 <h3>Escala de Individualidad</h3>
-                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0% â€” 100%</span></div>
+                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0% — 100%</span></div>
                 <div class="stat-row"><span class="stat-label">Inicio</span><span class="stat-value">100% (mente libre)</span></div>
                 <div class="stat-row"><span class="stat-label">Game Over</span><span class="stat-value">0% (Marioneta del hongo)</span></div>
             </div>
 
             <h3>Acciones que Modifican la Individualidad</h3>
             <table>
-                <tr><th>AcciÃ³n</th><th>Efecto</th><th>Notas</th></tr>
+                <tr><th>Acción</th><th>Efecto</th><th>Notas</th></tr>
                 <tr><td>Consumir Espora de Silencio Verde</td><td>-2 Individualidad</td><td>Adictivo. Cada uso posterior -3</td></tr>
                 <tr><td>Ser atacado por infectado</td><td>-5 Individualidad</td><td>Las esporas se transmiten por contacto</td></tr>
-                <tr><td>Entrar en zona infectada sin protecciÃ³n</td><td>-1 Individualidad/turno</td><td>El aire estÃ¡ contaminado</td></tr>
+                <tr><td>Entrar en zona infectada sin protección</td><td>-1 Individualidad/turno</td><td>El aire está contaminado</td></tr>
                 <tr><td>Usar habilidades del hongo (si infectado)</td><td>-3 Individualidad</td><td>Poder a cambio de control</td></tr>
-                <tr><td>Descansar en refugio seguro</td><td>+5 Individualidad</td><td>MÃ¡ximo 1 vez por dÃ­a</td></tr>
-                <tr><td>Consumir RocÃ­o Matutino Puro</td><td>+10 Individualidad</td><td>Item raro, difÃ­cil de conseguir</td></tr>
+                <tr><td>Descansar en refugio seguro</td><td>+5 Individualidad</td><td>Máximo 1 vez por día</td></tr>
+                <tr><td>Consumir Rocío Matutino Puro</td><td>+10 Individualidad</td><td>Item raro, difícil de conseguir</td></tr>
                 <tr><td>Resistir una orden del hongo</td><td>+2 Individualidad</td><td>Requiere tirada de Resistencia</td></tr>
-                <tr><td>Matar a un infectado</td><td>+3 Individualidad</td><td>Liberas su alma... o algo asÃ­</td></tr>
+                <tr><td>Matar a un infectado</td><td>+3 Individualidad</td><td>Liberas su alma... o algo así</td></tr>
             </table>
 
             <h3>Umbrales de Consecuencia</h3>
             <table>
-                <tr><th>Individualidad</th><th>Estado</th><th>Efecto MecÃ¡nico</th></tr>
-                <tr><td><strong>100%</strong></td><td>ğŸŸ¢ Libre</td><td>Sin efectos negativos. Control total.</td></tr>
-                <tr><td><strong>75%</strong></td><td>ğŸŸ¡ Susurros</td><td>Escuchas al hongo. -1 PercepciÃ³n. Visiones ocasionales.</td></tr>
-                <tr><td><strong>50%</strong></td><td>ğŸŸ  Influencia</td><td>El hongo sugiere acciones. -2 a todas las tiradas sociales. Aliados desconfÃ­an.</td></tr>
-                <tr><td><strong>25%</strong></td><td>ğŸ”´ DominaciÃ³n</td><td>Pierdes control parcial. 30% chance de que el hongo actÃºe por ti cada turno. -3 Resistencia.</td></tr>
-                <tr><td><strong>0%</strong></td><td>ğŸ’€ Marioneta</td><td><strong>GAME OVER.</strong> Tu personaje se convierte en enemigo controlado por el hongo. Fin.</td></tr>
+                <tr><th>Individualidad</th><th>Estado</th><th>Efecto Mecánico</th></tr>
+                <tr><td><strong>100%</strong></td><td>?? Libre</td><td>Sin efectos negativos. Control total.</td></tr>
+                <tr><td><strong>75%</strong></td><td>?? Susurros</td><td>Escuchas al hongo. -1 Percepción. Visiones ocasionales.</td></tr>
+                <tr><td><strong>50%</strong></td><td>?? Influencia</td><td>El hongo sugiere acciones. -2 a todas las tiradas sociales. Aliados desconfían.</td></tr>
+                <tr><td><strong>25%</strong></td><td>?? Dominación</td><td>Pierdes control parcial. 30% chance de que el hongo actúe por ti cada turno. -3 Resistencia.</td></tr>
+                <tr><td><strong>0%</strong></td><td>?? Marioneta</td><td><strong>GAME OVER.</strong> Tu personaje se convierte en enemigo controlado por el hongo. Fin.</td></tr>
             </table>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ El Dilema del Poder</h4>
-                <p>El Silencio Verde ofrece poder real: +3 Fuerza, regeneraciÃ³n, inmunidad al dolor. Pero cada vez que aceptas su "regalo", pierdes un pedazo de ti. Los adictos al hongo son los enemigos mÃ¡s peligrosos del juego â€” porque alguna vez fueron jugadores como tÃº.</p>
+                <h4>?? El Dilema del Poder</h4>
+                <p>El Silencio Verde ofrece poder real: +3 Fuerza, regeneración, inmunidad al dolor. Pero cada vez que aceptas su "regalo", pierdes un pedazo de ti. Los adictos al hongo son los enemigos más peligrosos del juego — porque alguna vez fueron jugadores como tú.</p>
             </div>
 
-            <h3>Fases de la InfecciÃ³n (Efectos Progresivos)</h3>
+            <h3>Fases de la Infección (Efectos Progresivos)</h3>
             <div class="info-box warning">
-                <h4>âš ï¸ La Esencia NO es solo moral â€” es fÃ­sica</h4>
-                <p>A diferencia de otros sistemas de "moralidad", la pÃ©rdida de Esencia tiene efectos <strong>mecÃ¡nicos directos</strong> sobre tu personaje. El Silencio Verde no te juzga â€” te parasita.</p>
+                <h4>?? La Esencia NO es solo moral — es física</h4>
+                <p>A diferencia de otros sistemas de "moralidad", la pérdida de Esencia tiene efectos <strong>mecánicos directos</strong> sobre tu personaje. El Silencio Verde no te juzga — te parasita.</p>
             </div>
 
             <table>
-                <tr><th>Esencia</th><th>Fase</th><th>Efectos MecÃ¡nicos</th></tr>
-                <tr><td><strong>100-76%</strong></td><td>ğŸŸ¢ Limpio</td><td>Sin efectos. Control total. El hongo duerme.</td></tr>
-                <tr><td><strong>75-51%</strong></td><td>ğŸŸ¡ Susurros</td><td>-1 PercepciÃ³n. Visiones esporÃ¡dicas. El hongo sugiere acciones (texto en pantalla).</td></tr>
-                <tr><td><strong>50-26%</strong></td><td>ğŸŸ  Parasitismo</td><td>+10% Fuerza, -20% Velocidad. El hongo tensa tus mÃºsculos. MÃ¡s letal, mÃ¡s torpe. Habilidades cuestan +1 Hemolinfa extra.</td></tr>
-                <tr><td><strong>25-1%</strong></td><td>ğŸ”´ Parasitismo Avanzado</td><td>Controles con delay. Movimientos errÃ¡ticos. Habilidades cuestan DOBLE. Sprite se tiÃ±e de verde. Aliados desconfÃ­an.</td></tr>
-                <tr><td><strong>0%</strong></td><td>ğŸ’€ AsimilaciÃ³n Total</td><td>Input bloqueado. AnimaciÃ³n de filamentos brotando. Mensaje: "ASIMILADO". Game Over. Tu cuerpo se une a La Colmena Silenciosa.</td></tr>
+                <tr><th>Esencia</th><th>Fase</th><th>Efectos Mecánicos</th></tr>
+                <tr><td><strong>100-76%</strong></td><td>?? Limpio</td><td>Sin efectos. Control total. El hongo duerme.</td></tr>
+                <tr><td><strong>75-51%</strong></td><td>?? Susurros</td><td>-1 Percepción. Visiones esporádicas. El hongo sugiere acciones (texto en pantalla).</td></tr>
+                <tr><td><strong>50-26%</strong></td><td>?? Parasitismo</td><td>+10% Fuerza, -20% Velocidad. El hongo tensa tus músculos. Más letal, más torpe. Habilidades cuestan +1 Hemolinfa extra.</td></tr>
+                <tr><td><strong>25-1%</strong></td><td>?? Parasitismo Avanzado</td><td>Controles con delay. Movimientos erráticos. Habilidades cuestan DOBLE. Sprite se tiñe de verde. Aliados desconfían.</td></tr>
+                <tr><td><strong>0%</strong></td><td>?? Asimilación Total</td><td>Input bloqueado. Animación de filamentos brotando. Mensaje: "ASIMILADO". Game Over. Tu cuerpo se une a La Colmena Silenciosa.</td></tr>
             </table>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Nota de DiseÃ±o: El Trade-Off</h4>
-                <p>La fase ğŸŸ  (50-26%) es <strong>tentadora</strong>: ganas +10% Fuerza gratis. Muchos jugadores se quedarÃ¡n ahÃ­ a propÃ³sito. Ese es el punto â€” el hongo te QUIERE en esa zona. Te da poder para que no luches contra Ã©l. Es la mecÃ¡nica de adicciÃ³n hecha gameplay.</p>
+                <h4>?? Nota de Diseño: El Trade-Off</h4>
+                <p>La fase ?? (50-26%) es <strong>tentadora</strong>: ganas +10% Fuerza gratis. Muchos jugadores se quedarán ahí a propósito. Ese es el punto — el hongo te QUIERE en esa zona. Te da poder para que no luches contra él. Es la mecánica de adicción hecha gameplay.</p>
             </div>
 
-            <!-- SECCIÃ“N 5: SPAWN TABLE â€” EL LABORATORIO -->
-            <h2>ğŸ² Spawn Table â€” El Laboratorio</h2>
+            <!-- SECCIÓN 5: SPAWN TABLE — EL LABORATORIO -->
+            <h2>?? Spawn Table — El Laboratorio</h2>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ Encuentros Aleatorios</h4>
-                <p>Cada zona tiene su propia tabla de spawn. AquÃ­ estÃ¡ la del <strong>Laboratorio</strong> â€” un lugar donde la ciencia humana dejÃ³ residuos que los insectos convirtieron en armas, drogas y religiÃ³n.</p>
+                <h4>?? Encuentros Aleatorios</h4>
+                <p>Cada zona tiene su propia tabla de spawn. Aquí está la del <strong>Laboratorio</strong> — un lugar donde la ciencia humana dejó residuos que los insectos convirtieron en armas, drogas y religión.</p>
             </div>
 
             <table>
                 <tr><th>Enemigo</th><th>Tipo</th><th>Dificultad</th><th>HP</th><th>Recurso Drop</th><th>Comportamiento</th></tr>
-                <tr><td>ğŸ•·ï¸ Garrapata Salvaje</td><td>ComÃºn (60%)</td><td>4</td><td>30</td><td>Plasma Estancado</td><td>Salta desde estanterÃ­as</td></tr>
-                <tr><td>ğŸª³ Cucaracha CarroÃ±era</td><td>ComÃºn (50%)</td><td>3</td><td>20</td><td>Bio-Residuos</td><td>Intenta robar items</td></tr>
-                <tr><td>ğŸŒ™ Polilla Sedante</td><td>Pasiva (40%)</td><td>2</td><td>15</td><td>Fotones</td><td>Baja alerta, vuelve lento</td></tr>
-                <tr><td>ğŸ•¸ï¸ AraÃ±a Territorial</td><td>Raro (15%)</td><td>7</td><td>60</td><td>Hemolinfa</td><td>Redes trampa, defiende rincÃ³n</td></tr>
-                <tr><td>ğŸ„ Larva de Silencio Verde</td><td>Evento (5%)</td><td>6</td><td>45</td><td>Esporas (tÃ³xico)</td><td>Infectada, ataca sin control</td></tr>
+                <tr><td>??? Garrapata Salvaje</td><td>Común (60%)</td><td>4</td><td>30</td><td>Plasma Estancado</td><td>Salta desde estanterías</td></tr>
+                <tr><td>?? Cucaracha Carroñera</td><td>Común (50%)</td><td>3</td><td>20</td><td>Bio-Residuos</td><td>Intenta robar items</td></tr>
+                <tr><td>?? Polilla Sedante</td><td>Pasiva (40%)</td><td>2</td><td>15</td><td>Fotones</td><td>Baja alerta, vuelve lento</td></tr>
+                <tr><td>??? Araña Territorial</td><td>Raro (15%)</td><td>7</td><td>60</td><td>Hemolinfa</td><td>Redes trampa, defiende rincón</td></tr>
+                <tr><td>?? Larva de Silencio Verde</td><td>Evento (5%)</td><td>6</td><td>45</td><td>Esporas (tóxico)</td><td>Infectada, ataca sin control</td></tr>
             </table>
 
             <div class="info-box warning">
-                <h4>âš ï¸ Evento Especial: Larva de Silencio Verde</h4>
-                <p>Si aparece una Larva de Silencio Verde, <strong>todos los enemigos en la zona huyen</strong>. Nadie quiere estar cerca de un infectado. Si la matas, sus esporas se dispersan â€” tirada de Resistencia o -5 Individualidad. Si huyes... bueno, al menos sigues siendo tÃº.</p>
+                <h4>?? Evento Especial: Larva de Silencio Verde</h4>
+                <p>Si aparece una Larva de Silencio Verde, <strong>todos los enemigos en la zona huyen</strong>. Nadie quiere estar cerca de un infectado. Si la matas, sus esporas se dispersan — tirada de Resistencia o -5 Individualidad. Si huyes... bueno, al menos sigues siendo tú.</p>
             </div>
 
-            <!-- SECCIÃ“N 6: SISTEMA DE LOOT -->
-            <h2>ğŸ Sistema de Loot (Tiers)</h2>
+            <!-- SECCIÓN 6: SISTEMA DE LOOT -->
+            <h2>?? Sistema de Loot (Tiers)</h2>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ Probabilidades de Drop</h4>
-                <p>Cada enemigo derrotado suelta loot segÃºn estas probabilidades. La vida no es justa â€” y el RNG tampoco. Pero oye, ese 0.5% existe por algo.</p>
+                <h4>?? Probabilidades de Drop</h4>
+                <p>Cada enemigo derrotado suelta loot según estas probabilidades. La vida no es justa — y el RNG tampoco. Pero oye, ese 0.5% existe por algo.</p>
             </div>
 
             <div class="stat-block">
                 <h3>Tiers de Rareza</h3>
-                <div class="stat-row"><span class="stat-label">âšª ComÃºn</span><span class="stat-value">60% probabilidad</span></div>
-                <div class="stat-row"><span class="stat-label">ğŸŸ¢ Poco ComÃºn</span><span class="stat-value">25% probabilidad</span></div>
-                <div class="stat-row"><span class="stat-label">ğŸ”µ Raro</span><span class="stat-value">12% probabilidad</span></div>
-                <div class="stat-row"><span class="stat-label">ğŸŸ£ Ã‰pico</span><span class="stat-value">2.5% probabilidad</span></div>
-                <div class="stat-row"><span class="stat-label">ğŸŸ¡ Legendario</span><span class="stat-value">0.5% probabilidad</span></div>
+                <div class="stat-row"><span class="stat-label">? Común</span><span class="stat-value">60% probabilidad</span></div>
+                <div class="stat-row"><span class="stat-label">?? Poco Común</span><span class="stat-value">25% probabilidad</span></div>
+                <div class="stat-row"><span class="stat-label">?? Raro</span><span class="stat-value">12% probabilidad</span></div>
+                <div class="stat-row"><span class="stat-label">?? Épico</span><span class="stat-value">2.5% probabilidad</span></div>
+                <div class="stat-row"><span class="stat-label">?? Legendario</span><span class="stat-value">0.5% probabilidad</span></div>
             </div>
 
             <table>
                 <tr><th>Tier</th><th>Probabilidad</th><th>Color</th><th>Ejemplo</th></tr>
-                <tr><td>ComÃºn</td><td>60%</td><td>âšª Gris</td><td>Espina de Cactus, Hemolinfa Fresca</td></tr>
-                <tr><td>Poco ComÃºn</td><td>25%</td><td>ğŸŸ¢ Verde</td><td>FÃ©mur de Grillo, Gota de Miel</td></tr>
-                <tr><td>Raro</td><td>12%</td><td>ğŸ”µ Azul</td><td>MandÃ­bula de Escarabajo, RocÃ­o Matutino</td></tr>
-                <tr><td>Ã‰pico</td><td>2.5%</td><td>ğŸŸ£ PÃºrpura</td><td>Pinza de Cangrejo, Burbuja de O2</td></tr>
-                <tr><td>Legendario</td><td>0.5%</td><td>ğŸŸ¡ Dorado</td><td>Fragmento de Ãmbar del Gran Ã‰ter</td></tr>
+                <tr><td>Común</td><td>60%</td><td>? Gris</td><td>Espina de Cactus, Hemolinfa Fresca</td></tr>
+                <tr><td>Poco Común</td><td>25%</td><td>?? Verde</td><td>Fémur de Grillo, Gota de Miel</td></tr>
+                <tr><td>Raro</td><td>12%</td><td>?? Azul</td><td>Mandíbula de Escarabajo, Rocío Matutino</td></tr>
+                <tr><td>Épico</td><td>2.5%</td><td>?? Púrpura</td><td>Pinza de Cangrejo, Burbuja de O2</td></tr>
+                <tr><td>Legendario</td><td>0.5%</td><td>?? Dorado</td><td>Fragmento de Ámbar del Gran Éter</td></tr>
             </table>
 
-            <!-- SECCIÃ“N 7: CATÃLOGO COMPLETO DE EQUIPAMIENTO -->
-            <h2>ğŸ—¡ï¸ CatÃ¡logo Completo de Equipamiento</h2>
+            <!-- SECCIÓN 7: CATÁLOGO COMPLETO DE EQUIPAMIENTO -->
+            <h2>??? Catálogo Completo de Equipamiento</h2>
             <div class="intro-box">
-                <p>Todo lo que puedes encontrar, robar, comprar o arrancar de un cadÃ¡ver en el Gran Charco. Organizado por categorÃ­a para tu conveniencia homicida.</p>
+                <p>Todo lo que puedes encontrar, robar, comprar o arrancar de un cadáver en el Gran Charco. Organizado por categoría para tu conveniencia homicida.</p>
             </div>
 
             <!-- 7a. Armas Cuerpo a Cuerpo -->
-            <h3>âš”ï¸ Armas Cuerpo a Cuerpo</h3>
+            <h3>?? Armas Cuerpo a Cuerpo</h3>
             <table>
-                <tr><th>Emoji</th><th>Nombre</th><th>DaÃ±o</th><th>Tier</th><th>DescripciÃ³n</th></tr>
-                <tr><td>ğŸŒµ</td><td>Espina de Cactus</td><td>Fuerza +1</td><td>ComÃºn</td><td>Arrancada de un cactus. Afilada como la envidia.</td></tr>
-                <tr><td>ğŸ</td><td>AguijÃ³n Robado</td><td>Fuerza +1</td><td>ComÃºn</td><td>De una abeja muerta. Ella ya no lo necesita.</td></tr>
-                <tr><td>ğŸ•¸ï¸</td><td>Hilo de TelaraÃ±a Trenzado</td><td>Fuerza +1</td><td>ComÃºn</td><td>Seda trenzada 5 veces. Atrapa y golpea.</td></tr>
-                <tr><td>ğŸ¥Š</td><td>Guante de Quitina</td><td>Fuerza +1</td><td>ComÃºn</td><td>Exoesqueleto moldeado como puÃ±o.</td></tr>
-                <tr><td>ğŸ¦´</td><td>FÃ©mur de Grillo</td><td>Fuerza +2</td><td>Poco ComÃºn</td><td>Pata trasera de grillo. AerodinÃ¡mica para crÃ¡neos.</td></tr>
-                <tr><td>ğŸŒ¹</td><td>Espina de Rosa Oxidada</td><td>Fuerza +2</td><td>Poco ComÃºn</td><td>Te hace sentir samurÃ¡i de 3mm.</td></tr>
-                <tr><td>ğŸ”©</td><td>Clavo Oxidado (fragmento)</td><td>Fuerza +2</td><td>Poco ComÃºn</td><td>Viga de acero a tu escala.</td></tr>
-                <tr><td>ğŸ¦Ÿ</td><td>ProbÃ³scide Afilada</td><td>Fuerza +2</td><td>Poco ComÃºn</td><td>El arma del cirujano. Elegante y letal.</td></tr>
-                <tr><td>ğŸ•¸ï¸</td><td>Seda de AraÃ±a LÃ¡tigo</td><td>Fuerza +1</td><td>Poco ComÃºn</td><td>Alcance 2 cuerpos. Puede desarmar.</td></tr>
-                <tr><td>ğŸª²</td><td>MandÃ­bula de Escarabajo</td><td>Fuerza +3</td><td>Raro</td><td>Corta quitina como mantequilla.</td></tr>
-                <tr><td>ğŸ“Œ</td><td>Alfiler de EntomÃ³logo</td><td>Fuerza +1</td><td>Raro</td><td>Paraliza si atraviesa el tÃ³rax. Terror puro.</td></tr>
-                <tr><td>ğŸ¦€</td><td>Garras de Ãcaro Depredador</td><td>Fuerza +2</td><td>Raro</td><td>Implantes ocultos bajo la quitina.</td></tr>
+                <tr><th>Emoji</th><th>Nombre</th><th>Daño</th><th>Tier</th><th>Descripción</th></tr>
+                <tr><td>??</td><td>Espina de Cactus</td><td>Fuerza +1</td><td>Común</td><td>Arrancada de un cactus. Afilada como la envidia.</td></tr>
+                <tr><td>??</td><td>Aguijón Robado</td><td>Fuerza +1</td><td>Común</td><td>De una abeja muerta. Ella ya no lo necesita.</td></tr>
+                <tr><td>???</td><td>Hilo de Telaraña Trenzado</td><td>Fuerza +1</td><td>Común</td><td>Seda trenzada 5 veces. Atrapa y golpea.</td></tr>
+                <tr><td>??</td><td>Guante de Quitina</td><td>Fuerza +1</td><td>Común</td><td>Exoesqueleto moldeado como puño.</td></tr>
+                <tr><td>??</td><td>Fémur de Grillo</td><td>Fuerza +2</td><td>Poco Común</td><td>Pata trasera de grillo. Aerodinámica para cráneos.</td></tr>
+                <tr><td>??</td><td>Espina de Rosa Oxidada</td><td>Fuerza +2</td><td>Poco Común</td><td>Te hace sentir samurái de 3mm.</td></tr>
+                <tr><td>??</td><td>Clavo Oxidado (fragmento)</td><td>Fuerza +2</td><td>Poco Común</td><td>Viga de acero a tu escala.</td></tr>
+                <tr><td>??</td><td>Probóscide Afilada</td><td>Fuerza +2</td><td>Poco Común</td><td>El arma del cirujano. Elegante y letal.</td></tr>
+                <tr><td>???</td><td>Seda de Araña Látigo</td><td>Fuerza +1</td><td>Poco Común</td><td>Alcance 2 cuerpos. Puede desarmar.</td></tr>
+                <tr><td>??</td><td>Mandíbula de Escarabajo</td><td>Fuerza +3</td><td>Raro</td><td>Corta quitina como mantequilla.</td></tr>
+                <tr><td>??</td><td>Alfiler de Entomólogo</td><td>Fuerza +1</td><td>Raro</td><td>Paraliza si atraviesa el tórax. Terror puro.</td></tr>
+                <tr><td>??</td><td>Garras de Ácaro Depredador</td><td>Fuerza +2</td><td>Raro</td><td>Implantes ocultos bajo la quitina.</td></tr>
             </table>
 
             <!-- 7b. Armas a Distancia -->
-            <h3>ğŸ¹ Armas a Distancia</h3>
+            <h3>?? Armas a Distancia</h3>
             <table>
-                <tr><th>Emoji</th><th>Nombre</th><th>DaÃ±o</th><th>Alcance</th><th>Tier</th><th>DescripciÃ³n</th></tr>
-                <tr><td>ğŸ’¦</td><td>Escupitajo Ãcido</td><td>4</td><td>12 cuerpos</td><td>ComÃºn</td><td>Ãcido fÃ³rmico. Simple y asqueroso.</td></tr>
-                <tr><td>ğŸ¯</td><td>Dardo de Veneno</td><td>4</td><td>20 cuerpos</td><td>Poco ComÃºn</td><td>Espina hueca con neurotoxina.</td></tr>
-                <tr><td>ğŸ§ª</td><td>Bolo de Veneno Concentrado</td><td>5</td><td>25 cuerpos</td><td>Poco ComÃºn</td><td>Veneno de araÃ±a de rincÃ³n. Necrosis.</td></tr>
-                <tr><td>âš¡</td><td>Descarga ElÃ©ctrica</td><td>3</td><td>5 cuerpos</td><td>Poco ComÃºn</td><td>Aturde 1 turno. Humillante.</td></tr>
-                <tr><td>ğŸ¹</td><td>Espina-Ballesta</td><td>5</td><td>20 cuerpos</td><td>Poco ComÃºn</td><td>Silenciosa. Pernos de madera anti-Plaga.</td></tr>
-                <tr><td>ğŸ’¥</td><td>Enjambre de Micro-Dardos</td><td>4</td><td>25 cuerpos</td><td>Raro</td><td>RÃ¡faga imprecisa pero devastadora.</td></tr>
-                <tr><td>ğŸ¯</td><td>Pelo Urticante de TarÃ¡ntula</td><td>8</td><td>200 cuerpos</td><td>Raro</td><td>Francotirador. Ceguera temporal.</td></tr>
-                <tr><td>ğŸ¦Ÿ</td><td>Dardo AnestÃ©sico de Zancudo</td><td>4</td><td>15 cuerpos</td><td>Raro</td><td>La vÃ­ctima no siente nada.</td></tr>
-                <tr><td>ğŸ§ª</td><td>RÃ¡faga de Ãcido FÃ³rmico</td><td>8</td><td>20 cuerpos</td><td>Raro</td><td>Cono de Ã¡cido. DaÃ±o masivo corta distancia.</td></tr>
-                <tr><td>ğŸ’£</td><td>CÃ¡psula Bombardera</td><td>7</td><td>35 cuerpos</td><td>Ã‰pico</td><td>TecnologÃ­a del SemidiÃ³s Brachinus. Explota.</td></tr>
+                <tr><th>Emoji</th><th>Nombre</th><th>Daño</th><th>Alcance</th><th>Tier</th><th>Descripción</th></tr>
+                <tr><td>??</td><td>Escupitajo Ácido</td><td>4</td><td>12 cuerpos</td><td>Común</td><td>Ácido fórmico. Simple y asqueroso.</td></tr>
+                <tr><td>??</td><td>Dardo de Veneno</td><td>4</td><td>20 cuerpos</td><td>Poco Común</td><td>Espina hueca con neurotoxina.</td></tr>
+                <tr><td>??</td><td>Bolo de Veneno Concentrado</td><td>5</td><td>25 cuerpos</td><td>Poco Común</td><td>Veneno de araña de rincón. Necrosis.</td></tr>
+                <tr><td>?</td><td>Descarga Eléctrica</td><td>3</td><td>5 cuerpos</td><td>Poco Común</td><td>Aturde 1 turno. Humillante.</td></tr>
+                <tr><td>??</td><td>Espina-Ballesta</td><td>5</td><td>20 cuerpos</td><td>Poco Común</td><td>Silenciosa. Pernos de madera anti-Plaga.</td></tr>
+                <tr><td>??</td><td>Enjambre de Micro-Dardos</td><td>4</td><td>25 cuerpos</td><td>Raro</td><td>Ráfaga imprecisa pero devastadora.</td></tr>
+                <tr><td>??</td><td>Pelo Urticante de Tarántula</td><td>8</td><td>200 cuerpos</td><td>Raro</td><td>Francotirador. Ceguera temporal.</td></tr>
+                <tr><td>??</td><td>Dardo Anestésico de Zancudo</td><td>4</td><td>15 cuerpos</td><td>Raro</td><td>La víctima no siente nada.</td></tr>
+                <tr><td>??</td><td>Ráfaga de Ácido Fórmico</td><td>8</td><td>20 cuerpos</td><td>Raro</td><td>Cono de ácido. Daño masivo corta distancia.</td></tr>
+                <tr><td>??</td><td>Cápsula Bombardera</td><td>7</td><td>35 cuerpos</td><td>Épico</td><td>Tecnología del Semidiós Brachinus. Explota.</td></tr>
             </table>
 
             <!-- 7c. Armas Especiales -->
-            <h3>âœ¨ Armas Especiales</h3>
+            <h3>? Armas Especiales</h3>
             <table>
-                <tr><th>Emoji</th><th>Nombre</th><th>DaÃ±o</th><th>Tier</th><th>DescripciÃ³n</th></tr>
-                <tr><td>ğŸ”¥</td><td>Gota de FÃ³sforo</td><td>Fuego (agravado)</td><td>Raro</td><td>Arde al contacto. Puede prenderte a ti.</td></tr>
-                <tr><td>ğŸš¬</td><td>Brasa de Colilla</td><td>Fuego (agravado)</td><td>Poco ComÃºn</td><td>Causa Enjambre de pÃ¡nico en todos.</td></tr>
-                <tr><td>â˜ ï¸</td><td>Gota de Insecticida Puro</td><td>1 agravado/turno</td><td>Raro</td><td>Terror absoluto. Veneno de Gigante.</td></tr>
-                <tr><td>ğŸ‹</td><td>Esencia de Citronela</td><td>Ninguno (repele)</td><td>ComÃºn</td><td>Repele Plagas con alta Individualidad.</td></tr>
-                <tr><td>ğŸ’¡</td><td>Fragmento de LÃ¡mpara UV</td><td>Agravado</td><td>Ã‰pico</td><td>El arma nuclear. Enjambre automÃ¡tico.</td></tr>
-                <tr><td>ğŸª¨</td><td>Grano de Tierra de Diatomeas</td><td>+1 al arma</td><td>Raro</td><td>FÃ³siles que desgarran exoesqueletos.</td></tr>
-                <tr><td>ğŸ’£</td><td>CÃ¡psula Incendiaria de Brachinus</td><td>Fuego (agravado)</td><td>Ã‰pico</td><td>Napalm del mundo insecto. 100Â°C.</td></tr>
+                <tr><th>Emoji</th><th>Nombre</th><th>Daño</th><th>Tier</th><th>Descripción</th></tr>
+                <tr><td>??</td><td>Gota de Fósforo</td><td>Fuego (agravado)</td><td>Raro</td><td>Arde al contacto. Puede prenderte a ti.</td></tr>
+                <tr><td>??</td><td>Brasa de Colilla</td><td>Fuego (agravado)</td><td>Poco Común</td><td>Causa Enjambre de pánico en todos.</td></tr>
+                <tr><td>??</td><td>Gota de Insecticida Puro</td><td>1 agravado/turno</td><td>Raro</td><td>Terror absoluto. Veneno de Gigante.</td></tr>
+                <tr><td>??</td><td>Esencia de Citronela</td><td>Ninguno (repele)</td><td>Común</td><td>Repele Plagas con alta Individualidad.</td></tr>
+                <tr><td>??</td><td>Fragmento de Lámpara UV</td><td>Agravado</td><td>Épico</td><td>El arma nuclear. Enjambre automático.</td></tr>
+                <tr><td>??</td><td>Grano de Tierra de Diatomeas</td><td>+1 al arma</td><td>Raro</td><td>Fósiles que desgarran exoesqueletos.</td></tr>
+                <tr><td>??</td><td>Cápsula Incendiaria de Brachinus</td><td>Fuego (agravado)</td><td>Épico</td><td>Napalm del mundo insecto. 100°C.</td></tr>
             </table>
 
             <!-- 7d. Armaduras / Exoesqueletos -->
-            <h3>ğŸ›¡ï¸ Armaduras / Exoesqueletos</h3>
+            <h3>??? Armaduras / Exoesqueletos</h3>
             <table>
-                <tr><th>Emoji</th><th>Nombre</th><th>ProtecciÃ³n</th><th>PenalizaciÃ³n</th><th>Tier</th><th>DescripciÃ³n</th></tr>
-                <tr><td>ğŸ‚</td><td>Capa de Hoja Seca</td><td>1</td><td>0</td><td>ComÃºn</td><td>Camuflaje bÃ¡sico.</td></tr>
-                <tr><td>ğŸ§¤</td><td>Guantes de Resina</td><td>1</td><td>0</td><td>ComÃºn</td><td>Protege y aÃ±ade peso a golpes.</td></tr>
-                <tr><td>ğŸ¦¶</td><td>Tarsos Reforzados</td><td>1</td><td>0</td><td>ComÃºn</td><td>Patadas letales. Estilo.</td></tr>
-                <tr><td>ğŸ¥š</td><td>Membrana de Huevo</td><td>2</td><td>1</td><td>Poco ComÃºn</td><td>Flexible, oculta bajo quitina.</td></tr>
-                <tr><td>ğŸª²</td><td>Placa de Ã‰litro</td><td>3</td><td>1</td><td>Poco ComÃºn</td><td>Ala de escarabajo. EstÃ¡ndar.</td></tr>
-                <tr><td>ğŸŒ°</td><td>Casco de Semilla</td><td>2</td><td>1</td><td>Poco ComÃºn</td><td>Reduce daÃ±o crÃ­tico. Te ves ridÃ­culo.</td></tr>
-                <tr><td>ğŸŒ¿</td><td>Manto de Musgo Vivo</td><td>2</td><td>0</td><td>Raro</td><td>Parece natural. Oculta armas.</td></tr>
-                <tr><td>ğŸ¦‚</td><td>Coraza de EscorpiÃ³n</td><td>4</td><td>2</td><td>Raro</td><td>ProtecciÃ³n militar. Pesa.</td></tr>
-                <tr><td>ğŸª²</td><td>CaparazÃ³n de Escarabajo Rinoceronte</td><td>5</td><td>3</td><td>Ã‰pico</td><td>Tanque total. Todos te ven.</td></tr>
+                <tr><th>Emoji</th><th>Nombre</th><th>Protección</th><th>Penalización</th><th>Tier</th><th>Descripción</th></tr>
+                <tr><td>??</td><td>Capa de Hoja Seca</td><td>1</td><td>0</td><td>Común</td><td>Camuflaje básico.</td></tr>
+                <tr><td>??</td><td>Guantes de Resina</td><td>1</td><td>0</td><td>Común</td><td>Protege y añade peso a golpes.</td></tr>
+                <tr><td>??</td><td>Tarsos Reforzados</td><td>1</td><td>0</td><td>Común</td><td>Patadas letales. Estilo.</td></tr>
+                <tr><td>??</td><td>Membrana de Huevo</td><td>2</td><td>1</td><td>Poco Común</td><td>Flexible, oculta bajo quitina.</td></tr>
+                <tr><td>??</td><td>Placa de Élitro</td><td>3</td><td>1</td><td>Poco Común</td><td>Ala de escarabajo. Estándar.</td></tr>
+                <tr><td>??</td><td>Casco de Semilla</td><td>2</td><td>1</td><td>Poco Común</td><td>Reduce daño crítico. Te ves ridículo.</td></tr>
+                <tr><td>??</td><td>Manto de Musgo Vivo</td><td>2</td><td>0</td><td>Raro</td><td>Parece natural. Oculta armas.</td></tr>
+                <tr><td>??</td><td>Coraza de Escorpión</td><td>4</td><td>2</td><td>Raro</td><td>Protección militar. Pesa.</td></tr>
+                <tr><td>??</td><td>Caparazón de Escarabajo Rinoceronte</td><td>5</td><td>3</td><td>Épico</td><td>Tanque total. Todos te ven.</td></tr>
             </table>
 
             <!-- 7e. Equipamiento -->
-            <h3>ğŸ’ Equipamiento</h3>
+            <h3>?? Equipamiento</h3>
             <table>
-                <tr><th>Emoji</th><th>Nombre</th><th>CategorÃ­a</th><th>Tier</th><th>DescripciÃ³n</th></tr>
-                <tr><td>ğŸ“¡</td><td>Antena de Feromona</td><td>ComunicaciÃ³n</td><td>ComÃºn</td><td>SeÃ±ales a distancia sin rastreo.</td></tr>
-                <tr><td>ğŸ’§</td><td>Savia Curativa de PulgÃ³n</td><td>MÃ©dico</td><td>ComÃºn</td><td>Sella heridas en la quitina.</td></tr>
-                <tr><td>ğŸ’¡</td><td>Ã“rgano Bioluminiscente</td><td>Herramientas</td><td>ComÃºn</td><td>Luz frÃ­a de luciÃ©rnaga.</td></tr>
-                <tr><td>ğŸ•¸ï¸</td><td>Seda de AraÃ±a (15 cuerpos)</td><td>Herramientas</td><td>ComÃºn</td><td>Escalar, atar, trampas.</td></tr>
-                <tr><td>ğŸ©¸</td><td>Gota de Hemolinfa Embotellada</td><td>Recurso</td><td>ComÃºn</td><td>1 punto de Hemolinfa almacenado.</td></tr>
-                <tr><td>ğŸ•¸ï¸</td><td>Red Neural de AraÃ±a</td><td>TecnologÃ­a</td><td>Poco ComÃºn</td><td>Para hackear La TelaraÃ±a.</td></tr>
-                <tr><td>ğŸ¦·</td><td>MandÃ­bula Articulada</td><td>Herramientas</td><td>Poco ComÃºn</td><td>Abre cualquier grieta.</td></tr>
-                <tr><td>ğŸ‘ï¸</td><td>Ojo Compuesto Extra</td><td>Herramientas</td><td>Poco ComÃºn</td><td>PercepciÃ³n a distancia mejorada.</td></tr>
-                <tr><td>ğŸ›</td><td>Ãcaro EspÃ­a</td><td>Espionaje</td><td>Poco ComÃºn</td><td>Nadie lo ve. Registra todo.</td></tr>
-                <tr><td>ğŸ </td><td>Grieta Sellada</td><td>Refugio</td><td>Poco ComÃºn</td><td>Tu hogar. Seguro de dÃ­a.</td></tr>
-                <tr><td>ğŸ¨</td><td>Kit de Camuflaje Adaptativo</td><td>Social</td><td>Raro</td><td>Cambias de color temporalmente.</td></tr>
-                <tr><td>ğŸ±</td><td>Montura de Gato (Pulga Express)</td><td>Transporte</td><td>Raro</td><td>Viaje rÃ¡pido. Riesgo de caÃ­da.</td></tr>
-                <tr><td>ğŸ’</td><td>CÃ¡psula de Ãmbar (Refugio)</td><td>Refugio</td><td>Raro</td><td>ProtecciÃ³n UV. FosilizaciÃ³n lite.</td></tr>
+                <tr><th>Emoji</th><th>Nombre</th><th>Categoría</th><th>Tier</th><th>Descripción</th></tr>
+                <tr><td>??</td><td>Antena de Feromona</td><td>Comunicación</td><td>Común</td><td>Señales a distancia sin rastreo.</td></tr>
+                <tr><td>??</td><td>Savia Curativa de Pulgón</td><td>Médico</td><td>Común</td><td>Sella heridas en la quitina.</td></tr>
+                <tr><td>??</td><td>Órgano Bioluminiscente</td><td>Herramientas</td><td>Común</td><td>Luz fría de luciérnaga.</td></tr>
+                <tr><td>???</td><td>Seda de Araña (15 cuerpos)</td><td>Herramientas</td><td>Común</td><td>Escalar, atar, trampas.</td></tr>
+                <tr><td>??</td><td>Gota de Hemolinfa Embotellada</td><td>Recurso</td><td>Común</td><td>1 punto de Hemolinfa almacenado.</td></tr>
+                <tr><td>???</td><td>Red Neural de Araña</td><td>Tecnología</td><td>Poco Común</td><td>Para hackear La Telaraña.</td></tr>
+                <tr><td>??</td><td>Mandíbula Articulada</td><td>Herramientas</td><td>Poco Común</td><td>Abre cualquier grieta.</td></tr>
+                <tr><td>???</td><td>Ojo Compuesto Extra</td><td>Herramientas</td><td>Poco Común</td><td>Percepción a distancia mejorada.</td></tr>
+                <tr><td>??</td><td>Ácaro Espía</td><td>Espionaje</td><td>Poco Común</td><td>Nadie lo ve. Registra todo.</td></tr>
+                <tr><td>??</td><td>Grieta Sellada</td><td>Refugio</td><td>Poco Común</td><td>Tu hogar. Seguro de día.</td></tr>
+                <tr><td>??</td><td>Kit de Camuflaje Adaptativo</td><td>Social</td><td>Raro</td><td>Cambias de color temporalmente.</td></tr>
+                <tr><td>??</td><td>Montura de Gato (Pulga Express)</td><td>Transporte</td><td>Raro</td><td>Viaje rápido. Riesgo de caída.</td></tr>
+                <tr><td>??</td><td>Cápsula de Ámbar (Refugio)</td><td>Refugio</td><td>Raro</td><td>Protección UV. Fosilización lite.</td></tr>
             </table>
 
             <!-- 7f. Consumibles -->
-            <h3>ğŸ§ª Consumibles</h3>
+            <h3>?? Consumibles</h3>
             <table>
-                <tr><th>Emoji</th><th>Nombre</th><th>Efecto</th><th>Tier</th><th>DescripciÃ³n</th></tr>
-                <tr><td>ğŸ©¸</td><td>Hemolinfa Fresca</td><td>+20% Hemolinfa</td><td>ComÃºn</td><td>Sabe a cobre lÃ­quido.</td></tr>
-                <tr><td>ğŸŒ¿</td><td>Hoja de Menta Masticada</td><td>Cura veneno, +1 Res 3 turnos</td><td>ComÃºn</td><td>Horrible pero funciona.</td></tr>
-                <tr><td>â˜•</td><td>Cristal de CafeÃ­na</td><td>+2 Velocidad, -1 Per, 3 turnos</td><td>ComÃºn</td><td>Hiperactivo. Luego crash.</td></tr>
-                <tr><td>ğŸ¯</td><td>Gota de Miel</td><td>+30% Quitina</td><td>Poco ComÃºn</td><td>Robada de las Abejas. Culpa incluida.</td></tr>
-                <tr><td>âš¡</td><td>Adrenalina de Avispa</td><td>+3 Fue, +2 Vel, Enjambre 50%, 2 turnos</td><td>Poco ComÃºn</td><td>Poder bruto. Riesgo de control.</td></tr>
-                <tr><td>ğŸŒ™</td><td>Polvo de Ala de Polilla</td><td>EvasiÃ³n +50%, 3 turnos</td><td>Poco ComÃºn</td><td>EtÃ©reo y frÃ¡gil.</td></tr>
-                <tr><td>ğŸ§ª</td><td>Veneno de AraÃ±a Diluido</td><td>Veneno al arma (3 ataques)</td><td>Poco ComÃºn</td><td>Necrosis lenta. 3 usos.</td></tr>
-                <tr><td>ğŸŒ¶ï¸</td><td>Gota de Capsaicina</td><td>Fuego +30%, 3 turnos</td><td>Poco ComÃºn</td><td>Arde en todo. Tus ojos tambiÃ©n.</td></tr>
-                <tr><td>ğŸ’§</td><td>RocÃ­o Matutino Puro</td><td>+50% Quitina + cura estados</td><td>Raro</td><td>Pureza absoluta.</td></tr>
-                <tr><td>â„ï¸</td><td>Cristal de Anticongelante</td><td>Inmune frÃ­o/parÃ¡lisis 5 turnos</td><td>Raro</td><td>Glicerol de Mosca AntÃ¡rtica.</td></tr>
-                <tr><td>ğŸ„</td><td>Espora de Hongo Silencio Verde</td><td>+3 Fue, -2 Individualidad, 5 turnos</td><td>Raro</td><td>Hongo zombi. Adictivo. Peligroso.</td></tr>
-                <tr><td>ğŸ¦ </td><td>Esporas de Beauveria</td><td>2 daÃ±o/turno por 5 turnos al objetivo</td><td>Raro</td><td>Hongo que devora desde dentro.</td></tr>
-                <tr><td>ğŸ«§</td><td>Burbuja de OxÃ­geno al 30%</td><td>+20% todas stats, 3 turnos</td><td>Ã‰pico</td><td>Casi el Gran Ã‰ter. Poder ancestral.</td></tr>
-                <tr><td>ğŸ’</td><td>Fragmento de Ãmbar del Gran Ã‰ter</td><td>+30% todas stats, 3 turnos</td><td>Legendario</td><td>Por un instante, eres un dios.</td></tr>
+                <tr><th>Emoji</th><th>Nombre</th><th>Efecto</th><th>Tier</th><th>Descripción</th></tr>
+                <tr><td>??</td><td>Hemolinfa Fresca</td><td>+20% Hemolinfa</td><td>Común</td><td>Sabe a cobre líquido.</td></tr>
+                <tr><td>??</td><td>Hoja de Menta Masticada</td><td>Cura veneno, +1 Res 3 turnos</td><td>Común</td><td>Horrible pero funciona.</td></tr>
+                <tr><td>?</td><td>Cristal de Cafeína</td><td>+2 Velocidad, -1 Per, 3 turnos</td><td>Común</td><td>Hiperactivo. Luego crash.</td></tr>
+                <tr><td>??</td><td>Gota de Miel</td><td>+30% Quitina</td><td>Poco Común</td><td>Robada de las Abejas. Culpa incluida.</td></tr>
+                <tr><td>?</td><td>Adrenalina de Avispa</td><td>+3 Fue, +2 Vel, Enjambre 50%, 2 turnos</td><td>Poco Común</td><td>Poder bruto. Riesgo de control.</td></tr>
+                <tr><td>??</td><td>Polvo de Ala de Polilla</td><td>Evasión +50%, 3 turnos</td><td>Poco Común</td><td>Etéreo y frágil.</td></tr>
+                <tr><td>??</td><td>Veneno de Araña Diluido</td><td>Veneno al arma (3 ataques)</td><td>Poco Común</td><td>Necrosis lenta. 3 usos.</td></tr>
+                <tr><td>???</td><td>Gota de Capsaicina</td><td>Fuego +30%, 3 turnos</td><td>Poco Común</td><td>Arde en todo. Tus ojos también.</td></tr>
+                <tr><td>??</td><td>Rocío Matutino Puro</td><td>+50% Quitina + cura estados</td><td>Raro</td><td>Pureza absoluta.</td></tr>
+                <tr><td>??</td><td>Cristal de Anticongelante</td><td>Inmune frío/parálisis 5 turnos</td><td>Raro</td><td>Glicerol de Mosca Antártica.</td></tr>
+                <tr><td>??</td><td>Espora de Hongo Silencio Verde</td><td>+3 Fue, -2 Individualidad, 5 turnos</td><td>Raro</td><td>Hongo zombi. Adictivo. Peligroso.</td></tr>
+                <tr><td>??</td><td>Esporas de Beauveria</td><td>2 daño/turno por 5 turnos al objetivo</td><td>Raro</td><td>Hongo que devora desde dentro.</td></tr>
+                <tr><td>??</td><td>Burbuja de Oxígeno al 30%</td><td>+20% todas stats, 3 turnos</td><td>Épico</td><td>Casi el Gran Éter. Poder ancestral.</td></tr>
+                <tr><td>??</td><td>Fragmento de Ámbar del Gran Éter</td><td>+30% todas stats, 3 turnos</td><td>Legendario</td><td>Por un instante, eres un dios.</td></tr>
             </table>
 
-            <!-- SECCIÃ“N 8: RELIQUIAS DEL CARBONÃFERO -->
-            <h2>ğŸ’ Reliquias del CarbonÃ­fero</h2>
+            <!-- SECCIÓN 8: RELIQUIAS DEL CARBONÍFERO -->
+            <h2>?? Reliquias del Carbonífero</h2>
             <div class="info-box lore">
-                <h4>ğŸ“œ Ecos del PerÃ­odo CarbonÃ­fero</h4>
-                <p>Artefactos de una era donde los insectos eran <strong>gigantes</strong> y el oxÃ­geno fluÃ­a al 35%. Estos objetos contienen poder ancestral puro. Son tan raros que la mayorÃ­a de las Plagas creen que son mitos. No lo son. Para mÃ¡s detalles, consulta la <a href="reliquias.html">pÃ¡gina de Reliquias</a>.</p>
+                <h4>?? Ecos del Período Carbonífero</h4>
+                <p>Artefactos de una era donde los insectos eran <strong>gigantes</strong> y el oxígeno fluía al 35%. Estos objetos contienen poder ancestral puro. Son tan raros que la mayoría de las Plagas creen que son mitos. No lo son. Para más detalles, consulta la <a href="reliquias.html">página de Reliquias</a>.</p>
             </div>
 
             <table>
                 <tr><th>Nombre</th><th>Tier</th><th>Efecto</th></tr>
-                <tr><td>ğŸ’ Fragmento de Ãmbar del Gran Ã‰ter</td><td>Legendario</td><td>+30% todas stats, 3 turnos</td></tr>
-                <tr><td>ğŸ›¡ï¸ Quitina de Arthropleura</td><td>Legendario</td><td>Armadura +10, inmune fÃ­sico 1 turno</td></tr>
-                <tr><td>ğŸª½ Ala Fosilizada de Meganeura</td><td>Legendario</td><td>Velocidad x3, evasiÃ³n 90%, 5 turnos</td></tr>
-                <tr><td>âœ¨ Gota de Savia del 35%</td><td>MÃ­tico</td><td>Restaura 100% todo + cura estados</td></tr>
-                <tr><td>ğŸš Espiral FÃ³sil de Nautilus</td><td>Ã‰pico</td><td>+5 PercepciÃ³n, revela secretos de zona</td></tr>
-                <tr><td>ğŸ”¥ CarbÃ³n Vivo del Pantano</td><td>Ã‰pico</td><td>Fuego +50%, quema 3 turnos</td></tr>
+                <tr><td>?? Fragmento de Ámbar del Gran Éter</td><td>Legendario</td><td>+30% todas stats, 3 turnos</td></tr>
+                <tr><td>??? Quitina de Arthropleura</td><td>Legendario</td><td>Armadura +10, inmune físico 1 turno</td></tr>
+                <tr><td>?? Ala Fosilizada de Meganeura</td><td>Legendario</td><td>Velocidad x3, evasión 90%, 5 turnos</td></tr>
+                <tr><td>? Gota de Savia del 35%</td><td>Mítico</td><td>Restaura 100% todo + cura estados</td></tr>
+                <tr><td>?? Espiral Fósil de Nautilus</td><td>Épico</td><td>+5 Percepción, revela secretos de zona</td></tr>
+                <tr><td>?? Carbón Vivo del Pantano</td><td>Épico</td><td>Fuego +50%, quema 3 turnos</td></tr>
             </table>
 
             <div class="info-box warning">
-                <h4>âš ï¸ Advertencia sobre Reliquias</h4>
-                <p>Las Reliquias del CarbonÃ­fero son <strong>objetos de un solo uso</strong> (excepto armaduras). Una vez activadas, se consumen. PiÃ©nsalo dos veces antes de usar un artefacto de 300 millones de aÃ±os en una pelea contra una cucaracha carroÃ±era.</p>
+                <h4>?? Advertencia sobre Reliquias</h4>
+                <p>Las Reliquias del Carbonífero son <strong>objetos de un solo uso</strong> (excepto armaduras). Una vez activadas, se consumen. Piénsalo dos veces antes de usar un artefacto de 300 millones de años en una pelea contra una cucaracha carroñera.</p>
             </div>
 
-            <!-- SECCIÃ“N 9: SISTEMA DE OXÃGENO VS. CALOR (NeoPlaga) -->
-            <h2>ğŸŒ¡ï¸ Sistema de OxÃ­geno vs. Calor (NeoPlaga â€” AÃ±o 20.000)</h2>
+            <!-- SECCIÓN 9: SISTEMA DE OXÍGENO VS. CALOR (NeoPlaga) -->
+            <h2>??? Sistema de Oxígeno vs. Calor (NeoPlaga — Año 20.000)</h2>
             <div class="info-box warning">
-                <h4>âš ï¸ MecÃ¡nica Exclusiva de NeoPlaga</h4>
-                <p>En el aÃ±o 20.000, el Holoceno agoniza. El frÃ­o avanza desde el sur. El oxÃ­geno baja. Estas dos variables definen la supervivencia de toda Plaga. No es HP directo â€” es un sistema ambiental que modifica TODO lo demÃ¡s.</p>
+                <h4>?? Mecánica Exclusiva de NeoPlaga</h4>
+                <p>En el año 20.000, el Holoceno agoniza. El frío avanza desde el sur. El oxígeno baja. Estas dos variables definen la supervivencia de toda Plaga. No es HP directo — es un sistema ambiental que modifica TODO lo demás.</p>
             </div>
 
             <div class="stat-block">
-                <h3>ğŸ« Barra de OxÃ­geno (O2)</h3>
-                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0% â€” 100%</span></div>
-                <div class="stat-row"><span class="stat-label">Nivel Global Actual</span><span class="stat-value">16% (y bajando cada dÃ©cada)</span></div>
-                <div class="stat-row"><span class="stat-label">Efecto de O2 bajo</span><span class="stat-value">Reduce Velocidad y Hemolinfa mÃ¡xima</span></div>
-                <div class="stat-row"><span class="stat-label">Efecto de O2 alto (zonas Sembradores)</span><span class="stat-value">+Stats pero items de fuego hacen DOBLE daÃ±o</span></div>
+                <h3>?? Barra de Oxígeno (O2)</h3>
+                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0% — 100%</span></div>
+                <div class="stat-row"><span class="stat-label">Nivel Global Actual</span><span class="stat-value">16% (y bajando cada década)</span></div>
+                <div class="stat-row"><span class="stat-label">Efecto de O2 bajo</span><span class="stat-value">Reduce Velocidad y Hemolinfa máxima</span></div>
+                <div class="stat-row"><span class="stat-label">Efecto de O2 alto (zonas Sembradores)</span><span class="stat-value">+Stats pero items de fuego hacen DOBLE daño</span></div>
             </div>
 
             <div class="stat-block">
-                <h3>ğŸŒ¡ï¸ Barra de Calor Corporal</h3>
-                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0 â€” 10 unidades</span></div>
+                <h3>??? Barra de Calor Corporal</h3>
+                <div class="stat-row"><span class="stat-label">Rango</span><span class="stat-value">0 — 10 unidades</span></div>
                 <div class="stat-row"><span class="stat-label">Inicio</span><span class="stat-value">5 (templado)</span></div>
-                <div class="stat-row"><span class="stat-label">PÃ©rdida</span><span class="stat-value">-1 por turno en zonas exteriores sin refugio</span></div>
-                <div class="stat-row"><span class="stat-label">Calor 0</span><span class="stat-value">CongelaciÃ³n: -50% Velocidad, -30% Fuerza, no puede huir</span></div>
+                <div class="stat-row"><span class="stat-label">Pérdida</span><span class="stat-value">-1 por turno en zonas exteriores sin refugio</span></div>
+                <div class="stat-row"><span class="stat-label">Calor 0</span><span class="stat-value">Congelación: -50% Velocidad, -30% Fuerza, no puede huir</span></div>
             </div>
 
             <h3>Efectos por Nivel de Calor</h3>
             <table>
-                <tr><th>Calor</th><th>Estado</th><th>Efecto MecÃ¡nico</th></tr>
-                <tr><td><strong>8-10</strong></td><td>ğŸ”¥ Caliente</td><td>+2 Velocidad, +1 Fuerza. Ã“ptimo. Los Taxones de Terror generan esto con pÃ¡nico humano.</td></tr>
-                <tr><td><strong>5-7</strong></td><td>ğŸŸ¢ Templado</td><td>Sin modificadores. Estado normal.</td></tr>
-                <tr><td><strong>3-4</strong></td><td>ğŸ”µ FrÃ­o</td><td>-1 Velocidad. Movimiento reducido. Empiezas a sentirlo.</td></tr>
-                <tr><td><strong>1-2</strong></td><td>ğŸŸ£ Hipotermia</td><td>-2 Velocidad, -1 TÃ³rax. Habilidades cuestan +1 Hemolinfa extra.</td></tr>
-                <tr><td><strong>0</strong></td><td>ğŸ’€ CongelaciÃ³n</td><td>-50% Velocidad, -30% Fuerza, NO puede huir. 3 turnos en 0 = muerte.</td></tr>
+                <tr><th>Calor</th><th>Estado</th><th>Efecto Mecánico</th></tr>
+                <tr><td><strong>8-10</strong></td><td>?? Caliente</td><td>+2 Velocidad, +1 Fuerza. Óptimo. Los Taxones de Terror generan esto con pánico humano.</td></tr>
+                <tr><td><strong>5-7</strong></td><td>?? Templado</td><td>Sin modificadores. Estado normal.</td></tr>
+                <tr><td><strong>3-4</strong></td><td>?? Frío</td><td>-1 Velocidad. Movimiento reducido. Empiezas a sentirlo.</td></tr>
+                <tr><td><strong>1-2</strong></td><td>?? Hipotermia</td><td>-2 Velocidad, -1 Tórax. Habilidades cuestan +1 Hemolinfa extra.</td></tr>
+                <tr><td><strong>0</strong></td><td>?? Congelación</td><td>-50% Velocidad, -30% Fuerza, NO puede huir. 3 turnos en 0 = muerte.</td></tr>
             </table>
 
             <h3>Fuentes de Calor</h3>
             <table>
                 <tr><th>Fuente</th><th>Calor Ganado</th><th>Notas</th></tr>
                 <tr><td>Refugio/Nido</td><td>+3</td><td>Descansar en zona segura</td></tr>
-                <tr><td>CÃºpula de Sembradores</td><td>+2/turno</td><td>Pero cobran diezmo de biomasa</td></tr>
-                <tr><td>Catacumbas TÃ©rmicas</td><td>+1/turno</td><td>Calor geotÃ©rmico residual</td></tr>
-                <tr><td>Sangre humana fresca</td><td>+2</td><td>Los Taxones de Terror la calientan con pÃ¡nico</td></tr>
-                <tr><td>Items de fuego (FÃ³sforo, Brasa)</td><td>+1</td><td>Peligroso en zonas de alto O2</td></tr>
-                <tr><td>Combate (adrenalina propia)</td><td>+1 por ronda</td><td>Pelear calienta. Huir enfrÃ­a.</td></tr>
+                <tr><td>Cúpula de Sembradores</td><td>+2/turno</td><td>Pero cobran diezmo de biomasa</td></tr>
+                <tr><td>Catacumbas Térmicas</td><td>+1/turno</td><td>Calor geotérmico residual</td></tr>
+                <tr><td>Sangre humana fresca</td><td>+2</td><td>Los Taxones de Terror la calientan con pánico</td></tr>
+                <tr><td>Items de fuego (Fósforo, Brasa)</td><td>+1</td><td>Peligroso en zonas de alto O2</td></tr>
+                <tr><td>Combate (adrenalina propia)</td><td>+1 por ronda</td><td>Pelear calienta. Huir enfría.</td></tr>
             </table>
 
-            <h3>Fuentes de PÃ©rdida de Calor</h3>
+            <h3>Fuentes de Pérdida de Calor</h3>
             <table>
-                <tr><th>SituaciÃ³n</th><th>Calor Perdido</th><th>Notas</th></tr>
-                <tr><td>Zona exterior sin refugio</td><td>-1/turno</td><td>El frÃ­o avanza constantemente</td></tr>
-                <tr><td>Zona de hielo (bordes del Charco)</td><td>-2/turno</td><td>Muerte rÃ¡pida sin protecciÃ³n</td></tr>
-                <tr><td>Huir de combate</td><td>-1</td><td>El miedo enfrÃ­a. Literalmente.</td></tr>
-                <tr><td>Usar habilidades de Encanto (sedaciÃ³n)</td><td>-1</td><td>Relajar al objetivo te relaja a ti</td></tr>
-                <tr><td>Ser atacado por TaxÃ³n de Encanto</td><td>-2</td><td>Te sedan, tu metabolismo baja</td></tr>
+                <tr><th>Situación</th><th>Calor Perdido</th><th>Notas</th></tr>
+                <tr><td>Zona exterior sin refugio</td><td>-1/turno</td><td>El frío avanza constantemente</td></tr>
+                <tr><td>Zona de hielo (bordes del Charco)</td><td>-2/turno</td><td>Muerte rápida sin protección</td></tr>
+                <tr><td>Huir de combate</td><td>-1</td><td>El miedo enfría. Literalmente.</td></tr>
+                <tr><td>Usar habilidades de Encanto (sedación)</td><td>-1</td><td>Relajar al objetivo te relaja a ti</td></tr>
+                <tr><td>Ser atacado por Taxón de Encanto</td><td>-2</td><td>Te sedan, tu metabolismo baja</td></tr>
             </table>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Impacto en Gameplay</h4>
-                <p>El sistema de Calor crea un <strong>loop de supervivencia</strong>: necesitas calor para funcionar, necesitas pelear para generar calor, pero pelear gasta Hemolinfa y arriesga Esencia. Los Taxones de Terror tienen ventaja (generan calor con pÃ¡nico), pero los de Encanto conservan recursos (no gastan en combate). Es un trade-off constante entre agresiÃ³n y conservaciÃ³n.</p>
+                <h4>?? Impacto en Gameplay</h4>
+                <p>El sistema de Calor crea un <strong>loop de supervivencia</strong>: necesitas calor para funcionar, necesitas pelear para generar calor, pero pelear gasta Hemolinfa y arriesga Esencia. Los Taxones de Terror tienen ventaja (generan calor con pánico), pero los de Encanto conservan recursos (no gastan en combate). Es un trade-off constante entre agresión y conservación.</p>
             </div>
 
-            <!-- SECCIÃ“N 10: DANZA DE ANTENAS (Sistema Social) -->
-            <h2>ğŸ’ƒ Danza de Antenas â€” Sistema de Conflicto Social</h2>
+            <!-- SECCIÓN 10: DANZA DE ANTENAS (Sistema Social) -->
+            <h2>?? Danza de Antenas — Sistema de Conflicto Social</h2>
             <div class="info-box lore">
-                <h4>ğŸ“œ La Diplomacia del Charco</h4>
-                <p>En el Gran Charco no se negocia con palabras â€” se negocia con <strong>posturas quÃ­micas</strong>. Cada interacciÃ³n social es una "Danza de Antenas": un intercambio de seÃ±ales donde cada participante adopta una postura que define su estrategia. Elige mal y perderÃ¡s mÃ¡s que una discusiÃ³n â€” perderÃ¡s territorio, aliados o la vida.</p>
+                <h4>?? La Diplomacia del Charco</h4>
+                <p>En el Gran Charco no se negocia con palabras — se negocia con <strong>posturas químicas</strong>. Cada interacción social es una "Danza de Antenas": un intercambio de señales donde cada participante adopta una postura que define su estrategia. Elige mal y perderás más que una discusión — perderás territorio, aliados o la vida.</p>
             </div>
 
             <h3>Las 4 Posturas</h3>
             <table>
                 <tr><th>Postura</th><th>Atributo</th><th>Estilo</th><th>Uso</th></tr>
-                <tr><td><strong>ğŸ¦· Acecho</strong></td><td>TÃ³rax</td><td>Intimidante, directa, fÃ­sica</td><td>Imponer superioridad, forzar resultado por miedo</td></tr>
-                <tr><td><strong>ğŸ’ ExposiciÃ³n</strong></td><td>Feromonas</td><td>Social, manipuladora, carismÃ¡tica</td><td>Seducir, engaÃ±ar, manipular estatus</td></tr>
-                <tr><td><strong>ğŸ«¥ Mimetismo</strong></td><td>Cripsis</td><td>Evasiva, analÃ­tica, cautelosa</td><td>No revelar cartas, observar, esperar</td></tr>
-                <tr><td><strong>ğŸ“¡ VibraciÃ³n</strong></td><td>Sensilios</td><td>EmpÃ¡tica, sensitiva, profÃ©tica</td><td>Leer frecuencia del otro, detectar mentiras</td></tr>
+                <tr><td><strong>?? Acecho</strong></td><td>Tórax</td><td>Intimidante, directa, física</td><td>Imponer superioridad, forzar resultado por miedo</td></tr>
+                <tr><td><strong>?? Exposición</strong></td><td>Feromonas</td><td>Social, manipuladora, carismática</td><td>Seducir, engañar, manipular estatus</td></tr>
+                <tr><td><strong>?? Mimetismo</strong></td><td>Cripsis</td><td>Evasiva, analítica, cautelosa</td><td>No revelar cartas, observar, esperar</td></tr>
+                <tr><td><strong>?? Vibración</strong></td><td>Sensilios</td><td>Empática, sensitiva, profética</td><td>Leer frecuencia del otro, detectar mentiras</td></tr>
             </table>
 
-            <h3>MecÃ¡nica de la Danza</h3>
+            <h3>Mecánica de la Danza</h3>
             <div class="stat-block">
-                <h3>ResoluciÃ³n de Conflicto Social</h3>
+                <h3>Resolución de Conflicto Social</h3>
                 <div class="stat-row"><span class="stat-label">Tirada</span><span class="stat-value">Atributo de tu Postura vs Atributo de Postura del NPC</span></div>
-                <div class="stat-row"><span class="stat-label">Ã‰xito</span><span class="stat-value">Tu atributo â‰¥ atributo rival â†’ ganas la interacciÃ³n</span></div>
-                <div class="stat-row"><span class="stat-label">Fallo</span><span class="stat-value">Tu atributo < atributo rival â†’ pierdes, consecuencias segÃºn postura</span></div>
+                <div class="stat-row"><span class="stat-label">Éxito</span><span class="stat-value">Tu atributo = atributo rival ? ganas la interacción</span></div>
+                <div class="stat-row"><span class="stat-label">Fallo</span><span class="stat-value">Tu atributo < atributo rival ? pierdes, consecuencias según postura</span></div>
                 <div class="stat-row"><span class="stat-label">Instinto</span><span class="stat-value">Gastar 1 Instinto = +3 temporal al atributo de tu postura</span></div>
             </div>
 
             <h3>Ventajas y Debilidades por Postura</h3>
             <table>
-                <tr><th>Tu Postura</th><th>Fuerte contra</th><th>DÃ©bil contra</th></tr>
-                <tr><td>ğŸ¦· Acecho</td><td>ExposiciÃ³n (la fuerza aplasta la manipulaciÃ³n)</td><td>Mimetismo (no puedes intimidar lo que no ves)</td></tr>
-                <tr><td>ğŸ’ ExposiciÃ³n</td><td>VibraciÃ³n (las feromonas saturan los sensilios)</td><td>Acecho (la fuerza bruta ignora la seducciÃ³n)</td></tr>
-                <tr><td>ğŸ«¥ Mimetismo</td><td>Acecho (la invisibilidad anula la intimidaciÃ³n)</td><td>VibraciÃ³n (los sensilios detectan lo oculto)</td></tr>
-                <tr><td>ğŸ“¡ VibraciÃ³n</td><td>Mimetismo (los sensilios revelan lo escondido)</td><td>ExposiciÃ³n (las feromonas saturan la percepciÃ³n)</td></tr>
+                <tr><th>Tu Postura</th><th>Fuerte contra</th><th>Débil contra</th></tr>
+                <tr><td>?? Acecho</td><td>Exposición (la fuerza aplasta la manipulación)</td><td>Mimetismo (no puedes intimidar lo que no ves)</td></tr>
+                <tr><td>?? Exposición</td><td>Vibración (las feromonas saturan los sensilios)</td><td>Acecho (la fuerza bruta ignora la seducción)</td></tr>
+                <tr><td>?? Mimetismo</td><td>Acecho (la invisibilidad anula la intimidación)</td><td>Vibración (los sensilios detectan lo oculto)</td></tr>
+                <tr><td>?? Vibración</td><td>Mimetismo (los sensilios revelan lo escondido)</td><td>Exposición (las feromonas saturan la percepción)</td></tr>
             </table>
 
-            <h3>Afinidad por TaxÃ³n</h3>
+            <h3>Afinidad por Taxón</h3>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ Cada TaxÃ³n tiene posturas naturales</h4>
-                <p>SegÃºn sus Atributos Primordiales, cada TaxÃ³n tiene posturas donde brilla y posturas donde es vulnerable:</p>
+                <h4>?? Cada Taxón tiene posturas naturales</h4>
+                <p>Según sus Atributos Primordiales, cada Taxón tiene posturas donde brilla y posturas donde es vulnerable:</p>
             </div>
             <table>
-                <tr><th>TaxÃ³n</th><th>Postura Fuerte</th><th>Postura DÃ©bil</th></tr>
-                <tr><td>ğŸ¦Ÿ Zancudos</td><td>Mimetismo (CRI 8)</td><td>ExposiciÃ³n (FER 3)</td></tr>
-                <tr><td>ğŸª³ Cucarachas</td><td>Mimetismo (CRI 6)</td><td>ExposiciÃ³n (FER 1)</td></tr>
-                <tr><td>ğŸ Avispas</td><td>Acecho (TOR 8)</td><td>VibraciÃ³n (SEN 4)</td></tr>
-                <tr><td>ğŸ•·ï¸ Garrapatas</td><td>Acecho (TOR 7)</td><td>ExposiciÃ³n (FER 2)</td></tr>
-                <tr><td>ğŸ›ï¸ Chinches</td><td>ExposiciÃ³n (FER 9)</td><td>Acecho (TOR 3)</td></tr>
-                <tr><td>ğŸ¦‹ Mariposas</td><td>ExposiciÃ³n (FER 10)</td><td>Acecho (TOR 2)</td></tr>
-                <tr><td>ğŸ•¸ï¸ AraÃ±as</td><td>VibraciÃ³n (SEN 9)</td><td>ExposiciÃ³n (FER 1)</td></tr>
-                <tr><td>ğŸ¦‚ Escorpiones</td><td>Acecho (TOR 8)</td><td>ExposiciÃ³n (FER 3)</td></tr>
-                <tr><td>ğŸ—¡ï¸ Vinchucas</td><td>Mimetismo (CRI 10)</td><td>ExposiciÃ³n (FER 2)</td></tr>
-                <tr><td>ğŸ’€ Moscas</td><td>VibraciÃ³n (SEN 7)</td><td>Mimetismo (CRI 2)</td></tr>
-                <tr><td>ğŸ§ª Sanguijuelas</td><td>ExposiciÃ³n (FER 8)</td><td>Acecho (TOR 3)</td></tr>
-                <tr><td>ğŸŒ™ Polillas</td><td>VibraciÃ³n (SEN 10)</td><td>Acecho (TOR 3)</td></tr>
-                <tr><td>âš¡ Pulgas</td><td>Mimetismo (GAN 10â†’evasiÃ³n)</td><td>VibraciÃ³n (SEN 6)</td></tr>
-                <tr><td>ğŸ¦Ÿ TÃ­pulas</td><td>VibraciÃ³n (SEN 9)</td><td>Acecho (TOR 3)</td></tr>
+                <tr><th>Taxón</th><th>Postura Fuerte</th><th>Postura Débil</th></tr>
+                <tr><td>?? Zancudos</td><td>Mimetismo (CRI 8)</td><td>Exposición (FER 3)</td></tr>
+                <tr><td>?? Cucarachas</td><td>Mimetismo (CRI 6)</td><td>Exposición (FER 1)</td></tr>
+                <tr><td>?? Avispas</td><td>Acecho (TOR 8)</td><td>Vibración (SEN 4)</td></tr>
+                <tr><td>??? Garrapatas</td><td>Acecho (TOR 7)</td><td>Exposición (FER 2)</td></tr>
+                <tr><td>??? Chinches</td><td>Exposición (FER 9)</td><td>Acecho (TOR 3)</td></tr>
+                <tr><td>?? Mariposas</td><td>Exposición (FER 10)</td><td>Acecho (TOR 2)</td></tr>
+                <tr><td>??? Arañas</td><td>Vibración (SEN 9)</td><td>Exposición (FER 1)</td></tr>
+                <tr><td>?? Escorpiones</td><td>Acecho (TOR 8)</td><td>Exposición (FER 3)</td></tr>
+                <tr><td>??? Vinchucas</td><td>Mimetismo (CRI 10)</td><td>Exposición (FER 2)</td></tr>
+                <tr><td>?? Moscas</td><td>Vibración (SEN 7)</td><td>Mimetismo (CRI 2)</td></tr>
+                <tr><td>?? Sanguijuelas</td><td>Exposición (FER 8)</td><td>Acecho (TOR 3)</td></tr>
+                <tr><td>?? Polillas</td><td>Vibración (SEN 10)</td><td>Acecho (TOR 3)</td></tr>
+                <tr><td>? Pulgas</td><td>Mimetismo (GAN 10?evasión)</td><td>Vibración (SEN 6)</td></tr>
+                <tr><td>?? Típulas</td><td>Vibración (SEN 9)</td><td>Acecho (TOR 3)</td></tr>
             </table>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Ejemplo de Danza</h4>
+                <h4>?? Ejemplo de Danza</h4>
                 <blockquote>
-                <p><strong>Don Rufino (Chinche, FER 9)</strong> adopta postura de <em>ExposiciÃ³n</em>:</p>
-                <p>"Querido, Â¿de verdad crees que puedes entrar a MI metro sin pagar el peaje? Mira estos Ã©litros. Mira esta sangre Premium corriendo por mis venas. TÃº hueles a cuneta. Yo huelo a sÃ¡banas de seda."</p>
+                <p><strong>Don Rufino (Chinche, FER 9)</strong> adopta postura de <em>Exposición</em>:</p>
+                <p>"Querido, ¿de verdad crees que puedes entrar a MI metro sin pagar el peaje? Mira estos élitros. Mira esta sangre Premium corriendo por mis venas. Tú hueles a cuneta. Yo huelo a sábanas de seda."</p>
                 <p><strong>Opciones del jugador:</strong></p>
-                <p>ğŸ¦· <em>Acecho (TOR):</em> "Tus sÃ¡banas no te van a proteger de mis mandÃ­bulas." â†’ Fuerte contra ExposiciÃ³n</p>
-                <p>ğŸ“¡ <em>VibraciÃ³n (SEN):</em> "Detecto miedo bajo esas feromonas, Rufino. Â¿QuiÃ©n te amenazÃ³?" â†’ DÃ©bil contra ExposiciÃ³n</p>
+                <p>?? <em>Acecho (TOR):</em> "Tus sábanas no te van a proteger de mis mandíbulas." ? Fuerte contra Exposición</p>
+                <p>?? <em>Vibración (SEN):</em> "Detecto miedo bajo esas feromonas, Rufino. ¿Quién te amenazó?" ? Débil contra Exposición</p>
                 </blockquote>
             </div>
 
-            <!-- SECCIÃ“N 11: GRADOS DE ESTABILIDAD GENÃ‰TICA -->
-            <h2>ğŸ§¬ Grados de Estabilidad GenÃ©tica â€” Sistema de ProgresiÃ³n</h2>
+            <!-- SECCIÓN 11: GRADOS DE ESTABILIDAD GENÉTICA -->
+            <h2>?? Grados de Estabilidad Genética — Sistema de Progresión</h2>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ El Techo de tu BiologÃ­a</h4>
-                <p>En Plaga no hay "niveles" como en un RPG genÃ©rico. AquÃ­ tu poder estÃ¡ limitado por la <strong>estabilidad de tu cÃ³digo genÃ©tico</strong>. Cuanto mÃ¡s cerca estÃ©s del ADN original de los Progenitores (IDE bajo), mÃ¡s potencial tienes â€” pero mÃ¡s inestable es tu cuerpo. El progreso no es lineal: es una escalera de 5 Grados donde cada peldaÃ±o se gana con sangre, degluciÃ³n o misiones de estabilizaciÃ³n.</p>
+                <h4>?? El Techo de tu Biología</h4>
+                <p>En Plaga no hay "niveles" como en un RPG genérico. Aquí tu poder está limitado por la <strong>estabilidad de tu código genético</strong>. Cuanto más cerca estés del ADN original de los Progenitores (IDE bajo), más potencial tienes — pero más inestable es tu cuerpo. El progreso no es lineal: es una escalera de 5 Grados donde cada peldaño se gana con sangre, deglución o misiones de estabilización.</p>
             </div>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Nota de Ramazzottius</h4>
-                <p><em>"Los jÃ³venes creen que el poder es un nÃºmero. Adorable. El poder es un umbral. Puedes tener toda la Hemolinfa del mundo, pero si tu quitina no aguanta la presiÃ³n de un Atavismo de nivel 6, vas a explotar como una larva en un microondas. Yo lo he visto. Varias veces. Nunca deja de ser gracioso."</em></p>
+                <h4>?? Nota de Ramazzottius</h4>
+                <p><em>"Los jóvenes creen que el poder es un número. Adorable. El poder es un umbral. Puedes tener toda la Hemolinfa del mundo, pero si tu quitina no aguanta la presión de un Atavismo de nivel 6, vas a explotar como una larva en un microondas. Yo lo he visto. Varias veces. Nunca deja de ser gracioso."</em></p>
             </div>
 
-            <h3>ğŸ“Š Tabla de Grados</h3>
+            <h3>?? Tabla de Grados</h3>
             <table>
-                <tr><th>Grado</th><th>Nombre</th><th>IDE</th><th>Atributos (MÃ¡x)</th><th>Atavismos (MÃ¡x)</th><th>Rol del Jugador</th></tr>
-                <tr><td><strong>I</strong></td><td>ğŸ› ErrÃ¡tico</td><td>10.000+</td><td>5</td><td>3</td><td>Don nadie de alcantarilla. Mutaciones aleatorias, potencial explosivo.</td></tr>
-                <tr><td><strong>II</strong></td><td>ğŸª³ Adaptado</td><td>5.000 â€“ 9.999</td><td>6</td><td>4</td><td>Ya controlas tus Atavismos. Tienes tu lugar en el Gran Charco.</td></tr>
-                <tr><td><strong>III</strong></td><td>ğŸ¦‚ Ascendido</td><td>500 â€“ 4.999</td><td>7</td><td>5</td><td>Amenaza local. Los otros taxones te miran con respeto y envidia.</td></tr>
-                <tr><td><strong>IV</strong></td><td>ğŸ‘‘ Arconte</td><td>50 â€“ 499</td><td>8</td><td>6</td><td>Pilar del orden o del caos. Tus decisiones cambian el mapa.</td></tr>
-                <tr><td><strong>V</strong></td><td>âš—ï¸ Progenitor</td><td>1 â€“ 49</td><td>9+</td><td>7+</td><td>A un paso de la divinidad perdida. Casi nadie llega aquÃ­ cuerdo.</td></tr>
+                <tr><th>Grado</th><th>Nombre</th><th>IDE</th><th>Atributos (Máx)</th><th>Atavismos (Máx)</th><th>Rol del Jugador</th></tr>
+                <tr><td><strong>I</strong></td><td>?? Errático</td><td>10.000+</td><td>5</td><td>3</td><td>Don nadie de alcantarilla. Mutaciones aleatorias, potencial explosivo.</td></tr>
+                <tr><td><strong>II</strong></td><td>?? Adaptado</td><td>5.000 – 9.999</td><td>6</td><td>4</td><td>Ya controlas tus Atavismos. Tienes tu lugar en el Gran Charco.</td></tr>
+                <tr><td><strong>III</strong></td><td>?? Ascendido</td><td>500 – 4.999</td><td>7</td><td>5</td><td>Amenaza local. Los otros taxones te miran con respeto y envidia.</td></tr>
+                <tr><td><strong>IV</strong></td><td>?? Arconte</td><td>50 – 499</td><td>8</td><td>6</td><td>Pilar del orden o del caos. Tus decisiones cambian el mapa.</td></tr>
+                <tr><td><strong>V</strong></td><td>?? Progenitor</td><td>1 – 49</td><td>9+</td><td>7+</td><td>A un paso de la divinidad perdida. Casi nadie llega aquí cuerdo.</td></tr>
             </table>
 
-            <h3>ğŸ”’ Restricciones por Grado (Techos GenÃ©ticos)</h3>
+            <h3>?? Restricciones por Grado (Techos Genéticos)</h3>
             <div class="info-box warning">
-                <h4>âš ï¸ Regla de Hierro</h4>
-                <p>No importa cuÃ¡nta EXP tengas: si eres Grado I, tus Atributos Primordiales <strong>no pueden superar 5</strong> y tus Atavismos no pasan de nivel 3. Tu biologÃ­a actual no da para mÃ¡s. Para romper el techo, necesitas <strong>ascender de Grado</strong>.</p>
+                <h4>?? Regla de Hierro</h4>
+                <p>No importa cuánta EXP tengas: si eres Grado I, tus Atributos Primordiales <strong>no pueden superar 5</strong> y tus Atavismos no pasan de nivel 3. Tu biología actual no da para más. Para romper el techo, necesitas <strong>ascender de Grado</strong>.</p>
             </div>
 
             <table>
-                <tr><th>Grado</th><th>TÃ³rax (MÃ¡x)</th><th>Ganglios (MÃ¡x)</th><th>Quitina (MÃ¡x)</th><th>Sensilios (MÃ¡x)</th><th>Cripsis (MÃ¡x)</th><th>Feromonas (MÃ¡x)</th><th>Atavismo (MÃ¡x Nivel)</th></tr>
-                <tr><td><strong>I â€” ErrÃ¡tico</strong></td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>3</td></tr>
-                <tr><td><strong>II â€” Adaptado</strong></td><td>6</td><td>6</td><td>6</td><td>6</td><td>6</td><td>6</td><td>4</td></tr>
-                <tr><td><strong>III â€” Ascendido</strong></td><td>7</td><td>7</td><td>7</td><td>7</td><td>7</td><td>7</td><td>5</td></tr>
-                <tr><td><strong>IV â€” Arconte</strong></td><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td><td>6</td></tr>
-                <tr><td><strong>V â€” Progenitor</strong></td><td>9+</td><td>9+</td><td>9+</td><td>9+</td><td>9+</td><td>9+</td><td>7+</td></tr>
+                <tr><th>Grado</th><th>Tórax (Máx)</th><th>Ganglios (Máx)</th><th>Quitina (Máx)</th><th>Sensilios (Máx)</th><th>Cripsis (Máx)</th><th>Feromonas (Máx)</th><th>Atavismo (Máx Nivel)</th></tr>
+                <tr><td><strong>I — Errático</strong></td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>3</td></tr>
+                <tr><td><strong>II — Adaptado</strong></td><td>6</td><td>6</td><td>6</td><td>6</td><td>6</td><td>6</td><td>4</td></tr>
+                <tr><td><strong>III — Ascendido</strong></td><td>7</td><td>7</td><td>7</td><td>7</td><td>7</td><td>7</td><td>5</td></tr>
+                <tr><td><strong>IV — Arconte</strong></td><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td><td>6</td></tr>
+                <tr><td><strong>V — Progenitor</strong></td><td>9+</td><td>9+</td><td>9+</td><td>9+</td><td>9+</td><td>9+</td><td>7+</td></tr>
             </table>
 
-            <h3>ğŸ©¸ MecÃ¡nica de DegluciÃ³n 2.0 â€” Ascenso por Reescritura</h3>
+            <h3>?? Mecánica de Deglución 2.0 — Ascenso por Reescritura</h3>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ El Efecto ImÃ¡n</h4>
-                <p>La DegluciÃ³n es el acto de <strong>consumir el cÃ³digo genÃ©tico</strong> de otro insecto para reescribir el tuyo. Es la forma mÃ¡s rÃ¡pida (y peligrosa) de ascender de Grado. Pero tu cuerpo no es un disco duro â€” absorber demasiado poder demasiado rÃ¡pido te destruye desde dentro.</p>
+                <h4>?? El Efecto Imán</h4>
+                <p>La Deglución es el acto de <strong>consumir el código genético</strong> de otro insecto para reescribir el tuyo. Es la forma más rápida (y peligrosa) de ascender de Grado. Pero tu cuerpo no es un disco duro — absorber demasiado poder demasiado rápido te destruye desde dentro.</p>
             </div>
 
             <table>
-                <tr><th>Regla</th><th>DescripciÃ³n</th><th>Consecuencia</th></tr>
-                <tr><td><strong>Solo hacia arriba</strong></td><td>Solo puedes deglutir a alguien de tu mismo Grado o superior para ganar estabilidad</td><td>Deglutir a alguien inferior no te da nada (ya tienes ese cÃ³digo)</td></tr>
-                <tr><td><strong>Efecto ImÃ¡n</strong></td><td>Si eres Grado II y deglutes a un Grado IV, subes a Grado III inestable</td><td>No saltas dos Grados de golpe â€” tu cuerpo no lo soporta</td></tr>
-                <tr><td><strong>Shock de Compatibilidad</strong></td><td>Al ascender por DegluciÃ³n, sufres debuff temporal</td><td>-2 a TODOS los Atributos por 3 dÃ­as (in-game). Eres vulnerable.</td></tr>
-                <tr><td><strong>CorrupciÃ³n por Exceso</strong></td><td>Deglutir mÃ¡s de 1 vez por semana (in-game)</td><td>-5% Esencia de TaxÃ³n por cada DegluciÃ³n extra. El Silencio Verde aprovecha.</td></tr>
-                <tr><td><strong>Bloqueo BiolÃ³gico</strong></td><td>No puedes deglutir a alguien 3+ Grados por encima</td><td>Mensaje: "Tu cÃ³digo genÃ©tico no puede procesar una carga tan masiva"</td></tr>
+                <tr><th>Regla</th><th>Descripción</th><th>Consecuencia</th></tr>
+                <tr><td><strong>Solo hacia arriba</strong></td><td>Solo puedes deglutir a alguien de tu mismo Grado o superior para ganar estabilidad</td><td>Deglutir a alguien inferior no te da nada (ya tienes ese código)</td></tr>
+                <tr><td><strong>Efecto Imán</strong></td><td>Si eres Grado II y deglutes a un Grado IV, subes a Grado III inestable</td><td>No saltas dos Grados de golpe — tu cuerpo no lo soporta</td></tr>
+                <tr><td><strong>Shock de Compatibilidad</strong></td><td>Al ascender por Deglución, sufres debuff temporal</td><td>-2 a TODOS los Atributos por 3 días (in-game). Eres vulnerable.</td></tr>
+                <tr><td><strong>Corrupción por Exceso</strong></td><td>Deglutir más de 1 vez por semana (in-game)</td><td>-5% Esencia de Taxón por cada Deglución extra. El Silencio Verde aprovecha.</td></tr>
+                <tr><td><strong>Bloqueo Biológico</strong></td><td>No puedes deglutir a alguien 3+ Grados por encima</td><td>Mensaje: "Tu código genético no puede procesar una carga tan masiva"</td></tr>
             </table>
 
-            <h3>ğŸ”ï¸ Misiones de EstabilizaciÃ³n â€” Ascenso LegÃ­timo</h3>
+            <h3>??? Misiones de Estabilización — Ascenso Legítimo</h3>
             <div class="info-box lore">
-                <h4>ğŸ“œ El Camino Largo</h4>
-                <p>No todos quieren (o pueden) deglutir. Las Misiones de EstabilizaciÃ³n son la forma "limpia" de ascender: pruebas que demuestran que tu biologÃ­a estÃ¡ lista para el siguiente Grado. Son mÃ¡s lentas, pero no arriesgan tu Esencia.</p>
+                <h4>?? El Camino Largo</h4>
+                <p>No todos quieren (o pueden) deglutir. Las Misiones de Estabilización son la forma "limpia" de ascender: pruebas que demuestran que tu biología está lista para el siguiente Grado. Son más lentas, pero no arriesgan tu Esencia.</p>
             </div>
 
             <table>
-                <tr><th>Ascenso</th><th>Requisito de MisiÃ³n</th><th>Ejemplo Narrativo</th></tr>
-                <tr><td><strong>I â†’ II</strong></td><td>Sobrevivir 7 combates + completar 1 quest de facciÃ³n</td><td>"Demuestra que no eres solo otra larva que va a morir en la primera lluvia."</td></tr>
-                <tr><td><strong>II â†’ III</strong></td><td>Derrotar a un enemigo Grado III + obtener reconocimiento de 1 facciÃ³n</td><td>"El Metro Baquedano necesita saber tu nombre antes de dejarte entrar."</td></tr>
-                <tr><td><strong>III â†’ IV</strong></td><td>Completar una cadena de quests de facciÃ³n + decisiÃ³n moral irreversible</td><td>"Â¿Traicionas a La Colmena o destruyes a Los ParÃ¡sitos Libres? Elige."</td></tr>
-                <tr><td><strong>IV â†’ V</strong></td><td>Ritual del Ã‰ter Ancestral (requiere Reliquia del CarbonÃ­fero)</td><td>"Solo los que tocan el 35% pueden recordar lo que Ã©ramos. Â¿EstÃ¡s listo para recordar?"</td></tr>
+                <tr><th>Ascenso</th><th>Requisito de Misión</th><th>Ejemplo Narrativo</th></tr>
+                <tr><td><strong>I ? II</strong></td><td>Sobrevivir 7 combates + completar 1 quest de facción</td><td>"Demuestra que no eres solo otra larva que va a morir en la primera lluvia."</td></tr>
+                <tr><td><strong>II ? III</strong></td><td>Derrotar a un enemigo Grado III + obtener reconocimiento de 1 facción</td><td>"El Metro Baquedano necesita saber tu nombre antes de dejarte entrar."</td></tr>
+                <tr><td><strong>III ? IV</strong></td><td>Completar una cadena de quests de facción + decisión moral irreversible</td><td>"¿Traicionas a La Colmena o destruyes a Los Parásitos Libres? Elige."</td></tr>
+                <tr><td><strong>IV ? V</strong></td><td>Ritual del Éter Ancestral (requiere Reliquia del Carbonífero)</td><td>"Solo los que tocan el 35% pueden recordar lo que éramos. ¿Estás listo para recordar?"</td></tr>
             </table>
 
-            <h3>âš¡ Beneficios por Ascenso de Grado</h3>
+            <h3>? Beneficios por Ascenso de Grado</h3>
             <table>
                 <tr><th>Grado Alcanzado</th><th>Desbloqueo</th><th>Efecto</th></tr>
-                <tr><td><strong>II â€” Adaptado</strong></td><td>+1 Slot de Atavismo activo</td><td>Puedes equipar 2 Atavismos simultÃ¡neamente</td></tr>
-                <tr><td><strong>III â€” Ascendido</strong></td><td>Poder Signature desbloqueado</td><td>Acceso al Atavismo nivel 5 (Poder Signature de tu TaxÃ³n)</td></tr>
-                <tr><td><strong>IV â€” Arconte</strong></td><td>Influencia de FacciÃ³n</td><td>Puedes dar Ã³rdenes a NPCs de tu facciÃ³n. +3 Feromonas en Danza de Antenas.</td></tr>
-                <tr><td><strong>V â€” Progenitor</strong></td><td>Control Ambiental</td><td>Atavismos afectan el entorno (O2, temperatura, esporas). Cambias las reglas del mapa.</td></tr>
+                <tr><td><strong>II — Adaptado</strong></td><td>+1 Slot de Atavismo activo</td><td>Puedes equipar 2 Atavismos simultáneamente</td></tr>
+                <tr><td><strong>III — Ascendido</strong></td><td>Poder Signature desbloqueado</td><td>Acceso al Atavismo nivel 5 (Poder Signature de tu Taxón)</td></tr>
+                <tr><td><strong>IV — Arconte</strong></td><td>Influencia de Facción</td><td>Puedes dar órdenes a NPCs de tu facción. +3 Feromonas en Danza de Antenas.</td></tr>
+                <tr><td><strong>V — Progenitor</strong></td><td>Control Ambiental</td><td>Atavismos afectan el entorno (O2, temperatura, esporas). Cambias las reglas del mapa.</td></tr>
             </table>
 
             <div class="info-box warning">
-                <h4>âš ï¸ El Precio del Grado V</h4>
-                <p>Nadie llega a Progenitor sin pagar un precio. Tu Esencia de TaxÃ³n se vuelve <strong>permanentemente inestable</strong> (-1% por dÃ­a in-game). Eres un dios con fecha de vencimiento. El Silencio Verde te quiere mÃ¡s que a nadie â€” porque eres el recipiente perfecto.</p>
+                <h4>?? El Precio del Grado V</h4>
+                <p>Nadie llega a Progenitor sin pagar un precio. Tu Esencia de Taxón se vuelve <strong>permanentemente inestable</strong> (-1% por día in-game). Eres un dios con fecha de vencimiento. El Silencio Verde te quiere más que a nadie — porque eres el recipiente perfecto.</p>
             </div>
 
-            <h3>ğŸ’€ Vestigios de los Antiguos â€” Ascenso por Consumo de Reliquias</h3>
+            <h3>?? Vestigios de los Antiguos — Ascenso por Consumo de Reliquias</h3>
             <div class="info-box lore">
-                <h4>ğŸ“œ Fragmentos de Dioses Muertos</h4>
-                <p>Dispersos por el Gran Charco hay <strong>Vestigios</strong> â€” restos biolÃ³gicos de insectos ancestrales que alguna vez fueron Grado IV o V. Fragmentos de quitina fosilizada, gotas de Hemolinfa cristalizada, esporas de Atavismos extintos. Consumirlos te permite <strong>tocar temporalmente un Grado superior</strong> al tuyo â€” o, en casos excepcionales, consolidar un ascenso permanente.</p>
+                <h4>?? Fragmentos de Dioses Muertos</h4>
+                <p>Dispersos por el Gran Charco hay <strong>Vestigios</strong> — restos biológicos de insectos ancestrales que alguna vez fueron Grado IV o V. Fragmentos de quitina fosilizada, gotas de Hemolinfa cristalizada, esporas de Atavismos extintos. Consumirlos te permite <strong>tocar temporalmente un Grado superior</strong> al tuyo — o, en casos excepcionales, consolidar un ascenso permanente.</p>
             </div>
 
             <table>
-                <tr><th>Vestigio</th><th>Efecto</th><th>DuraciÃ³n</th><th>Riesgo</th></tr>
-                <tr><td><strong>ğŸ¦´ Fragmento de Exoesqueleto Ancestral</strong></td><td>+1 Grado temporal (techos de stats se elevan)</td><td>1 combate / 1 escena social</td><td>Ninguno. Se consume al terminar.</td></tr>
-                <tr><td><strong>ğŸ©¸ Gota de Hemolinfa Cristalizada</strong></td><td>+1 Grado temporal + restaura Hemolinfa al 100%</td><td>3 turnos de combate</td><td>-3% Esencia al terminar (resaca genÃ©tica)</td></tr>
-                <tr><td><strong>ğŸ§¬ Espora de Atavismo Extinto</strong></td><td>Desbloquea 1 Atavismo de Grado superior por 1 uso</td><td>1 uso Ãºnico</td><td>Si fallas la tirada de Resistencia: -5% Esencia</td></tr>
-                <tr><td><strong>ğŸ’ Ãmbar de Progenitor</strong></td><td>Ascenso permanente de Grado (reemplaza MisiÃ³n de EstabilizaciÃ³n)</td><td>Permanente</td><td>Shock de Compatibilidad (debuff 3 dÃ­as) + -10% Esencia inmediato</td></tr>
-                <tr><td><strong>ğŸŒ¿ RaÃ­z de Ã‰ter Fosilizada</strong></td><td>+1 Grado temporal + inmunidad al Silencio Verde</td><td>1 dÃ­a in-game</td><td>AdicciÃ³n: cada uso posterior dura menos (-50% duraciÃ³n acumulativo)</td></tr>
+                <tr><th>Vestigio</th><th>Efecto</th><th>Duración</th><th>Riesgo</th></tr>
+                <tr><td><strong>?? Fragmento de Exoesqueleto Ancestral</strong></td><td>+1 Grado temporal (techos de stats se elevan)</td><td>1 combate / 1 escena social</td><td>Ninguno. Se consume al terminar.</td></tr>
+                <tr><td><strong>?? Gota de Hemolinfa Cristalizada</strong></td><td>+1 Grado temporal + restaura Hemolinfa al 100%</td><td>3 turnos de combate</td><td>-3% Esencia al terminar (resaca genética)</td></tr>
+                <tr><td><strong>?? Espora de Atavismo Extinto</strong></td><td>Desbloquea 1 Atavismo de Grado superior por 1 uso</td><td>1 uso único</td><td>Si fallas la tirada de Resistencia: -5% Esencia</td></tr>
+                <tr><td><strong>?? Ámbar de Progenitor</strong></td><td>Ascenso permanente de Grado (reemplaza Misión de Estabilización)</td><td>Permanente</td><td>Shock de Compatibilidad (debuff 3 días) + -10% Esencia inmediato</td></tr>
+                <tr><td><strong>?? Raíz de Éter Fosilizada</strong></td><td>+1 Grado temporal + inmunidad al Silencio Verde</td><td>1 día in-game</td><td>Adicción: cada uso posterior dura menos (-50% duración acumulativo)</td></tr>
             </table>
 
             <div class="info-box mechanic">
-                <h4>âš™ï¸ Reglas de los Vestigios</h4>
+                <h4>?? Reglas de los Vestigios</h4>
                 <ul style="margin-top: 0.5em; padding-left: 1.5em;">
-                    <li><strong>Temporales:</strong> La mayorÃ­a de los Vestigios dan un buff de Grado temporal â€” ideal para superar una quest difÃ­cil, un jefe, o una Danza de Antenas contra alguien superior.</li>
-                    <li><strong>Permanentes:</strong> Solo el <em>Ãmbar de Progenitor</em> da ascenso permanente. Es extremadamente raro (1 por zona del mapa, escondido en lugares letales).</li>
+                    <li><strong>Temporales:</strong> La mayoría de los Vestigios dan un buff de Grado temporal — ideal para superar una quest difícil, un jefe, o una Danza de Antenas contra alguien superior.</li>
+                    <li><strong>Permanentes:</strong> Solo el <em>Ámbar de Progenitor</em> da ascenso permanente. Es extremadamente raro (1 por zona del mapa, escondido en lugares letales).</li>
                     <li><strong>No acumulables:</strong> No puedes consumir 2 Vestigios temporales a la vez. El segundo anula al primero.</li>
-                    <li><strong>Narrativos:</strong> Encontrar un Vestigio siempre viene con lore â€” quiÃ©n fue el Antiguo, cÃ³mo muriÃ³, quÃ© Grado tenÃ­a. Son piezas de historia jugable.</li>
+                    <li><strong>Narrativos:</strong> Encontrar un Vestigio siempre viene con lore — quién fue el Antiguo, cómo murió, qué Grado tenía. Son piezas de historia jugable.</li>
                 </ul>
             </div>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Nota de Ramazzottius sobre los Vestigios</h4>
-                <p><em>"Ah, los Vestigios. Los jÃ³venes los buscan como si fueran dulces. 'Mira, encontrÃ© un pedazo de Arthropleura, ahora soy invencible'. SÃ­, por 3 turnos. Luego tu cuerpo recuerda que eres un Grado II y te cobra la factura con intereses. He visto a mÃ¡s de uno explotar por dentro despuÃ©s de consumir un Ãmbar sin estar listo. Hermoso espectÃ¡culo, eso sÃ­."</em></p>
+                <h4>?? Nota de Ramazzottius sobre los Vestigios</h4>
+                <p><em>"Ah, los Vestigios. Los jóvenes los buscan como si fueran dulces. 'Mira, encontré un pedazo de Arthropleura, ahora soy invencible'. Sí, por 3 turnos. Luego tu cuerpo recuerda que eres un Grado II y te cobra la factura con intereses. He visto a más de uno explotar por dentro después de consumir un Ámbar sin estar listo. Hermoso espectáculo, eso sí."</em></p>
             </div>
 
-            <h3>ğŸ® CÃ³mo se Siente al Jugar</h3>
+            <h3>?? Cómo se Siente al Jugar</h3>
             <div class="stat-block">
-                <h3>ProgresiÃ³n Emocional</h3>
-                <div class="stat-row"><span class="stat-label">Grado I</span><span class="stat-value">Bicho de cuneta. Cada punto de stat es una victoria. GestiÃ³n de recursos brutal.</span></div>
+                <h3>Progresión Emocional</h3>
+                <div class="stat-row"><span class="stat-label">Grado I</span><span class="stat-value">Bicho de cuneta. Cada punto de stat es una victoria. Gestión de recursos brutal.</span></div>
                 <div class="stat-row"><span class="stat-label">Grado II</span><span class="stat-value">Ya no eres presa. Empiezas a ser depredador. Las combinaciones de Atavismos se abren.</span></div>
                 <div class="stat-row"><span class="stat-label">Grado III</span><span class="stat-value">El juego brilla. Eres una fuerza en el Metro. Los NPCs te respetan o te temen.</span></div>
-                <div class="stat-row"><span class="stat-label">Grado IV</span><span class="stat-value">PolÃ­tica y poder. Ya no peleas por sobrevivir â€” peleas por controlar.</span></div>
-                <div class="stat-row"><span class="stat-label">Grado V</span><span class="stat-value">El juego cambia. No te preocupas por pelear â€” te preocupas por no destruir todo a tu alrededor.</span></div>
+                <div class="stat-row"><span class="stat-label">Grado IV</span><span class="stat-value">Política y poder. Ya no peleas por sobrevivir — peleas por controlar.</span></div>
+                <div class="stat-row"><span class="stat-label">Grado V</span><span class="stat-value">El juego cambia. No te preocupas por pelear — te preocupas por no destruir todo a tu alrededor.</span></div>
             </div>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Nota de DiseÃ±o: Â¿Por quÃ© 5 Grados?</h4>
-                <p>La escala de 5 Grados mantiene al jugador como <strong>protagonista</strong>. No eres un nÃºmero perdido en una escala de 20.000 â€” eres un bicho que sube una escalera de 5 peldaÃ±os donde cada uno se siente como una conquista Ã©pica. La DegluciÃ³n de un Grado III siendo tÃº un Grado II es un momento que recordarÃ¡s. Eso es progresiÃ³n con peso narrativo.</p>
+                <h4>?? Nota de Diseño: ¿Por qué 5 Grados?</h4>
+                <p>La escala de 5 Grados mantiene al jugador como <strong>protagonista</strong>. No eres un número perdido en una escala de 20.000 — eres un bicho que sube una escalera de 5 peldaños donde cada uno se siente como una conquista épica. La Deglución de un Grado III siendo tú un Grado II es un momento que recordarás. Eso es progresión con peso narrativo.</p>
             </div>
 
-            <!-- SECCIÃ“N 12: ARQUETIPOS DE ROL (VOCACIONES) -->
-            <h2>ğŸ­ Vocaciones del Gran Charco â€” Arquetipos de Rol</h2>
+            <!-- SECCIÓN 12: ARQUETIPOS DE ROL (VOCACIONES) -->
+            <h2>?? Vocaciones del Gran Charco — Arquetipos de Rol</h2>
             <div class="info-box lore">
-                <h4>ğŸ“œ No todos nacieron para pelear</h4>
-                <p>En el aÃ±o 20.000, el Gran Charco no es solo un campo de batalla â€” es una civilizaciÃ³n. Hay historiadores que buscan reliquias del CarbonÃ­fero, escÃ©pticos que niegan la existencia de los Semidioses, arqueÃ³logos de ruinas humanas, y fanÃ¡ticos que dedican su vida a encontrar al TardÃ­grado dormido. Tu <strong>VocaciÃ³n</strong> define quÃ© haces cuando NO estÃ¡s peleando.</p>
+                <h4>?? No todos nacieron para pelear</h4>
+                <p>En el año 20.000, el Gran Charco no es solo un campo de batalla — es una civilización. Hay historiadores que buscan reliquias del Carbonífero, escépticos que niegan la existencia de los Semidioses, arqueólogos de ruinas humanas, y fanáticos que dedican su vida a encontrar al Tardígrado dormido. Tu <strong>Vocación</strong> define qué haces cuando NO estás peleando.</p>
             </div>
 
             <div class="info-box mechanic">
-                <h4>âš™ï¸ VocaciÃ³n vs Arquetipo de Combate</h4>
-                <p>El <strong>Arquetipo</strong> (Estratega/Ejecutor/Infiltrado/DiplomÃ¡tico) define cÃ³mo peleas. La <strong>VocaciÃ³n</strong> define quiÃ©n eres fuera del combate: tu motivaciÃ³n, tus contactos, y quÃ© tipo de quests te interesan. Puedes ser un EscorpiÃ³n Ejecutor que de dÃ­a aplasta crÃ¡neos y de noche investiga ruinas humanas buscando tecnologÃ­a perdida.</p>
+                <h4>?? Vocación vs Arquetipo de Combate</h4>
+                <p>El <strong>Arquetipo</strong> (Estratega/Ejecutor/Infiltrado/Diplomático) define cómo peleas. La <strong>Vocación</strong> define quién eres fuera del combate: tu motivación, tus contactos, y qué tipo de quests te interesan. Puedes ser un Escorpión Ejecutor que de día aplasta cráneos y de noche investiga ruinas humanas buscando tecnología perdida.</p>
             </div>
 
-            <h3>ğŸ“š Vocaciones AcadÃ©micas</h3>
+            <h3>?? Vocaciones Académicas</h3>
             <table>
-                <tr><th>VocaciÃ³n</th><th>MotivaciÃ³n</th><th>Bonus Social</th><th>Creencia</th></tr>
-                <tr><td><strong>ğŸ›ï¸ Cronista del Ã‰ter</strong></td><td>Documentar la historia real del Gran Ã‰ter y los Progenitores</td><td>+2 Sensilios en zonas con reliquias</td><td>Creyente devoto â€” los Semidioses son reales y deben ser encontrados</td></tr>
-                <tr><td><strong>ğŸ”¬ Excavador de Gigantes</strong></td><td>Investigar ruinas y tecnologÃ­a humana abandonada</td><td>+2 Cripsis en ruinas humanas</td><td>PragmÃ¡tico â€” los "dioses" son solo bichos viejos, la tecnologÃ­a de los Gigantes es el verdadero poder</td></tr>
-                <tr><td><strong>ğŸ“œ Heraldo de Youti</strong></td><td>Encontrar el fÃ³sil de Youti Yuanshi y despertar la paz ancestral</td><td>+2 Feromonas con Taxones enemigos</td><td>Pacifista radical â€” la guerra entre Taxones es un error genÃ©tico que Youti puede corregir</td></tr>
-                <tr><td><strong>ğŸ» Buscador del Oso</strong></td><td>Localizar al TardÃ­grado dormido para desencadenar El Retorno del 35%</td><td>+2 Sensilios para detectar criptobiosis</td><td>Profeta â€” el Retorno es inevitable, solo falta encontrar la llave</td></tr>
-                <tr><td><strong>âŒ EscÃ©ptico del Ãmbar</strong></td><td>Demostrar que los Semidioses son mitos y que el Gran Ã‰ter nunca existiÃ³ como lo cuentan</td><td>+2 a resistir efectos de Resonancia y manipulaciÃ³n divina</td><td>Ateo â€” "520 millones de aÃ±os y nadie ha visto a Youti. Porque no existe."</td></tr>
+                <tr><th>Vocación</th><th>Motivación</th><th>Bonus Social</th><th>Creencia</th></tr>
+                <tr><td><strong>??? Cronista del Éter</strong></td><td>Documentar la historia real del Gran Éter y los Progenitores</td><td>+2 Sensilios en zonas con reliquias</td><td>Creyente devoto — los Semidioses son reales y deben ser encontrados</td></tr>
+                <tr><td><strong>?? Excavador de Gigantes</strong></td><td>Investigar ruinas y tecnología humana abandonada</td><td>+2 Cripsis en ruinas humanas</td><td>Pragmático — los "dioses" son solo bichos viejos, la tecnología de los Gigantes es el verdadero poder</td></tr>
+                <tr><td><strong>?? Heraldo de Youti</strong></td><td>Encontrar el fósil de Youti Yuanshi y despertar la paz ancestral</td><td>+2 Feromonas con Taxones enemigos</td><td>Pacifista radical — la guerra entre Taxones es un error genético que Youti puede corregir</td></tr>
+                <tr><td><strong>?? Buscador del Oso</strong></td><td>Localizar al Tardígrado dormido para desencadenar El Retorno del 35%</td><td>+2 Sensilios para detectar criptobiosis</td><td>Profeta — el Retorno es inevitable, solo falta encontrar la llave</td></tr>
+                <tr><td><strong>? Escéptico del Ámbar</strong></td><td>Demostrar que los Semidioses son mitos y que el Gran Éter nunca existió como lo cuentan</td><td>+2 a resistir efectos de Resonancia y manipulación divina</td><td>Ateo — "520 millones de años y nadie ha visto a Youti. Porque no existe."</td></tr>
             </table>
 
-            <h3>âš”ï¸ Vocaciones de Campo</h3>
+            <h3>?? Vocaciones de Campo</h3>
             <table>
-                <tr><th>VocaciÃ³n</th><th>MotivaciÃ³n</th><th>Bonus Social</th><th>Creencia</th></tr>
-                <tr><td><strong>ğŸ—ºï¸ CartÃ³grafo del Hielo</strong></td><td>Mapear las zonas donde avanza La Colmena Silenciosa desde el sur</td><td>+2 Ganglios en zonas de hielo</td><td>Supervivencialista â€” el frÃ­o va a matar a todos, hay que encontrar refugio</td></tr>
-                <tr><td><strong>ğŸ„ MicÃ³logo Renegado</strong></td><td>Estudiar el Silencio Verde para encontrar una cura (o un arma)</td><td>+1 Quitina contra infecciÃ³n fÃºngica</td><td>Ambiguo â€” "El hongo no es malo ni bueno. Es la siguiente evoluciÃ³n. Hay que entenderlo."</td></tr>
-                <tr><td><strong>ğŸ’€ Saqueador de FÃ³siles</strong></td><td>Encontrar y VENDER Vestigios de los Antiguos al mejor postor</td><td>+2 Cripsis para encontrar objetos ocultos</td><td>Mercenario â€” "Los dioses estÃ¡n muertos. Sus huesos valen mÃ¡s como mercancÃ­a."</td></tr>
-                <tr><td><strong>ğŸ›¡ï¸ GuardiÃ¡n de la Memoria</strong></td><td>Proteger los sitios sagrados de saqueadores y del Silencio Verde</td><td>+2 TÃ³rax en zonas sagradas</td><td>Conservador â€” "Si destruyen las reliquias, perdemos la Ãºltima conexiÃ³n con lo que fuimos."</td></tr>
-                <tr><td><strong>ğŸŒ¿ Sembrador Reformado</strong></td><td>Ex-miembro de Los Sembradores que busca redenciÃ³n investigando alternativas al hongo</td><td>Conoce rituales fÃºngicos (puede identificar trampas de Cordyceps)</td><td>Arrepentido â€” "Yo plantÃ© esporas. Ahora planto preguntas."</td></tr>
+                <tr><th>Vocación</th><th>Motivación</th><th>Bonus Social</th><th>Creencia</th></tr>
+                <tr><td><strong>??? Cartógrafo del Hielo</strong></td><td>Mapear las zonas donde avanza La Colmena Silenciosa desde el sur</td><td>+2 Ganglios en zonas de hielo</td><td>Supervivencialista — el frío va a matar a todos, hay que encontrar refugio</td></tr>
+                <tr><td><strong>?? Micólogo Renegado</strong></td><td>Estudiar el Silencio Verde para encontrar una cura (o un arma)</td><td>+1 Quitina contra infección fúngica</td><td>Ambiguo — "El hongo no es malo ni bueno. Es la siguiente evolución. Hay que entenderlo."</td></tr>
+                <tr><td><strong>?? Saqueador de Fósiles</strong></td><td>Encontrar y VENDER Vestigios de los Antiguos al mejor postor</td><td>+2 Cripsis para encontrar objetos ocultos</td><td>Mercenario — "Los dioses están muertos. Sus huesos valen más como mercancía."</td></tr>
+                <tr><td><strong>??? Guardián de la Memoria</strong></td><td>Proteger los sitios sagrados de saqueadores y del Silencio Verde</td><td>+2 Tórax en zonas sagradas</td><td>Conservador — "Si destruyen las reliquias, perdemos la última conexión con lo que fuimos."</td></tr>
+                <tr><td><strong>?? Sembrador Reformado</strong></td><td>Ex-miembro de Los Sembradores que busca redención investigando alternativas al hongo</td><td>Conoce rituales fúngicos (puede identificar trampas de Cordyceps)</td><td>Arrepentido — "Yo planté esporas. Ahora planto preguntas."</td></tr>
             </table>
 
-            <h3>ğŸ² Vocaciones Sociales / PolÃ­ticas</h3>
+            <h3>?? Vocaciones Sociales / Políticas</h3>
             <table>
-                <tr><th>VocaciÃ³n</th><th>MotivaciÃ³n</th><th>Bonus Social</th><th>Creencia</th></tr>
-                <tr><td><strong>ğŸ‘‘ Cortesano del Metro</strong></td><td>Escalar en la jerarquÃ­a polÃ­tica del Gran Charco</td><td>+2 Feromonas en Danza de Antenas con NPCs de facciÃ³n</td><td>Oportunista â€” "Los dioses no pagan impuestos. El poder real estÃ¡ en los vivos."</td></tr>
-                <tr><td><strong>ğŸ“¡ Operador de la TelaraÃ±a</strong></td><td>Controlar el flujo de informaciÃ³n en la red de las AraÃ±as</td><td>+2 Sensilios para interceptar comunicaciones</td><td>Paranoico â€” "La informaciÃ³n es la Ãºnica arma que no se gasta."</td></tr>
-                <tr><td><strong>ğŸª BufÃ³n del Charco</strong></td><td>Entretener, desinformar y sobrevivir siendo "inofensivo"</td><td>+2 Cripsis social (nadie te toma en serio = nadie te ataca)</td><td>Nihilista â€” "Todo es un chiste. Los Semidioses, el Ã‰ter, la guerra. Todo."</td></tr>
-                <tr><td><strong>âš—ï¸ Alquimista de Hemolinfa</strong></td><td>Crear pociones, venenos y mejoras biolÃ³gicas para vender</td><td>+2 Sensilios para identificar sustancias</td><td>CientÃ­fico â€” "No necesito fe. Necesito fÃ³rmulas."</td></tr>
+                <tr><th>Vocación</th><th>Motivación</th><th>Bonus Social</th><th>Creencia</th></tr>
+                <tr><td><strong>?? Cortesano del Metro</strong></td><td>Escalar en la jerarquía política del Gran Charco</td><td>+2 Feromonas en Danza de Antenas con NPCs de facción</td><td>Oportunista — "Los dioses no pagan impuestos. El poder real está en los vivos."</td></tr>
+                <tr><td><strong>?? Operador de la Telaraña</strong></td><td>Controlar el flujo de información en la red de las Arañas</td><td>+2 Sensilios para interceptar comunicaciones</td><td>Paranoico — "La información es la única arma que no se gasta."</td></tr>
+                <tr><td><strong>?? Bufón del Charco</strong></td><td>Entretener, desinformar y sobrevivir siendo "inofensivo"</td><td>+2 Cripsis social (nadie te toma en serio = nadie te ataca)</td><td>Nihilista — "Todo es un chiste. Los Semidioses, el Éter, la guerra. Todo."</td></tr>
+                <tr><td><strong>?? Alquimista de Hemolinfa</strong></td><td>Crear pociones, venenos y mejoras biológicas para vender</td><td>+2 Sensilios para identificar sustancias</td><td>Científico — "No necesito fe. Necesito fórmulas."</td></tr>
             </table>
 
-            <h3>ğŸ“– CÃ³mo InteractÃºan las Vocaciones con la Historia</h3>
+            <h3>?? Cómo Interactúan las Vocaciones con la Historia</h3>
             <div class="info-box lore">
-                <h4>ğŸ“œ El Gran Debate del AÃ±o 20.000</h4>
-                <p>Han pasado <strong>20.000 aÃ±os</strong> desde que los humanos desaparecieron. La mayorÃ­a de los insectos del Gran Charco nunca han visto un Vestigio, nunca han sentido la Resonancia de Youti, y creen que el Gran Ã‰ter es un cuento para larvas. El debate entre <strong>Creyentes</strong> y <strong>EscÃ©pticos</strong> define la polÃ­tica del Charco:</p>
+                <h4>?? El Gran Debate del Año 20.000</h4>
+                <p>Han pasado <strong>20.000 años</strong> desde que los humanos desaparecieron. La mayoría de los insectos del Gran Charco nunca han visto un Vestigio, nunca han sentido la Resonancia de Youti, y creen que el Gran Éter es un cuento para larvas. El debate entre <strong>Creyentes</strong> y <strong>Escépticos</strong> define la política del Charco:</p>
             </div>
 
             <table>
                 <tr><th>Postura</th><th>Vocaciones Afines</th><th>Argumento</th></tr>
-                <tr><td><strong>ğŸ™ Creyentes</strong></td><td>Cronista, Heraldo de Youti, Buscador del Oso, GuardiÃ¡n</td><td>"Las reliquias existen. La Resonancia es real. Los Semidioses duermen pero volverÃ¡n."</td></tr>
-                <tr><td><strong>ğŸ¤· AgnÃ³sticos</strong></td><td>MicÃ³logo, CartÃ³grafo, Alquimista, Sembrador Reformado</td><td>"Puede que existan, puede que no. Lo que importa es sobrevivir al frÃ­o y al hongo."</td></tr>
-                <tr><td><strong>âŒ EscÃ©pticos</strong></td><td>EscÃ©ptico del Ãmbar, Excavador, Saqueador, BufÃ³n</td><td>"20.000 aÃ±os y nadie ha encontrado nada. Son mitos para controlar a las masas."</td></tr>
-                <tr><td><strong>ğŸ’° Oportunistas</strong></td><td>Cortesano, Operador, Saqueador</td><td>"Me da igual si son reales. Â¿CuÃ¡nto pagan por un fÃ³sil?"</td></tr>
+                <tr><td><strong>?? Creyentes</strong></td><td>Cronista, Heraldo de Youti, Buscador del Oso, Guardián</td><td>"Las reliquias existen. La Resonancia es real. Los Semidioses duermen pero volverán."</td></tr>
+                <tr><td><strong>?? Agnósticos</strong></td><td>Micólogo, Cartógrafo, Alquimista, Sembrador Reformado</td><td>"Puede que existan, puede que no. Lo que importa es sobrevivir al frío y al hongo."</td></tr>
+                <tr><td><strong>? Escépticos</strong></td><td>Escéptico del Ámbar, Excavador, Saqueador, Bufón</td><td>"20.000 años y nadie ha encontrado nada. Son mitos para controlar a las masas."</td></tr>
+                <tr><td><strong>?? Oportunistas</strong></td><td>Cortesano, Operador, Saqueador</td><td>"Me da igual si son reales. ¿Cuánto pagan por un fósil?"</td></tr>
             </table>
 
             <div class="info-box warning">
-                <h4>âš ï¸ Nota de Gameplay</h4>
-                <p>Tu VocaciÃ³n NO te obliga a nada â€” es una guÃ­a de rol. Un Buscador del Oso puede perder la fe a mitad de campaÃ±a. Un EscÃ©ptico puede encontrar un Vestigio y convertirse en Creyente. Las mejores historias nacen cuando tu VocaciÃ³n <strong>entra en conflicto</strong> con lo que descubres.</p>
+                <h4>?? Nota de Gameplay</h4>
+                <p>Tu Vocación NO te obliga a nada — es una guía de rol. Un Buscador del Oso puede perder la fe a mitad de campaña. Un Escéptico puede encontrar un Vestigio y convertirse en Creyente. Las mejores historias nacen cuando tu Vocación <strong>entra en conflicto</strong> con lo que descubres.</p>
             </div>
 
-            <blockquote>"Llevo 400 aÃ±os buscando al TardÃ­grado. Â¿Sabes quÃ© he encontrado? Hielo. Hongos. CadÃ¡veres de otros buscadores. Pero cada maÃ±ana me levanto y sigo cavando. Porque si dejo de buscar, entonces los EscÃ©pticos tienen razÃ³n. Y eso no lo puedo aceptar."<br>â€” DoÃ±a Esperanza, TÃ­pula Cronista (Grado III)</blockquote>
+            <blockquote>"Llevo 400 años buscando al Tardígrado. ¿Sabes qué he encontrado? Hielo. Hongos. Cadáveres de otros buscadores. Pero cada mañana me levanto y sigo cavando. Porque si dejo de buscar, entonces los Escépticos tienen razón. Y eso no lo puedo aceptar."<br>— Doña Esperanza, Típula Cronista (Grado III)</blockquote>
 
-            <!-- SECCIÃ“N 13: SISTEMA DE FUSIÃ“N -->
-            <h2>âš—ï¸ Sistema de FusiÃ³n â€” Cadena de Crafteo</h2>
+            <!-- SECCIÓN 13: SISTEMA DE FUSIÓN -->
+            <h2>?? Sistema de Fusión — Cadena de Crafteo</h2>
             <div class="info-box mechanic">
-                <h4>âš™ï¸ Junta, Fusiona, Domina</h4>
-                <p>Los items repetidos no son basura â€” son <strong>materia prima</strong>. Junta suficientes del mismo tipo y fusiÃ³nÃ¡los en algo superior. La cadena tiene 3 niveles: items base â†’ Tier 2 (raro) â†’ Tier 3 (Ã©pico/legendario). Cada fusiÃ³n consume los items originales.</p>
+                <h4>?? Junta, Fusiona, Domina</h4>
+                <p>Los items repetidos no son basura — son <strong>materia prima</strong>. Junta suficientes del mismo tipo y fusiónálos en algo superior. La cadena tiene 3 niveles: items base ? Tier 2 (raro) ? Tier 3 (épico/legendario). Cada fusión consume los items originales.</p>
             </div>
 
-            <h3>Tier 1 â†’ Tier 2 (Items Base â†’ Mejorados)</h3>
+            <h3>Tier 1 ? Tier 2 (Items Base ? Mejorados)</h3>
             <table>
-                <tr><th>Input</th><th>Ã—</th><th>Output</th><th>Tipo</th><th>Bonus</th></tr>
-                <tr><td>ğŸŒµ Espina de Cactus</td><td>10</td><td>ğŸŒµ Lanza de Espinas</td><td>Arma</td><td>+6 DaÃ±o</td></tr>
-                <tr><td>ğŸ¦´ FÃ©mur de Grillo</td><td>5</td><td>ğŸ¦´ Mazo de Huesos</td><td>Arma</td><td>+5 DaÃ±o</td></tr>
-                <tr><td>ğŸ‚ Capa de Hoja Seca</td><td>8</td><td>ğŸ‚ Manto de Hojarasca</td><td>Armadura</td><td>+5 Defensa</td></tr>
-                <tr><td>ğŸª² Placa de Ã‰litro</td><td>4</td><td>ğŸª² Coraza de Ã‰litros Blindada</td><td>Armadura</td><td>+6 Defensa</td></tr>
-                <tr><td>ğŸ©¸ Hemolinfa Fresca</td><td>5</td><td>ğŸ©¸ Ampolla de Hemolinfa Pura</td><td>Consumible</td><td>+80 HP</td></tr>
-                <tr><td>ğŸ¯ Gota de Miel</td><td>5</td><td>ğŸ¯ Jalea Real Concentrada</td><td>Consumible</td><td>+100% HP</td></tr>
-                <tr><td>ğŸŒ¿ Hoja de Menta</td><td>5</td><td>ğŸŒ¿ BÃ¡lsamo de Menta Concentrado</td><td>Consumible</td><td>+40 HP</td></tr>
+                <tr><th>Input</th><th>×</th><th>Output</th><th>Tipo</th><th>Bonus</th></tr>
+                <tr><td>?? Espina de Cactus</td><td>10</td><td>?? Lanza de Espinas</td><td>Arma</td><td>+6 Daño</td></tr>
+                <tr><td>?? Fémur de Grillo</td><td>5</td><td>?? Mazo de Huesos</td><td>Arma</td><td>+5 Daño</td></tr>
+                <tr><td>?? Capa de Hoja Seca</td><td>8</td><td>?? Manto de Hojarasca</td><td>Armadura</td><td>+5 Defensa</td></tr>
+                <tr><td>?? Placa de Élitro</td><td>4</td><td>?? Coraza de Élitros Blindada</td><td>Armadura</td><td>+6 Defensa</td></tr>
+                <tr><td>?? Hemolinfa Fresca</td><td>5</td><td>?? Ampolla de Hemolinfa Pura</td><td>Consumible</td><td>+80 HP</td></tr>
+                <tr><td>?? Gota de Miel</td><td>5</td><td>?? Jalea Real Concentrada</td><td>Consumible</td><td>+100% HP</td></tr>
+                <tr><td>?? Hoja de Menta</td><td>5</td><td>?? Bálsamo de Menta Concentrado</td><td>Consumible</td><td>+40 HP</td></tr>
             </table>
 
-            <h3>Tier 2 â†’ Tier 3 (Mejorados â†’ Ã‰picos/Legendarios)</h3>
+            <h3>Tier 2 ? Tier 3 (Mejorados ? Épicos/Legendarios)</h3>
             <table>
-                <tr><th>Input</th><th>Ã—</th><th>Output</th><th>Tipo</th><th>Bonus</th></tr>
-                <tr><td>ğŸŒµ Lanza de Espinas</td><td>3</td><td>ğŸ”± Tridente del Charco</td><td>Arma Ã‰pica</td><td>+12 DaÃ±o</td></tr>
-                <tr><td>ğŸ¦´ Mazo de Huesos</td><td>3</td><td>ğŸ”¨ Martillo de Exoesqueletos</td><td>Arma Ã‰pica</td><td>+10 DaÃ±o</td></tr>
-                <tr><td>ğŸ‚ Manto de Hojarasca</td><td>3</td><td>ğŸŒ² Armadura del Bosque Muerto</td><td>Armadura Ã‰pica</td><td>+10 Defensa</td></tr>
-                <tr><td>ğŸª² Coraza de Ã‰litros Blindada</td><td>2</td><td>ğŸ‘‘ Exoesqueleto del Progenitor</td><td>Armadura Legendaria</td><td>+14 Defensa</td></tr>
+                <tr><th>Input</th><th>×</th><th>Output</th><th>Tipo</th><th>Bonus</th></tr>
+                <tr><td>?? Lanza de Espinas</td><td>3</td><td>?? Tridente del Charco</td><td>Arma Épica</td><td>+12 Daño</td></tr>
+                <tr><td>?? Mazo de Huesos</td><td>3</td><td>?? Martillo de Exoesqueletos</td><td>Arma Épica</td><td>+10 Daño</td></tr>
+                <tr><td>?? Manto de Hojarasca</td><td>3</td><td>?? Armadura del Bosque Muerto</td><td>Armadura Épica</td><td>+10 Defensa</td></tr>
+                <tr><td>?? Coraza de Élitros Blindada</td><td>2</td><td>?? Exoesqueleto del Progenitor</td><td>Armadura Legendaria</td><td>+14 Defensa</td></tr>
             </table>
 
             <div class="info-box lore">
-                <h4>ğŸ“œ Nota de Ramazzottius sobre la FusiÃ³n</h4>
-                <p><em>"Los jÃ³venes tiran las espinas que sobran. Los viejos las guardan. DespuÃ©s de 530 millones de aÃ±os he aprendido una cosa: nada sobra. Todo se acumula. Todo se transforma. PregÃºntale a Arthropleura cuÃ¡ntos milpiÃ©s tuvo que devorar para medir 2.6 metros."</em></p>
+                <h4>?? Nota de Ramazzottius sobre la Fusión</h4>
+                <p><em>"Los jóvenes tiran las espinas que sobran. Los viejos las guardan. Después de 530 millones de años he aprendido una cosa: nada sobra. Todo se acumula. Todo se transforma. Pregúntale a Arthropleura cuántos milpiés tuvo que devorar para medir 2.6 metros."</em></p>
             </div>
 
             <div class="info-box warning">
-                <h4>âš ï¸ LÃ­mite de Inventario</h4>
-                <p>Tu inventario tiene <strong>20 slots</strong>. Fusionar libera espacio: 10 Espinas ocupan 10 slots, pero la Lanza de Espinas ocupa solo 1. La fusiÃ³n no es solo poder â€” es gestiÃ³n de recursos.</p>
+                <h4>?? Límite de Inventario</h4>
+                <p>Tu inventario tiene <strong>20 slots</strong>. Fusionar libera espacio: 10 Espinas ocupan 10 slots, pero la Lanza de Espinas ocupa solo 1. La fusión no es solo poder — es gestión de recursos.</p>
             </div>
 
         </article>

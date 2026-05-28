@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Plaga: La Descarada</title>
+    <title>Dashboard � Plaga: La Descarada</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
@@ -32,160 +32,170 @@
 </head>
 <body>
     <nav id="sidebar">
-        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Dashboard</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <div class="logo"><h1>?? PLAGA</h1><span class="subtitle">La Descarada � Dashboard</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">?</button></div>
         <ul class="nav-links">
-            <li><a href="index.html">🏠 Wiki</a></li>
-            <li><a href="dashboard.html" class="active">📊 Dashboard</a></li>
+            <li><a href="index.html">?? Wiki</a></li>
+            <li><a href="dashboard.html" class="active">?? Dashboard</a></li>
             <li class="section-title">Proyecto</li>
-            <li><a href="https://github.com/marbaezf-tech/plaga-wiki" target="_blank">🐙 GitHub</a></li>
+            <li><a href="https://github.com/marbaezf-tech/plaga-wiki" target="_blank">?? GitHub</a></li>
+                    <li class="section-title">Desarrollo</li>
+            <li><a href="trazabilidad.html">?? Trazabilidad</a></li>
+            <li><a href="qa.html">?? QA</a></li>
+            <li><a href="arquitectura.html">?? UML</a></li>
+            <li><a href="diagnostico_gemini.html">?? Diagn�stico</a></li>
+            <li><a href="multiplayer.html">?? Multiplayer</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">???? PvP v2 + META</a></li>
+            <li><a href="torneo_social.html">?? Social</a></li>
+            <li><a href="torneo_pvp.html">?? PvP v1</a></li>
         </ul>
     </nav>
     <main id="content">
         <article>
-            <h1>📊 Dashboard de Desarrollo</h1>
-            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 28 Mayo 2026 | v0.2.0</p>
+            <h1>?? Dashboard de Desarrollo</h1>
+            <p style="color: var(--text-muted);">Plaga: La Descarada � Estado del proyecto al 28 Mayo 2026 | v0.2.0</p>
 
-            <!-- Resumen rápido -->
+            <!-- Resumen r�pido -->
             <div class="dashboard-grid">
                 <div class="dash-card">
-                    <h3>🎯 Avance General</h3>
+                    <h3>?? Avance General</h3>
                     <div class="stat-number">97%</div>
                     <div class="stat-label-sm">177 de 183 tareas completadas</div>
                     <div class="progress-bar"><div class="progress-fill fill-green" style="width:97%">97%</div></div>
                 </div>
                 <div class="dash-card">
-                    <h3>📝 Tareas Completadas</h3>
+                    <h3>?? Tareas Completadas</h3>
                     <div class="stat-number">177</div>
                     <div class="stat-label-sm">en 3 sesiones de desarrollo</div>
                 </div>
                 <div class="dash-card">
-                    <h3>🔴 Bloqueantes</h3>
+                    <h3>?? Bloqueantes</h3>
                     <div class="stat-number">1</div>
-                    <div class="stat-label-sm">assets gráficos (pendiente 2d_*)</div>
+                    <div class="stat-label-sm">assets gr�ficos (pendiente 2d_*)</div>
                 </div>
                 <div class="dash-card">
-                    <h3>📄 Páginas Wiki</h3>
+                    <h3>?? P�ginas Wiki</h3>
                     <div class="stat-number">46</div>
                     <div class="stat-label-sm">online en GitHub Pages</div>
                 </div>
             </div>
 
-            <!-- Progreso por área -->
-            <h2>📈 Progreso por Área</h2>
+            <!-- Progreso por �rea -->
+            <h2>?? Progreso por �rea</h2>
             <div class="dash-card">
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Lore / Diseño de Mundo</span><span class="badge badge-done">100%</span></div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Lore / Dise�o de Mundo</span><span class="badge badge-done">100%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">24/24</div></div>
 
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Wiki (páginas HTML)</span><span class="badge badge-done">100%</span></div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Wiki (p�ginas HTML)</span><span class="badge badge-done">100%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">39/39</div></div>
 
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Requirements / Spec</span><span class="badge badge-done">100%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">14/14</div></div>
 
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Código Godot</span><span class="badge badge-pending">73%</span></div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>C�digo Godot</span><span class="badge badge-pending">73%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-yellow" style="width:73%">19/26</div></div>
 
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Assets Gráficos</span><span class="badge badge-pending">67%</span></div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Assets Gr�ficos</span><span class="badge badge-pending">67%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-yellow" style="width:67%">10/15</div></div>
 
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Audio / Música</span><span class="badge badge-blocked">0%</span></div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Audio / M�sica</span><span class="badge badge-blocked">0%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-red" style="width:2%">0/5</div></div>
             </div>
 
             <!-- Tareas completadas -->
-            <h2>✅ Completado (Sesión 1)</h2>
+            <h2>? Completado (Sesi�n 1)</h2>
             <div class="dash-card">
                 <ul class="task-list">
-                    <li class="task-done">✅ 14 Taxones con stats, recursos, defectos y habilidades únicas</li>
-                    <li class="task-done">✅ Mitología fundacional: Gran Éter, Progenitores, Caída, Retorno</li>
-                    <li class="task-done">✅ 13 Semidioses (artrópodos extremófilos reales)</li>
-                    <li class="task-done">✅ Sistema Silencio Verde con fases progresivas de infección</li>
-                    <li class="task-done">✅ La Colmena Silenciosa — zombie hive del sur antártico</li>
-                    <li class="task-done">✅ 4 Facciones + Los Sembradores (secta con 3 rituales)</li>
-                    <li class="task-done">✅ Perspectiva del Linaje + Legado del Progenitor en 13 taxones</li>
-                    <li class="task-done">✅ Mapa: Santiago → El Gran Charco (10 zonas)</li>
-                    <li class="task-done">✅ Fauna no-jugable + Civilizaciones rivales</li>
-                    <li class="task-done">✅ 66 items adaptados (armas, armaduras, equipo, consumibles)</li>
-                    <li class="task-done">✅ NeoPlaga: Era del Umbral + Panteón + Tardígrado Inmortal</li>
-                    <li class="task-done">✅ Sistema Oxígeno vs Calor (NeoPlaga)</li>
-                    <li class="task-done">✅ Página Sistemas completa (combate, loot, arquetipos, spawn)</li>
-                    <li class="task-done">✅ Cismáticas del Hilo (Arañas: Tejedoras vs Cazadoras)</li>
-                    <li class="task-done">✅ Wiki 34 páginas en GitHub Pages</li>
-                    <li class="task-done">✅ GameManager.gd con velocidad, habilidad y esencia</li>
-                    <li class="task-done">✅ Consistencia científica (530M años, sur antártico)</li>
-                    <li class="task-done">✅ Limpieza total de refs externas + título "La Descarada"</li>
-                    <li class="task-done">✅ NPCs del Gran Charco (20+ personajes)</li>
-                    <li class="task-done">✅ 4 Arquetipos: Estratega, Ejecutor, Infiltrado, Diplomático</li>
+                    <li class="task-done">? 14 Taxones con stats, recursos, defectos y habilidades �nicas</li>
+                    <li class="task-done">? Mitolog�a fundacional: Gran �ter, Progenitores, Ca�da, Retorno</li>
+                    <li class="task-done">? 13 Semidioses (artr�podos extrem�filos reales)</li>
+                    <li class="task-done">? Sistema Silencio Verde con fases progresivas de infecci�n</li>
+                    <li class="task-done">? La Colmena Silenciosa � zombie hive del sur ant�rtico</li>
+                    <li class="task-done">? 4 Facciones + Los Sembradores (secta con 3 rituales)</li>
+                    <li class="task-done">? Perspectiva del Linaje + Legado del Progenitor en 13 taxones</li>
+                    <li class="task-done">? Mapa: Santiago ? El Gran Charco (10 zonas)</li>
+                    <li class="task-done">? Fauna no-jugable + Civilizaciones rivales</li>
+                    <li class="task-done">? 66 items adaptados (armas, armaduras, equipo, consumibles)</li>
+                    <li class="task-done">? NeoPlaga: Era del Umbral + Pante�n + Tard�grado Inmortal</li>
+                    <li class="task-done">? Sistema Ox�geno vs Calor (NeoPlaga)</li>
+                    <li class="task-done">? P�gina Sistemas completa (combate, loot, arquetipos, spawn)</li>
+                    <li class="task-done">? Cism�ticas del Hilo (Ara�as: Tejedoras vs Cazadoras)</li>
+                    <li class="task-done">? Wiki 34 p�ginas en GitHub Pages</li>
+                    <li class="task-done">? GameManager.gd con velocidad, habilidad y esencia</li>
+                    <li class="task-done">? Consistencia cient�fica (530M a�os, sur ant�rtico)</li>
+                    <li class="task-done">? Limpieza total de refs externas + t�tulo "La Descarada"</li>
+                    <li class="task-done">? NPCs del Gran Charco (20+ personajes)</li>
+                    <li class="task-done">? 4 Arquetipos: Estratega, Ejecutor, Infiltrado, Diplom�tico</li>
                 </ul>
             </div>
 
-            <!-- Próximas tareas -->
-            <h2>⏭️ Próximas Tareas (Roadmap)</h2>
+            <!-- Pr�ximas tareas -->
+            <h2>?? Pr�ximas Tareas (Roadmap)</h2>
             <div class="dash-card">
                 <ul class="task-list">
-                    <li class="task-done">✅ 1. Proyecto Godot 4.6 (estructura completa)</li>
-                    <li class="task-done">✅ 2. GameManager + LootSystem + SaveSystem como Autoload</li>
-                    <li class="task-done">✅ 3. Escena con 3 Spots interactivos + sprites reales</li>
-                    <li class="task-done">✅ 4. Player con 6 sprites direccionales</li>
-                    <li class="task-done">✅ 5. HUD (Quitina/Hemolinfa/Esencia/EXP)</li>
-                    <li class="task-done">✅ 6. Menú de Spot + Combate por turnos (3 enemigos)</li>
-                    <li class="task-done">✅ 7. Inventario con Usar/Equipar/Tirar + Equipo visible</li>
-                    <li class="task-done">✅ 8. Crafteo Anclaje de Fibra (fin de demo)</li>
-                    <li class="task-done">✅ 9. Menú principal + Guardado/Cargado</li>
-                    <li class="task-done">✅ 10. Controles táctiles para Android</li>
-                    <li class="task-done">✅ 11. Fondo real + sprites de spots</li>
-                    <li class="task-done">✅ 12. Objetivo claro en pantalla</li>
-                    <li class="task-pending">🟡 13. Pantalla Game Over (Quitina 0 / Esencia 0)</li>
-                    <li class="task-pending">🟡 14. "Volver al Menú" funcional al completar demo (reset estado)</li>
-                    <li class="task-pending">🟡 15. Avatares en combate (prota + enemigo)</li>
-                    <li class="task-pending">🟡 16. Audio placeholder</li>
-                    <li class="task-pending">🟡 17. Límites del mapa (evitar salir de pantalla)</li>
-                    <li class="task-done">✅ 18. Exportar .apk Android</li>
+                    <li class="task-done">? 1. Proyecto Godot 4.6 (estructura completa)</li>
+                    <li class="task-done">? 2. GameManager + LootSystem + SaveSystem como Autoload</li>
+                    <li class="task-done">? 3. Escena con 3 Spots interactivos + sprites reales</li>
+                    <li class="task-done">? 4. Player con 6 sprites direccionales</li>
+                    <li class="task-done">? 5. HUD (Quitina/Hemolinfa/Esencia/EXP)</li>
+                    <li class="task-done">? 6. Men� de Spot + Combate por turnos (3 enemigos)</li>
+                    <li class="task-done">? 7. Inventario con Usar/Equipar/Tirar + Equipo visible</li>
+                    <li class="task-done">? 8. Crafteo Anclaje de Fibra (fin de demo)</li>
+                    <li class="task-done">? 9. Men� principal + Guardado/Cargado</li>
+                    <li class="task-done">? 10. Controles t�ctiles para Android</li>
+                    <li class="task-done">? 11. Fondo real + sprites de spots</li>
+                    <li class="task-done">? 12. Objetivo claro en pantalla</li>
+                    <li class="task-pending">?? 13. Pantalla Game Over (Quitina 0 / Esencia 0)</li>
+                    <li class="task-pending">?? 14. "Volver al Men�" funcional al completar demo (reset estado)</li>
+                    <li class="task-pending">?? 15. Avatares en combate (prota + enemigo)</li>
+                    <li class="task-pending">?? 16. Audio placeholder</li>
+                    <li class="task-pending">?? 17. L�mites del mapa (evitar salir de pantalla)</li>
+                    <li class="task-done">? 18. Exportar .apk Android</li>
                 </ul>
                 </ul>
             </div>
 
             <!-- Bloqueantes -->
-            <h2>🔴 Bloqueantes</h2>
+            <h2>?? Bloqueantes</h2>
             <div class="dash-card">
                 <table>
-                    <tr><th>#</th><th>Bloqueante</th><th>Impacto</th><th>Solución</th></tr>
-                    <tr><td>1</td><td style="color:var(--accent-green)">Proyecto Godot ✅ RESUELTO</td><td>—</td><td>Creado con estructura completa</td></tr>
+                    <tr><th>#</th><th>Bloqueante</th><th>Impacto</th><th>Soluci�n</th></tr>
+                    <tr><td>1</td><td style="color:var(--accent-green)">Proyecto Godot ? RESUELTO</td><td>�</td><td>Creado con estructura completa</td></tr>
                     <tr><td>2</td><td class="task-pending">No hay sprites/assets reales</td><td>Solo placeholders (cuadrados de color)</td><td>Generar con IA o pixel art</td></tr>
-                    <tr><td>3</td><td style="color:var(--accent-green)">ngrok agotado ✅ RESUELTO</td><td>—</td><td>GitHub Pages</td></tr>
+                    <tr><td>3</td><td style="color:var(--accent-green)">ngrok agotado ? RESUELTO</td><td>�</td><td>GitHub Pages</td></tr>
                 </table>
             </div>
 
             <!-- Archivos del proyecto -->
-            <h2>📁 Estructura del Proyecto</h2>
+            <h2>?? Estructura del Proyecto</h2>
             <div class="dash-card">
                 <pre style="color:var(--text-secondary); font-size:0.8em; overflow-x:auto;">
 c:\Taxones\Taxones\
-├── BITACORA.md              ← Este archivo
-├── lore_fundacional.md      ← Lore completo
-├── godot/
-│   └── scripts/
-│       └── game_manager.gd  ← Autoload principal
-└── wiki/
-    ├── server.js            ← Servidor local (puerto 3001)
-    ├── style.css            ← Estilos (dark theme, responsive)
-    ├── index.html           ← Página principal
-    ├── dashboard.html       ← Este dashboard
-    ├── gran-eter.html       ← Lore: El Gran Éter
-    ├── progenitores.html    ← Lore: Meganeura + Arthropleura
-    ├── semidioses.html      ← Lore: 13 Semidioses
-    ├── caida.html           ← Lore: La Caída
-    ├── profecias.html       ← Lore: El Retorno del 35%
-    ├── silencio-verde.html  ← Lore: Silencio Verde
-    ├── taxones.html         ← Resumen 14 Taxones
-    ├── taxon-*.html (x13)   ← Páginas individuales
-    ├── facciones.html       ← 4 Facciones
-    ├── santiago.html        ← El Gran Charco (mapa)
-    ├── fauna.html           ← Fauna no-jugable
-    ├── items.html           ← Armas y objetos
-    ├── reliquias.html       ← Loot legendario
-    ├── glosario.html        ← Terminología
-    └── equivalencias.html   ← RPG clásico → Plaga
++-- BITACORA.md              ? Este archivo
++-- lore_fundacional.md      ? Lore completo
++-- godot/
+�   +-- scripts/
+�       +-- game_manager.gd  ? Autoload principal
++-- wiki/
+    +-- server.js            ? Servidor local (puerto 3001)
+    +-- style.css            ? Estilos (dark theme, responsive)
+    +-- index.html           ? P�gina principal
+    +-- dashboard.html       ? Este dashboard
+    +-- gran-eter.html       ? Lore: El Gran �ter
+    +-- progenitores.html    ? Lore: Meganeura + Arthropleura
+    +-- semidioses.html      ? Lore: 13 Semidioses
+    +-- caida.html           ? Lore: La Ca�da
+    +-- profecias.html       ? Lore: El Retorno del 35%
+    +-- silencio-verde.html  ? Lore: Silencio Verde
+    +-- taxones.html         ? Resumen 14 Taxones
+    +-- taxon-*.html (x13)   ? P�ginas individuales
+    +-- facciones.html       ? 4 Facciones
+    +-- santiago.html        ? El Gran Charco (mapa)
+    +-- fauna.html           ? Fauna no-jugable
+    +-- items.html           ? Armas y objetos
+    +-- reliquias.html       ? Loot legendario
+    +-- glosario.html        ? Terminolog�a
+    +-- equivalencias.html   ? RPG cl�sico ? Plaga
                 </pre>
             </div>
         </article>
