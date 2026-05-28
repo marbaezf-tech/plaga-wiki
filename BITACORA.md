@@ -24,7 +24,7 @@
 - [x] Creados 13 Semidioses (artrópodos extremófilos reales)
 - [x] Definidas 4 facciones: La Colmena, El Enjambre Negro, Los Sueltos, Los Parásitos Libres
 - [x] Creado sistema de degeneración: El Silencio Verde (Cordyceps)
-- [x] Mapeada ciudad Santiago → El Gran Charco (10 zonas)
+- [x] Mapeada ciudad el Gran Charco → El Gran Charco (10 zonas)
 - [x] Integrada fauna no-jugable (hormigas, abejas, termitas, mantis, escarabajos, etc.)
 - [x] Definido título oficial: "Plaga: La Descarada"
 - [x] Definido tono narrativo: cinismo, arrogancia, desfachatez
@@ -41,7 +41,7 @@
 - [x] Desplegada en GitHub Pages
 - [x] Páginas lore: gran-eter, progenitores, semidioses, caida, profecias, silencio-verde
 - [x] Páginas taxones: resumen + 13 páginas individuales
-- [x] Páginas mundo: facciones, sembradores, santiago, fauna, npcs, items, reliquias
+- [x] Páginas mundo: facciones, sembradores, el Gran Charco, fauna, npcs, items, reliquias
 - [x] Páginas NeoPlaga: neoplaga, neoplaga-panteon, neoplaga-tardigrado, neoplaga-mundo, neoplaga-geografia
 - [x] Páginas referencia: sistemas, glosario, equivalencias, dashboard
 - [x] Narrador: Ramazzottius como voz omnisciente
