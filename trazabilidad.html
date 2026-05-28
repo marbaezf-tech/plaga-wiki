@@ -73,8 +73,8 @@
                 <tr><td>Fórmula de Velocidad (iniciativa)</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → calcular_velocidad()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
                 <tr><td>Fórmula de Daño</td><td class="status-done">✅ Finalizado</td><td>combat_manager.gd → _on_atacar()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
                 <tr><td>Fórmula de Escape</td><td class="status-done">✅ Finalizado</td><td>combat_manager.gd → _on_huir()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
-                <tr><td>Habilidad de Taxón (Atavismo)</td><td class="status-proto">🟡 Prototipado</td><td>game_manager.gd → usar_habilidad_taxon()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
-                <tr><td>3 Atavismos por Taxón</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Atavismos)</a></td></tr>
+                <tr><td>Habilidad de Taxón (Atavismo)</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → ATAVISMOS_DATA + obtener_atavismos()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
+                <tr><td>3 Atavismos por Taxón</td><td class="status-done">✅ Finalizado</td><td>combat_manager.gd → _show_atavismo_menu()</td><td><a href="sistemas.html">Sistemas (Atavismos)</a></td></tr>
                 <tr><td>Danza de Antenas (social)</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Danza)</a></td></tr>
             </table>
 
@@ -107,9 +107,9 @@
                 <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
                 <tr><td>Barra de Esencia (0-100%)</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → modificar_esencia()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
                 <tr><td>Acciones que bajan Esencia</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → accion_*()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
-                <tr><td>Game Over (Esencia 0%)</td><td class="status-proto">🟡 Prototipado</td><td>game_manager.gd → _activar_marioneta()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
-                <tr><td>Pantalla ASIMILADO</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="silencio-verde.html">Silencio Verde</a></td></tr>
-                <tr><td>Fases progresivas de infección</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
+                <tr><td>Game Over (Esencia 0%)</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → _mostrar_asimilado()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
+                <tr><td>Pantalla ASIMILADO</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → _mostrar_asimilado()</td><td><a href="silencio-verde.html">Silencio Verde</a></td></tr>
+                <tr><td>Fases progresivas de infección</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → _check_fase_infeccion()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
             </table>
 
             <h2>🗺️ Exploración</h2>
@@ -138,9 +138,11 @@
                 <tr><td>Cargar partida (F9)</td><td class="status-done">✅ Finalizado</td><td>save_system.gd</td><td>—</td></tr>
                 <tr><td>Menú principal</td><td class="status-done">✅ Finalizado</td><td>menu_principal.gd</td><td>—</td></tr>
                 <tr><td>Creación de personaje (14 taxones)</td><td class="status-done">✅ Finalizado</td><td>creacion_personaje.gd</td><td><a href="bestiario.html">Bestiario (Taxones)</a></td></tr>
+                <tr><td>Selección de Arquetipo</td><td class="status-done">✅ Finalizado</td><td>creacion_personaje.gd → _show_arquetipo_selection()</td><td><a href="sistemas.html">Sistemas (Arquetipos)</a></td></tr>
                 <tr><td>Controles táctiles (Android)</td><td class="status-done">✅ Finalizado</td><td>touch_controls.gd</td><td>—</td></tr>
-                <tr><td>APK Android</td><td class="status-done">✅ Finalizado</td><td>export/descarada.apk</td><td>—</td></tr>
+                <tr><td>APK Android</td><td class="status-done">✅ Finalizado</td><td>export/descarada_v0.2.0.apk</td><td>—</td></tr>
                 <tr><td>Exportar .exe Windows</td><td class="status-pending">❌ Pendiente</td><td>—</td><td>—</td></tr>
+                <tr><td>Script de exportación</td><td class="status-done">✅ Finalizado</td><td>exportar_apk.bat</td><td>—</td></tr>
             </table>
 
             <h2>🌡️ NeoPlaga (Futuro)</h2>
