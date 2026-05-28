@@ -173,11 +173,11 @@
 - [x] Pantalla "ASIMILADO" cuando Esencia llega a 0%
 
 ### 🧬 Progresión
+- [x] Fases progresivas de infección (75% Susurros, 50% Parasitismo, 25% Dominación)
 - [ ] Grados de Estabilidad (I-V) — implementar `get_max_atributo()` y `get_max_atavismo()` en GameManager
 - [ ] Deglución 2.0 — mecánica de ascenso + Shock de Compatibilidad
 - [ ] Vestigios de los Antiguos — items consumibles que suben Grado temporal/permanente
 - [ ] Misiones de Estabilización — requisitos para ascender de Grado
-- [ ] Fases progresivas de infección (efectos mecánicos por nivel de Esencia)
 - [ ] Implementar Instinto en mecánicas (gastar para golpe crítico, resistir control)
 - [ ] Resonancia de Youti — mecánica pasiva anti-fratricidio
 
@@ -204,8 +204,8 @@
 - [ ] Sprites reales generados por IA (14 taxones × 4 direcciones para mapa)
 
 ### 💾 Sistema / Exportación
+- [x] Pantalla de selección de Arquetipo (Estratega/Ejecutor/Infiltrado/Diplomático)
 - [ ] Exportar .exe para Windows (requiere templates en Godot)
-- [ ] Pantalla de selección de Arquetipo (Estratega/Ejecutor/Infiltrado/Diplomático)
 - [ ] Sistema de diálogos (burbuja de feromona)
 - [ ] Eventos aleatorios cómicos
 - [ ] Sistema de quests
