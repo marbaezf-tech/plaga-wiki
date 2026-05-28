@@ -347,7 +347,7 @@
 - [x] Rework Pulga: pasivo "Evasión Maestra" (GAN×5.5%, cap 70%)
 - [x] Rework Garrapata: TOR+1, pasivo regen 3%/turno, Coraza +6 def
 - [x] Decisión: 10 taxones jugables en v1.0, 4 para DLC
-- [ ] Ajustar creacion_personaje.gd para mostrar solo los 10 taxones de v1.0
+- [x] Ajustar creacion_personaje.gd para mostrar solo los 10 taxones de v1.0
 - [ ] Rework Zancudo para DLC: definir identidad "SWAT biológico"
 - [ ] Rework Cucaracha para DLC: diferenciar de Garrapata
 - [ ] Rework Chinche para DLC: diferenciar de Típula
