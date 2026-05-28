@@ -164,60 +164,56 @@
 
 ---
 
-## 🔴 Pendientes
+## 🔴 Pendientes (por categoría)
 
-### Alta Prioridad (Demo)
+### ⚔️ Combate
+- [ ] 3 Atavismos funcionales por Taxón en combate (más allá de Micro-Inyección)
+- [ ] Danza de Antenas — sistema de conflicto social (4 posturas)
 - [ ] Pantalla Game Over cuando Turgencia llega a 0
 - [ ] Pantalla "ASIMILADO" cuando Esencia llega a 0%
+
+### 🧬 Progresión
+- [ ] Grados de Estabilidad (I-V) — implementar `get_max_atributo()` y `get_max_atavismo()` en GameManager
+- [ ] Deglución 2.0 — mecánica de ascenso + Shock de Compatibilidad
+- [ ] Vestigios de los Antiguos — items consumibles que suben Grado temporal/permanente
+- [ ] Misiones de Estabilización — requisitos para ascender de Grado
+- [ ] Fases progresivas de infección (efectos mecánicos por nivel de Esencia)
+- [ ] Implementar Instinto en mecánicas (gastar para golpe crítico, resistir control)
+- [ ] Resonancia de Youti — mecánica pasiva anti-fratricidio
+
+### 🎒 Inventario / Crafteo
+- [ ] Definir Atavismos Básicos vs Exclusivos de Grado Alto
+- [ ] Balancear NPCs y enemigos según techos de Grado
+- [ ] Estructura JSON de personaje (datos_biologicos, atributos_primordiales, atavismos_activos, estado_mental)
+
+### 🗺️ Exploración
 - [ ] Límites del mapa (el jugador puede salirse de pantalla)
+- [ ] Múltiples zonas del mapa (Metro Baquedano, Los Yuyos, Invernadero, Catacumbas)
+- [ ] Victoria Regia — nodo de escenario / flora del Gran Charco
 - [ ] Testear flujo completo: Menú → Creación → Juego → Fin Demo → Menú
 
-### Sistema de Grados de Estabilidad Genética (Progresión)
-- [x] Agregar sección "Grados de Estabilidad" a wiki (sistemas.html)
-- [x] Definir tabla completa: Grado I-V con techos de Atributos (5/6/7/8/9) y Atavismos (3/4/5/6/7+)
-- [x] Mecánica de Deglución 2.0: ascenso de Grado + "Shock de Compatibilidad" (debuff temporal)
-- [x] Misiones de Estabilización: requisitos narrativos/mecánicos para romper techo de Grado
-- [ ] Definir Atavismos Básicos (disponibles en todos los Grados) vs Exclusivos de Grado Alto
-- [ ] Implementar `get_max_atributo()` y `get_max_atavismo()` en GameManager según Grado del jugador
-- [ ] Balancear NPCs y enemigos existentes según techos de Grado
-- [ ] Estructura JSON de personaje (datos_biologicos, atributos_primordiales, atavismos_activos, estado_mental)
-- [ ] Fusión en cadena (Tier 2): 10x Lanza de Espinas → arma Tier 3, 10x Mazo de Huesos → arma Tier 3, etc.
-- [x] Fusión Tier 1→2 y Tier 2→3 implementada en código (11 recetas)
-- [x] Documentar sistema de Fusión en wiki (sistemas.html)
+### 📕 Bestiario / Lore
+- [ ] Lore de enemigos del bestiario (generar con API Gemini cuando haya cuota)
+- [ ] Lore de Vestigios (generar con `generar_lore_vestigios.js`)
 
-### Media Prioridad
-- [x] Avatares en combate (retrato del prota + retrato del enemigo) — estilo Pokémon implementado
-- [ ] Bestiario / Pokédex de enemigos vencidos (book con stats, loot%, descripción de lore)
-  - Se desbloquea al vencer un enemigo por primera vez
-  - Muestra: nombre, imagen, HP, stats, qué lootea, % de aparición, descripción lore
-  - Descripción de lore se llenará con API de Gemini cuando haya cuota
+### 🎨 Assets
+- [ ] Recortar imágenes de enemigos (quitar espacio vacío/tablero)
+- [ ] Generar 14 avatares de taxón (`2d_zancudo.png`, etc. — 128×128 transparente)
+- [ ] Generar `2d_prota_back.png` (prota de espalda para combate)
 - [ ] Audio placeholder (1 track exploración, 1 track combate)
-- [ ] Exportar .exe para Windows (requiere templates en Godot)
-- [ ] Implementar Instinto en mecánicas (gastar para golpe crítico, resistir control)
-- [ ] Atavismos funcionales en combate (más allá del actual "Micro-Inyección")
+- [ ] Sprites reales generados por IA (14 taxones × 4 direcciones para mapa)
 
-### Baja Prioridad
+### 💾 Sistema / Exportación
+- [ ] Exportar .exe para Windows (requiere templates en Godot)
 - [ ] Pantalla de selección de Arquetipo (Estratega/Ejecutor/Infiltrado/Diplomático)
 - [ ] Sistema de diálogos (burbuja de feromona)
 - [ ] Eventos aleatorios cómicos
 - [ ] Sistema de quests
-- [ ] Múltiples zonas del mapa
 - [ ] Animaciones de sprites
-- [ ] Sprites reales generados por IA (14 taxones × 4 direcciones)
 
-### Lore Pendiente (Gemini — requiere cuota)
-- [ ] Ejecutar `generar_lore_vestigios.js` cuando se resetee la cuota de Gemini API
-- [ ] Insertar lore generado en sistemas.html (fragmento HTML auto-generado)
-
-### Victoria Regia — Nodo de Escenario / Flora del Gran Charco
-- [ ] Diseñar la Victoria Regia como "Punto de Reposo" / Safe Zone / Nodo de Negociación
-- [ ] Stats de escenario: "Resonancia Vegetal" (+2 Sensilios sobre la hoja)
-- [ ] Integrar como escenario de Danza de Antenas (Típulas se reúnen ahí)
-- [ ] Mecánica: Taxones con "Tejeduría de Éter" recargan Hemolinfa conectándose a las venas
-- [ ] Peligro oculto: Cordyceps/Silencio Verde se esconde en los tallos subacuáticos
-- [ ] NPC guardián bajo la hoja (posible mini-boss o aliado)
-- [ ] Sprite/asset para Godot (prompt listo para generador de imágenes)
-- [ ] Agregar a la wiki como flora del Gran Charco (fauna.html o página nueva)
+### 🌡️ NeoPlaga (Futuro)
+- [ ] Sistema O₂ vs Calor (mecánica ambiental)
+- [ ] Colmena Silenciosa como evento/zona
 
 ---
 
