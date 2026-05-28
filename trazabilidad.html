@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trazabilidad — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .status-done { color: var(--accent-green); font-weight: 600; }
+        .status-proto { color: var(--accent-gold); font-weight: 600; }
+        .status-pending { color: var(--accent-red); font-weight: 600; }
+        .traz-table td, .traz-table th { font-size: 0.85em; }
+        .traz-table td:nth-child(3) { font-family: monospace; font-size: 0.75em; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⚔ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída del Éter</a></li>
+            <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li><a href="taxon-zancudos.html">🦟 Zancudos</a></li>
+            <li><a href="taxon-cucarachas.html">🪳 Cucarachas</a></li>
+            <li><a href="taxon-avispas.html">🐝 Avispas</a></li>
+            <li><a href="taxon-garrapatas.html">🕷️ Garrapatas</a></li>
+            <li><a href="taxon-chinches.html">🛏️ Chinches</a></li>
+            <li><a href="taxon-mariposas.html">🦋 Mariposas</a></li>
+            <li><a href="taxon-aranas.html">🕸️ Arañas</a></li>
+            <li><a href="taxon-escorpiones.html">🦂 Escorpiones</a></li>
+            <li><a href="taxon-vinchucas.html">🗡️ Vinchucas</a></li>
+            <li><a href="taxon-moscas.html">💀 Moscas</a></li>
+            <li><a href="taxon-sanguijuelas.html">🧪 Sanguijuelas</a></li>
+            <li><a href="taxon-polillas.html">🌙 Polillas</a></li>
+            <li><a href="taxon-pulgas.html">🎪 Pulgas</a></li>
+            <li><a href="taxon-tipulas.html">🦟 Típulas</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="sembradores.html">🍄 Sembradores</a></li>
+            <li><a href="santiago.html">🏙️ El Gran Charco</a></li>
+            <li><a href="fauna.html">🐜 Fauna</a></li>
+            <li><a href="npcs.html">👤 NPCs</a></li>
+            <li><a href="bestiario.html">📕 Bestiario</a></li>
+            <li><a href="items.html">⚔️ Armas y Objetos</a></li>
+            <li><a href="reliquias.html">💎 Reliquias</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="equivalencias.html">🔄 Referencias</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🔗 Índice de Trazabilidad</h1>
+            <div class="intro-box">
+                <p>Relación directa entre cada <strong>mecánica del juego</strong>, su <strong>estado de implementación</strong>, el <strong>archivo de código</strong> donde vive, y la <strong>página de wiki</strong> donde está documentada. Si algo no cuadra entre el código y la wiki, esta tabla te dice dónde buscar.</p>
+            </div>
+
+            <h2>⚔️ Sistemas de Combate</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Combate por turnos</td><td class="status-done">✅ Finalizado</td><td>combat_manager.gd</td><td><a href="sistemas.html">Sistemas</a></td></tr>
+                <tr><td>Fórmula de Velocidad (iniciativa)</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → calcular_velocidad()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
+                <tr><td>Fórmula de Daño</td><td class="status-done">✅ Finalizado</td><td>combat_manager.gd → _on_atacar()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
+                <tr><td>Fórmula de Escape</td><td class="status-done">✅ Finalizado</td><td>combat_manager.gd → _on_huir()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
+                <tr><td>Habilidad de Taxón (Atavismo)</td><td class="status-proto">🟡 Prototipado</td><td>game_manager.gd → usar_habilidad_taxon()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
+                <tr><td>3 Atavismos por Taxón</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Atavismos)</a></td></tr>
+                <tr><td>Danza de Antenas (social)</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Danza)</a></td></tr>
+            </table>
+
+            <h2>🧬 Progresión</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Experiencia y Niveles</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → ganar_exp()</td><td><a href="sistemas.html">Sistemas</a></td></tr>
+                <tr><td>Grados de Estabilidad (I-V)</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Grados)</a></td></tr>
+                <tr><td>Deglución 2.0</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Deglución)</a></td></tr>
+                <tr><td>Vestigios de los Antiguos</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Vestigios)</a></td></tr>
+                <tr><td>Misiones de Estabilización</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Misiones)</a></td></tr>
+            </table>
+
+            <h2>🎒 Inventario y Crafteo</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Inventario (20 slots)</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd</td><td><a href="sistemas.html">Sistemas (Loot)</a></td></tr>
+                <tr><td>Equipar arma (+daño)</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd → _equipar_item()</td><td><a href="sistemas.html">Sistemas (Equipo)</a></td></tr>
+                <tr><td>Equipar armadura (+def)</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd → _equipar_item()</td><td><a href="sistemas.html">Sistemas (Equipo)</a></td></tr>
+                <tr><td>Consumibles (curar/buff)</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd → _usar_item()</td><td><a href="sistemas.html">Sistemas (Loot)</a></td></tr>
+                <tr><td>Confirmación antes de usar/equipar</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd → _show_confirm()</td><td>—</td></tr>
+                <tr><td>Fusión Tier 1→2</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd → FUSION_RECIPES + _fusionar()</td><td><a href="sistemas.html">Sistemas (Fusión)</a></td></tr>
+                <tr><td>Fusión Tier 2→3</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd → FUSION_RECIPES</td><td><a href="sistemas.html">Sistemas (Fusión)</a></td></tr>
+                <tr><td>Crafteo Anclaje de Fibra (fin demo)</td><td class="status-done">✅ Finalizado</td><td>inventario_ui.gd → _craftear_anclaje()</td><td>—</td></tr>
+                <tr><td>Loot por tiers (5 niveles)</td><td class="status-done">✅ Finalizado</td><td>loot_system.gd → generar_loot()</td><td><a href="sistemas.html">Sistemas (Loot)</a></td></tr>
+            </table>
+
+            <h2>🍄 Esencia / Silencio Verde</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Barra de Esencia (0-100%)</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → modificar_esencia()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
+                <tr><td>Acciones que bajan Esencia</td><td class="status-done">✅ Finalizado</td><td>game_manager.gd → accion_*()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
+                <tr><td>Game Over (Esencia 0%)</td><td class="status-proto">🟡 Prototipado</td><td>game_manager.gd → _activar_marioneta()</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
+                <tr><td>Pantalla ASIMILADO</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="silencio-verde.html">Silencio Verde</a></td></tr>
+                <tr><td>Fases progresivas de infección</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (Esencia)</a></td></tr>
+            </table>
+
+            <h2>🗺️ Exploración</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Movimiento top-down (6 dirs)</td><td class="status-done">✅ Finalizado</td><td>player.gd</td><td>—</td></tr>
+                <tr><td>Spots interactivos (3)</td><td class="status-done">✅ Finalizado</td><td>spot.gd + spot_menu.gd</td><td>—</td></tr>
+                <tr><td>Menú de Spot (Inspeccionar/Cazar/Saquear)</td><td class="status-done">✅ Finalizado</td><td>spot_menu.gd</td><td>—</td></tr>
+                <tr><td>Spawn de enemigos aleatorios</td><td class="status-done">✅ Finalizado</td><td>spot_menu.gd → _on_cazar()</td><td><a href="sistemas.html">Sistemas (Spawn)</a></td></tr>
+                <tr><td>Múltiples zonas del mapa</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="santiago.html">El Gran Charco</a></td></tr>
+                <tr><td>Límites del mapa</td><td class="status-pending">❌ Pendiente</td><td>—</td><td>—</td></tr>
+            </table>
+
+            <h2>📕 Bestiario</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Registro de enemigos vencidos</td><td class="status-done">✅ Finalizado</td><td>combat_manager.gd + bestiario_ui.gd</td><td><a href="bestiario.html">Bestiario</a></td></tr>
+                <tr><td>UI Bestiario (tecla L)</td><td class="status-done">✅ Finalizado</td><td>bestiario_ui.gd</td><td><a href="bestiario.html">Bestiario</a></td></tr>
+                <tr><td>Lore de enemigos (Gemini)</td><td class="status-pending">❌ Pendiente</td><td>generar_lore_vestigios.js</td><td><a href="bestiario.html">Bestiario</a></td></tr>
+            </table>
+
+            <h2>💾 Sistema</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Guardar partida (F5)</td><td class="status-done">✅ Finalizado</td><td>save_system.gd</td><td>—</td></tr>
+                <tr><td>Cargar partida (F9)</td><td class="status-done">✅ Finalizado</td><td>save_system.gd</td><td>—</td></tr>
+                <tr><td>Menú principal</td><td class="status-done">✅ Finalizado</td><td>menu_principal.gd</td><td>—</td></tr>
+                <tr><td>Creación de personaje (14 taxones)</td><td class="status-done">✅ Finalizado</td><td>creacion_personaje.gd</td><td><a href="bestiario.html">Bestiario (Taxones)</a></td></tr>
+                <tr><td>Controles táctiles (Android)</td><td class="status-done">✅ Finalizado</td><td>touch_controls.gd</td><td>—</td></tr>
+                <tr><td>APK Android</td><td class="status-done">✅ Finalizado</td><td>export/descarada.apk</td><td>—</td></tr>
+                <tr><td>Exportar .exe Windows</td><td class="status-pending">❌ Pendiente</td><td>—</td><td>—</td></tr>
+            </table>
+
+            <h2>🌡️ NeoPlaga (Futuro)</h2>
+            <table class="traz-table">
+                <tr><th>Mecánica</th><th>Estado</th><th>Código</th><th>Wiki</th></tr>
+                <tr><td>Sistema O₂ vs Calor</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="sistemas.html">Sistemas (O₂/Calor)</a></td></tr>
+                <tr><td>Victoria Regia (nodo escenario)</td><td class="status-pending">❌ Pendiente</td><td>—</td><td>—</td></tr>
+                <tr><td>Resonancia de Youti</td><td class="status-pending">❌ Pendiente</td><td>—</td><td><a href="semidioses.html">Semidioses (Youti)</a></td></tr>
+            </table>
+
+            <blockquote>"El código sin documentación es un fósil sin contexto. Sabes que existió algo, pero no sabes qué hacía ni por qué murió."<br>— Ramazzottius, sobre los programadores del año 20.000</blockquote>
+        </article>
+    </main>
+</body>
+</html>
