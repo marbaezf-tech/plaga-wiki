@@ -80,6 +80,9 @@
 - [x] Doctrina de Youti: Resonancia del Primero (mecánica pasiva anti-fratricidio)
 - [x] Tabla de posturas de los 13 Semidioses ante Youti
 - [x] Paradoja narrativa: el pacifista que genera más guerra
+- [x] 14 Vocaciones del Gran Charco (roles narrativos/sociales fuera de combate)
+- [x] Debate Creyentes vs Escépticos vs Agnósticos vs Oportunistas
+- [x] NPC Doña Esperanza (Típula Cronista, Buscadora del Oso)
 - [x] Espiritrompa de las Típulas (dato real: no la enrollan como mariposas)
 - [x] Ocelo Ancestral (Tercer Ojo) — ve el miedo como calor infrarrojo
 - [x] Leyenda del Primer Ocelo (mito oral Típula)
@@ -227,14 +230,14 @@
 
 | Área | Completado | Total | % |
 |---|---|---|---|
-| Lore/Diseño | 43 | 43 | 100% |
+| Lore/Diseño | 46 | 46 | 100% |
 | Wiki | 43 | 43 | 100% |
 | Requirements | 14 | 14 | 100% |
 | Código Godot | 19 | 26 | 73% |
 | Assets Gráficos | 10 | 15 | 67% |
 | Audio | 0 | 5 | 0% |
 | Exportación | 1 | 2 | 50% |
-| **TOTAL** | **130** | **148** | **88%** |
+| **TOTAL** | **133** | **151** | **88%** |
 
 ---
 
