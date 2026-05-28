@@ -234,13 +234,13 @@
 | Área | Completado | Total | % |
 |---|---|---|---|
 | Lore/Diseño | 46 | 46 | 100% |
-| Wiki | 43 | 43 | 100% |
+| Wiki | 45 | 45 | 100% |
 | Requirements | 14 | 14 | 100% |
-| Código Godot | 19 | 26 | 73% |
-| Assets Gráficos | 10 | 15 | 67% |
+| Código Godot | 27 | 33 | 82% |
+| Assets Gráficos | 13 | 18 | 72% |
 | Audio | 0 | 5 | 0% |
-| Exportación | 1 | 2 | 50% |
-| **TOTAL** | **133** | **151** | **88%** |
+| Exportación | 2 | 2 | 100% |
+| **TOTAL** | **147** | **163** | **90%** |
 
 ---
 
