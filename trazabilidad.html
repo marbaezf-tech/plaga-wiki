@@ -154,6 +154,73 @@
             <blockquote>"El código sin documentación es un fósil sin contexto. Sabes que existió algo, pero no sabes qué hacía ni por qué murió."<br>— Ramazzottius, sobre los programadores del año 20.000</blockquote>
 
             <blockquote>"Mido menos de un milímetro. Llevo 520 millones de años dormido. Y AÚN ASÍ tengo mejor documentación que este proyecto. Pongan comentarios en el código, hijos míos. Me duele el cerebro fosilizado cada vez que alguien hace un push sin explicar qué cambió."<br>— Youti Yuanshi, El Primer Padre, revisando el git log desde su criptobiosis</blockquote>
+
+            <h2>🖼️ Mapeo de Assets — Imágenes Reemplazables</h2>
+            <div class="info-box mechanic">
+                <h4>⚙️ Guía para reemplazar imágenes</h4>
+                <p>Si quieres cambiar un avatar, fondo o sprite, solo reemplaza el archivo PNG manteniendo el mismo nombre y tamaño. No necesitas tocar código.</p>
+            </div>
+
+            <h3>🎨 Fondos y Mapa</h3>
+            <table class="traz-table">
+                <tr><th>Uso</th><th>Archivo</th><th>Tamaño</th><th>Notas</th></tr>
+                <tr><td>Fondo del mapa (exploración)</td><td>assets/sprites/fondo.jpg</td><td>640×360</td><td>Se estira a pantalla completa</td></tr>
+            </table>
+
+            <h3>🦟 Sprites del Jugador (Mapa)</h3>
+            <table class="traz-table">
+                <tr><th>Dirección</th><th>Archivo</th><th>Tamaño</th><th>Notas</th></tr>
+                <tr><td>Frente (abajo)</td><td>assets/sprites/zancudo_front.png</td><td>64×64+</td><td>Sprite principal caminando</td></tr>
+                <tr><td>Espalda izq</td><td>assets/sprites/zancudo_back_left.png</td><td>64×64+</td><td>Caminando hacia arriba-izq</td></tr>
+                <tr><td>Espalda der</td><td>assets/sprites/zancudo_back_right.png</td><td>64×64+</td><td>Caminando hacia arriba-der</td></tr>
+                <tr><td>Izquierda</td><td>assets/sprites/zancudo_left.png</td><td>64×64+</td><td>Caminando lateral izq</td></tr>
+                <tr><td>Derecha</td><td>assets/sprites/zancudo_right.png</td><td>64×64+</td><td>Caminando lateral der</td></tr>
+            </table>
+
+            <h3>⚔️ Avatares de Combate</h3>
+            <table class="traz-table">
+                <tr><th>Uso</th><th>Archivo</th><th>Tamaño</th><th>Notas</th></tr>
+                <tr><td>Prota (espalda en combate)</td><td>imagenes/zancudo masked back.png</td><td>128×128</td><td>Se busca también: imagenes/2d_prota_back.png</td></tr>
+                <tr><td>Enemigo: Garrapata Salvaje</td><td>imagenes/Enemigos/2d_garrapata_salvaje.png</td><td>128×128</td><td>Se muestra como fondo de batalla</td></tr>
+                <tr><td>Enemigo: Cucaracha Carroñera</td><td>imagenes/Enemigos/2d_cucaracha_carronera.png</td><td>128×128</td><td>Se muestra como fondo de batalla</td></tr>
+                <tr><td>Enemigo: Polilla Sedante</td><td>imagenes/Enemigos/2d_polilla_sedante.png</td><td>128×128</td><td>Se muestra como fondo de batalla</td></tr>
+            </table>
+
+            <h3>🧬 Avatares de Taxón (Creación de Personaje)</h3>
+            <table class="traz-table">
+                <tr><th>Taxón</th><th>Archivo</th><th>Tamaño</th><th>Estado</th></tr>
+                <tr><td>Zancudo</td><td>imagenes/2d_zancudo.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Cucaracha</td><td>imagenes/2d_cucaracha.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Avispa</td><td>imagenes/2d_avispa.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Garrapata</td><td>imagenes/2d_garrapata.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Chinche</td><td>imagenes/2d_chinche.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Mariposa</td><td>imagenes/2d_mariposa.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Araña</td><td>imagenes/2d_arana.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Escorpión</td><td>imagenes/2d_escorpion.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Vinchuca</td><td>imagenes/2d_vinchuca.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Mosca</td><td>imagenes/2d_mosca.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Sanguijuela</td><td>imagenes/2d_sanguijuela.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Polilla</td><td>imagenes/2d_polilla.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Pulga</td><td>imagenes/2d_pulga.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+                <tr><td>Típula</td><td>imagenes/2d_tipula.png</td><td>128×128</td><td class="status-pending">❌ Pendiente</td></tr>
+            </table>
+
+            <h3>🗺️ Spots del Mapa (Objetos Interactivos)</h3>
+            <table class="traz-table">
+                <tr><th>Spot</th><th>Archivo</th><th>Tamaño</th><th>Estado</th></tr>
+                <tr><td>Monitor Holográfico Roto</td><td>assets/sprites/monitorroto.png</td><td>64×64+</td><td class="status-done">✅</td></tr>
+                <tr><td>Vaso de Agua Estancada</td><td>assets/sprites/vasoaguapodrida.png</td><td>64×64+</td><td class="status-done">✅</td></tr>
+                <tr><td>Cable Expuesto</td><td>assets/sprites/cableroto.png</td><td>64×64+</td><td class="status-done">✅</td></tr>
+            </table>
+
+            <div class="info-box lore">
+                <h4>📜 Cómo reemplazar</h4>
+                <p>1. Crea tu imagen PNG (fondo transparente, tamaño indicado)<br>
+                2. Nómbrala exactamente como dice la tabla<br>
+                3. Ponla en la carpeta indicada<br>
+                4. Godot la reimporta automáticamente al abrir el proyecto<br>
+                5. No necesitas tocar código — el nombre es la referencia</p>
+            </div>
         </article>
     </main>
 </body>
