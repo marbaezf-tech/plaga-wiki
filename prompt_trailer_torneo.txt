@@ -5,11 +5,19 @@ INSTRUCCIÓN: Genera un video corto (30-60 segundos) estilo trailer cinematográ
 ===================================================================
 
 ESTILO VISUAL:
-- Pixel art oscuro / dark fantasy 2D con iluminación dramática
-- Paleta: negros profundos, verdes tóxicos, rojos sangre, púrpuras de veneno
-- Estética: mezcla de Pokémon batalla + Darkest Dungeon + Hollow Knight
-- Ambiente: ruinas de laboratorio humano abandonado, cables colgando, hongos bioluminiscentes en las paredes
-- Partículas: esporas verdes flotando, gotas de hemolinfa, chispas eléctricas
+- Dark pixel art / chibi gothic style, similar to old-school RPGs
+- Thick black outlines on all characters so they stand out
+- Post-apocalyptic insect world aesthetic, year 20000
+- Characters have oversized heads (chibi proportions) with glowing compound eyes
+- Exoskeletons look like oxidized plastic, translucent and corrupted
+- Color palette: carbon grey for chitin, toxic neon green for eyes and biomass details, metallic red for blood/weapons
+- Background: ruined human laboratory, broken monitors with static, bioluminescent fungi growing on walls, ice creeping from edges
+- Lighting: low-key, dramatic side-lighting, bioluminescent glow from fungi and eyes
+- Particles: floating green spores, dripping blue hemolymph, electric sparks from broken cables
+- Atmosphere: oppressive, claustrophobic, like being inside a terrarium of death
+- Reference style: Hollow Knight meets Darkest Dungeon meets Pokemon battle screen
+- All insects are anthropomorphized (standing upright, holding weapons) but clearly insectoid
+- Weapons are made from organic materials: cactus spines, beetle mandibles, spider silk whips
 
 ESTRUCTURA DEL TRAILER (30-60 seg):
 
@@ -83,5 +91,11 @@ NOTAS PARA EL MODELO:
 - NO incluir humanos. Solo insectos/artrópodos antropomorfizados.
 - El tono es ARROGANTE y CÍNICO. Los insectos se creen superiores.
 - El hongo verde (Silencio Verde / Cordyceps) siempre está de fondo como amenaza.
-- Estilo visual consistente: pixel art / chibi oscuro / 2D con profundidad.
+- Estilo visual consistente: dark pixel art, chibi gothic, thick black outlines, glowing compound eyes.
+- Characters look like corrupted plastic toys (Polly Pocket Toxic aesthetic).
+- All backgrounds are dark (almost black) with bioluminescent accents (green, cyan, purple).
+- Blood is BLUE (hemolymph), not red. Except for stolen human blood which is red.
+- The fungi (Silencio Verde) always glows sickly green, with tendrils creeping on surfaces.
+- Ice/frost creeps from the bottom of frames (representing the glaciation advancing from Antarctica).
 - Si no puede generar video, generar una secuencia de 8-10 frames key como storyboard.
+- Each frame should be 16:9 aspect ratio, high contrast, game-ready aesthetic.
