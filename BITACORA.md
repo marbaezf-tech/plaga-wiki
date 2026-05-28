@@ -151,6 +151,16 @@
 - [ ] Límites del mapa (el jugador puede salirse de pantalla)
 - [ ] Testear flujo completo: Menú → Creación → Juego → Fin Demo → Menú
 
+### Sistema de Grados de Estabilidad Genética (Progresión)
+- [x] Agregar sección "Grados de Estabilidad" a wiki (sistemas.html)
+- [x] Definir tabla completa: Grado I-V con techos de Atributos (5/6/7/8/9) y Atavismos (3/4/5/6/7+)
+- [x] Mecánica de Deglución 2.0: ascenso de Grado + "Shock de Compatibilidad" (debuff temporal)
+- [x] Misiones de Estabilización: requisitos narrativos/mecánicos para romper techo de Grado
+- [ ] Definir Atavismos Básicos (disponibles en todos los Grados) vs Exclusivos de Grado Alto
+- [ ] Implementar `get_max_atributo()` y `get_max_atavismo()` en GameManager según Grado del jugador
+- [ ] Balancear NPCs y enemigos existentes según techos de Grado
+- [ ] Estructura JSON de personaje (datos_biologicos, atributos_primordiales, atavismos_activos, estado_mental)
+
 ### Media Prioridad
 - [ ] Avatares en combate (retrato del prota + retrato del enemigo)
 - [ ] Audio placeholder (1 track exploración, 1 track combate)
@@ -185,14 +195,14 @@
 
 | Área | Completado | Total | % |
 |---|---|---|---|
-| Lore/Diseño | 35 | 35 | 100% |
+| Lore/Diseño | 39 | 39 | 100% |
 | Wiki | 41 | 41 | 100% |
 | Requirements | 14 | 14 | 100% |
-| Código Godot | 16 | 22 | 73% |
+| Código Godot | 16 | 26 | 62% |
 | Assets Gráficos | 10 | 15 | 67% |
 | Audio | 0 | 5 | 0% |
 | Exportación | 1 | 2 | 50% |
-| **TOTAL** | **117** | **134** | **87%** |
+| **TOTAL** | **121** | **142** | **85%** |
 
 ---
 
