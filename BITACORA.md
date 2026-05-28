@@ -322,6 +322,11 @@
 #### Bugs narrativos
 - [ ] Fix Sanguijuelas: son Anélidos, no Artrópodos — tratarlas como "Blandos Bastardos" o intrusos evolutivos tolerados
 - [ ] Fix Cordyceps geográfico: el hongo real es tropical, no antártico — justificar como "cepa criogénica mutada" en lore
+#### Balance (Torneo PvP v2)
+- [ ] Rework Araña: PvP #13, Social #6 (suma 19) — "Emboscadora frágil", necesita buff ofensivo o mecánica de trampa
+- [ ] Rework Mosca: PvP #10, Social #13 (suma 23) — "Mediocre en todo", necesita nicho claro (summon? necro?)
+- [ ] Rework Pulga: PvP #12, Social #14 (suma 26) — "Caótica inútil", necesita que su velocidad (GAN 10) importe más
+- [ ] Rework Garrapata: PvP #14, Social #12 (suma 26) — "Tanque obsoleto", necesita que su QUI 9 compense la lentitud
 
 ---
 
