@@ -320,8 +320,8 @@
 - [ ] Polillas = monopolio de Profecías del 35%, Vinchucas = control de rumores/información
 - [ ] DLC "El Ascenso de los Blandos": humanos descubren la sociedad, fumigación masiva, cooperación entre facciones
 #### Bugs narrativos
-- [ ] Fix Sanguijuelas: son Anélidos, no Artrópodos — tratarlas como "Blandos Bastardos" o intrusos evolutivos tolerados
-- [ ] Fix Cordyceps geográfico: el hongo real es tropical, no antártico — justificar como "cepa criogénica mutada" en lore
+- [x] Fix Sanguijuelas: son Anélidos, no Artrópodos — tratadas como "Blandos Bastardos", intrusos evolutivos tolerados
+- [x] Fix Cordyceps geográfico: justificado como "cepa criogénica mutada" que se propaga por micelio subterráneo bajo hielo
 #### Balance (Torneo PvP v2)
 - [ ] Rework Araña: PvP #13, Social #6 (suma 19) — "Emboscadora frágil", necesita buff ofensivo o mecánica de trampa
 - [ ] Rework Mosca: PvP #10, Social #13 (suma 23) — "Mediocre en todo", necesita nicho claro (summon? necro?)
