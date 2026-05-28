@@ -1,0 +1,71 @@
+# PROMPT PARA GEMINI — Análisis de la Wiki como Manual de Juego
+
+## INSTRUCCIÓN
+Analiza la siguiente wiki como si fueras un **jugador nuevo** que acaba de descargar "Plaga: La Descarada" y abre el manual/wiki para entender cómo jugar. Luego analízala como un **editor de manuales de juego profesional** (tipo los manuales de White Wolf, Games Workshop, o Fantasy Flight Games).
+
+## URL DE LA WIKI
+https://marbaezf-tech.github.io/plaga-wiki/index.html
+
+Navega todas las páginas del sidebar. Son ~50 páginas HTML estáticas.
+
+## EL JUEGO
+- **Nombre:** Plaga: La Descarada
+- **Género:** RPG por turnos / Parodia de horror / Top-down
+- **Motor:** Godot 4.6 (Android + PC)
+- **Ambientación:** Año 20.000. Insectos son la especie dominante. Los humanos se extinguieron. 14 "Taxones" (clanes de artrópodos) luchan por sobrevivir en "El Gran Charco" — ruinas de una metrópolis.
+- **Inspiración:** Vampire: The Masquerade pero con insectos, humor negro y cinismo.
+- **Tono:** Descarado, arrogante, cínico. Los personajes son plagas orgullosas.
+
+## LO QUE NECESITO QUE EVALÚES
+
+### 1. COMO MANUAL DE JUEGO (¿puedo aprender a jugar leyendo esto?)
+- ¿Un jugador nuevo entiende cómo funciona el combate solo leyendo la wiki?
+- ¿Las fórmulas están claras? (daño, evasión, velocidad, Danza de Antenas)
+- ¿Se entiende qué hace cada stat? (Tórax, Ganglios, Quitina, Sensilios, Cripsis, Feromonas)
+- ¿El sistema de Antenas Sociales (0-10) está bien explicado?
+- ¿Los 42 atavismos (3 por taxón) están documentados con suficiente detalle?
+- ¿Falta un "Quick Start" o tutorial para nuevos jugadores?
+- ¿La navegación del sidebar es intuitiva?
+
+### 2. COMO DISEÑO DE JUEGO (¿es un buen juego?)
+- ¿El sistema dual (combate físico + Danza de Antenas social) tiene profundidad?
+- ¿14 taxones son demasiados o está bien para un RPG?
+- ¿El balance cruzado (guerreros malos en social, diplomáticos frágiles en combate) crea decisiones interesantes?
+- ¿El sistema de Antenas (violencia baja antenas → Cordyceps te come) genera tensión real?
+- ¿Los 4 arquetipos (Estratega/Ejecutor/Infiltrado/Diplomático) aportan rejugabilidad?
+- ¿El sistema de Fusión (items Tier 1→2→3) es satisfactorio?
+- ¿La progresión (Grados de Estabilidad I-V) está bien diseñada?
+
+### 3. COMO NARRATIVA (¿el lore engancha?)
+- ¿La mitología (Gran Éter, Progenitores, Semidioses) es coherente y atractiva?
+- ¿Ramazzottius como narrador omnisciente funciona?
+- ¿El tono "descarado" se mantiene consistente?
+- ¿Los 14 Taxones tienen personalidades distintas o se confunden?
+- ¿El Silencio Verde (Cordyceps) funciona como amenaza existencial?
+- ¿La Colmena Silenciosa es un buen "villano final"?
+- ¿Youti Yuanshi (El Primer Padre, pacifista) genera conflicto narrativo interesante?
+
+### 4. COMO PRODUCTO (¿se puede vender/publicar?)
+- ¿La wiki funciona como material de marketing? (¿da ganas de jugar?)
+- ¿Qué le falta para ser un manual de juego publicable?
+- ¿El arte conceptual descrito (chibi gothic, bioluminiscente, sangre azul) es viable?
+- ¿El modelo multiplayer planificado (co-op 2-4) es realista para un indie?
+- ¿Qué plataformas deberían priorizarse? (móvil, PC, Switch)
+
+### 5. PROBLEMAS Y SUGERENCIAS
+- Lista los 5 problemas más graves que encontraste
+- Lista las 5 mejores cosas del proyecto
+- ¿Qué eliminarías por ser innecesario o confuso?
+- ¿Qué agregarías que falta?
+- Si tuvieras que resumir el juego en 1 tweet (280 chars), ¿qué dirías?
+
+## FORMATO DE RESPUESTA
+1. **Veredicto rápido** (3 líneas: bueno/malo/potencial)
+2. **Análisis por sección** (los 5 puntos de arriba)
+3. **Top 5 problemas**
+4. **Top 5 fortalezas**
+5. **El tweet** (280 chars)
+6. **Nota como Ramazzottius** (en personaje, opinando del manual)
+
+## TONO DE TU RESPUESTA
+Sé directo, crítico constructivo, y específico. Si algo es bueno dilo. Si algo es malo, di exactamente qué página y qué línea. No seas amable por cortesía — sé útil.
