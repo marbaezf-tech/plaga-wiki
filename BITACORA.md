@@ -294,6 +294,19 @@
 - [ ] Sistema O₂ vs Calor (mecánica ambiental)
 - [ ] Colmena Silenciosa como evento/zona
 
+### 🌐 Multiplayer (Futuro)
+- [ ] Fase 1: PvP asíncrono — subir build a Firebase, matchmaking, ranking ELO (v0.5.0)
+- [ ] Fase 2: PvP tiempo real — lobby con código, Danza de Antenas 1v1, WebSocket (v0.7.0)
+- [ ] Fase 3: Co-op aventura 2-4 jugadores — exploración compartida, combate en equipo (v1.0.0)
+- [ ] network_manager.gd (Autoload — conexión, lobby, sync)
+- [ ] lobby_ui.gd (crear/unirse a sala con código)
+- [ ] player_sync.gd (sincronizar posición/estado)
+- [ ] combat_sync.gd (sincronizar acciones de combate por turno)
+- [ ] firebase_api.gd (auth + DB)
+- [ ] Danza de Antenas grupal (stats se suman en co-op)
+- [ ] Traición opcional (atacar aliado = -3 antenas, -10% Esencia)
+- [ ] Chat de feromonas (mensajes predefinidos in-game)
+
 ---
 
 ## 🟡 Bloqueantes
@@ -313,13 +326,13 @@
 | Área | Completado | Total | % |
 |---|---|---|---|
 | Lore/Diseño | 48 | 48 | 100% |
-| Wiki | 52 | 52 | 100% |
+| Wiki | 53 | 53 | 100% |
 | Requirements | 14 | 14 | 100% |
 | Código Godot | 38 | 40 | 95% |
 | Assets Gráficos | 16 | 20 | 80% |
 | Audio/Video | 5 | 5 | 100% |
-| Exportación | 2 | 2 | 100% |
-| **TOTAL** | **175** | **181** | **97%** |
+| Exportación | 3 | 3 | 100% |
+| **TOTAL** | **177** | **183** | **97%** |
 
 ---
 
