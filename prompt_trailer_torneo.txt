@@ -1,0 +1,87 @@
+PROMPT PARA GEMINI (Video/Veo) — Trailer del Torneo del Gran Charco
+
+===================================================================
+INSTRUCCIÓN: Genera un video corto (30-60 segundos) estilo trailer cinematográfico para un torneo de combate entre insectos mutantes en un mundo post-apocalíptico. Año 20.000. Los insectos son la especie dominante. Los humanos desaparecieron hace milenios.
+===================================================================
+
+ESTILO VISUAL:
+- Pixel art oscuro / dark fantasy 2D con iluminación dramática
+- Paleta: negros profundos, verdes tóxicos, rojos sangre, púrpuras de veneno
+- Estética: mezcla de Pokémon batalla + Darkest Dungeon + Hollow Knight
+- Ambiente: ruinas de laboratorio humano abandonado, cables colgando, hongos bioluminiscentes en las paredes
+- Partículas: esporas verdes flotando, gotas de hemolinfa, chispas eléctricas
+
+ESTRUCTURA DEL TRAILER (30-60 seg):
+
+[0-5 seg] INTRO OSCURA
+- Pantalla negra. Texto verde que aparece letra por letra: "AÑO 20.000"
+- Sonido: zumbido grave de insectos + goteo de agua
+- Fade in a un ojo compuesto gigante que se abre (rojo-naranja brillante)
+
+[5-10 seg] EL ESCENARIO
+- Vista cenital de un laboratorio en ruinas. Tubos de ensayo rotos. Hongos verdes creciendo en las paredes.
+- Un tardígrado microscópico duerme en una gota de ámbar (brilla dorado)
+- Texto: "14 LINAJES. 1 CHARCO. 0 PIEDAD."
+
+[10-20 seg] LOS COMBATIENTES (montaje rápido)
+- Flash de cada insecto en pose de combate (0.5 seg cada uno):
+  * 🦂 Escorpión: pinzas abiertas, brillo UV en la cola, DOMINANTE
+  * 🪳 Cucaracha: caparazón brillando, indestructible, ojos fríos
+  * 🐝 Avispa: alas vibrando a velocidad imposible, mandíbulas de acero
+  * 🕷️ Garrapata: hinchada de sangre, anclada al suelo, inamovible
+  * 🦟 Zancudo: probóscide como aguja quirúrgica, ojos verdes neón
+  * 🗡️ Vinchuca: en las sombras, solo se ven los ojos rojos
+  * 🕸️ Araña: tejiendo una red que brilla con éter ancestral
+  * 🦋 Mariposa: alas con polvo hipnótico, belleza letal
+
+[20-35 seg] LAS BATALLAS (acción)
+- Escorpión aplasta a una Polilla con su pinza (cámara lenta, partículas)
+- Cucaracha recibe un golpe y NO se mueve (caparazón brilla)
+- Avispa hace triple ataque frenético contra una Araña (blur de velocidad)
+- Vinchuca emerge de la oscuridad y muerde a un Zancudo por la espalda
+- Araña atrapa a una Vinchuca en su red (49.5% vs 50.5% — LA BATALLA MÁS ÉPICA)
+- Escorpión vs Garrapata: choque de titanes, chispas de quitina
+
+[35-45 seg] LOS OBSERVADORES
+- Corte a: un ser microscópico en ámbar dorado (Youti Yuanshi, 520M años)
+- Su "ojo" se ilumina con dolor. Texto susurrado: "Son todos mis hijos..."
+- Corte a: un tardígrado gigante bostezando en una roca congelada (Ramazzottius)
+- Texto con voz grave: "530 millones de años viendo lo mismo. Qué aburrido."
+
+[45-55 seg] CLÍMAX
+- Montaje rápido de golpes finales: sangre (hemolinfa azul), quitina quebrándose, esporas verdes explotando
+- El Escorpión se para sobre una pila de cadáveres. Invicto. 100% winrate.
+- Texto rojo: "INVICTO."
+- Pero detrás de él... un hongo verde crece silenciosamente en su sombra...
+- Texto verde que pulsa: "EL SILENCIO VERDE OBSERVA."
+
+[55-60 seg] TÍTULO FINAL
+- Pantalla negra
+- Logo: "🦟 PLAGA: LA DESCARADA"
+- Subtítulo: "TORNEO DEL GRAN CHARCO"
+- Texto pequeño: "14 Taxones. 42 Atavismos. 1 Superviviente."
+- URL: marbaezf-tech.github.io/plaga-wiki
+
+===================================================================
+AUDIO SUGERIDO (si el modelo genera audio):
+- Intro: drone grave + goteo + zumbido de insectos
+- Batallas: percusión tribal rápida + sonidos de quitina chocando
+- Observadores: silencio + nota grave de cello
+- Clímax: crescendo orquestal oscuro
+- Título: silencio total + un solo zumbido de mosquito
+
+===================================================================
+DATOS DEL TORNEO (para texto en pantalla):
+- Campeón invicto: Escorpión (100% winrate, 2600 victorias)
+- Batalla más épica: Araña vs Vinchuca (49.5% / 50.5%)
+- Más débil: Típula (0% winrate — "Cristal Ambulante")
+- Total simulado: 18,200 combates
+- Observadores: Ramazzottius (530M años) + Youti Yuanshi (520M años)
+
+===================================================================
+NOTAS PARA EL MODELO:
+- NO incluir humanos. Solo insectos/artrópodos antropomorfizados.
+- El tono es ARROGANTE y CÍNICO. Los insectos se creen superiores.
+- El hongo verde (Silencio Verde / Cordyceps) siempre está de fondo como amenaza.
+- Estilo visual consistente: pixel art / chibi oscuro / 2D con profundidad.
+- Si no puede generar video, generar una secuencia de 8-10 frames key como storyboard.
