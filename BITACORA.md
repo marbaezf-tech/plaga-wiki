@@ -76,6 +76,10 @@
 
 ### Lore Expandido (con Gemini)
 - [x] 14° Taxón: Típulas — Los Impostores (equivalente a Salubri/Clan 14)
+- [x] 14° Semidiós: Youti Yuanshi — El Primer Padre (520M años, ancestro de todos los artrópodos)
+- [x] Doctrina de Youti: Resonancia del Primero (mecánica pasiva anti-fratricidio)
+- [x] Tabla de posturas de los 13 Semidioses ante Youti
+- [x] Paradoja narrativa: el pacifista que genera más guerra
 - [x] Espiritrompa de las Típulas (dato real: no la enrollan como mariposas)
 - [x] Ocelo Ancestral (Tercer Ojo) — ve el miedo como calor infrarrojo
 - [x] Leyenda del Primer Ocelo (mito oral Típula)
@@ -223,14 +227,14 @@
 
 | Área | Completado | Total | % |
 |---|---|---|---|
-| Lore/Diseño | 39 | 39 | 100% |
+| Lore/Diseño | 43 | 43 | 100% |
 | Wiki | 43 | 43 | 100% |
 | Requirements | 14 | 14 | 100% |
 | Código Godot | 19 | 26 | 73% |
 | Assets Gráficos | 10 | 15 | 67% |
 | Audio | 0 | 5 | 0% |
 | Exportación | 1 | 2 | 50% |
-| **TOTAL** | **126** | **144** | **88%** |
+| **TOTAL** | **130** | **148** | **88%** |
 
 ---
 
