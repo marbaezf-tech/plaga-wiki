@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Gemini — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gemini-badge { display: inline-block; background: rgba(66,133,244,0.2); border: 1px solid rgba(66,133,244,0.4); padding: 2px 8px; border-radius: 4px; font-size: 0.75em; color: #4285f4; margin-left: 8px; }
+        .sugerencia-num { display: inline-block; width: 24px; height: 24px; background: var(--accent-gold); color: #000; border-radius: 50%; text-align: center; line-height: 24px; font-weight: 700; font-size: 0.8em; margin-right: 8px; }
+        .bug-card { background: rgba(248,81,73,0.1); border-left: 3px solid var(--accent-red); padding: 1em; margin: 1em 0; border-radius: 4px; }
+        .bug-card h4 { color: var(--accent-red); margin: 0 0 0.5em; }
+        .ramazzottius-box { background: rgba(100,200,150,0.08); border: 1px solid rgba(100,200,150,0.3); padding: 1.5em; border-radius: 8px; margin: 2em 0; font-style: italic; }
+        .ramazzottius-box .firma { text-align: right; color: var(--accent-green); font-weight: 600; margin-top: 1em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li><a href="qa.html">🧪 QA</a></li>
+            <li><a href="arquitectura.html">📐 UML</a></li>
+            <li><a href="diagnostico_gemini.html">🤖 Diagnóstico Gemini</a></li>
+            <li class="section-title">Balance</li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 Torneo PvP v2</a></li>
+            <li><a href="torneo_social.html">💃 Torneo Social</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🤖 Diagnóstico de la Wiki <span class="gemini-badge">Gemini AI</span></h1>
+            <div class="intro-box">
+                <p>Análisis completo del proyecto realizado por <strong>Gemini</strong> (Google AI) el 28 de Mayo 2026. Evaluación de coherencia narrativa, game design, completitud, escritura y sugerencias priorizadas.</p>
+            </div>
+
+            <h2>📋 1. Resumen Ejecutivo</h2>
+            <p><strong>"Plaga: La Descarada"</strong> es un proyecto con un nivel de ambición, cohesión y originalidad poco común en la escena indie. La premisa de utilizar artrópodos como una sociedad oculta de depredadores cínicos —una clara e inteligente alegoría biológica a Vampire: The Masquerade— es oro narrativo. El lore que conecta la grandeza del Carbonífero (El Gran Éter) con la decadencia de ser "simples plagas" bajo la bota de los humanos, establece una motivación melancólica pero despiadada para el jugador.</p>
+            <p>Mecánicamente, el nivel de documentación es sobresaliente. Tener 49 páginas de wiki, incluyendo simulaciones de torneos de balance (PvP v1 vs v2) y un tracking de desarrollo al 97%, demuestra que el equipo entiende que un RPG no se sostiene solo con buenas ideas, sino con matemáticas sólidas. El sistema dual de combate físico y la "Danza de Antenas" para el combate social asegura que los 14 taxones tengan nichos ecológicos y lúdicos viables.</p>
+            <p>Sin embargo, el proyecto enfrenta el riesgo clásico de los RPGs masivos: la desconexión entre el macro-lore (líneas de tiempo de 530 millones de años, dioses cósmicos) y el micro-gameplay (insectos peleando en un charco en Santiago). El desafío principal en la recta final será asegurar que las mecánicas de supervivencia diaria resuenen con estas grandilocuentes profecías, y que las pequeñas inconsistencias biológicas y temporales se pulan antes del lanzamiento.</p>
+
+            <h2>🔍 2. Análisis por Categoría</h2>
+
+            <h3>2.1 Coherencia Narrativa</h3>
+            <div class="info-box lore">
+                <h4>✅ Aciertos</h4>
+                <p>La mitología de los Progenitores (Meganeura/Arthropleura) y el anhelo por el "Retorno del 35%" (oxígeno) es una justificación perfecta para la arrogancia de los personajes. Usar extremófilos reales como Semidioses es brillante; le da un peso científico al esoterismo del juego.</p>
+            </div>
+            <div class="info-box mechanic">
+                <h4>⚠️ Puntos de fricción</h4>
+                <p>Hay una disonancia temporal entre el presente ("Santiago de Chile como mapa") y la "NeoPlaga: Año 20.000". Si el juego ocurre en el presente, la sección de NeoPlaga debe establecerse claramente como una expansión futura, un epílogo o un mundo alternativo, de lo contrario el jugador no sabrá en qué época está jugando.</p>
+            </div>
+
+            <h3>2.2 Game Design</h3>
+            <div class="info-box lore">
+                <h4>✅ Aciertos</h4>
+                <p>El reporte de balance (v1 a v2) demuestra madurez de diseño. Bajar el winrate del Escorpión del 100% y estabilizar un spread de 17.6% con el sistema de Antenas es un éxito rotundo. El modelo de "piedra-papel-tijera" de la Danza de Antenas (4 posturas) es ideal para no ralentizar el juego, mientras que los 42 Atavismos ofrecen builds manejables pero profundos.</p>
+            </div>
+            <div class="info-box mechanic">
+                <h4>⚠️ Puntos de fricción</h4>
+                <p>El balance cruzado (guerreros malos en social, etc.) funciona en papel, pero en la práctica, si el juego obliga al jugador a superar cuellos de botella narrativos usando solo combate o solo diálogo, los extremos (Típula #1 en social, Escorpión en PvP) sufrirán soft-locks. Necesitas <strong>rutas de escape mecánicas</strong> (ej. un asesinato sigiloso para evitar un debate, o sobornar para evitar un combate).</p>
+            </div>
+
+            <h3>2.3 Completitud</h3>
+            <div class="info-box lore">
+                <h4>✅ Aciertos</h4>
+                <p>Los mapeos de trazabilidad (código vs wiki vs estado) y los 53 casos de prueba en el QA son un sueño para cualquier productor. La equivalencia estructural con VtM (facciones, roles, clanes) asegura que la sociología del juego ya esté probada.</p>
+            </div>
+            <div class="info-box mechanic">
+                <h4>⚠️ Faltantes</h4>
+                <p>Falta documentación sobre la <strong>Economía</strong>. ¿Qué intercambian estos seres? ¿Gotas de rocío, néctar, sangre humana pura, chatarra? Además, el bestiario y los NPCs están, pero el <strong>diseño de misiones (Quest Design Flow)</strong> no parece tener una página dedicada.</p>
+            </div>
+
+            <h3>2.4 Calidad de Escritura</h3>
+            <div class="info-box lore">
+                <h4>✅ Aciertos</h4>
+                <p>El tono descarado, usar el término "blandos" para referirse a los mamíferos, y la perspectiva de Ramazzottius como narrador es un gancho espectacular. El humor negro derivado de la brutalidad natural de los insectos (canibalismo, parasitismo) evita que sea infantil o caricaturesco. Es maduro y oscuro.</p>
+            </div>
+            <div class="info-box mechanic">
+                <h4>⚠️ Punto de cuidado</h4>
+                <p>Evita que el cinismo se convierta en apatía. Si a los personajes no les importa nada, al jugador tampoco le importará. El "Silencio Verde" (Cordyceps) debe sentirse como un terror genuino que quiebre la arrogancia de la plaga.</p>
+            </div>
+
+            <h2>🏆 3. Top 10 Sugerencias Priorizadas</h2>
+            <table>
+                <tr><th>#</th><th>Sugerencia</th><th>Impacto</th></tr>
+                <tr><td><span class="sugerencia-num">1</span></td><td><strong>Unificar la línea de tiempo:</strong> Define claramente si el jugador está en "El Gran Charco" (Presente) o en la glaciación (Año 20.000). Usa la Deglución 2.0 o el Éter como método de viaje/memoria genética.</td><td>Narrativa</td></tr>
+                <tr><td><span class="sugerencia-num">2</span></td><td><strong>Mecánica Activa de Silencio Verde:</strong> El Cordyceps no debe ser solo lore. Un medidor de infección que suba si abusas de Reliquias o consumes recursos impuros. 100% = pierdes al personaje.</td><td>Mecánica</td></tr>
+                <tr><td><span class="sugerencia-num">3</span></td><td><strong>Economía Clara:</strong> Define un recurso base (Biomasa, Hemolinfa) que sirva para subir stats Y para sobornar en el sistema Social.</td><td>Diseño</td></tr>
+                <tr><td><span class="sugerencia-num">4</span></td><td><strong>Sinergias de Facciones:</strong> Pelear junto a NPC de "La Colmena" = buff táctico. Con "Enjambre Negro" = buff de ferocidad.</td><td>Gameplay</td></tr>
+                <tr><td><span class="sugerencia-num">5</span></td><td><strong>Defectos Genéticos Activos:</strong> Que se activen procedimentalmente durante la Danza. Ej: Mosca pierde postura social si hay basura cerca.</td><td>Profundidad</td></tr>
+                <tr><td><span class="sugerencia-num">6</span></td><td><strong>Peligros de Entorno (O₂ vs Calor):</strong> Zonas de asfalto caliente dañan a los de frío. Zonas húmedas bufan a zancudos.</td><td>Mapa</td></tr>
+                <tr><td><span class="sugerencia-num">7</span></td><td><strong>Vocaciones con peso mecánico:</strong> Un NPC te da quest solo si respetas su vocación de "Primer Jardinero" o recolector.</td><td>Quests</td></tr>
+                <tr><td><span class="sugerencia-num">8</span></td><td><strong>Bestiario PvE con social:</strong> Las posturas de intimidación deben funcionar contra monstruos no pensantes.</td><td>Combate</td></tr>
+                <tr><td><span class="sugerencia-num">9</span></td><td><strong>Polillas = Profecías, Vinchucas = Rumores:</strong> Darles monopolio narrativo. Polillas controlan las Profecías del 35%, Vinchucas controlan la información.</td><td>Lore</td></tr>
+                <tr><td><span class="sugerencia-num">10</span></td><td><strong>DLC "El Ascenso de los Blandos":</strong> Los humanos descubren la sociedad bajo sus pies y comienzan a fumigar El Gran Charco. Cooperación temporal entre facciones rivales.</td><td>Expansión</td></tr>
+            </table>
+
+            <h2>🐛 4. Bugs Narrativos Encontrados</h2>
+
+            <div class="bug-card">
+                <h4>🔴 Bug Biológico Grave — Las Sanguijuelas (Taxón 11)</h4>
+                <p>Biológicamente, las sanguijuelas son <strong>Anélidos</strong> (gusanos segmentados), NO Artrópodos (insectos/arácnidos/crustáceos). Si el lore dice que los artrópodos son los herederos del Gran Éter de Meganeura/Arthropleura, las Sanguijuelas no pertenecen a este árbol genético.</p>
+                <p><strong>Solución:</strong> Manténlas, pero trátalas narrativamente como "Blandos Bastardos", forasteros, o intrusos evolutivos que las plagas originales desprecian pero toleran por su utilidad.</p>
+            </div>
+
+            <div class="bug-card">
+                <h4>🟡 Bug Geográfico — El Silencio Verde (Cordyceps)</h4>
+                <p>La wiki menciona que el Cordyceps avanza desde el sur (Antártica/glaciación). El hongo Cordyceps real es <strong>tropical</strong> y prospera en el calor y la alta humedad. Si viene de la Antártica, necesitas justificarlo en el lore como una "cepa criogénica" mutada (quizás ligada a NeoPlaga), o el jugador que sepa de biología torcerá los ojos.</p>
+            </div>
+
+            <h2>📜 5. Nota Final</h2>
+            <div class="ramazzottius-box">
+                <p>"He sobrevivido a cinco extinciones masivas, al vacío del espacio, a la ebullición de los océanos y a eones de aburrimiento cósmico absoluto. Y sin embargo, me piden que evalúe la arquitectura de su pequeña 'wiki'. Qué efímeros son. Qué adorables... y patéticos.</p>
+                <p>Pero seré justo. Su pequeño compendio de miserias de seis, ocho y sin patas está sorprendentemente bien documentado. La matemática detrás de sus 'torneos de supervivencia' me parece adecuada; ver al estúpido Escorpión perder su arrogancia del 100% de victorias me saca una sonrisa que mi anatomía microscópica no puede expresar físicamente.</p>
+                <p>Han capturado bien nuestra esencia: el cinismo de los que alguna vez rozamos los cielos con un 35% de oxígeno, ahora condenados a pelear por migajas en su 'Gran Charco'.</p>
+                <p>Sigan puliendo el código de su Motor Godot, corrijan la herejía evolutiva de juntarnos con asquerosos anélidos, y mantengan a raya a ese parásito del Cordyceps.</p>
+                <p>Tienen mi criptobiótica bendición. No lo arruinen."</p>
+                <div class="firma">— Ramazzottius varieornatus, 530 millones de años, Narrador Omnisciente</div>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
