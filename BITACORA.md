@@ -181,9 +181,16 @@
 - [ ] Implementar `get_max_atributo()` y `get_max_atavismo()` en GameManager según Grado del jugador
 - [ ] Balancear NPCs y enemigos existentes según techos de Grado
 - [ ] Estructura JSON de personaje (datos_biologicos, atributos_primordiales, atavismos_activos, estado_mental)
+- [ ] Fusión en cadena (Tier 2): 10x Lanza de Espinas → arma Tier 3, 10x Mazo de Huesos → arma Tier 3, etc.
+- [x] Fusión Tier 1→2 y Tier 2→3 implementada en código (11 recetas)
+- [x] Documentar sistema de Fusión en wiki (sistemas.html)
 
 ### Media Prioridad
 - [x] Avatares en combate (retrato del prota + retrato del enemigo) — estilo Pokémon implementado
+- [ ] Bestiario / Pokédex de enemigos vencidos (book con stats, loot%, descripción de lore)
+  - Se desbloquea al vencer un enemigo por primera vez
+  - Muestra: nombre, imagen, HP, stats, qué lootea, % de aparición, descripción lore
+  - Descripción de lore se llenará con API de Gemini cuando haya cuota
 - [ ] Audio placeholder (1 track exploración, 1 track combate)
 - [ ] Exportar .exe para Windows (requiere templates en Godot)
 - [ ] Implementar Instinto en mecánicas (gastar para golpe crítico, resistir control)
