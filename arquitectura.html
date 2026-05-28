@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura UML — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true, theme:'dark'});</script>
+    <style>
+        .mermaid { background: rgba(20,25,30,0.8); padding: 1em; border-radius: 8px; margin: 1em 0; overflow-x: auto; }
+        .diagram-section { margin-top: 2em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li><a href="qa.html">🧪 QA</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="arquitectura.html">📐 Arquitectura UML</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="torneo_pvp_v2.html">⚔️ Torneo PvP v2</a></li>
+            <li><a href="torneo_social.html">💃 Torneo Social</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>📐 Arquitectura UML — Diagramas del Sistema</h1>
+            <div class="intro-box">
+                <p>Documentación técnica con diagramas UML generados con <strong>Mermaid.js</strong>. Muestra la estructura de clases, flujos de juego, y máquinas de estado del motor.</p>
+            </div>
+
+            <!-- DIAGRAMA DE CLASES -->
+            <h2 class="diagram-section">📦 Diagrama de Clases (Autoloads)</h2>
+            <div class="mermaid">
+classDiagram
+    class GameManager {
+        +Taxon taxon_actual
+        +String nombre_plaga
+        +float esencia
+        +int antenas
+        +float turgencia_actual
+        +float hemolinfa_actual
+        +Dictionary stats
+        +Array inventario
+        +inicializar_plaga(taxon, nombre)
+        +reset()
+        +modificar_esencia(cantidad, razon)
+        +ganar_antena(razon)
+        +perder_antena(razon)
+        +recibir_dano(cantidad)
+        +curar(cantidad)
+        +gastar_hemolinfa(cantidad)
+        +obtener_atavismos() Array
+        +calcular_velocidad() float
+    }
+
+    class LootSystem {
+        +generar_loot() Dictionary
+        +LOOT_TABLE Array
+        +FUSION_RECIPES Array
+    }
+
+    class SaveSystem {
+        +guardar()
+        +cargar()
+        +existe_save() bool
+    }
+
+    class CombatManager {
+        +CombatState state
+        +String enemy_name
+        +float enemy_hp
+        +float enemy_feromonas
+        +setup_enemy(name, hp, fue, agi, def, fer, cri, sen)
+        +_on_atacar()
+        +_on_habilidad()
+        +_on_danza()
+        +_on_huir()
+        +_enemy_turn()
+        +_enemy_provocar()
+    }
+
+    GameManager --> CombatManager : usa stats
+    GameManager --> LootSystem : genera items
+    GameManager --> SaveSystem : persiste estado
+    CombatManager --> GameManager : modifica antenas/esencia
+            </div>
+
+            <!-- DIAGRAMA DE FLUJO DEL JUEGO -->
+            <h2 class="diagram-section">🔄 Flujo Principal del Juego</h2>
+            <div class="mermaid">
+flowchart TD
+    A[Menu Principal] -->|Nueva Conquista| B[Creacion Personaje]
+    A -->|Cargar| G[Mapa - El Laboratorio]
+    B -->|Seleccionar Taxon| C[Seleccionar Arquetipo]
+    C -->|INOCULAR| G
+    G -->|Acercarse a Spot| H{Menu Spot}
+    H -->|Inspeccionar| I[Descripcion + Lore]
+    H -->|Cazar| J[Combate por Turnos]
+    H -->|Saquear| K[Loot aleatorio]
+    J -->|Victoria| L[Loot + EXP + Bestiario]
+    J -->|Derrota HP=0| M[Game Over Rojo]
+    J -->|Esencia=0| N[ASIMILADO Verde]
+    L --> G
+    M -->|Volver| A
+    N -->|Aceptar Silencio| A
+    G -->|Craftear Anclaje| O[FIN DE DEMO]
+    O -->|Video Escorpion| P[Desbloquea Taxon]
+    P --> A
+    G -->|F5| Q[Guardar]
+    G -->|Tecla L| R[Bestiario]
+    G -->|Tecla I| S[Inventario]
+    S -->|Fusionar| T[Item Tier+1]
+            </div>
+
+            <!-- DIAGRAMA DE ESTADOS: COMBATE -->
+            <h2 class="diagram-section">⚔️ Máquina de Estados: Combate</h2>
+            <div class="mermaid">
+stateDiagram-v2
+    [*] --> PLAYER_TURN : Combate inicia
+    PLAYER_TURN --> ANIMATING : Atacar
+    PLAYER_TURN --> ATAVISMO_MENU : Atavismo
+    PLAYER_TURN --> DANZA_MENU : Danza de Antenas
+    PLAYER_TURN --> ANIMATING : Retirada
+
+    ATAVISMO_MENU --> ANIMATING : Elegir atavismo
+    ATAVISMO_MENU --> PLAYER_TURN : Cancelar
+
+    DANZA_MENU --> ANIMATING : Elegir postura
+    DANZA_MENU --> PLAYER_TURN : Cancelar
+
+    ANIMATING --> ENEMY_TURN : Enemigo vivo
+    ANIMATING --> ENDED : Enemigo muerto
+    ANIMATING --> ENDED : Escape exitoso
+
+    ENEMY_TURN --> PLAYER_TURN : Ataque fisico
+    ENEMY_TURN --> PLAYER_TURN : Provocacion social
+
+    ENDED --> [*] : Cerrar combate
+            </div>
+
+            <!-- DIAGRAMA DE SECUENCIA: DANZA DE ANTENAS -->
+            <h2 class="diagram-section">🐜 Secuencia: Danza de Antenas</h2>
+            <div class="mermaid">
+sequenceDiagram
+    participant J as Jugador
+    participant CM as CombatManager
+    participant E as Enemigo
+    participant GM as GameManager
+
+    J->>CM: Presiona "Danza de Antenas"
+    CM->>J: Muestra 4 posturas (Acecho/Exposicion/Mimetismo/Vibracion)
+    J->>CM: Elige postura (ej: Vibracion SEN:10)
+    CM->>E: Enemigo elige postura (60% mejor stat, 40% random)
+    CM->>CM: Resuelve: stat + ventaja(+3) + random(+-2)
+    alt Victoria del jugador
+        CM->>GM: ganar_antena("Victoria Danza")
+        CM->>E: Aplica efecto (daño/debuff/critico/heal)
+        CM->>J: "Enemigo pierde turno"
+    else Derrota del jugador
+        CM->>E: Aplica penalizacion al jugador
+        CM->>E: Turno del enemigo
+    end
+            </div>
+
+            <!-- DIAGRAMA: SISTEMA DE ANTENAS -->
+            <h2 class="diagram-section">🍄 Flujo: Sistema de Antenas y Cordyceps</h2>
+            <div class="mermaid">
+flowchart LR
+    A[Antenas 5/10] -->|Atacar x3| B[Antenas -1]
+    A -->|Atavismo melee| B
+    A -->|Intimidar/Miedo| B
+    A -->|Danza victoria| C[Antenas +1]
+    A -->|Atavismo social| C
+    A -->|Evasion/Heal| D[Sin cambio]
+    B -->|Llega a 0| E[CORDYCEPS ACTIVO]
+    E -->|Cada turno| F[-5 HP + -5% Esencia]
+    F -->|Esencia = 0| G[ASIMILADO - Game Over]
+    C -->|Llega a 10| H[BONUS SOCIAL +3]
+    H --> I[Domina Danza de Antenas]
+            </div>
+
+            <!-- DIAGRAMA: RELACIONES ENTRE POSTURAS -->
+            <h2 class="diagram-section">💃 Ventajas de Postura (Piedra-Papel-Tijera)</h2>
+            <div class="mermaid">
+graph LR
+    A["🦷 Acecho (TOR)"] -->|vence a| B["💐 Exposicion (FER)"]
+    B -->|vence a| C["📡 Vibracion (SEN)"]
+    C -->|vence a| D["🫥 Mimetismo (CRI)"]
+    D -->|vence a| A
+    style A fill:#662222
+    style B fill:#665522
+    style C fill:#225566
+    style D fill:#333366
+            </div>
+
+            <!-- DIAGRAMA: ESTRUCTURA DE ARCHIVOS -->
+            <h2 class="diagram-section">📁 Estructura del Proyecto Godot</h2>
+            <div class="mermaid">
+graph TD
+    ROOT["res://"] --> SCRIPTS["scripts/"]
+    ROOT --> IMAGENES["imagenes/"]
+    ROOT --> VIDEO["video/"]
+    ROOT --> ASSETS["assets/"]
+    ROOT --> EXPORT["export/"]
+
+    SCRIPTS --> GM["game_manager.gd (Autoload)"]
+    SCRIPTS --> LS["loot_system.gd (Autoload)"]
+    SCRIPTS --> SS["save_system.gd (Autoload)"]
+    SCRIPTS --> CM["combat_manager.gd"]
+    SCRIPTS --> MP["menu_principal.gd"]
+    SCRIPTS --> CP["creacion_personaje.gd"]
+    SCRIPTS --> PL["player.gd"]
+    SCRIPTS --> SM["spot_menu.gd"]
+    SCRIPTS --> IU["inventario_ui.gd"]
+    SCRIPTS --> BU["bestiario_ui.gd"]
+
+    IMAGENES --> ENEM["Enemigos/"]
+    ENEM --> E1["2d_garrapata_salvaje.png"]
+    ENEM --> E2["2d_cucaracha_carronera.png"]
+    ENEM --> E3["2d_polilla_sedante.png"]
+
+    VIDEO --> V1["video Trailer torneo 1.ogv"]
+    VIDEO --> V2["video Trailer torneo 2.ogv"]
+    VIDEO --> V3["final demo escorpion.ogv"]
+
+    EXPORT --> APK["descarada_v0.2.0.apk"]
+            </div>
+
+            <!-- DIAGRAMA: FÓRMULAS DE COMBATE -->
+            <h2 class="diagram-section">🧮 Fórmulas de Combate</h2>
+            <div class="info-box mechanic">
+                <h4>⚙️ Todas las fórmulas implementadas</h4>
+            </div>
+            <table>
+                <tr><th>Fórmula</th><th>Cálculo</th><th>Archivo</th></tr>
+                <tr><td>HP (Turgencia)</td><td><code>80 + QUI × 4</code></td><td>game_manager.gd</td></tr>
+                <tr><td>Hemolinfa</td><td><code>30 + SEN × 4</code></td><td>game_manager.gd</td></tr>
+                <tr><td>Daño base</td><td><code>TOR × 2 + Arma - DEF × 0.5</code></td><td>combat_manager.gd</td></tr>
+                <tr><td>Defensa</td><td><code>QUI × 0.5 + Armadura</code></td><td>combat_manager.gd</td></tr>
+                <tr><td>Evasión</td><td><code>min(55%, GAN×3.5% + CRI×2.5%)</code></td><td>combat_manager.gd</td></tr>
+                <tr><td>Precisión</td><td><code>SEN × 2% (reduce evasión)</code></td><td>combat_manager.gd</td></tr>
+                <tr><td>Velocidad</td><td><code>(GAN + SEN) / 2</code></td><td>game_manager.gd</td></tr>
+                <tr><td>Escape</td><td><code>(Vel propia / Vel enemiga) × 50%</code></td><td>combat_manager.gd</td></tr>
+                <tr><td>Danza</td><td><code>Stat postura + ventaja(+3) ± random(2) + bonus_antenas</code></td><td>combat_manager.gd</td></tr>
+                <tr><td>Resistir provocación</td><td><code>(FER + SEN + ±2) vs (FER + SEN enemigo)</code></td><td>combat_manager.gd</td></tr>
+            </table>
+
+            <blockquote>"Un diagrama UML es como un fósil: te dice cómo era la estructura en un momento dado. Pero el código evoluciona. El fósil no."<br>— Ramazzottius, sobre la documentación técnica</blockquote>
+        </article>
+    </main>
+</body>
+</html>

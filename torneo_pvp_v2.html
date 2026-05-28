@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo PvP v2 — Con Antenas — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .rank-1 td { color: var(--accent-gold); font-weight: 700; }
+        .rank-2 td { color: #c0c0c0; font-weight: 600; }
+        .rank-3 td { color: #cd7f32; font-weight: 600; }
+        .perfil-guerrero { color: #ff6666; }
+        .perfil-social { color: #66ccff; }
+        .perfil-hibrido { color: #ffcc44; }
+        .spread-good { color: var(--accent-green); font-weight: 700; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li><a href="qa.html">🧪 QA</a></li>
+            <li class="section-title">Torneos</li>
+            <li><a href="torneo_pvp.html">⚔️ Torneo PvP v1</a></li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 Torneo PvP v2</a></li>
+            <li><a href="torneo_social.html">💃 Torneo Social</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="arquitectura.html">📐 Arquitectura UML</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>⚔️🐜 Torneo PvP v2 — Con Antenas, Evasión y Danza</h1>
+            <div class="intro-box">
+                <p>Simulación de <strong>2000 rondas</strong> con el sistema completo: ataques físicos con evasión, atavismos (melee/social/utilidad), Danza de Antenas, y el sistema de <strong>Antenas Sociales</strong> donde la violencia pura te consume.</p>
+                <p class="spread-good">📏 Spread: 17.6% — ¡Balance real!</p>
+            </div>
+
+            <h2>🏆 Ranking PvP v2 — Todos vs Todos</h2>
+            <table>
+                <tr><th>#</th><th>Taxón</th><th>Wins</th><th>Losses</th><th>Winrate</th><th>Perfil</th></tr>
+                <tr class="rank-1"><td>1</td><td>🦂 Escorpión</td><td>15,927</td><td>10,073</td><td>61.3%</td><td class="perfil-guerrero">Guerrero</td></tr>
+                <tr class="rank-2"><td>2</td><td>🐝 Avispa</td><td>15,738</td><td>10,262</td><td>60.5%</td><td class="perfil-guerrero">Guerrero</td></tr>
+                <tr class="rank-3"><td>3</td><td>🗡️ Vinchuca</td><td>13,998</td><td>12,002</td><td>53.8%</td><td class="perfil-hibrido">Híbrido</td></tr>
+                <tr><td>4</td><td>🦟 Típula</td><td>13,100</td><td>12,900</td><td>50.4%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>5</td><td>🦟 Zancudo</td><td>13,002</td><td>12,998</td><td>50.0%</td><td class="perfil-hibrido">Híbrido</td></tr>
+                <tr><td>6</td><td>🦋 Mariposa</td><td>12,927</td><td>13,073</td><td>49.7%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>7</td><td>🪳 Cucaracha</td><td>12,830</td><td>13,170</td><td>49.3%</td><td class="perfil-guerrero">Guerrero</td></tr>
+                <tr><td>8</td><td>💉 Sanguijuela</td><td>12,769</td><td>13,231</td><td>49.1%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>9</td><td>🛏️ Chinche</td><td>12,541</td><td>13,459</td><td>48.2%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>10</td><td>🪰 Mosca</td><td>12,371</td><td>13,629</td><td>47.6%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>11</td><td>🌙 Polilla</td><td>12,350</td><td>13,650</td><td>47.5%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>12</td><td>⚡ Pulga</td><td>11,574</td><td>14,426</td><td>44.5%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>13</td><td>🕸️ Araña</td><td>11,511</td><td>14,489</td><td>44.3%</td><td class="perfil-social">Social</td></tr>
+                <tr><td>14</td><td>🕷️ Garrapata</td><td>11,362</td><td>14,638</td><td>43.7%</td><td class="perfil-guerrero">Guerrero</td></tr>
+            </table>
+
+            <h2>⚖️ Balance Cruzado (PvP v2 vs Social)</h2>
+            <div class="info-box mechanic">
+                <h4>⚙️ Suma ideal = 15</h4>
+                <p>PvP rank + Social rank. Cuanto más cerca de 15, más equilibrado. 🌟 = Versátil (≤10) | ⚖️ = Equilibrado (11-18) | 💀 = Especialista débil (>18)</p>
+            </div>
+            <table>
+                <tr><th>Taxón</th><th>PvP v2</th><th>Social</th><th>Suma</th><th>Veredicto</th></tr>
+                <tr><td>🗡️ Vinchuca</td><td>#3</td><td>#3</td><td>6</td><td>🌟 La más versátil del Charco</td></tr>
+                <tr><td>🦟 Típula</td><td>#4</td><td>#1</td><td>5</td><td>🌟 Diplomática que sobrevive</td></tr>
+                <tr><td>🦋 Mariposa</td><td>#6</td><td>#2</td><td>8</td><td>🌟 Social que esquiva todo</td></tr>
+                <tr><td>🦂 Escorpión</td><td>#1</td><td>#9</td><td>10</td><td>🌟 Guerrero puro</td></tr>
+                <tr><td>🐝 Avispa</td><td>#2</td><td>#8</td><td>10</td><td>🌟 Berserker con algo de social</td></tr>
+                <tr><td>🛏️ Chinche</td><td>#9</td><td>#5</td><td>14</td><td>⚖️ Político equilibrado</td></tr>
+                <tr><td>🦟 Zancudo</td><td>#5</td><td>#10</td><td>15</td><td>⚖️ Equilibrio perfecto</td></tr>
+                <tr><td>💉 Sanguijuela</td><td>#8</td><td>#7</td><td>15</td><td>⚖️ Equilibrio perfecto</td></tr>
+                <tr><td>🌙 Polilla</td><td>#11</td><td>#4</td><td>15</td><td>⚖️ Equilibrio perfecto</td></tr>
+                <tr><td>🪳 Cucaracha</td><td>#7</td><td>#11</td><td>18</td><td>⚖️ Tanque sin carisma</td></tr>
+                <tr><td>🕸️ Araña</td><td>#13</td><td>#6</td><td>19</td><td>💀 Emboscadora frágil</td></tr>
+                <tr><td>🪰 Mosca</td><td>#10</td><td>#13</td><td>23</td><td>💀 Mediocre en todo</td></tr>
+                <tr><td>⚡ Pulga</td><td>#12</td><td>#14</td><td>26</td><td>💀 Caótica inútil</td></tr>
+                <tr><td>🕷️ Garrapata</td><td>#14</td><td>#12</td><td>26</td><td>💀 Tanque obsoleto</td></tr>
+            </table>
+
+            <h2>🐜 Impacto del Sistema de Antenas</h2>
+            <div class="info-box lore">
+                <h4>📜 Por qué el spread bajó de 100% a 17%</h4>
+                <p>En v1, el Escorpión ganaba 100% porque solo importaba TOR+QUI. En v2, si solo ataca pierde antenas → el Cordyceps lo daña → se autodestruye. Los taxones sociales ganan antenas → bonus en Danza → ganan turnos gratis → compensan su daño bajo.</p>
+            </div>
+            <table>
+                <tr><th>Mecánica</th><th>Efecto en Antenas</th><th>Quién se beneficia</th></tr>
+                <tr><td>Atacar ×3 sin socializar</td><td>🐜 -1</td><td>Penaliza guerreros puros</td></tr>
+                <tr><td>Atavismo melee (veneno, crítico, drenar)</td><td>🐜 -1</td><td>Penaliza berserkers</td></tr>
+                <tr><td>Atavismo intimidar/miedo</td><td>🐜 -1</td><td>Penaliza terroristas</td></tr>
+                <tr><td>Atavismo social (confuso, stun, revelar)</td><td>🐜 +1</td><td>Beneficia diplomáticos</td></tr>
+                <tr><td>Danza de Antenas (victoria)</td><td>🐜 +1</td><td>Beneficia FER/SEN altos</td></tr>
+                <tr><td>Atavismo utilidad (evasión, heal)</td><td>🐜 0</td><td>Neutral para todos</td></tr>
+                <tr><td>Antenas = 0</td><td>-5 HP/turno + -5% Esencia</td><td>Castiga violencia pura</td></tr>
+                <tr><td>Antenas ≥ 9</td><td>+3 a tiradas de Danza</td><td>Premia socialización</td></tr>
+            </table>
+
+            <blockquote>"El Escorpión del v1 era un dios. El del v2 es un adicto a la violencia que se come a sí mismo si no aprende a hablar. Eso es evolución, queridos."<br>— Ramazzottius, sobre el balance v2</blockquote>
+
+            <blockquote>"Mis hijos no necesitan pinzas. Necesitan antenas. 520 millones de años me costó entender que la fuerza sin conexión es solo ruido."<br>— Youti Yuanshi, El Primer Padre</blockquote>
+        </article>
+    </main>
+</body>
+</html>

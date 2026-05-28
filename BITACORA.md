@@ -164,11 +164,90 @@
 
 ---
 
+---
+
+## 📅 Sesión 3 — 28 Mayo 2026
+
+### FFmpeg + Videos OGV
+- [x] FFmpeg 8.1.1 instalado en C:\ffmpeg\ (desde gyan.dev)
+- [x] Convertidos 3 videos MP4 → OGV (formato nativo Godot):
+  - video Trailer torneo 1.ogv (6.8 MB)
+  - video Trailer torneo 2.ogv (4.5 MB)
+  - final demo escorpion.ogv (5.9 MB)
+- [x] menu_principal.gd actualizado: prioriza OGV, fallback MP4
+- [x] inventario_ui.gd actualizado: video fin de demo usa OGV
+
+### Danza de Antenas — Sistema Social en Combate
+- [x] Botón "💃 Danza" agregado al menú de combate (4 botones: Atacar/Atavismo/Danza/Retirada)
+- [x] Menú de selección de postura (4 opciones con stats visibles)
+- [x] Mecánica piedra-papel-tijera: Acecho > Exposición > Vibración > Mimetismo > Acecho
+- [x] Resolución: stat + bonus ventaja (+3) + variación (±2)
+- [x] Victoria social: efecto según postura (daño psíquico / debuff / crítico / heal)
+- [x] Derrota social: penalización según postura enemiga
+- [x] Enemigo elige postura basándose en su stat más alto (60%) o aleatorio (40%)
+- [x] Stats sociales del enemigo generados automáticamente en setup_enemy()
+- [x] Bonus de Mimetismo: victoria social → próximo ataque físico = crítico
+- [x] Victoria social da +2% Esencia (la diplomacia fortalece)
+- [x] Simulador de duelos sociales (simulador_social.js) — 2000 rondas todos vs todos
+- [x] Página wiki torneo_social.html con ranking, dominancias y análisis cruzado
+- [x] Trazabilidad actualizada: Danza de Antenas → Finalizado
+
+### Resultados del Simulador Social
+- 👑 Mejor diplomático: 🦋 Mariposa (71.1% winrate — FER 10)
+- 💀 Peor diplomático: ⚡ Pulga (23.7% winrate — stats mediocres)
+- ⚖️ Balance cruzado confirmado: Escorpión (#1 PvP, #9 Social) vs Mariposa (#14 PvP, #1 Social)
+- 🗡️ Vinchuca es la más versátil (#2 Social + #5 PvP)
+- 📏 Spread social: 47.4% (intencional — refleja diferencias temáticas)
+
+### Sistema de Antenas Sociales (0-10)
+- [x] Barra de Antenas visible en combate (🐜🐜🐜🐜🐜·····)
+- [x] Atacar ×3 sin socializar → -1 antena
+- [x] Atavismo melee/intimidar → -1 antena (violencia oscura)
+- [x] Atavismo social (confuso/stun/revelar) → +1 antena (encantamiento)
+- [x] Atavismo utilidad (evasión/heal) → neutral
+- [x] Danza victoria → +1 antena
+- [x] Antenas = 0 → -5% Esencia + daño Cordyceps
+- [x] Antenas ≥ 9 → +3 bonus a tiradas de Danza
+- [x] Conexión con Silencio Verde: violencia pura = Cordyceps avanza
+
+### Rebalanceo de Stats (v2)
+- [x] Escorpión nerfeado: TOR 8→7, QUI 8→6
+- [x] Típula bufeada: SEN 9→10, CRI 7→8, FER 6→9
+- [x] Evasión en combate: GAN×3.5% + CRI×2.5% (cap 55%)
+- [x] Precisión: SEN×2% reduce evasión enemiga
+- [x] Jugador puede esquivar ataques enemigos
+
+### 42 Atavismos Rediseñados (Melee/Social/Utilidad)
+- [x] Cada taxón: 1 Melee + 1 Social + 1 Utilidad
+- [x] Melee baja antenas, Social sube, Utilidad neutral
+
+### Enemigo con IA Social
+- [x] Enemigo puede provocar (probabilidad = FER/(FER+TOR))
+- [x] Provocaciones con frases + debuff si no resistes
+- [x] Stats sociales (FER, CRI, SEN) en los 3 enemigos de la demo
+
+### Torneo PvP v2 (con Antenas)
+- [x] Spread: 17.6% (antes 100%). Escorpión 61.3%, Garrapata 43.7%
+- [x] Típula #4 (50.4%), Mariposa #6 (49.7%)
+- [x] Página wiki: torneo_pvp_v2.html
+
+### Wiki: Arquitectura UML (Mermaid.js)
+- [x] Diagrama de Clases, Flujo, Estados, Secuencia, Archivos
+- [x] Página: arquitectura.html
+
+### Wiki: QA
+- [x] 53 casos de prueba en 7 categorías
+- [x] Página: qa.html
+
+---
+
+---
+
 ## 🔴 Pendientes (por categoría)
 
 ### ⚔️ Combate
 - [x] 3 Atavismos funcionales por Taxón en combate (14×3 = 42 habilidades con submenú)
-- [ ] Danza de Antenas — sistema de conflicto social (4 posturas)
+- [x] Danza de Antenas — sistema de conflicto social (4 posturas) + botón en combate
 - [x] Pantalla Game Over cuando Turgencia llega a 0
 - [x] Pantalla "ASIMILADO" cuando Esencia llega a 0%
 
@@ -234,13 +313,13 @@
 | Área | Completado | Total | % |
 |---|---|---|---|
 | Lore/Diseño | 48 | 48 | 100% |
-| Wiki | 47 | 47 | 100% |
+| Wiki | 52 | 52 | 100% |
 | Requirements | 14 | 14 | 100% |
-| Código Godot | 32 | 36 | 89% |
+| Código Godot | 38 | 40 | 95% |
 | Assets Gráficos | 16 | 20 | 80% |
-| Audio/Video | 3 | 5 | 60% |
+| Audio/Video | 5 | 5 | 100% |
 | Exportación | 2 | 2 | 100% |
-| **TOTAL** | **162** | **172** | **94%** |
+| **TOTAL** | **175** | **181** | **97%** |
 
 ---
 

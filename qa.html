@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA — Plan de Pruebas — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .qa-pass { color: var(--accent-green); font-weight: 600; }
+        .qa-fail { color: var(--accent-red); font-weight: 600; }
+        .qa-pending { color: var(--accent-gold); font-weight: 600; }
+        .qa-skip { color: var(--text-muted); font-style: italic; }
+        .qa-table td:nth-child(1) { font-weight: 600; width: 40px; }
+        .qa-table td:nth-child(4) { font-size: 0.85em; color: var(--text-muted); }
+        .qa-section { margin-top: 2em; }
+        .severity-critical { color: #ff4444; font-weight: 700; }
+        .severity-major { color: #ff8800; font-weight: 600; }
+        .severity-minor { color: #ffcc00; }
+        .severity-cosmetic { color: #aaaaaa; }
+        .bug-table td:nth-child(1) { width: 40px; font-weight: 600; }
+        .bug-table td:nth-child(3) { font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li><a href="qa.html">🧪 QA</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⚔ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída del Éter</a></li>
+            <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="santiago.html">🏙️ El Gran Charco</a></li>
+            <li><a href="bestiario.html">📕 Bestiario</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="torneo_pvp.html">⚔️ Torneo PvP</a></li>
+            <li><a href="torneo_social.html">💃 Torneo Social</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🧪 QA — Plan de Pruebas</h1>
+            <div class="intro-box">
+                <p>Control de calidad de <strong>Plaga: La Descarada</strong>. Cada caso de prueba tiene un ID, descripción, pasos, resultado esperado y estado. Actualizar después de cada sesión de testing.</p>
+                <p><strong>Versión:</strong> v0.2.0 | <strong>Plataforma:</strong> Windows (Godot 4.6) + Android (APK) | <strong>Última revisión:</strong> 28 Mayo 2026</p>
+            </div>
+
+            <!-- ===== RESUMEN ===== -->
+            <h2>📊 Resumen de Estado</h2>
+            <table>
+                <tr><th>Categoría</th><th>Total</th><th>✅ Pass</th><th>❌ Fail</th><th>⏳ Pendiente</th></tr>
+                <tr><td>Flujo Principal</td><td>8</td><td>6</td><td>1</td><td>1</td></tr>
+                <tr><td>Combate</td><td>12</td><td>10</td><td>0</td><td>2</td></tr>
+                <tr><td>Inventario / Crafteo</td><td>9</td><td>8</td><td>0</td><td>1</td></tr>
+                <tr><td>Progresión / Esencia</td><td>7</td><td>5</td><td>0</td><td>2</td></tr>
+                <tr><td>UI / UX</td><td>8</td><td>6</td><td>1</td><td>1</td></tr>
+                <tr><td>Video / Audio</td><td>5</td><td>1</td><td>2</td><td>2</td></tr>
+                <tr><td>Guardado / Carga</td><td>4</td><td>4</td><td>0</td><td>0</td></tr>
+                <tr><td><strong>TOTAL</strong></td><td><strong>53</strong></td><td><strong>40</strong></td><td><strong>4</strong></td><td><strong>9</strong></td></tr>
+            </table>
+
+            <!-- ===== FLUJO PRINCIPAL ===== -->
+            <h2 class="qa-section">🎮 Flujo Principal (Happy Path)</h2>
+            <table class="qa-table">
+                <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>F01</td><td>Menú principal se muestra al iniciar</td><td class="qa-pass">✅ Pass</td><td>Título, botones Nueva/Cargar/Salir visibles</td></tr>
+                <tr><td>F02</td><td>"Nueva Conquista" → Pantalla de creación</td><td class="qa-pass">✅ Pass</td><td>Grid 14 taxones + campo nombre + ficha</td></tr>
+                <tr><td>F03</td><td>Seleccionar taxón → stats se actualizan</td><td class="qa-pass">✅ Pass</td><td>Avatar cambia si existe 2d_*.png</td></tr>
+                <tr><td>F04</td><td>Seleccionar arquetipo → bonuses aplicados</td><td class="qa-pass">✅ Pass</td><td>Estratega/Ejecutor/Infiltrado/Diplomático</td></tr>
+                <tr><td>F05</td><td>"INOCULAR" → Entra al mapa del Laboratorio</td><td class="qa-pass">✅ Pass</td><td>HUD visible, spots interactivos, jugador se mueve</td></tr>
+                <tr><td>F06</td><td>Craftear Anclaje de Fibra → Fin de Demo</td><td class="qa-pass">✅ Pass</td><td>Pantalla fin + "Taxón Escorpión desbloqueado"</td></tr>
+                <tr><td>F07</td><td>Video final del Escorpión se reproduce</td><td class="qa-fail">❌ Fail</td><td>Video no se reproduce. Fix aplicado (VideoStreamTheora). Pendiente re-test.</td></tr>
+                <tr><td>F08</td><td>"Volver al Menú" desde fin de demo</td><td class="qa-pending">⏳ Pendiente</td><td>Históricamente falló. Fix en GameManager.reset(). Re-testear.</td></tr>
+            </table>
+
+            <!-- ===== COMBATE ===== -->
+            <h2 class="qa-section">⚔️ Combate</h2>
+            <table class="qa-table">
+                <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>C01</td><td>Spot "Cazar" → inicia combate</td><td class="qa-pass">✅ Pass</td><td>Enemigo aleatorio de spawn table</td></tr>
+                <tr><td>C02</td><td>Botón "Atacar" → daño al enemigo</td><td class="qa-pass">✅ Pass</td><td>Fórmula: (TOR + arma) × 2 - Def ± 15%</td></tr>
+                <tr><td>C03</td><td>Botón "Atavismo" → submenú con 3 opciones</td><td class="qa-pass">✅ Pass</td><td>Muestra costo, descripción, deshabilitado si no hay hemo</td></tr>
+                <tr><td>C04</td><td>Usar atavismo → gasta hemolinfa + efecto</td><td class="qa-pass">✅ Pass</td><td>42 atavismos implementados (14 taxones × 3)</td></tr>
+                <tr><td>C05</td><td>Botón "Danza" → submenú 4 posturas</td><td class="qa-pending">⏳ Pendiente</td><td>Recién implementado. Testear posturas y resolución.</td></tr>
+                <tr><td>C06</td><td>Danza: victoria → enemigo pierde turno</td><td class="qa-pending">⏳ Pendiente</td><td>Verificar que no ataca después de perder danza</td></tr>
+                <tr><td>C07</td><td>Botón "Retirada" → escape con probabilidad</td><td class="qa-pass">✅ Pass</td><td>Fórmula: (Vel propia / Vel enemiga) × 50%</td></tr>
+                <tr><td>C08</td><td>Enemigo muere → loot + EXP + registro bestiario</td><td class="qa-pass">✅ Pass</td><td>Item aleatorio + 15 recurso + 10 EXP + 5 Esencia</td></tr>
+                <tr><td>C09</td><td>Jugador muere → pantalla Game Over roja</td><td class="qa-pass">✅ Pass</td><td>"QUITINA QUEBRADA" + botón volver al menú</td></tr>
+                <tr><td>C10</td><td>Imagen del enemigo se muestra como fondo</td><td class="qa-pass">✅ Pass</td><td>Garrapata, Cucaracha, Polilla — fullscreen centered</td></tr>
+                <tr><td>C11</td><td>Stats del jugador visibles (HP, equipo, atavismos)</td><td class="qa-pass">✅ Pass</td><td>Panel abajo-izquierda con avatar + info</td></tr>
+                <tr><td>C12</td><td>Log de combate arriba-izquierda</td><td class="qa-pass">✅ Pass</td><td>Scroll automático, fuente pequeña</td></tr>
+            </table>
+
+            <!-- ===== INVENTARIO ===== -->
+            <h2 class="qa-section">🎒 Inventario / Crafteo</h2>
+            <table class="qa-table">
+                <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>I01</td><td>Abrir inventario (tecla I o botón)</td><td class="qa-pass">✅ Pass</td><td>Lista de items con emoji, nombre, tier</td></tr>
+                <tr><td>I02</td><td>Usar consumible → confirmación → efecto</td><td class="qa-pass">✅ Pass</td><td>Popup "¿Deseas ocuparlo?" antes de consumir</td></tr>
+                <tr><td>I03</td><td>Equipar arma → botón cambia a "✅ Equipado" verde</td><td class="qa-pass">✅ Pass</td><td>Botón deshabilitado, no se puede re-presionar</td></tr>
+                <tr><td>I04</td><td>Equipar armadura → +defensa visible en combate</td><td class="qa-pass">✅ Pass</td><td>Stat armadura_equipada se usa en fórmula de daño recibido</td></tr>
+                <tr><td>I05</td><td>Fusión Tier 1→2 (ej: 3 Espinas → Lanza)</td><td class="qa-pass">✅ Pass</td><td>11 recetas implementadas</td></tr>
+                <tr><td>I06</td><td>Fusión Tier 2→3 (ej: 3 Lanzas → Tridente)</td><td class="qa-pass">✅ Pass</td><td>Consume items, genera item superior</td></tr>
+                <tr><td>I07</td><td>Inventario lleno (20/20) → no agrega más</td><td class="qa-pass">✅ Pass</td><td>agregar_item() retorna false</td></tr>
+                <tr><td>I08</td><td>Tirar item → se elimina del inventario</td><td class="qa-pass">✅ Pass</td><td>remover_item() por índice</td></tr>
+                <tr><td>I09</td><td>Craftear Anclaje de Fibra (3 Sedas + 2 Cables)</td><td class="qa-pending">⏳ Pendiente</td><td>Verificar que requiere materiales exactos</td></tr>
+            </table>
+
+            <!-- ===== PROGRESIÓN ===== -->
+            <h2 class="qa-section">🧬 Progresión / Esencia</h2>
+            <table class="qa-table">
+                <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>P01</td><td>Ganar EXP → subir de nivel</td><td class="qa-pass">✅ Pass</td><td>Nivel × 20 EXP para subir. +5 Turg, +3 Hemo</td></tr>
+                <tr><td>P02</td><td>Esencia baja por acciones violentas</td><td class="qa-pass">✅ Pass</td><td>Matar -10%, huir -2%, habilidad excesiva -3%</td></tr>
+                <tr><td>P03</td><td>Esencia sube por acciones pacíficas</td><td class="qa-pass">✅ Pass</td><td>Quest pacífica +5%, descanso +3%, ayudar +2%</td></tr>
+                <tr><td>P04</td><td>Fase Susurros (75%) → -1 Sensilios</td><td class="qa-pass">✅ Pass</td><td>Mensaje en consola + stat reducido</td></tr>
+                <tr><td>P05</td><td>Fase Dominación (25%) → -3 a todo</td><td class="qa-pass">✅ Pass</td><td>Todos los stats bajan</td></tr>
+                <tr><td>P06</td><td>Esencia 0% → pantalla ASIMILADO verde</td><td class="qa-pending">⏳ Pendiente</td><td>Difícil de alcanzar en demo normal. Testear forzando.</td></tr>
+                <tr><td>P07</td><td>Danza victoria → +2% Esencia</td><td class="qa-pending">⏳ Pendiente</td><td>Recién implementado con sistema social</td></tr>
+            </table>
+
+            <!-- ===== UI/UX ===== -->
+            <h2 class="qa-section">🖥️ UI / UX</h2>
+            <table class="qa-table">
+                <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>U01</td><td>HUD muestra 4 barras (Turg/Hemo/Esencia/EXP)</td><td class="qa-pass">✅ Pass</td><td>Colores distintos, valores numéricos</td></tr>
+                <tr><td>U02</td><td>Jugador no se sale de los límites del mapa</td><td class="qa-pass">✅ Pass</td><td>Clamp a viewport bounds en player.gd</td></tr>
+                <tr><td>U03</td><td>Controles táctiles funcionan en Android</td><td class="qa-pass">✅ Pass</td><td>D-pad virtual + botones de acción</td></tr>
+                <tr><td>U04</td><td>Bestiario (tecla L) muestra enemigos vencidos</td><td class="qa-pass">✅ Pass</td><td>Lista con nombre + stats + "sin lore" placeholder</td></tr>
+                <tr><td>U05</td><td>Objetivo de quest visible en pantalla</td><td class="qa-pass">✅ Pass</td><td>"Craftea el Anclaje de Fibra para escapar"</td></tr>
+                <tr><td>U06</td><td>Texto legible en resolución móvil (720p)</td><td class="qa-pass">✅ Pass</td><td>Font sizes ajustados (9-14px)</td></tr>
+                <tr><td>U07</td><td>Menú de combate: 4 botones visibles sin overlap</td><td class="qa-pending">⏳ Pendiente</td><td>Nuevo botón Danza agregado. Verificar que caben los 4.</td></tr>
+                <tr><td>U08</td><td>Creación personaje: avatar placeholder si no hay PNG</td><td class="qa-fail">❌ Fail</td><td>Funciona pero el color placeholder es poco visible en algunos taxones</td></tr>
+            </table>
+
+            <!-- ===== VIDEO/AUDIO ===== -->
+            <h2 class="qa-section">🎬 Video / Audio</h2>
+            <table class="qa-table">
+                <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>V01</td><td>Intro: Video Trailer 1 se reproduce al iniciar</td><td class="qa-fail">❌ Fail</td><td>OGV convertido pero no reimportado. Fix con VideoStreamTheora aplicado. Re-test.</td></tr>
+                <tr><td>V02</td><td>Intro: Pantalla intermedia Escorpión (4 seg)</td><td class="qa-pending">⏳ Pendiente</td><td>Depende de V01. Si video no carga, salta directo a menú.</td></tr>
+                <tr><td>V03</td><td>Intro: Video Trailer 2 después de pantalla</td><td class="qa-pending">⏳ Pendiente</td><td>Depende de V01.</td></tr>
+                <tr><td>V04</td><td>Intro: Saltar con cualquier tecla</td><td class="qa-pass">✅ Pass</td><td>_unhandled_input detecta keypress → _on_intro_finished()</td></tr>
+                <tr><td>V05</td><td>Fin demo: Video escorpión se reproduce</td><td class="qa-fail">❌ Fail</td><td>Mismo problema que V01. Fix aplicado. Pendiente re-test.</td></tr>
+            </table>
+
+            <!-- ===== GUARDADO ===== -->
+            <h2 class="qa-section">💾 Guardado / Carga</h2>
+            <table class="qa-table">
+                <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>S01</td><td>F5 → guarda partida (user://save_data.json)</td><td class="qa-pass">✅ Pass</td><td>Serializa stats, inventario, posición, esencia</td></tr>
+                <tr><td>S02</td><td>F9 → carga partida</td><td class="qa-pass">✅ Pass</td><td>Restaura estado completo</td></tr>
+                <tr><td>S03</td><td>"Cargar Conquista" desde menú</td><td class="qa-pass">✅ Pass</td><td>Deshabilitado si no existe save_data.json</td></tr>
+                <tr><td>S04</td><td>Guardar → cerrar → reabrir → cargar = estado intacto</td><td class="qa-pass">✅ Pass</td><td>Persistencia entre sesiones</td></tr>
+            </table>
+
+            <!-- ===== BUGS CONOCIDOS ===== -->
+            <h2 class="qa-section">🐛 Bugs Conocidos</h2>
+            <table class="bug-table">
+                <tr><th>ID</th><th>Severidad</th><th>Descripción</th><th>Estado</th><th>Fix</th></tr>
+                <tr><td>B01</td><td class="severity-major">Mayor</td><td>Videos OGV no se reproducen (no reimportados por Godot)</td><td class="qa-pending">⏳ Fix aplicado</td><td>Usar VideoStreamTheora.new() + .file en vez de load(). Alternativa: abrir editor para reimportar.</td></tr>
+                <tr><td>B02</td><td class="severity-minor">Menor</td><td>Placeholder de avatar en creación poco visible para algunos taxones</td><td>🟡 Cosmético</td><td>Generar imágenes 2d_*.png reales (pendiente assets)</td></tr>
+                <tr><td>B03</td><td class="severity-minor">Menor</td><td>"Volver al Menú" desde fin de demo falló históricamente</td><td class="qa-pending">⏳ Fix aplicado</td><td>GameManager.reset() limpia todo. Re-testear.</td></tr>
+                <tr><td>B04</td><td class="severity-cosmetic">Cosmético</td><td>Escorpión OP en PvP (100% winrate en simulador)</td><td>🟡 Diseño</td><td>Intencional para demo. Nerf planificado para v0.3.0.</td></tr>
+                <tr><td>B05</td><td class="severity-cosmetic">Cosmético</td><td>Típula 0% winrate en PvP</td><td>🟡 Diseño</td><td>Buff planificado. Típula compensa con social (#6 en Danza).</td></tr>
+            </table>
+
+            <!-- ===== PLAN DE REGRESIÓN ===== -->
+            <h2 class="qa-section">🔄 Plan de Regresión</h2>
+            <div class="info-box mechanic">
+                <h4>⚙️ Ejecutar después de cada cambio mayor</h4>
+                <p>Flujo mínimo para verificar que nada se rompió:</p>
+            </div>
+            <ol>
+                <li><strong>Menú → Creación:</strong> Seleccionar Zancudo, nombre "Test", arquetipo Estratega → INOCULAR</li>
+                <li><strong>Mapa:</strong> Moverse en las 4 direcciones. Verificar límites. Acercarse a un spot.</li>
+                <li><strong>Spot → Combate:</strong> Cazar → pelear → ganar. Verificar loot + EXP + bestiario.</li>
+                <li><strong>Inventario:</strong> Abrir (I), equipar arma, usar consumible, verificar confirmación.</li>
+                <li><strong>Combate social:</strong> Iniciar combate → Danza → elegir postura → verificar resolución.</li>
+                <li><strong>Guardar/Cargar:</strong> F5 → cerrar → F9 → verificar estado.</li>
+                <li><strong>Fin demo:</strong> Craftear Anclaje → pantalla fin → volver al menú.</li>
+            </ol>
+
+            <!-- ===== MATRIZ DE COMPATIBILIDAD ===== -->
+            <h2 class="qa-section">📱 Matriz de Compatibilidad</h2>
+            <table>
+                <tr><th>Plataforma</th><th>Versión</th><th>Estado</th><th>Notas</th></tr>
+                <tr><td>Windows (Editor)</td><td>Godot 4.6.3</td><td class="qa-pass">✅ Funcional</td><td>Plataforma principal de desarrollo</td></tr>
+                <tr><td>Windows (Export)</td><td>.exe</td><td class="qa-pending">⏳ Pendiente</td><td>Requiere export templates</td></tr>
+                <tr><td>Android (APK)</td><td>v0.2.0</td><td class="qa-pass">✅ Funcional</td><td>Controles táctiles OK. Videos no testeados en móvil.</td></tr>
+                <tr><td>Web (HTML5)</td><td>—</td><td class="qa-skip">⏭️ No planificado</td><td>—</td></tr>
+            </table>
+
+            <!-- ===== CRITERIOS DE ACEPTACIÓN DEMO ===== -->
+            <h2 class="qa-section">✅ Criterios de Aceptación — Demo v0.2.0</h2>
+            <div class="info-box lore">
+                <h4>📜 La demo se considera "shippable" cuando:</h4>
+            </div>
+            <table>
+                <tr><th>#</th><th>Criterio</th><th>Estado</th></tr>
+                <tr><td>1</td><td>Flujo completo Menú → Creación → Juego → Fin sin crash</td><td class="qa-pass">✅</td></tr>
+                <tr><td>2</td><td>Los 14 taxones seleccionables con stats correctos</td><td class="qa-pass">✅</td></tr>
+                <tr><td>3</td><td>Combate funcional (atacar, atavismo, retirada)</td><td class="qa-pass">✅</td></tr>
+                <tr><td>4</td><td>Inventario con equipar, usar, fusionar</td><td class="qa-pass">✅</td></tr>
+                <tr><td>5</td><td>Game Over funcional (Turgencia 0 y Esencia 0)</td><td class="qa-pass">✅</td></tr>
+                <tr><td>6</td><td>Guardar y cargar partida</td><td class="qa-pass">✅</td></tr>
+                <tr><td>7</td><td>APK Android exportable e instalable</td><td class="qa-pass">✅</td></tr>
+                <tr><td>8</td><td>Videos de intro reproducibles</td><td class="qa-fail">❌ Pendiente re-test</td></tr>
+                <tr><td>9</td><td>Danza de Antenas funcional en combate</td><td class="qa-pending">⏳ Pendiente test</td></tr>
+                <tr><td>10</td><td>Sin crashes en flujo normal (5 min de juego)</td><td class="qa-pass">✅</td></tr>
+            </table>
+
+            <blockquote>"QA es como el Silencio Verde: si no lo controlas, se come todo tu proyecto desde adentro. Cada bug no reportado es una espora más en tu código."<br>— Ramazzottius, sobre la importancia del testing</blockquote>
+
+            <blockquote>"Yo llevo 530 millones de años sin un solo bug. ¿Mi secreto? No hago nada. Criptobiosis. El código que no se ejecuta no falla."<br>— Ramazzottius, filosofía de desarrollo</blockquote>
+        </article>
+    </main>
+</body>
+</html>

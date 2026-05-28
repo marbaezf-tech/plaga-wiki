@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo Social — Danza de Antenas — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .social-rank { margin: 1em 0; }
+        .social-rank td:nth-child(4) { font-weight: 600; }
+        .rank-1 td { color: var(--accent-gold); }
+        .rank-2 td { color: #c0c0c0; }
+        .rank-3 td { color: #cd7f32; }
+        .dominancia { color: var(--accent-green); }
+        .vulnerable { color: var(--accent-red); }
+        .postura-box { display: inline-block; padding: 0.3em 0.6em; margin: 0.2em; border-radius: 4px; font-size: 0.85em; }
+        .postura-acecho { background: rgba(200, 50, 50, 0.2); border: 1px solid rgba(200, 50, 50, 0.4); }
+        .postura-exposicion { background: rgba(200, 150, 50, 0.2); border: 1px solid rgba(200, 150, 50, 0.4); }
+        .postura-mimetismo { background: rgba(100, 100, 200, 0.2); border: 1px solid rgba(100, 100, 200, 0.4); }
+        .postura-vibracion { background: rgba(50, 200, 150, 0.2); border: 1px solid rgba(50, 200, 150, 0.4); }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⚔ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída del Éter</a></li>
+            <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="santiago.html">🏙️ El Gran Charco</a></li>
+            <li><a href="bestiario.html">📕 Bestiario</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="torneo_pvp.html">⚔️ Torneo PvP</a></li>
+            <li><a href="torneo_social.html">💃 Torneo Social</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>💃 Torneo Social — Danza de Antenas</h1>
+            <div class="intro-box">
+                <p>Simulación de <strong>2000 rondas</strong> de duelos sociales entre los 14 Taxones usando el sistema de Danza de Antenas (4 posturas químicas). Cada taxón elige su postura óptima basándose en sus Atributos Primordiales.</p>
+            </div>
+
+            <h2>🏆 Ranking Social — Todos vs Todos</h2>
+            <div class="info-box mechanic">
+                <h4>⚙️ Metodología</h4>
+                <p>Cada taxón se enfrenta a los otros 13 en duelos sociales. Eligen postura según su stat más alto (70%) o segunda mejor (30%). Se aplican ventajas de postura (+3) y variación aleatoria (±2).</p>
+            </div>
+
+            <table class="social-rank">
+                <tr><th>#</th><th>Taxón</th><th>Victorias</th><th>Winrate</th><th>Postura Natural</th></tr>
+                <tr class="rank-1"><td>1</td><td>🦋 Mariposa</td><td>18,488</td><td>71.1%</td><td><span class="postura-box postura-exposicion">💐 Exposición (FER 10)</span></td></tr>
+                <tr class="rank-2"><td>2</td><td>🗡️ Vinchuca</td><td>16,540</td><td>63.6%</td><td><span class="postura-box postura-mimetismo">🫥 Mimetismo (CRI 10)</span></td></tr>
+                <tr class="rank-3"><td>3</td><td>🌙 Polilla</td><td>16,537</td><td>63.6%</td><td><span class="postura-box postura-vibracion">📡 Vibración (SEN 10)</span></td></tr>
+                <tr><td>4</td><td>🛏️ Chinche</td><td>16,338</td><td>62.8%</td><td><span class="postura-box postura-exposicion">💐 Exposición (FER 9)</span></td></tr>
+                <tr><td>5</td><td>🕸️ Araña</td><td>15,081</td><td>58.0%</td><td><span class="postura-box postura-vibracion">📡 Vibración (SEN 9)</span></td></tr>
+                <tr><td>6</td><td>🦟 Típula</td><td>13,484</td><td>51.9%</td><td><span class="postura-box postura-vibracion">📡 Vibración (SEN 9)</span></td></tr>
+                <tr><td>7</td><td>💉 Sanguijuela</td><td>12,815</td><td>49.3%</td><td><span class="postura-box postura-exposicion">💐 Exposición (FER 8)</span></td></tr>
+                <tr><td>8</td><td>🐝 Avispa</td><td>12,674</td><td>48.7%</td><td><span class="postura-box postura-acecho">🦷 Acecho (TOR 8)</span></td></tr>
+                <tr><td>9</td><td>🦂 Escorpión</td><td>11,940</td><td>45.9%</td><td><span class="postura-box postura-acecho">🦷 Acecho (TOR 8)</span></td></tr>
+                <tr><td>10</td><td>🦟 Zancudo</td><td>11,596</td><td>44.6%</td><td><span class="postura-box postura-mimetismo">🫥 Mimetismo (CRI 8)</span></td></tr>
+                <tr><td>11</td><td>🪳 Cucaracha</td><td>11,257</td><td>43.3%</td><td><span class="postura-box postura-vibracion">📡 Vibración (SEN 7)</span></td></tr>
+                <tr><td>12</td><td>🕷️ Garrapata</td><td>9,818</td><td>37.8%</td><td><span class="postura-box postura-acecho">🦷 Acecho (TOR 7)</span></td></tr>
+                <tr><td>13</td><td>🪰 Mosca</td><td>9,269</td><td>35.6%</td><td><span class="postura-box postura-vibracion">📡 Vibración (SEN 7)</span></td></tr>
+                <tr><td>14</td><td>⚡ Pulga</td><td>6,163</td><td>23.7%</td><td><span class="postura-box postura-vibracion">📡 Vibración (SEN 6)</span></td></tr>
+            </table>
+
+            <h2>📊 Winrate por Postura</h2>
+            <table>
+                <tr><th>Postura</th><th>Veces Usada</th><th>Victorias</th><th>Winrate</th></tr>
+                <tr><td><span class="postura-box postura-exposicion">💐 Exposición</span></td><td>4,373</td><td>2,463</td><td class="dominancia">56.3%</td></tr>
+                <tr><td><span class="postura-box postura-vibracion">📡 Vibración</span></td><td>7,561</td><td>3,712</td><td>49.1%</td></tr>
+                <tr><td><span class="postura-box postura-acecho">🦷 Acecho</span></td><td>3,215</td><td>1,547</td><td>48.1%</td></tr>
+                <tr><td><span class="postura-box postura-mimetismo">🫥 Mimetismo</span></td><td>3,421</td><td>1,563</td><td>45.7%</td></tr>
+            </table>
+
+            <div class="info-box lore">
+                <h4>📜 Interpretación</h4>
+                <p><strong>Exposición</strong> es la postura más efectiva porque los taxones con Feromonas altas (Mariposa 10, Chinche 9, Sanguijuela 8) tienen stats extremos. <strong>Vibración</strong> es la más usada porque muchos taxones tienen Sensilios alto, pero se diluye por competencia interna.</p>
+            </div>
+
+            <h2>🏆 Dominancias Sociales (>70% winrate)</h2>
+            <table>
+                <tr><th>Dominador</th><th>→</th><th>Dominado</th><th>Winrate</th></tr>
+                <tr><td>🌙 Polilla</td><td>→</td><td>⚡ Pulga</td><td class="dominancia">95.0%</td></tr>
+                <tr><td>🦋 Mariposa</td><td>→</td><td>⚡ Pulga</td><td class="dominancia">90.0%</td></tr>
+                <tr><td>🗡️ Vinchuca</td><td>→</td><td>🦂 Escorpión</td><td class="dominancia">86.9%</td></tr>
+                <tr><td>🦋 Mariposa</td><td>→</td><td>🪰 Mosca</td><td class="dominancia">85.4%</td></tr>
+                <tr><td>🗡️ Vinchuca</td><td>→</td><td>🕷️ Garrapata</td><td class="dominancia">84.8%</td></tr>
+                <tr><td>🗡️ Vinchuca</td><td>→</td><td>🐝 Avispa</td><td class="dominancia">84.0%</td></tr>
+                <tr><td>🦋 Mariposa</td><td>→</td><td>🕸️ Araña</td><td class="dominancia">83.5%</td></tr>
+                <tr><td>🕸️ Araña</td><td>→</td><td>🦂 Escorpión</td><td class="dominancia">82.3%</td></tr>
+                <tr><td>🦋 Mariposa</td><td>→</td><td>🦟 Típula</td><td class="dominancia">81.8%</td></tr>
+                <tr><td>🦋 Mariposa</td><td>→</td><td>🦟 Zancudo</td><td class="dominancia">81.3%</td></tr>
+            </table>
+
+            <h2>⚠️ Vulnerabilidades Sociales (<30% winrate)</h2>
+            <table>
+                <tr><th>Débil</th><th>vs</th><th>Contra</th><th>Winrate</th></tr>
+                <tr><td>⚡ Pulga</td><td>vs</td><td>🌙 Polilla</td><td class="vulnerable">5.0%</td></tr>
+                <tr><td>⚡ Pulga</td><td>vs</td><td>🦋 Mariposa</td><td class="vulnerable">10.0%</td></tr>
+                <tr><td>🦂 Escorpión</td><td>vs</td><td>🗡️ Vinchuca</td><td class="vulnerable">13.1%</td></tr>
+                <tr><td>🪰 Mosca</td><td>vs</td><td>🦋 Mariposa</td><td class="vulnerable">14.6%</td></tr>
+                <tr><td>🕷️ Garrapata</td><td>vs</td><td>🗡️ Vinchuca</td><td class="vulnerable">15.2%</td></tr>
+                <tr><td>🐝 Avispa</td><td>vs</td><td>🗡️ Vinchuca</td><td class="vulnerable">16.0%</td></tr>
+            </table>
+
+            <h2>🧬 Análisis de Balance Cruzado (Combate vs Social)</h2>
+            <div class="info-box mechanic">
+                <h4>⚙️ El Equilibrio del Charco</h4>
+                <p>El sistema está diseñado para que <strong>nadie domine ambos campos</strong>. Los taxones de combate puro (Escorpión, Avispa, Garrapata) son mediocres socialmente, mientras los diplomáticos (Mariposa, Chinche, Polilla) son frágiles en combate.</p>
+            </div>
+
+            <table>
+                <tr><th>Taxón</th><th>Rank Combate</th><th>Rank Social</th><th>Perfil</th></tr>
+                <tr><td>🦂 Escorpión</td><td class="dominancia">#1 PvP</td><td class="vulnerable">#9 Social</td><td>Guerrero puro — intimida pero no convence</td></tr>
+                <tr><td>🦋 Mariposa</td><td class="vulnerable">#14 PvP</td><td class="dominancia">#1 Social</td><td>Diplomática pura — convence pero no pelea</td></tr>
+                <tr><td>🗡️ Vinchuca</td><td>#5 PvP</td><td class="dominancia">#2 Social</td><td>Asesina social — letal en ambos campos</td></tr>
+                <tr><td>🛏️ Chinche</td><td class="vulnerable">#12 PvP</td><td class="dominancia">#4 Social</td><td>Político — manipula desde las sombras</td></tr>
+                <tr><td>🐝 Avispa</td><td class="dominancia">#2 PvP</td><td>#8 Social</td><td>Bruta — resuelve todo a picotazos</td></tr>
+                <tr><td>⚡ Pulga</td><td>#10 PvP</td><td class="vulnerable">#14 Social</td><td>Caótica — ni pelea ni negocia bien</td></tr>
+            </table>
+
+            <blockquote>"El Escorpión puede matar a cualquiera en el Charco. Pero cuando necesita un favor del Príncipe, tiene que mandar a una Mariposa a hablar por él. Eso, queridos, es balance político."<br>— Ramazzottius, sobre la teoría de juegos evolutiva</blockquote>
+
+            <blockquote>"520 millones de años observando y puedo confirmar: los más fuertes siempre terminan pidiendo permiso a los más carismáticos. La fuerza bruta es temporal. Las feromonas son eternas."<br>— Youti Yuanshi, El Primer Padre</blockquote>
+
+            <h2>💡 Implicaciones para el Gameplay</h2>
+            <ul>
+                <li><strong>Mariposa/Chinche:</strong> Pueden resolver conflictos sin combate. Ideal para jugadores que prefieren diplomacia.</li>
+                <li><strong>Escorpión/Avispa:</strong> Deben evitar duelos sociales o gastar Instinto (+3) para compensar.</li>
+                <li><strong>Vinchuca:</strong> El taxón más versátil — buena en combate Y en social (Mimetismo CRI 10).</li>
+                <li><strong>Pulga:</strong> Necesita aliados o items que boosten Feromonas/Sensilios para sobrevivir socialmente.</li>
+                <li><strong>Instinto:</strong> Recurso clave para taxones débiles socialmente. Gastar 1 Instinto = +3 al stat elegido puede voltear un duelo.</li>
+            </ul>
+        </article>
+    </main>
+</body>
+</html>
