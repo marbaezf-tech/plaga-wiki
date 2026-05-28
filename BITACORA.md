@@ -327,6 +327,15 @@
 - [ ] Rework Mosca: PvP #10, Social #13 (suma 23) — "Mediocre en todo", necesita nicho claro (summon? necro?)
 - [ ] Rework Pulga: PvP #12, Social #14 (suma 26) — "Caótica inútil", necesita que su velocidad (GAN 10) importe más
 - [ ] Rework Garrapata: PvP #14, Social #12 (suma 26) — "Tanque obsoleto", necesita que su QUI 9 compense la lentitud
+#### Diagnóstico Manual (Gemini v2)
+- [ ] Crear página "Quick Start" — tutorial de combate en 3 pasos para nuevos jugadores
+- [ ] Agregar ejemplos de tiradas en sistemas.html (mock rolls paso a paso)
+- [ ] Tabla consolidada de 42 atavismos en 1 sola página (comparar builds)
+- [ ] Cheat Sheet / Referencia rápida (stats, fórmulas, posturas en 1 página)
+- [ ] Evaluar lanzar con 7-8 taxones jugables (resto = DLC/expansión)
+- [ ] Diagrama de flujo visual del sistema de Antenas
+- [ ] Delimitar Moscas vs Sanguijuelas narrativamente (evitar solapamiento temático)
+- [ ] Tooltips en stats: Sensilios [Percepción], Ganglios [Reflejos], etc.
 
 ---
 
