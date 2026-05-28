@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .step { background: var(--bg-card); border-left: 4px solid var(--accent-green); padding: 1.2em; margin: 1.5em 0; border-radius: 4px; }
+        .step h3 { margin: 0 0 0.5em; color: var(--accent-green); }
+        .step-num { display: inline-block; width: 32px; height: 32px; background: var(--accent-green); color: #000; border-radius: 50%; text-align: center; line-height: 32px; font-weight: 700; margin-right: 10px; }
+        .example-box { background: rgba(0,0,0,0.3); padding: 1em; border-radius: 4px; margin: 0.8em 0; font-family: monospace; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="atavismos.html">🧬 Atavismos</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li class="section-title">Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP</a></li>
+            <li><a href="torneo_social.html">💃 Social</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🚀 Quick Start — Aprende a jugar en 5 minutos</h1>
+            <div class="intro-box">
+                <p>Eres una <strong>plaga</strong>. Un artrópodo cínico en las ruinas de una metrópolis del año 20.000. Los humanos se extinguieron. Ahora 14 clanes de insectos luchan por el control de <em>El Gran Charco</em>. Tu objetivo: sobrevivir, dominar, y no dejar que el hongo Cordyceps te convierta en zombi.</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-num">1</span> Elige tu Taxón (Clan)</h3>
+                <p>Hay 14 taxones. Cada uno tiene stats y estilo diferente:</p>
+                <table>
+                    <tr><th>Si quieres...</th><th>Elige</th><th>Stats clave</th></tr>
+                    <tr><td>Pegar fuerte y matar rápido</td><td>🦂 Escorpión / 🐝 Avispa</td><td>Tórax [Fuerza] alto</td></tr>
+                    <tr><td>Nunca morir (tanque)</td><td>🕷️ Garrapata / 🪳 Cucaracha</td><td>Quitina [Defensa] alto</td></tr>
+                    <tr><td>Esquivar todo (evasión)</td><td>⚡ Pulga / 🗡️ Vinchuca</td><td>Ganglios [Reflejos] alto</td></tr>
+                    <tr><td>Ganar sin pelear (social)</td><td>🦟 Típula / 🦋 Mariposa</td><td>Feromonas [Carisma] alto</td></tr>
+                    <tr><td>Controlar al enemigo (stun)</td><td>🕸️ Araña / 🌙 Polilla</td><td>Sensilios [Percepción] alto</td></tr>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-num">2</span> Combate — 4 acciones por turno</h3>
+                <p>Cuando encuentras un enemigo, tienes 4 opciones:</p>
+                <table>
+                    <tr><th>Botón</th><th>Qué hace</th><th>Cuándo usarlo</th></tr>
+                    <tr><td>⚔️ Atacar</td><td>Golpe físico (TOR×2 - DEF)</td><td>Siempre funciona, pero baja Antenas si abusas</td></tr>
+                    <tr><td>🧬 Atavismo</td><td>Habilidad especial (gasta Hemolinfa)</td><td>Daño brutal, stun, heal, o evasión según tu taxón</td></tr>
+                    <tr><td>🐜 Danza de Antenas</td><td>Combate social (4 posturas)</td><td>Gana turnos gratis + sube Antenas + debuffea</td></tr>
+                    <tr><td>🏃 Retirada</td><td>Escapar (probabilidad)</td><td>Si vas a morir, huye. -2% Esencia.</td></tr>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-num">3</span> Ejemplo de combate (paso a paso)</h3>
+                <p><em>Eres un Zancudo (TOR 5, GAN 7, CRI 8) vs Garrapata Salvaje (HP 30, FUE 4, DEF 2)</em></p>
+                <div class="example-box">
+                    Turno 1: Atacas → Daño = 5×2 - 2×0.5 = 9 (±15%) → Garrapata queda en ~21 HP<br>
+                    Turno 2: Garrapata ataca → Tu evasión = 7×3.5% + 8×2.5% = 44.5% → ¡44% chance de esquivar!<br>
+                    Turno 3: Usas "Zumbido Hipnótico" (social) → 30% chance de confundir → +1 Antena<br>
+                    Turno 4: Atacas → 9 daño → Garrapata queda en ~12 HP<br>
+                    Turno 5: Danza de Antenas (Mimetismo, CRI 8) → Ganas → Enemigo pierde turno + 1 Antena<br>
+                    Turno 6: Atacas → Garrapata muere → +15 Recurso, +10 EXP, loot aleatorio
+                </div>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-num">4</span> Las Antenas — No seas solo violento</h3>
+                <p>Tienes 10 antenas (🐜🐜🐜🐜🐜🐜🐜🐜🐜🐜). Si solo pegas sin socializar, bajan:</p>
+                <table>
+                    <tr><th>Acción</th><th>Antenas</th></tr>
+                    <tr><td>Atacar ×3 seguidos sin socializar</td><td>🐜 -1</td></tr>
+                    <tr><td>Atavismo violento (veneno, crítico)</td><td>🐜 -1</td></tr>
+                    <tr><td>Atavismo social (stun, confusión)</td><td>🐜 +1</td></tr>
+                    <tr><td>Ganar Danza de Antenas</td><td>🐜 +1</td></tr>
+                    <tr><td>Antenas = 0</td><td>💀 -5 HP/turno + -5% Esencia (Cordyceps te come)</td></tr>
+                </table>
+                <p><strong>Moraleja:</strong> Mezcla golpes con diplomacia o el hongo te convierte en zombi.</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-num">5</span> Objetivo de la Demo</h3>
+                <p>Explora El Laboratorio → Caza enemigos → Consigue materiales → <strong>Craftea el Anclaje de Fibra</strong> (3 Sedas + 2 Cables) → Escapas → Fin de la demo.</p>
+                <p>Controles: Moverte con flechas/WASD. <strong>I</strong> = Inventario. <strong>L</strong> = Bestiario. <strong>F5</strong> = Guardar. <strong>F9</strong> = Cargar.</p>
+            </div>
+
+            <blockquote>"Si necesitas un tutorial para sobrevivir en el Charco, quizás deberías haber elegido ser un Tardígrado. Nosotros no necesitamos manuales. Necesitamos víctimas."<br>— Ramazzottius, indignado por la existencia de esta página</blockquote>
+        </article>
+    </main>
+</body>
+</html>

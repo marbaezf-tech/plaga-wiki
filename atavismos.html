@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42 Atavismos — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tipo-melee { color: #ff6666; font-weight: 600; }
+        .tipo-social { color: #66ccff; font-weight: 600; }
+        .tipo-util { color: #66ff99; font-weight: 600; }
+        .atav-table td { font-size: 0.85em; }
+        .atav-table td:nth-child(4) { font-family: monospace; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="atavismos.html">🧬 Atavismos</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🧬 Tabla de 42 Atavismos (Todos los Taxones)</h1>
+            <div class="intro-box">
+                <p>Cada taxón tiene 3 atavismos: 1 <span class="tipo-melee">Melee</span> (daño, baja antenas), 1 <span class="tipo-social">Social</span> (control, sube antenas), 1 <span class="tipo-util">Utilidad</span> (defensa, neutral). Costo en Hemolinfa.</p>
+            </div>
+            <table class="atav-table">
+                <tr><th>Taxón</th><th>Atavismo</th><th>Tipo</th><th>Costo</th><th>Efecto</th><th>Antenas</th></tr>
+                <tr><td>🦟 Zancudo</td><td>Micro-Inyección</td><td class="tipo-melee">Melee</td><td>3</td><td>Veneno: 4 daño/turno ×3</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Zumbido Hipnótico</td><td class="tipo-social">Social</td><td>2</td><td>Enemigo se ataca solo (30%)</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Vuelo Errático</td><td class="tipo-util">Utilidad</td><td>3</td><td>+40% evasión 2 turnos</td><td>—</td></tr>
+                <tr><td>🪳 Cucaracha</td><td>Embestida Quitinosa</td><td class="tipo-melee">Melee</td><td>3</td><td>Ignora 50% armadura. x1.5</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Aura de Asco</td><td class="tipo-social">Social</td><td>2</td><td>Enemigo pierde turno (asco)</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Caparazón de Emergencia</td><td class="tipo-util">Utilidad</td><td>4</td><td>Inmune 1 turno</td><td>—</td></tr>
+                <tr><td>🐝 Avispa</td><td>Picada Frenética</td><td class="tipo-melee">Melee</td><td>4</td><td>3 ataques al 60%</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Feromona de Guerra</td><td class="tipo-social">Social</td><td>3</td><td>Enemigo pierde turno (terror)</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Mandíbula de Acero</td><td class="tipo-melee">Melee</td><td>3</td><td>Ignora armadura. x1.8</td><td>🐜-1</td></tr>
+                <tr><td>🕷️ Garrapata</td><td>Anclaje Vital</td><td class="tipo-melee">Melee</td><td>3</td><td>Drena 20% HP → te cura</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Presión Parasitaria</td><td class="tipo-social">Social</td><td>2</td><td>Stun + drena 5 HP</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Coraza Ancestral</td><td class="tipo-util">Utilidad</td><td>4</td><td>+6 Defensa 4 turnos</td><td>—</td></tr>
+                <tr><td>🛏️ Chinche</td><td>Mordida Nocturna</td><td class="tipo-melee">Melee</td><td>3</td><td>Drena 10% HP + heal</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Decreto Real</td><td class="tipo-social">Social</td><td>2</td><td>Enemigo se golpea solo</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Sábanas de Seda</td><td class="tipo-util">Utilidad</td><td>3</td><td>+35% evasión 2 turnos</td><td>—</td></tr>
+                <tr><td>🦋 Mariposa</td><td>Polvo Cegador</td><td class="tipo-melee">Melee</td><td>2</td><td>3 daño/turno + ciego</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Mirada Morpho</td><td class="tipo-social">Social</td><td>3</td><td>Hipnotiza. Pierde 2 turnos.</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Aleteo Dimensional</td><td class="tipo-util">Utilidad</td><td>4</td><td>Esquiva 100% próximo ataque</td><td>—</td></tr>
+                <tr><td>🕸️ Araña</td><td>Necrosis Letal</td><td class="tipo-melee">Melee</td><td>4</td><td>Daño x2.5 ignora def</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Red de Contención</td><td class="tipo-social">Social</td><td>3</td><td>Inmoviliza 2 turnos</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Emboscada Silenciosa</td><td class="tipo-util">Utilidad</td><td>2</td><td>Stun 1 turno + próximo = crit</td><td>—</td></tr>
+                <tr><td>🦂 Escorpión</td><td>Golpe de Pinza</td><td class="tipo-melee">Melee</td><td>5</td><td>Daño x2.5 ignora armadura</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Ultravioleta y Abismo</td><td class="tipo-social">Social</td><td>3</td><td>Terror puro. Pierde turno.</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Sombra de Pinza</td><td class="tipo-util">Utilidad</td><td>3</td><td>Próximo ataque = crítico x2</td><td>—</td></tr>
+                <tr><td>🗡️ Vinchuca</td><td>Mordida Silenciosa</td><td class="tipo-melee">Melee</td><td>3</td><td>Daño x1.5 + roba item</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Regalo de Chagas</td><td class="tipo-social">Social</td><td>4</td><td>Veneno social: -2 stats/turno</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Desvanecimiento</td><td class="tipo-util">Utilidad</td><td>2</td><td>Invisible. Esquiva 100%.</td><td>—</td></tr>
+                <tr><td>🪰 Mosca</td><td>Invocar Larva Tanque</td><td class="tipo-melee">Melee</td><td>4</td><td>Larva absorbe 25 daño</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Espíritu de Carroña</td><td class="tipo-melee">Melee</td><td>3</td><td>Espíritu: 6 daño/turno ×3</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Hedor Paralizante</td><td class="tipo-social">Social</td><td>2</td><td>Stun 2 turnos</td><td>🐜+1</td></tr>
+                <tr><td>💉 Sanguijuela</td><td>Éxtasis Tóxico</td><td class="tipo-melee">Melee</td><td>3</td><td>Drena 12% HP + adicción</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Anestesia Extática</td><td class="tipo-social">Social</td><td>3</td><td>Placer paralizante. Stun.</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Camuflaje Adaptativo</td><td class="tipo-util">Utilidad</td><td>2</td><td>+45% evasión 2 turnos</td><td>—</td></tr>
+                <tr><td>🌙 Polilla</td><td>Rayo Lunar</td><td class="tipo-melee">Melee</td><td>3</td><td>Daño x2 (luz concentrada)</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Síndrome del Foco</td><td class="tipo-social">Social</td><td>3</td><td>Enemigo se daña solo</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Polvo de Ala</td><td class="tipo-util">Utilidad</td><td>2</td><td>+50% evasión 1 turno</td><td>—</td></tr>
+                <tr><td>⚡ Pulga</td><td>Salto Demoledor</td><td class="tipo-melee">Melee</td><td>3</td><td>Impacto cinético x2</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Truco de la Moneda</td><td class="tipo-social">Social</td><td>2</td><td>50%: daño x3 o fallo total</td><td>—</td></tr>
+                <tr><td></td><td>Salto Dimensional</td><td class="tipo-util">Utilidad</td><td>1</td><td>Esquiva 100% próximo ataque</td><td>—</td></tr>
+                <tr><td>🦟 Típula</td><td>Autotomía Táctica</td><td class="tipo-melee">Melee</td><td>2</td><td>Sacrifica pata: 2 golpes x1.2</td><td>🐜-1</td></tr>
+                <tr><td></td><td>Ocelo Ancestral</td><td class="tipo-social">Social</td><td>3</td><td>Lee mente: revela stats + debuff</td><td>🐜+1</td></tr>
+                <tr><td></td><td>Extracción del Terror</td><td class="tipo-util">Utilidad</td><td>4</td><td>Absorbe miedo: +30% Turgencia</td><td>—</td></tr>
+            </table>
+            <blockquote>"42 formas de matar, manipular o sobrevivir. Y los humanos se creían la especie dominante con sus patéticos 'puños' y 'armas de fuego'. Qué primitivos."<br>— Ramazzottius</blockquote>
+        </article>
+    </main>
+</body>
+</html>
