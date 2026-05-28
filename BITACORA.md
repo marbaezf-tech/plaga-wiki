@@ -259,6 +259,9 @@
 - [ ] Misiones de Estabilización — requisitos para ascender de Grado
 - [ ] Implementar Instinto en mecánicas (gastar para golpe crítico, resistir control)
 - [ ] Resonancia de Youti — mecánica pasiva anti-fratricidio
+- [ ] Costos de Atavismos escalados: base más alto (3→5, 4→6, 5→8), descuento -1 por Grado sobre I (mín 1)
+- [ ] Danza de Antenas cuesta 1 Instinto por intento. Si ganas, recuperas el Instinto. Si pierdes, lo pierdes.
+- [ ] Grado alto = +1 Instinto máximo (Grado I=5, Grado V=9)
 
 ### 🎒 Inventario / Crafteo
 - [ ] Definir Atavismos Básicos vs Exclusivos de Grado Alto
