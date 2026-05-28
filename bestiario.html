@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestiario — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .bestia-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; display: flex; gap: 20px; align-items: flex-start; }
+        .bestia-img { width: 128px; height: 128px; border-radius: 6px; border: 2px solid var(--border); object-fit: contain; background: var(--bg-dark); flex-shrink: 0; }
+        .bestia-info { flex: 1; }
+        .bestia-name { font-size: 1.3em; font-weight: 700; color: var(--accent-red); margin-bottom: 4px; }
+        .bestia-stats { display: flex; gap: 15px; flex-wrap: wrap; margin: 8px 0; }
+        .bestia-stat { background: var(--bg-dark); padding: 4px 10px; border-radius: 4px; font-size: 0.8em; }
+        .bestia-lore { color: var(--text-secondary); font-style: italic; margin-top: 10px; padding: 10px; border-left: 3px solid var(--accent-purple); }
+        .bestia-loot { margin-top: 8px; }
+        .bestia-loot span { background: rgba(63,185,80,0.15); color: var(--accent-green); padding: 2px 8px; border-radius: 3px; font-size: 0.8em; margin-right: 5px; }
+        .lore-pending { color: var(--text-muted); font-style: italic; }
+        @media (max-width: 600px) { .bestia-card { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⚔ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída del Éter</a></li>
+            <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li><a href="taxon-zancudos.html">🦟 Zancudos</a></li>
+            <li><a href="taxon-cucarachas.html">🪳 Cucarachas</a></li>
+            <li><a href="taxon-avispas.html">🐝 Avispas</a></li>
+            <li><a href="taxon-garrapatas.html">🕷️ Garrapatas</a></li>
+            <li><a href="taxon-chinches.html">🛏️ Chinches</a></li>
+            <li><a href="taxon-mariposas.html">🦋 Mariposas</a></li>
+            <li><a href="taxon-aranas.html">🕸️ Arañas</a></li>
+            <li><a href="taxon-escorpiones.html">🦂 Escorpiones</a></li>
+            <li><a href="taxon-vinchucas.html">🗡️ Vinchucas</a></li>
+            <li><a href="taxon-moscas.html">💀 Moscas</a></li>
+            <li><a href="taxon-sanguijuelas.html">🧪 Sanguijuelas</a></li>
+            <li><a href="taxon-polillas.html">🌙 Polillas</a></li>
+            <li><a href="taxon-pulgas.html">🎪 Pulgas</a></li>
+            <li><a href="taxon-tipulas.html">🦟 Típulas</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="sembradores.html">🍄 Sembradores</a></li>
+            <li><a href="santiago.html">🏙️ El Gran Charco</a></li>
+            <li><a href="fauna.html">🐜 Fauna</a></li>
+            <li><a href="npcs.html">👤 NPCs</a></li>
+            <li><a href="bestiario.html">📕 Bestiario</a></li>
+            <li><a href="items.html">⚔️ Armas y Objetos</a></li>
+            <li><a href="reliquias.html">💎 Reliquias</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="equivalencias.html">🔄 Referencias</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>📕 Bestiario del Gran Charco</h1>
+            <div class="intro-box">
+                <p>Registro de todas las criaturas hostiles encontradas en el Gran Charco. Cada entrada se desbloquea al derrotar al enemigo por primera vez. <strong>"Conoce a tu presa antes de cazarla. O mejor — conoce a tu depredador antes de que te cace a ti."</strong></p>
+            </div>
+
+            <h2>🧪 El Laboratorio — Enemigos</h2>
+
+            <!-- GARRAPATA SALVAJE -->
+            <div class="bestia-card">
+                <img src="https://raw.githubusercontent.com/marbaezf-tech/la-descarada/main/imagenes/Enemigos/2d_garrapata_salvaje.png" alt="Garrapata Salvaje" class="bestia-img">
+                <div class="bestia-info">
+                    <div class="bestia-name">🕷️ Garrapata Salvaje</div>
+                    <div class="bestia-stats">
+                        <span class="bestia-stat">❤️ HP: 30</span>
+                        <span class="bestia-stat">⚔️ Fuerza: 4</span>
+                        <span class="bestia-stat">💨 Agilidad: 3</span>
+                        <span class="bestia-stat">🛡️ Defensa: 2</span>
+                    </div>
+                    <div class="bestia-stats">
+                        <span class="bestia-stat">📊 Aparición: 33%</span>
+                        <span class="bestia-stat">⭐ Dificultad: 4</span>
+                        <span class="bestia-stat">📍 Zona: El Laboratorio</span>
+                    </div>
+                    <div class="bestia-loot">
+                        <strong>Loot posible:</strong><br>
+                        <span>🩸 Hemolinfa Fresca</span>
+                        <span>🌵 Espina de Cactus</span>
+                        <span>🦴 Fémur de Grillo</span>
+                        <span>🕸️ Seda de Fibra</span>
+                    </div>
+                    <p><strong>Comportamiento:</strong> Salta desde estanterías. Ataque sorpresa. Agresiva desde el primer turno.</p>
+                    <div class="bestia-lore">
+                        <p class="lore-pending">📝 Lore pendiente — se generará con API de Gemini.</p>
+                        <p class="lore-pending">"[Descripción narrativa del enemigo, su historia en el Laboratorio, por qué es agresiva, qué busca...]"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CUCARACHA CARROÑERA -->
+            <div class="bestia-card">
+                <img src="https://raw.githubusercontent.com/marbaezf-tech/la-descarada/main/imagenes/Enemigos/2d_cucaracha_carronera.png" alt="Cucaracha Carroñera" class="bestia-img">
+                <div class="bestia-info">
+                    <div class="bestia-name">🪳 Cucaracha Carroñera</div>
+                    <div class="bestia-stats">
+                        <span class="bestia-stat">❤️ HP: 20</span>
+                        <span class="bestia-stat">⚔️ Fuerza: 3</span>
+                        <span class="bestia-stat">💨 Agilidad: 5</span>
+                        <span class="bestia-stat">🛡️ Defensa: 1</span>
+                    </div>
+                    <div class="bestia-stats">
+                        <span class="bestia-stat">📊 Aparición: 33%</span>
+                        <span class="bestia-stat">⭐ Dificultad: 3</span>
+                        <span class="bestia-stat">📍 Zona: El Laboratorio</span>
+                    </div>
+                    <div class="bestia-loot">
+                        <strong>Loot posible:</strong><br>
+                        <span>🌿 Hoja de Menta</span>
+                        <span>🍂 Capa de Hoja Seca</span>
+                        <span>🍯 Gota de Miel</span>
+                        <span>🪲 Placa de Élitro</span>
+                    </div>
+                    <p><strong>Comportamiento:</strong> Intenta robar items antes de atacar. Rápida pero frágil. Huye si pierde más del 50% HP.</p>
+                    <div class="bestia-lore">
+                        <p class="lore-pending">📝 Lore pendiente — se generará con API de Gemini.</p>
+                        <p class="lore-pending">"[Descripción narrativa: por qué roba, de dónde viene, su rol en el ecosistema del Laboratorio...]"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POLILLA SEDANTE -->
+            <div class="bestia-card">
+                <img src="https://raw.githubusercontent.com/marbaezf-tech/la-descarada/main/imagenes/Enemigos/2d_polilla_sedante.png" alt="Polilla Sedante" class="bestia-img">
+                <div class="bestia-info">
+                    <div class="bestia-name">🌙 Polilla Sedante</div>
+                    <div class="bestia-stats">
+                        <span class="bestia-stat">❤️ HP: 15</span>
+                        <span class="bestia-stat">⚔️ Fuerza: 2</span>
+                        <span class="bestia-stat">💨 Agilidad: 4</span>
+                        <span class="bestia-stat">🛡️ Defensa: 0</span>
+                    </div>
+                    <div class="bestia-stats">
+                        <span class="bestia-stat">📊 Aparición: 33%</span>
+                        <span class="bestia-stat">⭐ Dificultad: 2</span>
+                        <span class="bestia-stat">📍 Zona: El Laboratorio</span>
+                    </div>
+                    <div class="bestia-loot">
+                        <strong>Loot posible:</strong><br>
+                        <span>☕ Cristal de Cafeína</span>
+                        <span>🩸 Hemolinfa Fresca</span>
+                        <span>🕸️ Seda de Fibra de Carbono</span>
+                        <span>💧 Rocío Matutino Puro</span>
+                    </div>
+                    <p><strong>Comportamiento:</strong> Pasiva. Baja la alerta del jugador, vuelve lento. Usa polvo sedante que reduce Velocidad.</p>
+                    <div class="bestia-lore">
+                        <p class="lore-pending">📝 Lore pendiente — se generará con API de Gemini.</p>
+                        <p class="lore-pending">"[Descripción narrativa: su relación con la luz, por qué seda a sus presas, conexión con las Polillas del Taxón...]"</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>❓ Enemigos por Descubrir</h2>
+            <div class="info-box mechanic">
+                <h4>⚙️ Zonas Futuras</h4>
+                <p>El Gran Charco tiene más zonas por explorar. Cada una con sus propios enemigos:</p>
+                <ul style="margin-top: 0.5em; padding-left: 1.5em;">
+                    <li><strong>Metro Baquedano</strong> — Chinches de Cama, Vinchucas Nocturnas, Pulgas del Andén</li>
+                    <li><strong>Los Yuyos</strong> — Avispas Territoriales, Arañas de Rincón, Escorpiones de Muro</li>
+                    <li><strong>El Invernadero</strong> — Larvas de Silencio Verde, Moscas Infectadas, Hongos Ambulantes</li>
+                    <li><strong>Catacumbas Térmicas</strong> — Sanguijuelas Ciegas, Gusanos de Pompeya, Ácaros Gigantes</li>
+                </ul>
+            </div>
+
+            <blockquote>"Cada bicho que matas te enseña algo. Los inteligentes toman nota. Los estúpidos mueren la segunda vez que se encuentran al mismo enemigo."<br>— Ramazzottius, el Tardígrado</blockquote>
+        </article>
+    </main>
+</body>
+</html>
