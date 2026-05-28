@@ -294,6 +294,25 @@
 - [ ] Sistema O₂ vs Calor (mecánica ambiental)
 - [ ] Colmena Silenciosa como evento/zona
 
+### 🎮 Taxones v1.0 (10 jugables) vs DLC (4 futuros)
+**Jugables en v1.0:**
+1. 🗡️ Vinchuca — Asesina invisible
+2. 🦟 Típula — Diplomática suprema
+3. 🌙 Polilla — Vidente/control
+4. 🦋 Mariposa — Social pura
+5. 🦂 Escorpión — Guerrero burst
+6. 🐝 Avispa — Berserker multi-hit
+7. ⚡ Pulga — Evasión maestra
+8. 🕸️ Araña — Emboscadora stun
+9. 🕷️ Garrapata — Tanque inmortal
+10. 🪰 Mosca — Nigromante
+
+**DLC / Expansión (v2.0+):**
+- 🦟 Zancudo — Pendiente rework identidad (SWAT biológico)
+- 🪳 Cucaracha — Se solapa con Garrapata (tanque)
+- 🛏️ Chinche — Se solapa con Típula (político)
+- 💉 Sanguijuela — Se solapa con Mosca (cultista)
+
 ### 🌐 Multiplayer (Futuro)
 - [ ] Fase 1: PvP asíncrono — subir build a Firebase, matchmaking, ranking ELO (v0.5.0)
 - [ ] Fase 2: PvP tiempo real — lobby con código, Danza de Antenas 1v1, WebSocket (v0.7.0)
@@ -323,15 +342,21 @@
 - [x] Fix Sanguijuelas: son Anélidos, no Artrópodos — tratadas como "Blandos Bastardos", intrusos evolutivos tolerados
 - [x] Fix Cordyceps geográfico: justificado como "cepa criogénica mutada" que se propaga por micelio subterráneo bajo hielo
 #### Balance (Torneo PvP v2)
-- [ ] Rework Araña: PvP #13, Social #6 (suma 19) — "Emboscadora frágil", necesita buff ofensivo o mecánica de trampa
-- [ ] Rework Mosca: PvP #10, Social #13 (suma 23) — "Mediocre en todo", necesita nicho claro (summon? necro?)
-- [ ] Rework Pulga: PvP #12, Social #14 (suma 26) — "Caótica inútil", necesita que su velocidad (GAN 10) importe más
-- [ ] Rework Garrapata: PvP #14, Social #12 (suma 26) — "Tanque obsoleto", necesita que su QUI 9 compense la lentitud
+- [x] Rework Araña: TOR+2, 2 stuns + remate x2.5 (emboscadora)
+- [x] Rework Mosca: nigromante (larva tanque + espíritu + stun)
+- [x] Rework Pulga: pasivo "Evasión Maestra" (GAN×5.5%, cap 70%)
+- [x] Rework Garrapata: TOR+1, pasivo regen 3%/turno, Coraza +6 def
+- [x] Decisión: 10 taxones jugables en v1.0, 4 para DLC
+- [ ] Ajustar creacion_personaje.gd para mostrar solo los 10 taxones de v1.0
+- [ ] Rework Zancudo para DLC: definir identidad "SWAT biológico"
+- [ ] Rework Cucaracha para DLC: diferenciar de Garrapata
+- [ ] Rework Chinche para DLC: diferenciar de Típula
+- [ ] Rework Sanguijuela para DLC: diferenciar de Mosca
 #### Diagnóstico Manual (Gemini v2)
 - [x] Crear página "Quick Start" — tutorial de combate en 3 pasos para nuevos jugadores
 - [x] Tabla consolidada de 42 atavismos en 1 sola página (comparar builds)
 - [ ] Cheat Sheet / Referencia rápida (stats, fórmulas, posturas en 1 página)
-- [ ] Evaluar lanzar con 7-8 taxones jugables (resto = DLC/expansión)
+- [x] Evaluar lanzar con 7-8 taxones jugables (resto = DLC/expansión) → Decisión: 10 taxones en v1.0, 4 para DLC
 - [ ] Diagrama de flujo visual del sistema de Antenas
 - [ ] Delimitar Moscas vs Sanguijuelas narrativamente (evitar solapamiento temático)
 - [ ] Tooltips en stats: Sensilios [Percepción], Ganglios [Reflejos], etc.
