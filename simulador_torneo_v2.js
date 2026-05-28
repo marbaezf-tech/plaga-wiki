@@ -15,10 +15,10 @@ const TAXONES = {
     zancudo:     { nombre: "Zancudo",     emoji: "🦟", torax: 5, ganglios: 7, quitina: 5, sensilios: 6, cripsis: 8, feromonas: 3 },
     cucaracha:   { nombre: "Cucaracha",   emoji: "🪳", torax: 5, ganglios: 5, quitina: 7, sensilios: 7, cripsis: 6, feromonas: 1 },
     avispa:      { nombre: "Avispa",      emoji: "🐝", torax: 7, ganglios: 7, quitina: 5, sensilios: 4, cripsis: 3, feromonas: 4 },
-    garrapata:   { nombre: "Garrapata",   emoji: "🕷️", torax: 4, ganglios: 2, quitina: 9, sensilios: 5, cripsis: 4, feromonas: 2 },
+    garrapata:   { nombre: "Garrapata",   emoji: "🕷️", torax: 5, ganglios: 2, quitina: 9, sensilios: 5, cripsis: 4, feromonas: 2 },
     chinche:     { nombre: "Chinche",     emoji: "🛏️", torax: 3, ganglios: 5, quitina: 4, sensilios: 6, cripsis: 7, feromonas: 9 },
     mariposa:    { nombre: "Mariposa",    emoji: "🦋", torax: 3, ganglios: 9, quitina: 3, sensilios: 7, cripsis: 5, feromonas: 10 },
-    arana:       { nombre: "Araña",       emoji: "🕸️", torax: 4, ganglios: 5, quitina: 5, sensilios: 9, cripsis: 7, feromonas: 1 },
+    arana:       { nombre: "Araña",       emoji: "🕸️", torax: 6, ganglios: 5, quitina: 5, sensilios: 9, cripsis: 7, feromonas: 1 },
     escorpion:   { nombre: "Escorpión",   emoji: "🦂", torax: 7, ganglios: 4, quitina: 6, sensilios: 5, cripsis: 6, feromonas: 3 },
     vinchuca:    { nombre: "Vinchuca",    emoji: "🗡️", torax: 5, ganglios: 7, quitina: 5, sensilios: 8, cripsis: 10, feromonas: 2 },
     mosca:       { nombre: "Mosca",       emoji: "🪰", torax: 4, ganglios: 6, quitina: 5, sensilios: 7, cripsis: 2, feromonas: 5 },
@@ -54,7 +54,11 @@ const DANZA_STAT = { acecho:"torax", exposicion:"feromonas", mimetismo:"cripsis"
 function calcHP(t) { return 80 + t.quitina * 4; }
 function calcDmg(t) { return t.torax * 2; }
 function calcDef(t) { return t.quitina * 0.5; }
-function calcEvasion(t) { return Math.min(0.55, t.ganglios * 0.035 + t.cripsis * 0.025); }
+function calcEvasion(t, key) {
+    // Pulga: pasivo "Evasión Maestra" — GAN cuenta x5.5% (cap 70%)
+    if (key === "pulga") return Math.min(0.70, t.ganglios * 0.055 + t.cripsis * 0.025);
+    return Math.min(0.55, t.ganglios * 0.035 + t.cripsis * 0.025);
+}
 function calcPrecision(t) { return t.sensilios * 0.02; }
 function calcVel(t) { return (t.ganglios + t.sensilios) / 2; }
 
@@ -100,6 +104,8 @@ function simularCombate(keyA, keyB) {
     
     while (hpA > 0 && hpB > 0 && turnos < 40) {
         turnos++;
+        const atkKey = turnoDeA ? keyA : keyB;
+        const defKey = turnoDeA ? keyB : keyA;
         const atacante = turnoDeA ? a : b;
         const defensor = turnoDeA ? b : a;
         let hpAtk = turnoDeA ? hpA : hpB;
@@ -108,13 +114,19 @@ function simularCombate(keyA, keyB) {
         let antAtk = turnoDeA ? antenasA : antenasB;
         let antDef = turnoDeA ? antenasB : antenasA;
         let tSinSoc = turnoDeA ? turnosA : turnosB;
-        const hpDefMax = turnoDeA ? calcHP(b) : calcHP(a);
+        const hpDefMax = calcHP(defensor);
+        const hpAtkMax = calcHP(atacante);
+        
+        // Pasivo Garrapata: regen 3% HP por turno
+        if (atkKey === "garrapata") {
+            hpAtk = Math.min(hpAtkMax, hpAtk + hpAtkMax * 0.03);
+        }
         
         const accion = elegirAccion(atacante, antAtk, hemoAtk, hpDef, hpDefMax);
         
         switch(accion) {
             case "atacar": {
-                const ev = Math.max(0.05, calcEvasion(defensor) - calcPrecision(atacante));
+                const ev = Math.max(0.05, calcEvasion(defensor, defKey) - calcPrecision(atacante));
                 if (Math.random() > ev) {
                     const dmg = Math.max(1, (calcDmg(atacante) - calcDef(defensor)) * (0.85 + Math.random()*0.3));
                     hpDef -= dmg;

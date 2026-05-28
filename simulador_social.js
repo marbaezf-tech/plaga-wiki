@@ -16,7 +16,7 @@ const TAXONES = {
     garrapata:   { nombre: "Garrapata",   emoji: "🕷️", torax: 7, feromonas: 2, cripsis: 4, sensilios: 5 },
     chinche:     { nombre: "Chinche",     emoji: "🛏️", torax: 3, feromonas: 9, cripsis: 7, sensilios: 6 },
     mariposa:    { nombre: "Mariposa",    emoji: "🦋", torax: 2, feromonas: 10, cripsis: 5, sensilios: 7 },
-    arana:       { nombre: "Araña",       emoji: "🕸️", torax: 4, feromonas: 1, cripsis: 7, sensilios: 9 },
+    arana:       { nombre: "Araña",       emoji: "🕸️", torax: 6, feromonas: 1, cripsis: 7, sensilios: 9 },
     escorpion:   { nombre: "Escorpión",   emoji: "🦂", torax: 8, feromonas: 3, cripsis: 6, sensilios: 5 },
     vinchuca:    { nombre: "Vinchuca",    emoji: "🗡️", torax: 5, feromonas: 2, cripsis: 10, sensilios: 8 },
     mosca:       { nombre: "Mosca",       emoji: "🪰", torax: 4, feromonas: 5, cripsis: 2, sensilios: 7 },
