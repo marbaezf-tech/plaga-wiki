@@ -141,6 +141,20 @@
 - [x] Contenido intacto: combate, habilidades, atavismos, arquetipos, esencia, spawn, loot, equipamiento, reliquias, O2/Calor, Danza de Antenas
 - [x] Push a GitHub Pages
 
+### Sistema de Grados + Vestigios (Wiki)
+- [x] Sección "Grados de Estabilidad Genética" en sistemas.html (5 Grados, techos, Deglución 2.0, Misiones)
+- [x] Sección "Vestigios de los Antiguos" (5 reliquias consumibles: temporales + permanente)
+- [x] Push a GitHub Pages
+
+### UI Godot — Creación de Personaje + Combate Pokémon
+- [x] Creación de personaje rediseñada: avatar grande (placeholder color) + ficha + grid 3 columnas
+- [x] Avatar cambia al seleccionar taxón (carga `2d_*.png` si existe, sino placeholder)
+- [x] Combate rediseñado estilo Pokémon: prota espalda abajo-izq, enemigo frente arriba-der
+- [x] Barras HP de ambos combatientes visibles
+- [x] Grid 2x2 de botones (Atacar/Atavismo/Ítem/Retirada)
+- [x] Busca imágenes `2d_*.png` automáticamente para avatares
+- [x] Push a GitHub (repo juego)
+
 ---
 
 ## 🔴 Pendientes
@@ -162,7 +176,7 @@
 - [ ] Estructura JSON de personaje (datos_biologicos, atributos_primordiales, atavismos_activos, estado_mental)
 
 ### Media Prioridad
-- [ ] Avatares en combate (retrato del prota + retrato del enemigo)
+- [x] Avatares en combate (retrato del prota + retrato del enemigo) — estilo Pokémon implementado
 - [ ] Audio placeholder (1 track exploración, 1 track combate)
 - [ ] Exportar .exe para Windows (requiere templates en Godot)
 - [ ] Implementar Instinto en mecánicas (gastar para golpe crítico, resistir control)
@@ -176,6 +190,20 @@
 - [ ] Múltiples zonas del mapa
 - [ ] Animaciones de sprites
 - [ ] Sprites reales generados por IA (14 taxones × 4 direcciones)
+
+### Lore Pendiente (Gemini — requiere cuota)
+- [ ] Ejecutar `generar_lore_vestigios.js` cuando se resetee la cuota de Gemini API
+- [ ] Insertar lore generado en sistemas.html (fragmento HTML auto-generado)
+
+### Victoria Regia — Nodo de Escenario / Flora del Gran Charco
+- [ ] Diseñar la Victoria Regia como "Punto de Reposo" / Safe Zone / Nodo de Negociación
+- [ ] Stats de escenario: "Resonancia Vegetal" (+2 Sensilios sobre la hoja)
+- [ ] Integrar como escenario de Danza de Antenas (Típulas se reúnen ahí)
+- [ ] Mecánica: Taxones con "Tejeduría de Éter" recargan Hemolinfa conectándose a las venas
+- [ ] Peligro oculto: Cordyceps/Silencio Verde se esconde en los tallos subacuáticos
+- [ ] NPC guardián bajo la hoja (posible mini-boss o aliado)
+- [ ] Sprite/asset para Godot (prompt listo para generador de imágenes)
+- [ ] Agregar a la wiki como flora del Gran Charco (fauna.html o página nueva)
 
 ---
 
@@ -196,13 +224,13 @@
 | Área | Completado | Total | % |
 |---|---|---|---|
 | Lore/Diseño | 39 | 39 | 100% |
-| Wiki | 41 | 41 | 100% |
+| Wiki | 43 | 43 | 100% |
 | Requirements | 14 | 14 | 100% |
-| Código Godot | 16 | 26 | 62% |
+| Código Godot | 19 | 26 | 73% |
 | Assets Gráficos | 10 | 15 | 67% |
 | Audio | 0 | 5 | 0% |
 | Exportación | 1 | 2 | 50% |
-| **TOTAL** | **121** | **142** | **85%** |
+| **TOTAL** | **126** | **144** | **88%** |
 
 ---
 
