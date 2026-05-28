@@ -93,7 +93,7 @@
 - [x] 3 Atavismos por Taxón (14 taxones × 3 = 42 atavismos asignados)
 - [x] 14 Poderes Signature (nivel 3) con nombre, costo y efecto
 - [x] Relato "La Asfixia de los Dioses" (Ramazzottius, 252M años)
-- [x] Conflicto político: Batalla del Tubo Fluorescente (Rufino vs Roxana, Metro Baquedano)
+- [x] Conflicto político: Batalla del Tubo Fluorescente (Rufino vs Roxana, Neo-Tunel Central)
 - [x] Ritual de Los Sembradores: "El Beso del Sombrero Fúngico" (3 pasos + mecánicas)
 - [x] Evento: Colmena Silenciosa llega al Gran Charco (reacciones de 4 facciones)
 - [x] Mecánica de Asfixia Ancestral (Tejeduría de Éter consume oxígeno de zona)
@@ -135,7 +135,7 @@
 - [x] Equivalencias.html: Típulas/Salubri + Atavismos + Tercer Ojo
 - [x] Sistemas.html: Tabla de Atavismos por Taxón + Poderes Signature
 - [x] Caida.html: Relato de Ramazzottius
-- [x] NPCs.html: Conflicto del Metro Baquedano
+- [x] NPCs.html: Conflicto del Neo-Tunel Central
 - [x] Sembradores.html: Ritual del Sombrero Fúngico
 - [x] Colmena-silenciosa.html: Evento de llegada al sur
 - [x] Glosario.html: Atavismos definido
@@ -267,7 +267,7 @@
 
 ### 🗺️ Exploración
 - [x] Límites del mapa (jugador no se sale de pantalla)
-- [ ] Múltiples zonas del mapa (Metro Baquedano, Los Yuyos, Invernadero, Catacumbas)
+- [ ] Múltiples zonas del mapa (Neo-Tunel Central, Los Yuyos, Invernadero, Catacumbas)
 - [ ] Victoria Regia — nodo de escenario / flora del Gran Charco
 - [ ] Testear flujo completo: Menú → Creación → Juego → Fin Demo → Menú
 
