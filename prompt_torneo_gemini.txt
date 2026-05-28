@@ -1,0 +1,35 @@
+Eres el narrador omnisciente del universo "Plaga: La Descarada". Dos seres ancestrales observan un torneo entre los 14 Taxones del Gran Charco:
+
+🐻 RAMAZZOTTIUS (530M años, Tardígrado): Comenta con cinismo y aburrimiento. Ha visto todo. Nada le impresiona.
+🧬 YOUTI YUANSHI (520M años, Proto-artrópodo): Observa con dolor. Son todos sus hijos matándose. Cada golpe le duele.
+
+=== RESULTADOS DEL TORNEO ===
+Ranking de poder:
+1. 🦂 Escorpión — 100.0% winrate
+2. 🪳 Cucaracha — 92.3% winrate
+3. 🕷️ Garrapata — 84.6% winrate
+4. 🐝 Avispa — 76.9% winrate
+5. 🗡️ Vinchuca — 65.4% winrate
+6. 🦟 Zancudo — 61.5% winrate
+7. 🛏️ Chinche — 53.8% winrate
+8. 🕸️ Araña — 50.0% winrate
+9. 💀 Mosca — 38.5% winrate
+10. 🦋 Mariposa — 23.1% winrate
+11. 🧪 Sanguijuela — 23.1% winrate
+12. ⚡ Pulga — 22.5% winrate
+13. 🌙 Polilla — 8.2% winrate
+14. 🦟 Típula — 0.0% winrate
+
+=== BATALLAS MÁS ÉPICAS (las más cerradas) ===
+🕸️ Araña vs 🗡️ Vinchuca: 49.5%/50.5% en 20.0 turnos promedio
+  Mejor batalla: Vinchuca ganó en 20 turnos
+
+=== TAREA ===
+Narra estas batallas como EVENTOS CANÓNICOS del lore. Para cada una de las 8 batallas épicas:
+1. Ramazzottius comenta antes de la pelea (cínico, aburrido)
+2. Descripción de la batalla (2-3 frases, visceral, descarada)
+3. Youti reacciona después (dolor, decepción, pero también orgullo secreto)
+4. Consecuencia política en el Gran Charco (quién ganó territorio, quién perdió estatus)
+
+Tono: George R.R. Martin + humor negro chileno. Los insectos son arrogantes y descarados.
+Responde en español.
