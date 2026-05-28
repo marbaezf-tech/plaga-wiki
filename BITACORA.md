@@ -167,10 +167,10 @@
 ## 🔴 Pendientes (por categoría)
 
 ### ⚔️ Combate
-- [ ] 3 Atavismos funcionales por Taxón en combate (más allá de Micro-Inyección)
+- [x] 3 Atavismos funcionales por Taxón en combate (14×3 = 42 habilidades con submenú)
 - [ ] Danza de Antenas — sistema de conflicto social (4 posturas)
-- [ ] Pantalla Game Over cuando Turgencia llega a 0
-- [ ] Pantalla "ASIMILADO" cuando Esencia llega a 0%
+- [x] Pantalla Game Over cuando Turgencia llega a 0
+- [x] Pantalla "ASIMILADO" cuando Esencia llega a 0%
 
 ### 🧬 Progresión
 - [ ] Grados de Estabilidad (I-V) — implementar `get_max_atributo()` y `get_max_atavismo()` en GameManager
@@ -187,7 +187,7 @@
 - [ ] Estructura JSON de personaje (datos_biologicos, atributos_primordiales, atavismos_activos, estado_mental)
 
 ### 🗺️ Exploración
-- [ ] Límites del mapa (el jugador puede salirse de pantalla)
+- [x] Límites del mapa (jugador no se sale de pantalla)
 - [ ] Múltiples zonas del mapa (Metro Baquedano, Los Yuyos, Invernadero, Catacumbas)
 - [ ] Victoria Regia — nodo de escenario / flora del Gran Charco
 - [ ] Testear flujo completo: Menú → Creación → Juego → Fin Demo → Menú
