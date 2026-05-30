@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore Fundacional — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .timeline { border-left: 3px solid var(--accent-green); padding-left: 24px; margin: 20px 0; }
+        .timeline-item { margin-bottom: 28px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-green); }
+        .timeline-date { font-size: 0.75em; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .progenitor-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 12px 0; }
+        .progenitor-card h4 { color: var(--accent-gold); margin: 0 0 10px; font-size: 1.05em; }
+        .semidios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 16px 0; }
+        .semidios-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 12px; }
+        .semidios-card .nombre { color: var(--accent); font-weight: 700; font-size: 0.9em; }
+        .semidios-card .especie { color: var(--text-muted); font-size: 0.78em; margin: 2px 0; }
+        .semidios-card .poder { color: var(--text-secondary); font-size: 0.82em; }
+        .semidios-card .dominio { color: var(--accent-gold); font-size: 0.78em; margin-top: 4px; }
+        .faction-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0; }
+        .faction-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+        .faction-card h5 { margin: 0 0 6px; font-size: 0.9em; }
+        .faction-card p { margin: 0; font-size: 0.82em; color: var(--text-secondary); }
+        .esencia-bar { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+        .esencia-pct { font-family: monospace; font-weight: 700; width: 60px; }
+        .esencia-estado { font-size: 0.85em; color: var(--text-secondary); }
+        @media (max-width: 768px) { .faction-row { grid-template-columns: 1fr; } .semidios-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo">
+            <h1>🦟 PLAGA</h1>
+            <span class="subtitle">La Descarada — Wiki</span>
+            <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="pitch.html">🎯 Por qué jugar</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="lore-fundacional.html" class="active">📜 Lore Fundacional</a></li>
+            <li><a href="gran-eter.html">⚗️ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⚔️ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída del Éter</a></li>
+            <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li><a href="lore-zancudos-crisis.html">🦟 Crisis Año 20.000</a></li>
+            <li><a href="politica-facciones.html">♟️ Política de Facciones</a></li>
+            <li><a href="novelas.html">📚 Novelas por Taxón</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li><a href="taxon-zancudos.html">🦟 Zancudos</a></li>
+            <li><a href="taxon-cucarachas.html">🪳 Cucarachas</a></li>
+            <li><a href="taxon-avispas.html">🐝 Avispas</a></li>
+            <li><a href="taxon-garrapatas.html">🕷️ Garrapatas</a></li>
+            <li><a href="taxon-chinches.html">🛏️ Chinches</a></li>
+            <li><a href="taxon-mariposas.html">🦋 Mariposas</a></li>
+            <li><a href="taxon-aranas.html">🕸️ Arañas</a></li>
+            <li><a href="taxon-escorpiones.html">🦂 Escorpiones</a></li>
+            <li><a href="taxon-vinchucas.html">🗡️ Vinchucas</a></li>
+            <li><a href="taxon-moscas.html">🪰 Moscas</a></li>
+            <li><a href="taxon-sanguijuelas.html">💉 Sanguijuelas</a></li>
+            <li><a href="taxon-polillas.html">🌙 Polillas</a></li>
+            <li><a href="taxon-pulgas.html">⚡ Pulgas</a></li>
+            <li><a href="taxon-tipulas.html">🦿 Típulas</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="sembradores.html">🍄 Sembradores</a></li>
+            <li><a href="santiago.html">🏙️ El Gran Charco</a></li>
+            <li><a href="fauna.html">🐜 Fauna</a></li>
+            <li><a href="npcs.html">👤 NPCs</a></li>
+            <li><a href="items.html">⚔️ Armas y Objetos</a></li>
+            <li><a href="reliquias.html">💎 Reliquias</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="atavismos.html">🧬 Atavismos</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="equivalencias.html">🔄 Equivalencias</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li><a href="qa.html">🧪 QA</a></li>
+            <li><a href="arquitectura.html">📐 Arquitectura UML</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP v2 + META</a></li>
+            <li><a href="torneo_social.html">💃 Social</a></li>
+            <li><a href="torneo_pvp.html">⚔️ PvP v1</a></li>
+            <li><a href="bestiario.html">📕 Bestiario</a></li>
+        </ul>
+    </nav>
+
+    <main id="content">
+        <article>
+            <h1>📜 Lore Fundacional</h1>
+            <div class="intro-box">
+                <p>El documento maestro del universo de <strong>Plaga: La Descarada</strong>. Todo lo que existe en el juego — mecánicas, facciones, taxones, enemigos — tiene raíz en este lore. Léelo una vez y el resto de la wiki cobra sentido.</p>
+                <p style="margin-top:8px; margin-bottom:0;"><a href="lore_fundacional.md" style="color:var(--accent-green);">⬇️ Descargar como Markdown</a></p>
+            </div>
+
+            <!-- LÍNEA DE TIEMPO -->
+            <h2>⏳ Línea de Tiempo</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Hace 530 millones de años — Cámbrico</div>
+                    <strong>Youti Yuanshi despierta.</strong> El proto-artrópodo ancestral, padre de todos los artrópodos, existe por primera vez. Del tamaño de una semilla de sésamo. Hoy duerme en criptobiosis.
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Hace 300–350 millones de años — Carbonífero</div>
+                    <strong>El Gran Éter.</strong> Oxígeno al 35%. Meganeura (libélula de 70cm) y Arthropleura (milpiés de 2.5m) reinan. Los insectos son titanes. No hay aves, no hay murciélagos. Es el Paraíso.
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Hace 252 millones de años — Pérmico</div>
+                    <strong>La Caída del Éter.</strong> El oxígeno cae al 21%. Los titanes mueren. Aparecen las aves y los murciélagos. Las Plagas son reducidas de dioses a parásitos.
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Presente (Año 0)</div>
+                    <strong>El Gran Charco.</strong> Santiago de Chile post-humanos. 14 Taxones luchan por el control de la ciudad mientras mantienen La Fumigación en secreto.
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Año 20.000 — NeoPlaga (expansión)</div>
+                    <strong>La Crisis del Hielo.</strong> Glaciación avanzada. Don Mosin Nagant lidera los Zancudos. Los Cercenados operan sin alas. El Baqueano guía refugiados por el metro.
+                </div>
+            </div>
+
+            <!-- PROGENITORES -->
+            <h2>👑 Los Progenitores Divinos</h2>
+            <div class="progenitor-card">
+                <h4>🦟 Meganeura — "El Que Oscurecía el Sol"</h4>
+                <p><strong>Especie real:</strong> Libélula colosal del Carbonífero | <strong>Envergadura:</strong> 70 cm</p>
+                <p><strong>Taxones que lo veneran:</strong> Zancudos, Polillas, Avispas, Mariposas, Moscas</p>
+                <p>Cuando volaba, la tierra se sumía en sombra. Sus restos fósiles son artefactos de poder capaces de devolver un fragmento del Gran Éter. <em>Reliquia: Ala Fosilizada de Meganeura — Velocidad ×3, evasión 90% por 5 turnos.</em></p>
+            </div>
+            <div class="progenitor-card">
+                <h4>🐛 Arthropleura — "La Tierra Inamovible"</h4>
+                <p><strong>Especie real:</strong> Milpiés gigante del Carbonífero | <strong>Longitud:</strong> 2.5 metros</p>
+                <p><strong>Taxones que lo veneran:</strong> Cucarachas, Garrapatas, Escorpiones, Vinchucas, Sanguijuelas</p>
+                <p>Su exoesqueleto era impenetrable. Representa la fuerza bruta, la paciencia infinita y la certeza de que la tierra siempre pertenecerá a los que se arrastran. <em>Reliquia: Quitina de Arthropleura — Armadura +10, inmune a daño físico 1 turno.</em></p>
+            </div>
+
+            <!-- FACCIONES Y EL RETORNO -->
+            <h2>⚔️ Las 4 Facciones y El Retorno del 35%</h2>
+            <p>La profecía central del juego: algún día el oxígeno volverá al 35% y las Plagas recuperarán su tamaño titánico. Cada facción tiene una postura distinta:</p>
+            <div class="faction-row">
+                <div class="faction-card">
+                    <h5>🐝 La Colmena</h5>
+                    <p>Lo considera un mito peligroso. Mantener el orden actual es prioritario. El Retorno desestabilizaría su jerarquía.</p>
+                </div>
+                <div class="faction-card">
+                    <h5>🖤 El Enjambre Negro</h5>
+                    <p>Busca activamente provocarlo mediante rituales y sabotaje de biotecnología humana. Manipulan invernaderos para crear "burbujas de Éter".</p>
+                </div>
+                <div class="faction-card">
+                    <h5>✊ Los Sueltos</h5>
+                    <p>El Retorno es para todos o para nadie. Rechazan que una élite lo controle. Dispuestos a sabotear tanto a La Colmena como al Enjambre.</p>
+                </div>
+                <div class="faction-card">
+                    <h5>💰 Los Parásitos Libres</h5>
+                    <p>Venden información sobre métodos para provocarlo al mejor postor. No tienen postura ideológica — solo precio.</p>
+                </div>
+            </div>
+
+            <!-- RELIQUIAS -->
+            <h2>💎 Reliquias del Carbonífero</h2>
+            <table>
+                <tr><th>Nombre</th><th>Tier</th><th>Efecto</th></tr>
+                <tr><td>Fragmento de Ámbar del Gran Éter</td><td style="color:var(--accent-gold)">Legendario</td><td>+30% todas las estadísticas por 3 turnos</td></tr>
+                <tr><td>Quitina de Arthropleura</td><td style="color:var(--accent-gold)">Legendario</td><td>Armadura +10, inmune a daño físico 1 turno</td></tr>
+                <tr><td>Ala Fosilizada de Meganeura</td><td style="color:var(--accent-gold)">Legendario</td><td>Velocidad ×3 por 5 turnos, evasión 90%</td></tr>
+                <tr><td>Gota de Savia del 35%</td><td style="color:var(--accent-purple)">Mítico</td><td>Restaura 100% HP + Hemolinfa + cura todos los estados</td></tr>
+                <tr><td>Espiral Fósil de Nautilus Primordial</td><td style="color:var(--accent)">Épico</td><td>+5 Percepción, revela todos los secretos de la zona</td></tr>
+                <tr><td>Carbón Vivo del Pantano Ancestral</td><td style="color:var(--accent)">Épico</td><td>Daño de fuego +50%, quema por 3 turnos</td></tr>
+            </table>
+
+            <!-- SEMIDIOSES -->
+            <h2>⚔️ Los 14 Semidioses</h2>
+            <p>Artrópodos extremófilos reales que en el lore conservan fragmentos del poder del Gran Éter.</p>
+            <div class="semidios-grid">
+                <div class="semidios-card"><div class="nombre">🔥 Melanophila</div><div class="especie">Escarabajo de Fuego</div><div class="poder">Detecta incendios a 130km, se reproduce en llamas</div><div class="dominio">Fuego, destrucción creativa</div></div>
+                <div class="semidios-card"><div class="nombre">☀️ Cataglyphis</div><div class="especie">Hormiga Plateada del Sahara</div><div class="poder">Corre a 60°C, 108× su cuerpo/segundo</div><div class="dominio">Velocidad, calor extremo</div></div>
+                <div class="semidios-card"><div class="nombre">❄️ Belgica</div><div class="especie">Mosca Antártica</div><div class="poder">Sobrevive congelación total y anoxia</div><div class="dominio">Hielo, resistencia, soledad</div></div>
+                <div class="semidios-card"><div class="nombre">🏔️ Euophrys</div><div class="especie">Araña Saltarina del Everest</div><div class="poder">Vive a 6.700m permanentemente</div><div class="dominio">Altitud, contemplación</div></div>
+                <div class="semidios-card"><div class="nombre">☢️ Habrobracon</div><div class="especie">Avispa Parasitaria</div><div class="poder">Soporta 1.800 Gy de radiación</div><div class="dominio">Radiación, mutación</div></div>
+                <div class="semidios-card"><div class="nombre">♾️ Periplaneta</div><div class="especie">Cucaracha Americana</div><div class="poder">320M años, vive sin cabeza</div><div class="dominio">Inmortalidad, persistencia</div></div>
+                <div class="semidios-card"><div class="nombre">💧 Polypedilum</div><div class="especie">Larva de Mosquito Africano</div><div class="poder">Revive tras deshidratación total y vacío espacial</div><div class="dominio">Resurrección, criptobiosis</div></div>
+                <div class="semidios-card"><div class="nombre">💥 Brachinus</div><div class="especie">Escarabajo Bombardero</div><div class="poder">Dispara explosiones químicas a 100°C</div><div class="dominio">Guerra, explosión</div></div>
+                <div class="semidios-card"><div class="nombre">💪 Dynastes</div><div class="especie">Escarabajo Hércules</div><div class="poder">Levanta 850× su peso, 17cm</div><div class="dominio">Fuerza bruta, honor</div></div>
+                <div class="semidios-card"><div class="nombre">🗡️ Scolopendra</div><div class="especie">Ciempiés Gigante Amazónico</div><div class="poder">30cm, caza murciélagos en vuelo</div><div class="dominio">Venganza, caza de demonios</div></div>
+                <div class="semidios-card"><div class="nombre">🌊 Echiniscoides</div><div class="especie">Piojo de Foca</div><div class="poder">200 atmósferas, único insecto oceánico</div><div class="dominio">Presión, lo desconocido</div></div>
+                <div class="semidios-card"><div class="nombre">🌋 Alvinella</div><div class="especie">Gusano de Pompeya</div><div class="poder">Vive a 80°C en chimeneas volcánicas submarinas</div><div class="dominio">Volcanes, origen primordial</div></div>
+                <div class="semidios-card" style="border-color:var(--accent-green)"><div class="nombre">🐻 Ramazzottius</div><div class="especie">Tardígrado (Oso de Agua)</div><div class="poder">Sobrevive espacio, -272°C, +150°C, vacío, 30 años sin agua</div><div class="dominio" style="color:var(--accent-green)">TODO. Trascendencia absoluta.</div></div>
+                <div class="semidios-card" style="border-color:var(--accent-purple)"><div class="nombre">🌱 Youti Yuanshi</div><div class="especie">Proto-artrópodo del Cámbrico (520M años)</div><div class="poder">Ancestro de TODOS los artrópodos. En criptobiosis por dolor.</div><div class="dominio" style="color:var(--accent-purple)">Unidad, paz, código genético primordial</div></div>
+            </div>
+            <div class="info-box lore">
+                <h4>⚠️ La Paradoja de Youti</h4>
+                <p>El Padre que quiere paz es la mayor fuente de guerra del Gran Charco. Las facciones pelean por su fósil, los Sembradores quieren usarlo para "resetear" la evolución, y El Enjambre Negro quiere destruirlo. Su existencia genera la <strong>Resonancia del Primero</strong> — momentos donde enemigos sienten una compulsión de no atacarse (memoria genética ancestral).</p>
+            </div>
+
+            <!-- SILENCIO VERDE -->
+            <h2>🍄 El Silencio Verde — Mecánica de Esencia</h2>
+            <p>El Cordyceps no es un enemigo externo — es una plaga genética que <strong>todos los Taxones llevan dentro</strong>. La Esencia mide cuánta voluntad individual conserva la Plaga.</p>
+            <div class="esencia-bar"><span class="esencia-pct" style="color:var(--accent-green)">100–76%</span><span class="esencia-estado">🟢 <strong>Limpio</strong> — Control total. Sin efectos.</span></div>
+            <div class="esencia-bar"><span class="esencia-pct" style="color:#aacc00">75–51%</span><span class="esencia-estado">🟡 <strong>Susurros</strong> — −1 Sensilios. Visiones esporádicas.</span></div>
+            <div class="esencia-bar"><span class="esencia-pct" style="color:var(--accent-gold)">50–26%</span><span class="esencia-estado">🟠 <strong>Parasitismo</strong> — +10% Fuerza, −20% Velocidad. Habilidades cuestan +1 Hemolinfa extra. <em>(Zona tentadora — el hongo te da poder para que no luches contra él)</em></span></div>
+            <div class="esencia-bar"><span class="esencia-pct" style="color:var(--accent-red)">25–1%</span><span class="esencia-estado">🔴 <strong>Dominación</strong> — Habilidades cuestan el doble. Sprite se tiñe de verde. Aliados desconfían.</span></div>
+            <div class="esencia-bar" style="border-bottom:none"><span class="esencia-pct" style="color:#ff0000">0%</span><span class="esencia-estado">💀 <strong>Marioneta</strong> — Input bloqueado. Game Over. Tu personaje se convierte en enemigo.</span></div>
+
+            <div class="info-box warning" style="margin-top:16px">
+                <h4>🔬 Dato real</h4>
+                <p>El hongo <em>Ophiocordyceps unilateralis</em> realmente infecta hormigas y toma control de su sistema nervioso, obligándolas a trepar a un punto alto y morir ahí para dispersar esporas. Es el "zombi" más real de la naturaleza.</p>
+            </div>
+
+            <!-- GLOSARIO RÁPIDO -->
+            <h2>📖 Glosario Rápido</h2>
+            <table>
+                <tr><th>Término</th><th>Significado</th></tr>
+                <tr><td><strong>Taxón</strong></td><td>Linaje genético (equivalente a Clan en VTM)</td></tr>
+                <tr><td><strong>Atavismos</strong></td><td>Poderes sobrenaturales heredados del Gran Éter</td></tr>
+                <tr><td><strong>Turgencia</strong></td><td>HP — presión de fluidos internos</td></tr>
+                <tr><td><strong>Hemolinfa</strong></td><td>MP — energía para Atavismos</td></tr>
+                <tr><td><strong>La Fumigación</strong></td><td>La amenaza de exterminio / ley de secreto (= La Mascarada)</td></tr>
+                <tr><td><strong>El Panal</strong></td><td>Zona sagrada de no-agresión (= Elíseo)</td></tr>
+                <tr><td><strong>Inoculación</strong></td><td>Acto de crear una nueva Plaga (= El Abrazo)</td></tr>
+                <tr><td><strong>Fosilización</strong></td><td>Estado de letargo profundo (= Tórpor)</td></tr>
+                <tr><td><strong>Enjambre</strong></td><td>Frenesí colectivo / pérdida de control (= Frenesí)</td></tr>
+                <tr><td><strong>Individualidad</strong></td><td>Escala moral vs. instinto de enjambre (= Humanidad)</td></tr>
+                <tr><td><strong>Diablerie</strong></td><td>Consumir fósiles del Gran Éter — poder a cambio de Esencia</td></tr>
+                <tr><td><strong>Reina</strong></td><td>Gobernante de una ciudad (= Príncipe)</td></tr>
+            </table>
+
+            <blockquote>"Llevan 300 millones de años reinventando las mismas tres estrategias: esconderse, golpear o manipular. La única diferencia es el envoltorio. Pero no se los digan — se ofenden."<br>— Ramazzottius, Tardígrado Inmortal, sobre la historia de las Plagas</blockquote>
+
+            <p style="margin-top:24px; font-size:0.85em; color:var(--text-muted);">
+                Ver también:
+                <a href="gran-eter.html">El Gran Éter</a> ·
+                <a href="progenitores.html">Progenitores</a> ·
+                <a href="semidioses.html">Semidioses</a> ·
+                <a href="caida.html">La Caída</a> ·
+                <a href="silencio-verde.html">El Silencio Verde</a> ·
+                <a href="facciones.html">Facciones</a> ·
+                <a href="novelas.html">Novelas</a> ·
+                <a href="lore-zancudos-crisis.html">Crisis Año 20.000</a>
+            </p>
+        </article>
+    </main>
+</body>
+</html>
