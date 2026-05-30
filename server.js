@@ -40,8 +40,8 @@ const IMG_DIR    = path.join(__dirname, 'img');
     if (!fs.existsSync(full)) fs.mkdirSync(full);
 });
 
-// ── Bloquear admin.html desde IPs externas ─────────────────────────────────
-app.get('/admin.html', (req, res, next) => {
+// ── Bloquear admin.html y bestiario-admin.html desde IPs externas ──────────
+app.get(['/admin.html', '/bestiario-admin.html'], (req, res, next) => {
     const ip = req.ip || req.connection.remoteAddress || '';
     const isLocal = ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
     if (!isLocal) {
@@ -174,12 +174,11 @@ app.post('/api/publish', requireAdmin, (req, res) => {
     const msg = (message || 'admin: actualización de assets').replace(/['"]/g, '');
 
     try {
-        execSync('git add img/', { cwd: GIT_REPO_PATH });
+        execSync('git add img/ data/', { cwd: GIT_REPO_PATH });
         execSync(`git commit -m "${msg}"`, { cwd: GIT_REPO_PATH });
         execSync('git push origin main', { cwd: GIT_REPO_PATH });
         res.json({ ok: true, message: 'Push exitoso a GitHub Pages' });
     } catch (err) {
-        // Si no hay nada que commitear, no es un error real
         const msg_err = err.message || '';
         if (msg_err.includes('nothing to commit')) {
             res.json({ ok: true, message: 'No hay cambios nuevos para publicar' });
@@ -188,6 +187,107 @@ app.post('/api/publish', requireAdmin, (req, res) => {
         }
     }
 });
+
+// ── CRUD Criaturas ──────────────────────────────────────────────────────────
+const CRIATURAS_PATH = path.join(__dirname, 'data', 'criaturas.json');
+const OBJETOS_PATH   = path.join(__dirname, 'data', 'objetos.json');
+
+function readJSON(filePath) {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+function writeJSON(filePath, data) {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+}
+
+// Listar criaturas
+app.get('/api/criaturas', (req, res) => {
+    res.json(readJSON(CRIATURAS_PATH));
+});
+
+// Crear criatura
+app.post('/api/criaturas', requireAdmin, (req, res) => {
+    const db = readJSON(CRIATURAS_PATH);
+    const nueva = req.body;
+    if (!nueva.id || !nueva.nombre) return res.status(400).json({ ok: false, error: 'id y nombre son requeridos' });
+    if (db.criaturas.find(c => c.id === nueva.id)) return res.status(409).json({ ok: false, error: 'ID ya existe' });
+    db.criaturas.push(nueva);
+    writeJSON(CRIATURAS_PATH, db);
+    // Exportar a Godot si está configurado
+    _exportarGodot();
+    res.json({ ok: true, criatura: nueva });
+});
+
+// Actualizar criatura
+app.put('/api/criaturas/:id', requireAdmin, (req, res) => {
+    const db = readJSON(CRIATURAS_PATH);
+    const idx = db.criaturas.findIndex(c => c.id === req.params.id);
+    if (idx === -1) return res.status(404).json({ ok: false, error: 'Criatura no encontrada' });
+    db.criaturas[idx] = { ...db.criaturas[idx], ...req.body, id: req.params.id };
+    writeJSON(CRIATURAS_PATH, db);
+    _exportarGodot();
+    res.json({ ok: true, criatura: db.criaturas[idx] });
+});
+
+// Eliminar criatura
+app.delete('/api/criaturas/:id', requireAdmin, (req, res) => {
+    const db = readJSON(CRIATURAS_PATH);
+    const antes = db.criaturas.length;
+    db.criaturas = db.criaturas.filter(c => c.id !== req.params.id);
+    if (db.criaturas.length === antes) return res.status(404).json({ ok: false, error: 'Criatura no encontrada' });
+    writeJSON(CRIATURAS_PATH, db);
+    _exportarGodot();
+    res.json({ ok: true });
+});
+
+// ── CRUD Objetos ────────────────────────────────────────────────────────────
+
+app.get('/api/objetos', (req, res) => {
+    res.json(readJSON(OBJETOS_PATH));
+});
+
+app.post('/api/objetos', requireAdmin, (req, res) => {
+    const db = readJSON(OBJETOS_PATH);
+    const nuevo = req.body;
+    if (!nuevo.id || !nuevo.nombre) return res.status(400).json({ ok: false, error: 'id y nombre son requeridos' });
+    if (db.objetos.find(o => o.id === nuevo.id)) return res.status(409).json({ ok: false, error: 'ID ya existe' });
+    db.objetos.push(nuevo);
+    writeJSON(OBJETOS_PATH, db);
+    _exportarGodot();
+    res.json({ ok: true, objeto: nuevo });
+});
+
+app.put('/api/objetos/:id', requireAdmin, (req, res) => {
+    const db = readJSON(OBJETOS_PATH);
+    const idx = db.objetos.findIndex(o => o.id === req.params.id);
+    if (idx === -1) return res.status(404).json({ ok: false, error: 'Objeto no encontrado' });
+    db.objetos[idx] = { ...db.objetos[idx], ...req.body, id: req.params.id };
+    writeJSON(OBJETOS_PATH, db);
+    _exportarGodot();
+    res.json({ ok: true, objeto: db.objetos[idx] });
+});
+
+app.delete('/api/objetos/:id', requireAdmin, (req, res) => {
+    const db = readJSON(OBJETOS_PATH);
+    const antes = db.objetos.length;
+    db.objetos = db.objetos.filter(o => o.id !== req.params.id);
+    if (db.objetos.length === antes) return res.status(404).json({ ok: false, error: 'Objeto no encontrado' });
+    writeJSON(OBJETOS_PATH, db);
+    _exportarGodot();
+    res.json({ ok: true });
+});
+
+// ── Exportar JSONs a Godot ──────────────────────────────────────────────────
+function _exportarGodot() {
+    if (!GODOT_PATH) return;
+    const godotData = path.join(path.dirname(GODOT_PATH), 'data');
+    if (!fs.existsSync(godotData)) {
+        try { fs.mkdirSync(godotData, { recursive: true }); } catch(e) { return; }
+    }
+    try {
+        fs.copyFileSync(CRIATURAS_PATH, path.join(godotData, 'criaturas.json'));
+        fs.copyFileSync(OBJETOS_PATH,   path.join(godotData, 'objetos.json'));
+    } catch(e) { /* silencioso si falla */ }
+}
 
 // ── Ruta principal ──────────────────────────────────────────────────────────
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));

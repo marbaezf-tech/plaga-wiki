@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .obj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin: 16px 0; }
+        .obj-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; display: flex; gap: 14px; align-items: flex-start; }
+        .obj-img  { width: 64px; height: 64px; border-radius: 6px; border: 1px solid var(--border); object-fit: contain; background: var(--bg-dark); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8em; }
+        .obj-img img { width: 100%; height: 100%; object-fit: contain; border-radius: 4px; }
+        .obj-info { flex: 1; min-width: 0; }
+        .obj-name { font-weight: 700; color: var(--text-primary); margin-bottom: 4px; font-size: 0.95em; }
+        .obj-efecto { color: var(--accent-gold); font-size: 0.82em; margin-bottom: 4px; }
+        .obj-desc { color: var(--text-muted); font-size: 0.8em; font-style: italic; }
+        .obj-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+        .obj-tag  { padding: 2px 7px; border-radius: 3px; font-size: 0.72em; font-weight: 600; }
+        .tier-comun       { background: rgba(139,148,158,0.2); color: var(--text-secondary); }
+        .tier-poco_comun  { background: rgba(63,185,80,0.15); color: var(--accent-green); }
+        .tier-raro        { background: rgba(88,166,255,0.15); color: var(--accent); }
+        .tier-epico       { background: rgba(188,140,255,0.15); color: var(--accent-purple); }
+        .tier-legendario  { background: rgba(210,153,34,0.2); color: var(--accent-gold); }
+        .tipo-tag { background: var(--bg-dark); color: var(--text-muted); }
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .filter-btn { padding: 6px 14px; border-radius: 5px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-secondary); cursor: pointer; font-size: 0.85em; transition: all 0.2s; }
+        .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(88,166,255,0.08); }
+        #loading { color: var(--text-muted); padding: 40px; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo">
+            <h1>🦟 PLAGA</h1>
+            <span class="subtitle">La Descarada — Wiki</span>
+            <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="bestiario.html">📕 Bestiario</a></li>
+            <li><a href="objetos-mapa.html" class="active">🎒 Objetos</a></li>
+            <li><a href="items.html">⚔️ Armas</a></li>
+            <li><a href="reliquias.html">💎 Reliquias</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="lore-fundacional.html">📜 Lore Fundacional</a></li>
+            <li><a href="taxones.html">🧬 Taxones</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+        </ul>
+    </nav>
+
+    <main id="content">
+        <article>
+            <h1>🎒 Objetos del Gran Charco</h1>
+            <div class="intro-box">
+                <p>Todo lo que podés encontrar, robar, craftear o arrancar de un cadáver. Armas, consumibles, materiales y crafteables.</p>
+            </div>
+
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filtrar('todos', this)">🎒 Todos</button>
+                <button class="filter-btn" onclick="filtrar('arma_cac', this)">⚔️ Armas C/C</button>
+                <button class="filter-btn" onclick="filtrar('consumible', this)">💊 Consumibles</button>
+                <button class="filter-btn" onclick="filtrar('material', this)">🔩 Materiales</button>
+                <button class="filter-btn" onclick="filtrar('crafteable', this)">🔧 Crafteables</button>
+            </div>
+
+            <div id="loading">⏳ Cargando objetos...</div>
+            <div class="obj-grid" id="obj-container"></div>
+        </article>
+    </main>
+
+    <script>
+    let todosLosObjetos = [];
+
+    async function cargarObjetos() {
+        try {
+            const r = await fetch('data/objetos.json');
+            const d = await r.json();
+            todosLosObjetos = d.objetos || [];
+            renderizar(todosLosObjetos);
+        } catch(e) {
+            document.getElementById('loading').textContent = '❌ Error al cargar objetos.';
+        }
+    }
+
+    function filtrar(tipo, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const lista = tipo === 'todos' ? todosLosObjetos : todosLosObjetos.filter(o => o.tipo === tipo);
+        renderizar(lista);
+    }
+
+    function renderizar(lista) {
+        document.getElementById('loading').style.display = 'none';
+        const container = document.getElementById('obj-container');
+        container.innerHTML = '';
+        if (!lista.length) {
+            container.innerHTML = '<p style="color:var(--text-muted)">No hay objetos en esta categoría.</p>';
+            return;
+        }
+        lista.forEach(o => {
+            const imgHtml = o.imagen
+                ? `<div class="obj-img"><img src="${o.imagen}" alt="${o.nombre}" onerror="this.parentElement.textContent='${o.emoji}'"></div>`
+                : `<div class="obj-img">${o.emoji}</div>`;
+
+            container.innerHTML += `
+                <div class="obj-card">
+                    ${imgHtml}
+                    <div class="obj-info">
+                        <div class="obj-name">${o.emoji} ${o.nombre}</div>
+                        <div class="obj-efecto">${o.efecto}</div>
+                        <div class="obj-desc">${o.descripcion}</div>
+                        <div class="obj-meta">
+                            <span class="obj-tag tier-${o.tier}">${tierLabel(o.tier)}</span>
+                            <span class="obj-tag tipo-tag">${tipoLabel(o.tipo)}</span>
+                            ${o.zona ? `<span class="obj-tag tipo-tag">📍 ${o.zona}</span>` : ''}
+                            ${o.precio ? `<span class="obj-tag tipo-tag">💰 ${o.precio}</span>` : ''}
+                        </div>
+                    </div>
+                </div>`;
+        });
+    }
+
+    function tierLabel(t) {
+        return { comun:'⚪ Común', poco_comun:'🟢 Poco Común', raro:'🔵 Raro', epico:'🟣 Épico', legendario:'🟡 Legendario' }[t] || t;
+    }
+    function tipoLabel(t) {
+        return { arma_cac:'⚔️ Arma C/C', arma_dist:'🏹 Distancia', consumible:'💊 Consumible', material:'🔩 Material', crafteable:'🔧 Crafteable', armadura:'🛡️ Armadura' }[t] || t;
+    }
+
+    cargarObjetos();
+    </script>
+</body>
+</html>

@@ -65,20 +65,20 @@
     <main id="content">
         <article>
             <h1>📊 Dashboard de Desarrollo</h1>
-            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 29 Mayo 2026 | v0.4.0-iso</p>
+            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 30 Mayo 2026 | v0.5.0-zonas</p>
 
             <!-- Resumen rápido -->
             <div class="dashboard-grid">
                 <div class="dash-card">
                     <h3>🚀 Avance General</h3>
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label-sm">180 de 184 tareas completadas</div>
-                    <div class="progress-bar"><div class="progress-fill fill-green" style="width:98%">98%</div></div>
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label-sm">195 de 197 tareas completadas</div>
+                    <div class="progress-bar"><div class="progress-fill fill-green" style="width:99%">99%</div></div>
                 </div>
                 <div class="dash-card">
                     <h3>✅ Tareas Completadas</h3>
-                    <div class="stat-number">180</div>
-                    <div class="stat-label-sm">en 4 sesiones de desarrollo</div>
+                    <div class="stat-number">195</div>
+                    <div class="stat-label-sm">en 5 sesiones de desarrollo</div>
                 </div>
                 <div class="dash-card">
                     <h3>🚧 Bloqueantes</h3>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="dash-card">
                     <h3>📄 Páginas Wiki</h3>
-                    <div class="stat-number">46</div>
+                    <div class="stat-number">48</div>
                     <div class="stat-label-sm">online en GitHub Pages</div>
                 </div>
             </div>
@@ -104,8 +104,8 @@
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Requirements / Spec</span><span class="badge badge-done">100%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">14/14</div></div>
 
-                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Código Godot</span><span class="badge badge-pending">82%</span></div>
-                <div class="progress-bar"><div class="progress-fill fill-yellow" style="width:82%">22/27</div></div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Código Godot</span><span class="badge badge-done">95%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-green" style="width:95%">26/27</div></div>
 
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Assets Gráficos</span><span class="badge badge-pending">67%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-yellow" style="width:67%">10/15</div></div>
@@ -179,22 +179,40 @@
                 </ul>
             </div>
 
+            <!-- Sesión 4+5 -->
+            <h2>✅ Completado — Sesiones 4 y 5 (Admin + Zonas)</h2>
+            <div class="dash-card">
+                <ul class="task-list">
+                    <li class="task-done">✅ Panel admin local (admin.html) — auth SHA256, sesión 8h, solo localhost</li>
+                    <li class="task-done">✅ CRUD criaturas y objetos desde el browser (bestiario-admin.html)</li>
+                    <li class="task-done">✅ data/criaturas.json — 17 criaturas (3 enemigos + 14 taxones)</li>
+                    <li class="task-done">✅ data/objetos.json — 9 objetos con stats completos</li>
+                    <li class="task-done">✅ bestiario.html lee JSON dinámicamente</li>
+                    <li class="task-done">✅ Fix movimiento player: MOTION_MODE_FLOATING (antes bloqueado por gravedad)</li>
+                    <li class="task-done">✅ Camera2D zoom 2x siguiendo al player</li>
+                    <li class="task-done">✅ iso_map.gd con 4 puertas (N/S/E/O) + labels flotantes</li>
+                    <li class="task-done">✅ 4 mapas de zonas secundarias con paletas únicas: Azotea / Sótano / Pasillo / Máquinas</li>
+                    <li class="task-done">✅ Conexiones por zona (no global) — fix loop infinito Azotea↔Sótano</li>
+                    <li class="task-done">✅ Minimapa 68×68px en HUD — cruz con 5 zonas, zona actual iluminada</li>
+                    <li class="task-done">✅ Label de zona actual bajo el minimapa</li>
+                    <li class="task-done">✅ Transiciones con fade entre las 5 zonas</li>
+                </ul>
+            </div>
+
             <!-- Pendiente -->
             <h2>⏳ Pendiente (Roadmap)</h2>
             <div class="dash-card">
                 <ul class="task-list">
-                    <li class="task-pending">⏳ 13. Pantalla Game Over (Turgencia 0 / Esencia 0)</li>
-                    <li class="task-pending">⏳ 14. "Volver al Menú" funcional al completar demo (reset estado)</li>
-                    <li class="task-pending">⏳ 15. Avatares en combate (prota + enemigo)</li>
-                    <li class="task-pending">⏳ 16. Audio placeholder</li>
-                    <li class="task-pending">⏳ 17. Límites del mapa (evitar salir de pantalla)</li>
-                    <li class="task-pending">⏳ 19. Más zonas: Norte (La Azotea), Sur (El Sótano), Oeste (La Sala de Máquinas)</li>
-                    <li class="task-pending">⏳ 20. Enemigos propios por zona (tabla de spawn diferente por zona)</li>
-                    <li class="task-pending">⏳ 21. NPCs con diálogo</li>
-                    <li class="task-pending">⏳ 22. Sistema de facciones activo (reputación con consecuencias)</li>
-                    <li class="task-pending">⏳ 23. Imágenes 2D de enemigos (actualmente placeholders de color)</li>
-                    <li class="task-pending">⏳ 24. Ajustar posiciones de Spots al mapa isométrico</li>
-                    <li class="task-pending">⏳ 25. Integrar rama experimental (la-descarada) al proyecto principal</li>
+                    <li class="task-pending">⏳ Reintroducir colisiones con paredes (es_caminable_pos con offset correcto)</li>
+                    <li class="task-pending">⏳ Spawn correcto al entrar a cada zona secundaria (puerta opuesta)</li>
+                    <li class="task-pending">⏳ Testear flujo completo: Menú → Creación → Juego → Spots → Combate → Fin Demo</li>
+                    <li class="task-pending">⏳ Exportar APK actualizada (v0.5.0)</li>
+                    <li class="task-pending">⏳ Enemigos propios por zona (tabla de spawn diferente)</li>
+                    <li class="task-pending">⏳ NPCs con diálogo</li>
+                    <li class="task-pending">⏳ Audio placeholder (1 track exploración, 1 combate)</li>
+                    <li class="task-pending">⏳ Sprites 2D de taxones (14 × 4 direcciones)</li>
+                    <li class="task-pending">⏳ Grados de Estabilidad Genética (I-V) en GameManager</li>
+                    <li class="task-pending">⏳ Sistema de quests básico</li>
                 </ul>
             </div>
 
@@ -206,7 +224,9 @@
                     <tr><td>1</td><td style="color:var(--accent-green)">Proyecto Godot ✅ RESUELTO</td><td>—</td><td>Creado con estructura completa</td></tr>
                     <tr><td>2</td><td class="task-pending">No hay sprites/assets reales de enemigos</td><td>Solo placeholders (cuadrados de color)</td><td>Generar con IA o pixel art</td></tr>
                     <tr><td>3</td><td style="color:var(--accent-green)">ngrok agotado ✅ RESUELTO</td><td>—</td><td>GitHub Pages</td></tr>
-                    <tr><td>4</td><td style="color:var(--accent-green)">Spawn incorrecto al volver de zona ✅ RESUELTO</td><td>—</td><td>GameManager.zona_origen persiste entre escenas</td></tr>
+                    <tr><td>4</td><td style="color:var(--accent-green)">Spawn incorrecto al volver de zona ✅ RESUELTO</td><td>—</td><td>get_spawn_desde() busca puerta opuesta en el mapa</td></tr>
+                    <tr><td>5</td><td style="color:var(--accent-green)">Player no se movía ✅ RESUELTO</td><td>—</td><td>MOTION_MODE_FLOATING en CharacterBody2D</td></tr>
+                    <tr><td>6</td><td style="color:var(--accent-green)">Loop infinito entre zonas ✅ RESUELTO</td><td>—</td><td>Conexiones por zona, no globales</td></tr>
                 </table>
             </div>
 
@@ -223,24 +243,18 @@ descarada/
 │   ├── game_manager.gd    ← Autoload: stats, esencia, inventario, zona_origen
 │   ├── loot_system.gd     ← Autoload: loot aleatorio por tier
 │   ├── save_system.gd     ← Autoload: guardar/cargar (F5/F9)
-│   ├── main.gd            ← Construye escena + maneja transiciones
-│   ├── iso_map.gd         ← Laboratorio isométrico (12×12)
-│   ├── zona_base.gd       ← Clase base para zonas (puertas, spawn, tiles)
-│   ├── zona_pasillo.gd    ← El Pasillo (segunda zona)
-│   ├── player.gd          ← Movimiento + detección de puertas
+│   ├── main.gd            ← Construye escena + maneja transiciones (5 zonas)
+│   ├── iso_map.gd         ← Laboratorio isométrico (12×12, 4 puertas N/S/E/O)
+│   ├── mapa_azotea.gd     ← Azotea (techo, azul-gris, 1 puerta sur)
+│   ├── mapa_sotano.gd     ← Sótano (subsuelo, verde-negro, 1 puerta norte)
+│   ├── mapa_pasillo.gd    ← Pasillo (corredor, marrón, 1 puerta oeste)
+│   ├── mapa_maquinas.gd   ← Sala Máquinas (industrial, naranja, 1 puerta este)
+│   ├── player.gd          ← Movimiento FLOATING + detección de puertas
 │   ├── combat_manager.gd  ← Combate por turnos
-│   ├── hud.gd             ← Barras de stats
+│   ├── hud.gd             ← Barras de stats + minimapa
 │   ├── spot.gd            ← Puntos de interacción
 │   └── touch_controls.gd  ← Joystick virtual Android
-└── export/                ← APKs exportados (v0.3.0)
-
-la-descarada/ (rama experimental — mapa iso refactorizado)
-├── scripts/
-│   ├── iso_map.gd         ← Versión simplificada del laboratorio
-│   ├── laboratorio.gd     ← Escena laboratorio con HUD
-│   └── player.gd          ← Movimiento isométrico flotante
-└── scenes/world/
-    └── laboratorio.tscn   ← Escena con IsoMap + Player + Spots
+└── export/                ← APKs exportados
                 </pre>
             </div>
         </article>

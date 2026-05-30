@@ -1,0 +1,113 @@
+{
+  "version": "1.0",
+  "objetos": [
+    {
+      "id": "espina_cactus",
+      "nombre": "Espina de Cactus",
+      "emoji": "🌵",
+      "tipo": "arma_cac",
+      "tier": "comun",
+      "imagen": "",
+      "efecto": "Fuerza +1",
+      "descripcion": "Arrancada de un cactus. Afilada como la envidia.",
+      "zona": "El Laboratorio",
+      "precio": 5
+    },
+    {
+      "id": "aguijon_robado",
+      "nombre": "Aguijón Robado",
+      "emoji": "🗡️",
+      "tipo": "arma_cac",
+      "tier": "comun",
+      "imagen": "",
+      "efecto": "Fuerza +1",
+      "descripcion": "De una abeja muerta. Ella ya no lo necesita.",
+      "zona": "El Laboratorio",
+      "precio": 5
+    },
+    {
+      "id": "femur_grillo",
+      "nombre": "Fémur de Grillo",
+      "emoji": "🦴",
+      "tipo": "arma_cac",
+      "tier": "poco_comun",
+      "imagen": "",
+      "efecto": "Fuerza +2",
+      "descripcion": "Pata trasera de grillo. Aerodinámica para cráneos.",
+      "zona": "El Laboratorio",
+      "precio": 15
+    },
+    {
+      "id": "mandibula_escarabajo",
+      "nombre": "Mandíbula de Escarabajo",
+      "emoji": "🪲",
+      "tipo": "arma_cac",
+      "tier": "raro",
+      "imagen": "",
+      "efecto": "Fuerza +3",
+      "descripcion": "Corta quitina como mantequilla.",
+      "zona": "El Laboratorio",
+      "precio": 40
+    },
+    {
+      "id": "hemolinfa_fresca",
+      "nombre": "Hemolinfa Fresca",
+      "emoji": "💧",
+      "tipo": "consumible",
+      "tier": "comun",
+      "imagen": "",
+      "efecto": "+10 Hemolinfa",
+      "descripcion": "Sangre de insecto recién extraída. Tibia y nutritiva.",
+      "zona": "El Laboratorio",
+      "precio": 8
+    },
+    {
+      "id": "rocio_matutino",
+      "nombre": "Rocío Matutino Puro",
+      "emoji": "🌿",
+      "tipo": "consumible",
+      "tier": "raro",
+      "imagen": "",
+      "efecto": "+10% Esencia",
+      "descripcion": "Agua pura de la madrugada. El Silencio Verde la odia.",
+      "zona": "El Laboratorio",
+      "precio": 60
+    },
+    {
+      "id": "seda_fibra_carbono",
+      "nombre": "Seda de Fibra de Carbono",
+      "emoji": "🕸️",
+      "tipo": "material",
+      "tier": "poco_comun",
+      "imagen": "",
+      "efecto": "Material de crafteo",
+      "descripcion": "Seda de araña reforzada con residuos industriales.",
+      "zona": "El Laboratorio",
+      "precio": 20
+    },
+    {
+      "id": "nervio_cobre",
+      "nombre": "Nervio de Cobre",
+      "emoji": "⚡",
+      "tipo": "material",
+      "tier": "poco_comun",
+      "imagen": "",
+      "efecto": "Material de crafteo",
+      "descripcion": "Cable de cobre pelado. Conduce electricidad y malas ideas.",
+      "zona": "El Laboratorio",
+      "precio": 25
+    },
+    {
+      "id": "anclaje_fibra",
+      "nombre": "Anclaje de Fibra",
+      "emoji": "🔗",
+      "tipo": "crafteable",
+      "tier": "raro",
+      "imagen": "",
+      "efecto": "Objetivo de la demo — completa el juego",
+      "descripcion": "3× Seda de Fibra de Carbono + 1× Nervio de Cobre + 15 Hemolinfa. El artefacto que te saca de aquí.",
+      "zona": "crafteo",
+      "precio": 0
+    }
+  ]
+}
