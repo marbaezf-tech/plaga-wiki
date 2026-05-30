@@ -293,6 +293,17 @@
 - [ ] Sistema de quests
 - [ ] Animaciones de sprites
 
+### 📚 Lore Expandido / Novelas
+- [x] Lore crisis Año 20.000: Don Mosin Nagant + Directriz de Incubación Viva
+- [x] Escuadrón "Primera Sangre" + El Baqueano (Vinchuca guía)
+- [x] La Presa Cero: Larva de Escarabajo (justificación biológica)
+- [x] Los Cercenados: élite zancuda sin alas (camuflaje biológico)
+- [x] La Falsa Bandera: Típulas acusadas, diplomacia las salva
+- [x] Sistema Piedra-Papel-Tijera político (Escorpiones/Escarabajos vs Cucarachas/Abejas vs Zancudos/Vinchucas)
+- [x] Brainstorm 14 novelas por taxón (2 ideas por clan)
+- [x] Nuevos taxones DLC: Escarabajos, Grillos (Bardos), Mantis (Inquisidoras)
+- [ ] Desarrollar protagonista y sinopsis completa de cada novela
+- [ ] Prompt para generar sprites de Escarabajo, Grillo, Mantis (poly-gótico)
 ### 🌡️ NeoPlaga (Futuro)
 - [ ] Sistema O₂ vs Calor (mecánica ambiental)
 - [ ] Colmena Silenciosa como evento/zona
