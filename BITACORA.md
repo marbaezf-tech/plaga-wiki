@@ -243,7 +243,41 @@
 
 ---
 
-## 🔴 Pendientes (por categoría)
+## 📅 Sesión 4 — 29 Mayo 2026
+
+### Wiki — Nuevas páginas y fixes
+
+#### Dashboard (fix encoding + actualización)
+- [x] `dashboard.html` reescrito completo con UTF-8 limpio (tenía mojibake — emojis como `?`, tildes como `Ã`)
+- [x] Contenido actualizado a v0.4.0-iso: sesión 3 del juego documentada
+- [x] Bloqueante "spawn incorrecto al volver de zona" marcado como resuelto
+- [x] Versión actualizada a v0.4.0-iso
+
+#### Quick Start (fix sidebar)
+- [x] `quickstart.html` tenía sidebar mínimo — reemplazado por sidebar completo con botón móvil
+- [x] Enlazada desde `index.html` y `dashboard.html` (antes no aparecía en navegación)
+
+#### Pitch / Landing page técnica (nueva)
+- [x] `pitch.html` creada — landing page honesta para perfil técnico (Ingeniero Civil Informático)
+- [x] Framework AIDA con tono directo y analítico, sin humo de marketing
+- [x] Fórmulas reales en bloques de código (daño, velocidad, evasión, escape)
+- [x] Tabla de 5 taxones con stats, habilidad, costo y defecto
+- [x] Sistema de Esencia explicado como degradación de estado con efectos mecánicos
+- [x] Roadmap honesto: v0.3 LIVE / v0.4 LIVE / próximo / planificado
+- [x] Sección explícita "Lo que NO existe" (sin IA adaptativa, sin scripting, sin compuertas lógicas)
+- [x] Enlazada desde `index.html` y `dashboard.html` como "🎯 Por qué jugar"
+
+### Juego (descarada) — Fix spawn al volver de zona
+- [x] `GameManager.zona_origen` — nueva variable que persiste entre cambios de escena
+- [x] Al volver del pasillo → `GameManager.zona_origen = "pasillo"` antes de `change_scene_to_file`
+- [x] `_create_player()` en `main.gd` lee `zona_origen`: si es "pasillo" → spawn en tile (10,10) junto a la puerta
+- [x] `zona_origen` se limpia después del spawn para no afectar inicios normales
+
+### Métricas actualizadas
+- Wiki: 47 páginas (se agregó pitch.html)
+- Código Godot: fix spawn + nueva variable GameManager
+
+
 
 ### ⚔️ Combate
 - [x] 3 Atavismos funcionales por Taxón en combate (14×3 = 42 habilidades con submenú)
@@ -395,13 +429,13 @@
 | Área | Completado | Total | % |
 |---|---|---|---|
 | Lore/Diseño | 48 | 48 | 100% |
-| Wiki | 53 | 53 | 100% |
+| Wiki | 56 | 56 | 100% |
 | Requirements | 14 | 14 | 100% |
-| Código Godot | 38 | 40 | 95% |
+| Código Godot | 39 | 41 | 95% |
 | Assets Gráficos | 16 | 20 | 80% |
 | Audio/Video | 5 | 5 | 100% |
 | Exportación | 3 | 3 | 100% |
-| **TOTAL** | **177** | **183** | **97%** |
+| **TOTAL** | **181** | **187** | **97%** |
 
 ---
 

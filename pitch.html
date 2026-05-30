@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Por qué jugar — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #0d1117 0%, #0f1f0f 50%, #0d1117 100%);
+            border: 1px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 48px 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4em;
+            color: var(--text-primary);
+            border: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+        .hero .tagline {
+            font-size: 1.1em;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1em;
+        }
+        .formula-block {
+            background: #0a0f0a;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-green);
+            border-radius: 4px;
+            padding: 16px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--accent-green);
+            margin: 12px 0;
+            overflow-x: auto;
+        }
+        .formula-block .comment {
+            color: var(--text-muted);
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .feature-card h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        .feature-card p {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .honest-box {
+            background: rgba(210,153,34,0.08);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .honest-box h4 {
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+        .honest-box p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin: 0;
+        }
+        .roadmap-item {
+            display: flex;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: flex-start;
+        }
+        .roadmap-item:last-child { border-bottom: none; }
+        .roadmap-version {
+            font-family: monospace;
+            font-size: 0.8em;
+            color: var(--accent-gold);
+            background: rgba(210,153,34,0.1);
+            padding: 2px 8px;
+            border-radius: 3px;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+        .roadmap-version.done {
+            color: var(--accent-green);
+            background: rgba(63,185,80,0.1);
+        }
+        .roadmap-desc {
+            color: var(--text-secondary);
+            font-size: 0.88em;
+        }
+        .roadmap-desc strong {
+            color: var(--text-primary);
+        }
+        .cta-box {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-box h2 {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .cta-box p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent-green);
+            color: #000;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95em;
+            margin: 6px;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.85; }
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95em;
+            border: 1px solid var(--accent);
+            margin: 6px;
+            transition: background 0.2s;
+        }
+        .btn-secondary:hover { background: rgba(88,166,255,0.1); }
+        .state-badge {
+            display: inline-block;
+            font-size: 0.7em;
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-weight: 600;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+        .badge-live { background: rgba(63,185,80,0.2); color: var(--accent-green); }
+        .badge-wip  { background: rgba(210,153,34,0.2); color: var(--accent-gold); }
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .hero { padding: 28px 20px; }
+            .hero h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo">
+            <h1>🦟 PLAGA</h1>
+            <span class="subtitle">La Descarada — Wiki</span>
+            <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="pitch.html" class="active">🎯 Por qué jugar</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores</a></li>
+            <li><a href="semidioses.html">⚔️ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="atavismos.html">🧬 Atavismos</a></li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP v2</a></li>
+            <li><a href="torneo_social.html">💃 Social</a></li>
+        </ul>
+    </nav>
+
+    <main id="content">
+        <article>
+
+            <!-- HERO -->
+            <div class="hero">
+                <h1>Un RPG construido sobre sistemas, no sobre historia.</h1>
+                <p class="tagline">14 variables de personaje. Fórmulas expuestas. Consecuencias mecánicas reales.</p>
+                <p>Plaga: La Descarada es un RPG por turnos donde cada decisión tiene un costo cuantificable. No hay "buenas elecciones" — hay tradeoffs. Esta página explica exactamente qué hay bajo el capó, sin humo.</p>
+            </div>
+
+            <!-- SECCIÓN 1: EL SISTEMA DE PERSONAJE -->
+            <h2>⚙️ El personaje como función de estado</h2>
+            <p>Tu personaje no tiene una barra de "vida" genérica. Tiene tres recursos independientes con comportamientos distintos:</p>
+
+            <div class="two-col">
+                <div class="feature-card">
+                    <h4>🛡️ Turgencia (HP)</h4>
+                    <p>Puntos de vida físicos. Se calcula como <code>80 + Quitina × 4</code>. Si llega a 0 → Game Over clásico. Recuperable con items.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>💧 Hemolinfa (Energía)</h4>
+                    <p>Combustible para habilidades. Se calcula como <code>30 + Sensilios × 4</code>. Cada habilidad tiene costo fijo. Sin Hemolinfa, solo puedes atacar.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🍄 Esencia (Cordyceps)</h4>
+                    <p>El recurso más interesante. Empieza en 100%. Baja por acciones violentas o impulsivas. A 0% → Game Over diferente: el hongo toma control.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🧬 6 Stats base</h4>
+                    <p>Tórax, Ganglios, Quitina, Sensilios, Cripsis, Feromonas. Cada uno afecta fórmulas específicas. No hay stat "inútil" — depende del taxón.</p>
+                </div>
+            </div>
+
+            <p>La combinación de taxón + arquetipo define tu punto de partida. Hay 14 × 4 = <strong>56 combinaciones iniciales</strong>, cada una con un perfil de stats diferente.</p>
+
+            <!-- SECCIÓN 2: LAS FÓRMULAS SON PÚBLICAS -->
+            <h2>📐 Las fórmulas son públicas</h2>
+            <p>No hay cajas negras. Todos los cálculos están documentados:</p>
+
+            <div class="formula-block">
+                <span class="comment">// Daño por ataque físico</span><br>
+                daño = (Tórax + arma_equipada) × 2 - defensa_enemigo × 0.5<br>
+                daño *= random_range(0.85, 1.15)  <span class="comment">// ±15% variación</span><br>
+                daño = max(daño, 1)               <span class="comment">// mínimo 1</span>
+            </div>
+
+            <div class="formula-block">
+                <span class="comment">// Velocidad (determina orden de turno)</span><br>
+                velocidad = (Ganglios + Sensilios) / 2.0<br>
+                <span class="comment">// Excepción Pulga: velocidad × 1.2</span><br>
+                <span class="comment">// Excepción Mosca: actúa siempre última</span>
+            </div>
+
+            <div class="formula-block">
+                <span class="comment">// Evasión enemiga (cap 55%)</span><br>
+                evasion = Ganglios × 3.5% + Cripsis × 2.5%<br>
+                evasion = min(evasion, 0.55)<br>
+                <br>
+                <span class="comment">// Tu precisión reduce esa evasión</span><br>
+                evasion_efectiva = evasion - (Sensilios × 2%)
+            </div>
+
+            <div class="formula-block">
+                <span class="comment">// Probabilidad de escape</span><br>
+                p_escape = (velocidad_jugador / velocidad_enemigo_mas_rapido) × 0.5<br>
+                p_escape = clamp(p_escape, 0.20, 0.95)
+            </div>
+
+            <p>Si encontrás un build que rompe estas fórmulas, es un bug o una interacción no prevista. Ambas cosas son interesantes.</p>
+
+            <!-- SECCIÓN 3: EL SISTEMA DE ESENCIA -->
+            <h2>🍄 El sistema que te va a molestar</h2>
+            <p>La Esencia es el mechanic más inusual del juego. No es un sistema de moralidad — es un sistema de <strong>degradación de estado con efectos mecánicos directos</strong>.</p>
+
+            <table>
+                <tr><th>Esencia</th><th>Fase</th><th>Efecto mecánico real</th></tr>
+                <tr><td>100–76%</td><td>🟢 Limpio</td><td>Sin penalizaciones. Control total.</td></tr>
+                <tr><td>75–51%</td><td>🟡 Susurros</td><td>−1 Sensilios. Visiones en pantalla.</td></tr>
+                <tr><td>50–26%</td><td>🟠 Parasitismo</td><td>+10% Fuerza, −20% Velocidad. Habilidades cuestan +1 Hemolinfa extra.</td></tr>
+                <tr><td>25–1%</td><td>🔴 Dominación</td><td>Habilidades cuestan el doble. Sprite se tiñe de verde. Aliados desconfían.</td></tr>
+                <tr><td>0%</td><td>💀 Marioneta</td><td>Input bloqueado. Game Over. Tu personaje se convierte en enemigo.</td></tr>
+            </table>
+
+            <div class="honest-box">
+                <h4>⚠️ El tradeoff intencional</h4>
+                <p>La fase 50–26% te da +10% Fuerza gratis a cambio de velocidad y costo de habilidades. Es tentador quedarse ahí. Ese es el punto — el hongo te ofrece poder para que no luches contra él. Es la mecánica de adicción convertida en gameplay. Muchos jugadores van a explotar esto deliberadamente y es una decisión de diseño válida, no un exploit.</p>
+            </div>
+
+            <!-- SECCIÓN 4: 14 TAXONES = 14 PERFILES DE OPTIMIZACIÓN -->
+            <h2>🧬 14 taxones = 14 perfiles de optimización distintos</h2>
+            <p>Cada taxón tiene stats base diferentes, un recurso único, un defecto pasivo, y una habilidad activa con costo fijo. Algunos ejemplos del espectro:</p>
+
+            <table>
+                <tr><th>Taxón</th><th>Perfil</th><th>Habilidad activa</th><th>Costo</th><th>Defecto</th></tr>
+                <tr><td>⚡ Pulga</td><td>Máx. Ganglios (10), mín. Quitina (3)</td><td>Salto Dimensional — esquiva automática del próximo ataque</td><td>1 Hemolinfa</td><td>Hiperactividad: penalización si no se mueve</td></tr>
+                <tr><td>🕷️ Garrapata</td><td>Máx. Quitina (10), mín. Ganglios (2)</td><td>Anclaje Vital — drena 10% HP/turno por 3 turnos</td><td>3 Hemolinfa</td><td>Anclaje Pesado: velocidad reducida permanente</td></tr>
+                <tr><td>🦋 Mariposa</td><td>Máx. Feromonas (10), mín. Tórax (2)</td><td>Polvo Cegador — −80% precisión enemigo por 2 turnos</td><td>2 Hemolinfa</td><td>Alas de Cristal: daño recibido +20%</td></tr>
+                <tr><td>🦂 Escorpión</td><td>Tórax (8) + Quitina (8) equilibrado</td><td>Golpe de Pinza — daño ×2.5, ignora armadura</td><td>5 Hemolinfa</td><td>Fotofobia: penalización en zonas iluminadas</td></tr>
+                <tr><td>🌙 Polilla</td><td>Máx. Sensilios (10), mín. Tórax (3)</td><td>Visión del Foco — revela stats ocultos y debilidades</td><td>2 Hemolinfa</td><td>Atracción Fatal: se acerca a fuentes de luz</td></tr>
+            </table>
+
+            <p>El arquetipo (Estratega / Ejecutor / Infiltrado / Diplomático) suma ±2 a un stat y −1 a otro, creando 56 combinaciones de punto de partida. La Pulga Estratega y la Pulga Ejecutora son personajes mecánicamente distintos.</p>
+
+            <!-- SECCIÓN 5: LO QUE EXISTE HOY -->
+            <h2>🛠️ Estado actual — sin adornos</h2>
+            <p>El proyecto está en desarrollo activo. Esto es lo que existe y funciona hoy:</p>
+
+            <div class="roadmap-item">
+                <span class="roadmap-version done">v0.3 LIVE</span>
+                <div class="roadmap-desc">
+                    <strong>Juego base completo.</strong> Combate por turnos, 14 taxones con stats y habilidades, sistema de Esencia con 4 fases, inventario con fusión y crafteo, bestiario, guardado/carga, exportado como APK Android.
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <span class="roadmap-version done">v0.4 LIVE</span>
+                <div class="roadmap-desc">
+                    <strong>Mapa isométrico.</strong> El Laboratorio generado por código (sin assets externos). Sistema de zonas múltiples con transiciones. El Pasillo como segunda zona. Spawn contextual al volver entre zonas.
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <span class="roadmap-version">PRÓXIMO</span>
+                <div class="roadmap-desc">
+                    <strong>Más zonas.</strong> Norte (La Azotea), Sur (El Sótano), Oeste (La Sala de Máquinas). Cada zona con tabla de spawn propia y enemigos con comportamiento diferente.
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <span class="roadmap-version">PLANIFICADO</span>
+                <div class="roadmap-desc">
+                    <strong>Facciones con consecuencias reales.</strong> La reputación ya existe en el sistema (−100 a +100 por facción). Falta conectarla a precios, acceso a zonas y diálogos de NPCs.
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <span class="roadmap-version">PLANIFICADO</span>
+                <div class="roadmap-desc">
+                    <strong>Assets gráficos.</strong> Los sprites del jugador existen. Los enemigos son placeholders de color. Pendiente: imágenes 2D para los 5 enemigos del Laboratorio.
+                </div>
+            </div>
+
+            <div class="honest-box">
+                <h4>⚠️ Lo que NO existe (y no te vamos a vender)</h4>
+                <p>No hay IA con árboles de comportamiento adaptativos. No hay scripting de mods. No hay compuertas lógicas. No hay servidores para eventos masivos. Son ideas para versiones futuras, no features actuales. Si algún día se implementan, van a aparecer en el dashboard con estado "LIVE".</p>
+            </div>
+
+            <!-- SECCIÓN 6: POR QUÉ IMPORTA EL LORE -->
+            <h2>📜 El lore no es decoración</h2>
+            <p>El universo está construido sobre una premisa real: en el Carbonífero, el oxígeno al 35% permitía insectos del tamaño de cuervos. Eso no es ficción — es paleontología. El juego toma ese dato y lo convierte en el eje de toda la política, religión y motivación de los personajes.</p>
+
+            <div class="two-col">
+                <div class="feature-card">
+                    <h4>🌿 El Gran Éter</h4>
+                    <p>El paraíso perdido. Hace 300M años los insectos eran titanes. Hoy son plagas. Toda la política del juego gira en torno a si El Retorno del 35% es posible y quién lo controla.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🍄 El Silencio Verde</h4>
+                    <p>Basado en Ophiocordyceps unilateralis — el hongo que realmente toma control de hormigas. En el juego es una mecánica de degradación de estado, no un enemigo externo.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚔️ 4 Facciones</h4>
+                    <p>La Colmena (orden), El Enjambre Negro (apocalipsis), Los Sueltos (igualdad), Los Parásitos Libres (mercenarios). Cada una con postura distinta ante El Retorno.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔬 13 Semidioses reales</h4>
+                    <p>Cada semidiós está basado en un artrópodo extremófilo real: Cataglyphis (corre a 60°C), Habrobracon (soporta 1800 Gy de radiación), Ramazzottius (sobrevive el vacío espacial).</p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-box">
+                <h2>¿Querés ver las fórmulas completas?</h2>
+                <p>La wiki tiene todas las tablas de probabilidad, fórmulas de daño, stats por taxón y tablas de spawn. Si encontrás una interacción rota, es un bug o una mecánica emergente — en ambos casos, vale la pena reportarlo.</p>
+                <a href="sistemas.html" class="btn-primary">⚙️ Ver todos los sistemas</a>
+                <a href="quickstart.html" class="btn-secondary">🚀 Quick Start</a>
+                <br><br>
+                <a href="https://github.com/marbaezf-tech/la-descarada/raw/main/export/descarada.apk" class="btn-primary">⬇️ Descargar APK Android</a>
+                <a href="https://github.com/marbaezf-tech/la-descarada" class="btn-secondary">🐙 Código fuente</a>
+            </div>
+
+            <blockquote style="margin-top: 32px;">"Llevamos 300 millones de años reinventando las mismas tres estrategias: esconderse, golpear o manipular. La única diferencia es el envoltorio."<br>— Ramazzottius, Tardígrado Inmortal, sobre la inutilidad de los tutoriales</blockquote>
+
+        </article>
+    </main>
+</body>
+</html>

@@ -14,16 +14,28 @@
 </head>
 <body>
     <nav id="sidebar">
-        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <div class="logo">
+            <h1>🦟 PLAGA</h1>
+            <span class="subtitle">La Descarada — Wiki</span>
+            <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">🏠 Inicio</a></li>
-            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="quickstart.html" class="active">🚀 Quick Start</a></li>
             <li><a href="dashboard.html">📊 Dashboard</a></li>
-            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores</a></li>
+            <li><a href="semidioses.html">⚔️ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
             <li><a href="atavismos.html">🧬 Atavismos</a></li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
             <li><a href="glosario.html">📖 Glosario</a></li>
             <li class="section-title">Torneos</li>
-            <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP</a></li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP v2</a></li>
             <li><a href="torneo_social.html">💃 Social</a></li>
         </ul>
     </nav>
