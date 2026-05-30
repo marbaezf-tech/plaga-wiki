@@ -1,34 +1,212 @@
-const express = require('express');
-const path = require('path');
+/**
+ * server.js — Plaga: La Descarada Wiki
+ * Servidor local con panel de admin protegido por sesión
+ * Puerto: 3001
+ */
 
-const app = express();
+const express  = require('express');
+const session  = require('express-session');
+const multer   = require('multer');
+const crypto   = require('crypto');
+const path     = require('path');
+const fs       = require('fs');
+const { execSync } = require('child_process');
+
+// ── Cargar .env manualmente (sin dependencia extra) ─────────────────────────
+function loadEnv() {
+    const envPath = path.join(__dirname, '.env');
+    if (!fs.existsSync(envPath)) return;
+    fs.readFileSync(envPath, 'utf8').split('\n').forEach(line => {
+        const [key, ...rest] = line.split('=');
+        if (key && rest.length) process.env[key.trim()] = rest.join('=').trim();
+    });
+}
+loadEnv();
+
+const ADMIN_USER      = process.env.ADMIN_USER      || 'admin';
+const ADMIN_PASS_HASH = process.env.ADMIN_PASS_HASH  || '';
+const SESSION_SECRET  = process.env.SESSION_SECRET   || 'fallback-secret-change-me';
+const GODOT_PATH      = process.env.GODOT_SPRITES_PATH || '';
+const GIT_REPO_PATH   = process.env.GIT_REPO_PATH   || __dirname;
+
+const app  = express();
 const PORT = 3001;
 
-// Servir archivos estáticos de la wiki
-app.use(express.static(path.join(__dirname)));
-
-// Ruta principal
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+// ── Directorios de uploads ──────────────────────────────────────────────────
+const UPLOAD_DIR = path.join(__dirname, 'uploads');
+const IMG_DIR    = path.join(__dirname, 'img');
+['uploads', 'img'].forEach(d => {
+    const full = path.join(__dirname, d);
+    if (!fs.existsSync(full)) fs.mkdirSync(full);
 });
 
+// ── Bloquear admin.html desde IPs externas ─────────────────────────────────
+app.get('/admin.html', (req, res, next) => {
+    const ip = req.ip || req.connection.remoteAddress || '';
+    const isLocal = ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+    if (!isLocal) {
+        return res.status(403).send('<h1>403 — Acceso denegado</h1><p>El panel de admin solo está disponible desde localhost.</p>');
+    }
+    next();
+});
+
+// ── Middleware ──────────────────────────────────────────────────────────────
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 8 * 60 * 60 * 1000 }  // 8 horas
+}));
+app.use(express.static(__dirname));
+
+// ── Multer — configuración de uploads ──────────────────────────────────────
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, UPLOAD_DIR),
+    filename:    (req, file, cb) => {
+        // Preservar nombre original, sanitizado
+        const safe = file.originalname.replace(/[^a-zA-Z0-9._-]/g, '_');
+        cb(null, safe);
+    }
+});
+const upload = multer({
+    storage,
+    limits: { fileSize: 5 * 1024 * 1024 },  // 5 MB máx
+    fileFilter: (req, file, cb) => {
+        const allowed = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg'];
+        const ext = path.extname(file.originalname).toLowerCase();
+        if (allowed.includes(ext)) cb(null, true);
+        else cb(new Error('Solo se permiten imágenes (png, jpg, gif, webp, svg)'));
+    }
+});
+
+// ── Bloquear rutas /api/ desde IPs externas ────────────────────────────────
+app.use('/api', (req, res, next) => {
+    const ip = req.ip || req.connection.remoteAddress || '';
+    const isLocal = ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+    if (!isLocal) {
+        return res.status(403).json({ ok: false, error: 'API solo disponible desde localhost' });
+    }
+    next();
+});
+
+// ── Auth middleware ─────────────────────────────────────────────────────────
+function requireAdmin(req, res, next) {
+    if (req.session && req.session.isAdmin) return next();
+    res.status(401).json({ ok: false, error: 'No autorizado' });
+}
+
+function hashPass(pass) {
+    return crypto.createHash('sha256').update(pass).digest('hex');
+}
+
+// ── Rutas de autenticación ──────────────────────────────────────────────────
+app.post('/api/login', (req, res) => {
+    const { user, pass } = req.body;
+    if (user === ADMIN_USER && hashPass(pass) === ADMIN_PASS_HASH) {
+        req.session.isAdmin = true;
+        res.json({ ok: true });
+    } else {
+        res.status(401).json({ ok: false, error: 'Credenciales incorrectas' });
+    }
+});
+
+app.post('/api/logout', (req, res) => {
+    req.session.destroy();
+    res.json({ ok: true });
+});
+
+app.get('/api/me', (req, res) => {
+    res.json({ isAdmin: !!(req.session && req.session.isAdmin) });
+});
+
+// ── Rutas de imágenes ───────────────────────────────────────────────────────
+
+// Listar imágenes disponibles
+app.get('/api/images', requireAdmin, (req, res) => {
+    const files = fs.readdirSync(IMG_DIR)
+        .filter(f => /\.(png|jpg|jpeg|gif|webp|svg)$/i.test(f))
+        .map(f => ({ name: f, url: `/img/${f}` }));
+    res.json({ ok: true, images: files });
+});
+
+// Subir imagen — copia a img/ y opcionalmente a Godot sprites
+app.post('/api/upload', requireAdmin, upload.single('image'), (req, res) => {
+    if (!req.file) return res.status(400).json({ ok: false, error: 'No se recibió archivo' });
+
+    const dest = path.join(IMG_DIR, req.file.filename);
+
+    // Copiar de uploads/ a img/
+    fs.copyFileSync(req.file.path, dest);
+
+    // Copiar a carpeta de sprites de Godot si está configurada
+    let copiedToGodot = false;
+    if (GODOT_PATH && fs.existsSync(GODOT_PATH)) {
+        const godotDest = path.join(GODOT_PATH, req.file.filename);
+        fs.copyFileSync(req.file.path, godotDest);
+        copiedToGodot = true;
+    }
+
+    // Limpiar uploads/
+    fs.unlinkSync(req.file.path);
+
+    res.json({
+        ok: true,
+        filename: req.file.filename,
+        url: `/img/${req.file.filename}`,
+        copiedToGodot
+    });
+});
+
+// Eliminar imagen
+app.delete('/api/images/:filename', requireAdmin, (req, res) => {
+    const filename = req.params.filename.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const imgPath  = path.join(IMG_DIR, filename);
+    if (!fs.existsSync(imgPath)) return res.status(404).json({ ok: false, error: 'Archivo no encontrado' });
+    fs.unlinkSync(imgPath);
+    res.json({ ok: true });
+});
+
+// ── Ruta de git push ────────────────────────────────────────────────────────
+app.post('/api/publish', requireAdmin, (req, res) => {
+    const { message } = req.body;
+    const msg = (message || 'admin: actualización de assets').replace(/['"]/g, '');
+
+    try {
+        execSync('git add img/', { cwd: GIT_REPO_PATH });
+        execSync(`git commit -m "${msg}"`, { cwd: GIT_REPO_PATH });
+        execSync('git push origin main', { cwd: GIT_REPO_PATH });
+        res.json({ ok: true, message: 'Push exitoso a GitHub Pages' });
+    } catch (err) {
+        // Si no hay nada que commitear, no es un error real
+        const msg_err = err.message || '';
+        if (msg_err.includes('nothing to commit')) {
+            res.json({ ok: true, message: 'No hay cambios nuevos para publicar' });
+        } else {
+            res.status(500).json({ ok: false, error: err.message });
+        }
+    }
+});
+
+// ── Ruta principal ──────────────────────────────────────────────────────────
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+
+// ── Iniciar servidor ────────────────────────────────────────────────────────
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`\n🦟 PLAGA: La Mascarada — Wiki`);
-    console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-    console.log(`📖 Wiki disponible en:`);
-    console.log(`   Local:   http://localhost:${PORT}`);
-    console.log(`   Red:     http://${getLocalIP()}:${PORT}`);
-    console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
+    console.log('\n🦟 PLAGA: La Descarada — Wiki + Admin');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log(`📖 Wiki:   http://localhost:${PORT}`);
+    console.log(`🔧 Admin:  http://localhost:${PORT}/admin.html`);
+    console.log(`🌐 Red:    http://${getLocalIP()}:${PORT}`);
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 });
 
 function getLocalIP() {
     const os = require('os');
-    const interfaces = os.networkInterfaces();
-    for (const name of Object.keys(interfaces)) {
-        for (const iface of interfaces[name]) {
-            if (iface.family === 'IPv4' && !iface.internal) {
-                return iface.address;
-            }
+    for (const ifaces of Object.values(os.networkInterfaces())) {
+        for (const iface of ifaces) {
+            if (iface.family === 'IPv4' && !iface.internal) return iface.address;
         }
     }
     return 'localhost';
