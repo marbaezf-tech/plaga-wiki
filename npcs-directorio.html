@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👤 Directorio de NPCs — El Gran Charco</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        /* NPC Directory Styles */
+        .npc-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+        .npc-search {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95em;
+        }
+        .npc-search::placeholder { color: var(--text-muted); }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .filter-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.82em;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+        .filter-btn[data-faction="La Colmena"].active { background: var(--accent-green); border-color: var(--accent-green); }
+        .filter-btn[data-faction="El Enjambre Negro"].active { background: var(--accent-red); border-color: var(--accent-red); color: #fff; }
+        .filter-btn[data-faction="Los Sueltos"].active { background: var(--accent-gold); border-color: var(--accent-gold); }
+        .filter-btn[data-faction="Parásitos Libres"].active { background: var(--accent-purple); border-color: var(--accent-purple); }
+        .filter-btn[data-faction="Neutral"].active { background: var(--text-muted); border-color: var(--text-muted); color: #fff; }
+        .filter-btn[data-faction="Fauna"].active { background: #4ecdc4; border-color: #4ecdc4; color: #000; }
+</style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⚔⚔ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída del Éter</a></li>
+            <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li><a href="taxon-zancudos.html">🦟 Zancudos</a></li>
+            <li><a href="taxon-cucarachas.html">🪳 Cucarachas</a></li>
+            <li><a href="taxon-avispas.html">🐝 Avispas</a></li>
+            <li><a href="taxon-garrapatas.html">🕷️ Garrapatas</a></li>
+            <li><a href="taxon-chinches.html">🛏️ Chinches</a></li>
+            <li><a href="taxon-mariposas.html">🦋 Mariposas</a></li>
+            <li><a href="taxon-aranas.html">🕸️ Arañas</a></li>
+            <li><a href="taxon-escorpiones.html">🦂 Escorpiones</a></li>
+            <li><a href="taxon-vinchucas.html">🗡️ Vinchucas</a></li>
+            <li><a href="taxon-moscas.html">💀 Moscas</a></li>
+            <li><a href="taxon-sanguijuelas.html">🧪 Sanguijuelas</a></li>
+            <li><a href="taxon-polillas.html">🌙 Polillas</a></li>
+            <li><a href="taxon-pulgas.html">🎪 Pulgas</a></li>
+            <li><a href="taxon-tipulas.html">🦟 Típulas</a></li>
+            <li class="section-title">DLC</li>
+            <li><a href="taxon-escarabajos.html">🪲 Escarabajos <span class="badge">DLC</span></a></li>
+            <li><a href="taxon-grillos.html">🦗 Grillos <span class="badge">DLC</span></a></li>
+            <li><a href="taxon-mantis.html">🌸 Mantis <span class="badge">DLC</span></a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="sembradores.html">🍄 Sembradores</a></li>
+            <li><a href="santiago.html">🏙️ El Gran Charco</a></li>
+            <li><a href="organigrama-politico.html">🏛️ Organigrama Político</a></li>
+            <li><a href="fauna.html">🐜 Fauna</a></li>
+            <li><a href="npcs.html">👤 NPCs</a></li>
+            <li><a href="npcs-directorio.html" class="active">👤 Directorio NPCs</a></li>
+            <li><a href="items.html">⚔️ Armas y Objetos</a></li>
+            <li><a href="reliquias.html">💎 Reliquias</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li><a href="equivalencias.html">🔄 Referencias</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li><a href="qa.html">🧪 QA</a></li>
+            <li><a href="arquitectura.html">📐 UML</a></li>
+            <li><a href="diagnostico_gemini.html">🤖 Diagnóstico</a></li>
+            <li><a href="multiplayer.html">🌐 Multiplayer</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP v2 + META</a></li>
+            <li><a href="torneo_social.html">💃 Social</a></li>
+            <li><a href="torneo_pvp.html">⚔️ PvP v1</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>👤 Directorio de NPCs — El Gran Charco</h1>
+
+            <div class="intro-box">
+                <h3>Guía Visual de Personajes</h3>
+                <p>Todos los NPCs del Gran Charco organizados por facción. Cada ficha contiene motivaciones públicas y secretas, alianzas, miedos y conexiones con la crisis del hielo.</p>
+            </div>
+
+            <!-- Mermaid Hierarchy Diagram -->
+            <h2>👑 Jerarquía de Poder</h2>
+            <div class="mermaid">
+graph TD
+    A["👑 Cimex III 'El Patrón' — Reina"] --> B["🏛️ Consejo de Antenas"]
+    B --> C["Zángano Mayor — La Doña"]
+    B --> D["Aguijón — El Perro"]
+    B --> E["Chismosa — La Chismosa"]
+    B --> F["Fumigador — El Cuervo"]
+    B --> G["Inquisidora — La Orquídea"]
+    B --> H["⚔️ Primogénitos"]
+    H --> I["14 Líderes de Taxón"]
+    I --> J["Manadas / Cepas"]
+
+    style A fill:#3fb950,stroke:#3fb950,color:#000
+    style B fill:#1c2128,stroke:#58a6ff,color:#e6edf3
+    style H fill:#1c2128,stroke:#d29922,color:#e6edf3
+            </div>
+
+            <!-- Alliance Network -->
+            <h2>🕸️ Red de Alianzas entre Facciones</h2>
+            <div class="alliance-network">
+                <div class="alliance-diagram">
+                    <div class="faction-node colmena">La Colmena</div>
+                    <div class="faction-node enjambre">Enjambre Negro</div>
+                    <div class="faction-node sueltos">Los Sueltos</div>
+                    <div class="faction-node parasitos">Parásitos Libres</div>
+                    <div class="faction-node neutral">Neutral</div>
+                </div>
+                <div class="alliance-legend">
+                    <span class="legend-item"><span class="line-red"></span> Conflicto abierto</span>
+                    <span class="legend-item"><span class="line-gold"></span> Alianza secreta</span>
+                    <span class="legend-item"><span class="line-blue"></span> Comercio / Neutralidad</span>
+                </div>
+                <ul class="alliance-list">
+                    <li>🔴 <strong>La Colmena</strong> vs <strong>Enjambre Negro</strong> — Guerra fría, infiltración mutua</li>
+                    <li>🟡 <strong>Parásitos Libres</strong> ↔ <strong>Los Sueltos</strong> — Don Corleone financia el caos</li>
+                    <li>🔵 <strong>Parásitos Libres</strong> ↔ <strong>La Colmena</strong> — Comercio tenso pero funcional</li>
+                    <li>🟡 <strong>Los Sueltos</strong> ↔ <strong>Enjambre Negro</strong> — Alianzas tácticas puntuales</li>
+                    <li>🔴 <strong>La Colmena</strong> vs <strong>Los Sueltos</strong> — Represión constante</li>
+                    <li>⚪ <strong>Neutrales</strong> — Observan, profetizan, no intervienen directamente</li>
+                </ul>
+            </div>
+
+            <!-- Controls -->
+            <h2>📋 Fichas de NPCs</h2>
+            <div class="npc-controls">
+                <input type="text" class="npc-search" id="npcSearch" placeholder="🔍 Buscar por nombre...">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-faction="all">Todos</button>
+                    <button class="filter-btn" data-faction="La Colmena">🐝 La Colmena</button>
+                    <button class="filter-btn" data-faction="El Enjambre Negro">💀 Enjambre Negro</button>
+                    <button class="filter-btn" data-faction="Los Sueltos">⚡ Los Sueltos</button>
+                    <button class="filter-btn" data-faction="Parásitos Libres">🧪 Parásitos Libres</button>
+                    <button class="filter-btn" data-faction="Neutral">⚪ Neutral</button>
+                    <button class="filter-btn" data-faction="Fauna">🐜 Fauna</button>
+                </div>
+            </div>
+
+            <!-- NPC Grid -->
+            <div class="npc-grid" id="npcGrid">
+                <p class="loading-msg">Cargando directorio de NPCs...</p>
+            </div>
+
+        </article>
+    </main>
+
+    <style>
+        /* Alliance Network */
+        .alliance-network {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        .alliance-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .faction-node {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9em;
+            text-align: center;
+            border: 2px solid;
+        }
+        .faction-node.colmena { background: rgba(63,185,80,0.15); border-color: var(--accent-green); color: var(--accent-green); }
+        .faction-node.enjambre { background: rgba(248,81,73,0.15); border-color: var(--accent-red); color: var(--accent-red); }
+        .faction-node.sueltos { background: rgba(210,153,34,0.15); border-color: var(--accent-gold); color: var(--accent-gold); }
+        .faction-node.parasitos { background: rgba(188,140,255,0.15); border-color: var(--accent-purple); color: var(--accent-purple); }
+        .faction-node.neutral { background: rgba(110,118,129,0.15); border-color: var(--text-muted); color: var(--text-muted); }
+        .alliance-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82em; color: var(--text-secondary); }
+        .line-red { width: 20px; height: 3px; background: var(--accent-red); border-radius: 2px; }
+        .line-gold { width: 20px; height: 3px; background: var(--accent-gold); border-radius: 2px; }
+        .line-blue { width: 20px; height: 3px; background: var(--accent); border-radius: 2px; }
+        .alliance-list { list-style: none; padding: 0; }
+        .alliance-list li { padding: 6px 0; font-size: 0.88em; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+        .alliance-list li:last-child { border-bottom: none; }
+
+        /* NPC Grid */
+        .npc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 900px) {
+            .npc-grid { grid-template-columns: 1fr; }
+        }
+        .loading-msg { color: var(--text-muted); font-style: italic; grid-column: 1 / -1; text-align: center; padding: 40px; }
+
+        /* NPC Card */
+        .npc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .npc-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .npc-card.hidden { display: none; }
+        .npc-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+        .npc-name { font-size: 1.1em; font-weight: 700; color: var(--text-primary); }
+        .npc-cargo { font-size: 0.82em; color: var(--text-secondary); font-weight: 600; }
+        .npc-faction-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.72em;
+            font-weight: 700;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-colmena { background: rgba(63,185,80,0.2); color: var(--accent-green); border: 1px solid var(--accent-green); }
+        .badge-enjambre { background: rgba(248,81,73,0.2); color: var(--accent-red); border: 1px solid var(--accent-red); }
+        .badge-sueltos { background: rgba(210,153,34,0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+        .badge-parasitos { background: rgba(188,140,255,0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+        .badge-neutral { background: rgba(110,118,129,0.2); color: var(--text-muted); border: 1px solid var(--text-muted); }
+        .badge-fauna { background: rgba(78,205,196,0.2); color: #4ecdc4; border: 1px solid #4ecdc4; }
+
+        .npc-zone { font-size: 0.78em; color: var(--text-muted); }
+        .npc-description { font-style: italic; font-size: 0.88em; color: var(--text-secondary); line-height: 1.5; }
+        .npc-quote {
+            border-left: 3px solid var(--accent-purple);
+            padding: 8px 12px;
+            background: rgba(188,140,255,0.05);
+            font-size: 0.84em;
+            color: var(--text-secondary);
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+        .npc-motivations {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .motivation-box {
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.82em;
+        }
+        .motivation-public {
+            background: rgba(63,185,80,0.08);
+            border: 1px solid rgba(63,185,80,0.3);
+        }
+        .motivation-secret {
+            background: rgba(248,81,73,0.08);
+            border: 1px solid rgba(248,81,73,0.3);
+        }
+        .motivation-box .label {
+            font-weight: 700;
+            font-size: 0.85em;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .motivation-public .label { color: var(--accent-green); }
+        .motivation-secret .label { color: var(--accent-red); }
+        .npc-hunt-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+        .hunt-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.76em;
+            font-weight: 600;
+        }
+        .hunt-predator { background: rgba(248,81,73,0.15); color: var(--accent-red); border: 1px solid rgba(248,81,73,0.3); }
+        .hunt-prey { background: rgba(63,185,80,0.15); color: var(--accent-green); border: 1px solid rgba(63,185,80,0.3); }
+
+        .npc-alliance-box {
+            padding: 10px 12px;
+            background: rgba(210,153,34,0.08);
+            border: 1px solid rgba(210,153,34,0.3);
+            border-radius: 8px;
+            font-size: 0.82em;
+        }
+        .npc-alliance-box .label { color: var(--accent-gold); font-weight: 700; font-size: 0.85em; margin-bottom: 4px; }
+
+        .npc-fears { font-size: 0.78em; color: var(--accent-red); font-style: italic; }
+
+        .npc-crisis-box {
+            padding: 10px 12px;
+            background: rgba(88,166,255,0.08);
+            border: 1px solid rgba(88,166,255,0.3);
+            border-radius: 8px;
+            font-size: 0.82em;
+        }
+        .npc-crisis-box .label { color: var(--accent); font-weight: 700; font-size: 0.85em; margin-bottom: 4px; }
+
+        .npc-references {
+            font-size: 0.72em;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 8px;
+            margin-top: 4px;
+        }
+
+        /* Mermaid overrides */
+        .mermaid {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#1c2128',
+                primaryTextColor: '#e6edf3',
+                primaryBorderColor: '#58a6ff',
+                lineColor: '#58a6ff',
+                secondaryColor: '#252c35',
+                tertiaryColor: '#0d1117'
+            }
+        });
+
+        // Faction classification helper
+        function classifyFaction(factionStr) {
+            if (!factionStr) return 'Neutral';
+            const f = factionStr.toLowerCase();
+            if (f.includes('colmena')) return 'La Colmena';
+            if (f.includes('enjambre')) return 'El Enjambre Negro';
+            if (f.includes('sueltos')) return 'Los Sueltos';
+            if (f.includes('parásitos') || f.includes('parasitos')) return 'Parásitos Libres';
+            if (f.includes('independiente') || f.includes('neutral') || f.includes('aliada')) return 'Neutral';
+            return 'Neutral';
+        }
+
+        function getBadgeClass(faction) {
+            switch(faction) {
+                case 'La Colmena': return 'badge-colmena';
+                case 'El Enjambre Negro': return 'badge-enjambre';
+                case 'Los Sueltos': return 'badge-sueltos';
+                case 'Parásitos Libres': return 'badge-parasitos';
+                case 'Neutral': return 'badge-neutral';
+                case 'Fauna': return 'badge-fauna';
+                default: return 'badge-neutral';
+            }
+        }
+
+        function createNPCCard(npc) {
+            const faction = classifyFaction(npc['FACCIÓN']);
+            const card = document.createElement('div');
+            card.className = 'npc-card';
+            card.dataset.faction = faction;
+            card.dataset.name = (npc['NOMBRE COMPLETO'] || '').toLowerCase();
+
+            let html = '';
+
+            // Header
+            html += `<div class="npc-header">
+                <div>
+                    <div class="npc-name">${npc['NOMBRE COMPLETO'] || 'Sin nombre'}</div>
+                    <div class="npc-cargo">${npc['CARGO'] || ''}</div>
+                </div>
+                <span class="npc-faction-badge ${getBadgeClass(faction)}">${faction}</span>
+            </div>`;
+
+            // Zone
+            if (npc['ZONA']) {
+                html += `<div class="npc-zone">📍 ${npc['ZONA']}</div>`;
+            }
+
+            // Physical description
+            if (npc['DESCRIPCIÓN FÍSICA']) {
+                html += `<div class="npc-description">${npc['DESCRIPCIÓN FÍSICA']}</div>`;
+            }
+
+            // Personality quote
+            if (npc['PERSONALIDAD']) {
+                html += `<div class="npc-quote">${npc['PERSONALIDAD']}</div>`;
+            }
+
+            // Motivations (two columns)
+            if (npc['MOTIVACIÓN PÚBLICA'] || npc['MOTIVACIÓN SECRETA']) {
+                html += `<div class="npc-motivations">`;
+                if (npc['MOTIVACIÓN PÚBLICA']) {
+                    html += `<div class="motivation-box motivation-public">
+                        <div class="label">🎭 Motivación Pública</div>
+                        ${npc['MOTIVACIÓN PÚBLICA']}
+                    </div>`;
+                }
+                if (npc['MOTIVACIÓN SECRETA']) {
+                    html += `<div class="motivation-box motivation-secret">
+                        <div class="label">🗝️ Motivación Secreta</div>
+                        ${npc['MOTIVACIÓN SECRETA']}
+                    </div>`;
+                }
+                html += `</div>`;
+            }
+
+            // Hunt badges
+            if (npc['A QUIÉN CAZA'] || npc['QUIÉN LO CAZA']) {
+                html += `<div class="npc-hunt-badges">`;
+                if (npc['A QUIÉN CAZA']) {
+                    html += `<span class="hunt-badge hunt-predator">🎯 Caza: ${npc['A QUIÉN CAZA']}</span>`;
+                }
+                if (npc['QUIÉN LO CAZA']) {
+                    html += `<span class="hunt-badge hunt-prey">🛡️ Lo cazan: ${npc['QUIÉN LO CAZA']}</span>`;
+                }
+                html += `</div>`;
+            }
+
+            // Secret alliances
+            if (npc['ALIANZAS SECRETAS']) {
+                html += `<div class="npc-alliance-box">
+                    <div class="label">⚠️ Alianzas Secretas</div>
+                    ${npc['ALIANZAS SECRETAS']}
+                </div>`;
+            }
+
+            // Fears
+            if (npc['MIEDOS']) {
+                html += `<div class="npc-fears">😱 Miedo: ${npc['MIEDOS']}</div>`;
+            }
+
+            // Crisis connection
+            if (npc['CONEXIÓN CON LA CRISIS']) {
+                html += `<div class="npc-crisis-box">
+                    <div class="label">❄️ Conexión con la Crisis</div>
+                    ${npc['CONEXIÓN CON LA CRISIS']}
+                </div>`;
+            }
+
+            // References
+            if (npc['REFERENCIA VTM'] || npc['REFERENCIA GOT']) {
+                html += `<div class="npc-references">`;
+                if (npc['REFERENCIA VTM']) html += `<span>🧛 VTM: ${npc['REFERENCIA VTM']}</span>`;
+                if (npc['REFERENCIA VTM'] && npc['REFERENCIA GOT']) html += ` · `;
+                if (npc['REFERENCIA GOT']) html += `<span>⚔️ GoT: ${npc['REFERENCIA GOT']}</span>`;
+                html += `</div>`;
+            }
+
+            card.innerHTML = html;
+            return card;
+        }
+
+        // Load NPCs
+        async function loadNPCs() {
+            const grid = document.getElementById('npcGrid');
+            try {
+                const response = await fetch('data/npcs_organigrama.json');
+                if (!response.ok) throw new Error('No se pudo cargar el archivo JSON');
+                const npcs = await response.json();
+
+                grid.innerHTML = '';
+                npcs.forEach(npc => {
+                    grid.appendChild(createNPCCard(npc));
+                });
+
+                setupFilters();
+                setupSearch();
+            } catch (error) {
+                grid.innerHTML = `<p class="loading-msg">❌ Error al cargar NPCs: ${error.message}</p>`;
+            }
+        }
+
+        // Filter by faction
+        function setupFilters() {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const faction = btn.dataset.faction;
+                    const cards = document.querySelectorAll('.npc-card');
+                    cards.forEach(card => {
+                        if (faction === 'all' || card.dataset.faction === faction) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                    // Re-apply search filter
+                    applySearch();
+                });
+            });
+        }
+
+        // Search by name
+        function setupSearch() {
+            const input = document.getElementById('npcSearch');
+            input.addEventListener('input', applySearch);
+        }
+
+        function applySearch() {
+            const query = document.getElementById('npcSearch').value.toLowerCase().trim();
+            const activeBtn = document.querySelector('.filter-btn.active');
+            const activeFaction = activeBtn ? activeBtn.dataset.faction : 'all';
+            const cards = document.querySelectorAll('.npc-card');
+
+            cards.forEach(card => {
+                const matchesFaction = activeFaction === 'all' || card.dataset.faction === activeFaction;
+                const matchesSearch = !query || card.dataset.name.includes(query);
+                if (matchesFaction && matchesSearch) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadNPCs);
+    </script>
+</body>
+</html>
