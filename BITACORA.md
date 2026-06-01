@@ -3,13 +3,14 @@
 ## Proyecto
 - **Nombre:** Plaga: La Descarada
 - **Motor:** Godot Engine 4.6
-- **Género:** RPG Parodia / Top-down / Turnos
+- **Género:** RPG Parodia / 3D Low Poly Exploración + 2D Combate por Turnos
+- **Estilo visual:** Cassette Beasts — overworld 3D, combate 2D sprite-based
 - **Inspiración:** Parodia de RPG de horror con insectos como especie dominante
+- **Target:** PC Windows (Forward Plus) — futuro port Switch
 - **Fecha inicio:** 26 Mayo 2026
 - **Wiki:** https://marbaezf-tech.github.io/plaga-wiki/
 - **Repo Wiki:** https://github.com/marbaezf-tech/plaga-wiki
 - **Repo Juego:** https://github.com/marbaezf-tech/la-descarada
-- **APK:** https://github.com/marbaezf-tech/la-descarada/raw/main/export/descarada.apk
 
 ---
 
@@ -243,41 +244,7 @@
 
 ---
 
-## 📅 Sesión 4 — 29 Mayo 2026
-
-### Wiki — Nuevas páginas y fixes
-
-#### Dashboard (fix encoding + actualización)
-- [x] `dashboard.html` reescrito completo con UTF-8 limpio (tenía mojibake — emojis como `?`, tildes como `Ã`)
-- [x] Contenido actualizado a v0.4.0-iso: sesión 3 del juego documentada
-- [x] Bloqueante "spawn incorrecto al volver de zona" marcado como resuelto
-- [x] Versión actualizada a v0.4.0-iso
-
-#### Quick Start (fix sidebar)
-- [x] `quickstart.html` tenía sidebar mínimo — reemplazado por sidebar completo con botón móvil
-- [x] Enlazada desde `index.html` y `dashboard.html` (antes no aparecía en navegación)
-
-#### Pitch / Landing page técnica (nueva)
-- [x] `pitch.html` creada — landing page honesta para perfil técnico (Ingeniero Civil Informático)
-- [x] Framework AIDA con tono directo y analítico, sin humo de marketing
-- [x] Fórmulas reales en bloques de código (daño, velocidad, evasión, escape)
-- [x] Tabla de 5 taxones con stats, habilidad, costo y defecto
-- [x] Sistema de Esencia explicado como degradación de estado con efectos mecánicos
-- [x] Roadmap honesto: v0.3 LIVE / v0.4 LIVE / próximo / planificado
-- [x] Sección explícita "Lo que NO existe" (sin IA adaptativa, sin scripting, sin compuertas lógicas)
-- [x] Enlazada desde `index.html` y `dashboard.html` como "🎯 Por qué jugar"
-
-### Juego (descarada) — Fix spawn al volver de zona
-- [x] `GameManager.zona_origen` — nueva variable que persiste entre cambios de escena
-- [x] Al volver del pasillo → `GameManager.zona_origen = "pasillo"` antes de `change_scene_to_file`
-- [x] `_create_player()` en `main.gd` lee `zona_origen`: si es "pasillo" → spawn en tile (10,10) junto a la puerta
-- [x] `zona_origen` se limpia después del spawn para no afectar inicios normales
-
-### Métricas actualizadas
-- Wiki: 47 páginas (se agregó pitch.html)
-- Código Godot: fix spawn + nueva variable GameManager
-
-
+## 🔴 Pendientes (por categoría)
 
 ### ⚔️ Combate
 - [x] 3 Atavismos funcionales por Taxón en combate (14×3 = 42 habilidades con submenú)
@@ -304,11 +271,17 @@
 
 ### 🗺️ Exploración
 - [x] Límites del mapa (jugador no se sale de pantalla)
-- [ ] Múltiples zonas del mapa (Neo-Tunel Central, Los Yuyos, Invernadero, Catacumbas)
+- [x] Múltiples zonas del mapa (5 zonas: Laboratorio, Azotea, Sótano, Pasillo, Sala de Máquinas)
+- [x] Transiciones entre zonas con fade y conexiones coherentes
+- [x] Minimapa en HUD con posición actual
+- [ ] Migración a 3D Low Poly (spec creado, pendiente implementación)
 - [ ] Victoria Regia — nodo de escenario / flora del Gran Charco
 - [ ] Testear flujo completo: Menú → Creación → Juego → Fin Demo → Menú
 
 ### 📕 Bestiario / Lore
+- [x] 3 taxones nuevos integrados al juego base (Escarabajo, Grillo, Mantis) con páginas wiki
+- [x] Organigrama político del Gran Charco (cronología, estructura de poder, conflictos)
+- [ ] Expandir organigrama con descripciones detalladas de todos los NPCs (estilo VTM/GoT)
 - [ ] Lore de enemigos del bestiario (generar con API Gemini cuando haya cuota)
 - [ ] Lore de Vestigios (generar con `generar_lore_vestigios.js`)
 
@@ -321,10 +294,11 @@
 
 ### 💾 Sistema / Exportación
 - [x] Pantalla de selección de Arquetipo (Estratega/Ejecutor/Infiltrado/Diplomático)
+- [x] Sistema de diálogos con Dialogue Manager + AI cache (Gemini)
+- [x] NPC Vlad con diálogo ramificado y quest
 - [ ] Exportar .exe para Windows (requiere templates en Godot)
-- [ ] Sistema de diálogos (burbuja de feromona)
 - [ ] Eventos aleatorios cómicos
-- [ ] Sistema de quests
+- [ ] Sistema de quests (framework básico)
 - [ ] Animaciones de sprites
 
 ### 📚 Lore Expandido / Novelas
@@ -429,13 +403,13 @@
 | Área | Completado | Total | % |
 |---|---|---|---|
 | Lore/Diseño | 48 | 48 | 100% |
-| Wiki | 56 | 56 | 100% |
+| Wiki | 53 | 53 | 100% |
 | Requirements | 14 | 14 | 100% |
-| Código Godot | 39 | 41 | 95% |
+| Código Godot | 38 | 40 | 95% |
 | Assets Gráficos | 16 | 20 | 80% |
 | Audio/Video | 5 | 5 | 100% |
 | Exportación | 3 | 3 | 100% |
-| **TOTAL** | **181** | **187** | **97%** |
+| **TOTAL** | **177** | **183** | **97%** |
 
 ---
 
@@ -465,3 +439,178 @@ Velocidad = (GAN + SEN) / 2
 Daño = TOR + Arma - Defensa enemiga (±15%)
 Escape = (Velocidad propia / Velocidad enemiga) × 50%
 ```
+
+---
+
+## 📅 Sesión 4 — 30 Mayo 2026
+
+### Panel de Admin (Wiki Local)
+- [x] `server.js` extendido con sistema de autenticación por sesión (8 horas)
+- [x] `POST /api/login` — autentica con usuario/contraseña hasheada (SHA256)
+- [x] `POST /api/logout` y `GET /api/me` — gestión de sesión
+- [x] `POST /api/upload` — sube imagen a `wiki/img/` y copia a `descarada/assets/sprites/` si existe
+- [x] `GET /api/images` y `DELETE /api/images/:filename` — gestión de galería
+- [x] `POST /api/publish` — hace `git add img/ data/ → commit → push` a GitHub Pages
+- [x] `admin.html` — panel local con login, tabs: Imágenes / Criaturas / Objetos / Galería / Publicar
+- [x] Credenciales: `admin / Chachita123.` — contraseña guardada como hash, nunca en texto plano
+- [x] `admin.html` en `.gitignore` — nunca se sube al repo ni aparece en GitHub Pages
+- [x] Servidor bloquea `admin.html` y rutas `/api/` desde IPs externas (solo localhost)
+- [x] `.env` en `.gitignore` — secrets nunca en el repo
+- [x] `ABRIR_ADMIN.bat` — doble click abre servidor + browser automáticamente
+
+### CRUD Criaturas y Objetos (Admin)
+- [x] `data/criaturas.json` — 17 criaturas (3 enemigos + 14 taxones jugables) con stats completos
+- [x] `data/objetos.json` — 9 objetos (armas, consumibles, materiales, crafteable)
+- [x] `GET/POST/PUT/DELETE /api/criaturas` — CRUD completo protegido por sesión
+- [x] `GET/POST/PUT/DELETE /api/objetos` — CRUD completo protegido por sesión
+- [x] Exportación automática a Godot: al guardar criatura/objeto, copia JSON a `descarada/data/`
+- [x] `bestiario.html` lee `data/criaturas.json` dinámicamente (reemplaza datos hardcodeados)
+- [x] `objetos-mapa.html` — nueva página pública de objetos del juego
+
+### Bestiario Admin (Local)
+- [x] `bestiario-admin.html` — versión editable del bestiario, solo accesible desde localhost
+- [x] Login con misma sesión que `admin.html`
+- [x] Botones ✏️ Editar y 🗑️ Eliminar en cada card de criatura
+- [x] Modal con formulario completo — campos distintos según tipo (enemigo vs taxón)
+- [x] Botón `+ Nueva Criatura` con formulario dinámico
+- [x] Filtros por tipo (Todos / Enemigos / Taxones) igual que bestiario público
+- [x] `bestiario-admin.html` en `.gitignore` — nunca se sube al repo
+- [x] Servidor bloquea `bestiario-admin.html` desde IPs externas
+
+### Fix Godot — Migración proyecto `la-descarada`
+- [x] Detectado que `la-descarada` y `descarada` son dos proyectos distintos
+- [x] Migrados todos los scripts del sistema de zonas a `la-descarada`:
+  - `zona_base.gd` (clase base con `class_name ZonaBase`)
+  - `zona_laboratorio.gd`, `zona_pasillo.gd`, `zona_azotea.gd`, `zona_sotano.gd`, `zona_maquinas.gd`
+  - `main.gd`, `menu_principal.gd`, `creacion_personaje.gd`
+  - `save_system.gd`, `inventario_ui.gd`, `bestiario_ui.gd`, `touch_controls.gd`
+- [x] Escenas `menu.tscn`, `main.tscn`, `creacion.tscn` copiadas a `la-descarada`
+- [x] `project.godot` actualizado: `SaveSystem` en autoloads, inputs inventario/bestiario, `menu.tscn` como escena principal
+- [x] Fix `main.gd` línea 156: `var pos :=` → `var pos: Vector2 =` (inferencia de tipo con Variant)
+- [x] Fix `zona_base.gd`: todos los `:=` con `MAPA[0].size()` reemplazados por tipos explícitos `var cols: int = (MAPA[0] as Array).size()`
+- [x] Fix `zona_base.gd`: `pantalla_a_grid` con tipos explícitos en todas las variables
+- [x] `extends "res://scripts/zona_base.gd"` restaurado en todas las zonas (path directo, más confiable que `class_name` cuando el caché está vacío)
+- [x] `Camera2D` con zoom 2x agregada al player en `main.gd` (el mapa no se veía porque no había cámara)
+- [x] Mapa centrado en `Vector2.ZERO` (offset relativo al centro del mapa, no al viewport)
+- [x] Fondo `ColorRect` expandido a 4000×4000 para cubrir el mundo visible con cámara
+- [x] Título y objetivo de zona movidos a `CanvasLayer` (layer 5) para que no se muevan con la cámara
+
+### Estado actual del juego
+- El juego arranca, muestra HUD, título de zona y el sprite del jugador
+- El mapa isométrico aún no se renderiza visualmente (en investigación)
+- Sistema de zonas completo en código: 5 zonas conectadas (Laboratorio ↔ Pasillo, Azotea, Sótano, Sala de Máquinas)
+
+### Pendientes inmediatos
+- [ ] Confirmar que mapa isométrico se renderiza correctamente con la cámara
+- [ ] Testear transición entre zonas
+- [ ] Testear flujo completo: Menú → Creación → Juego → Spots → Combate → Fin Demo
+
+---
+
+## 📅 Sesión 5 — 30 Mayo 2026 (continuación)
+
+### Fix crítico — Proyecto activo es `descarada`, no `la-descarada`
+- [x] Confirmado que Godot corre el proyecto `descarada` (no `la-descarada`)
+- [x] Todos los fixes aplicados al proyecto correcto `c:\Users\HardwareX\OneDrive\Documentos\descarada\`
+
+### Sistema de zonas — Mapa isométrico funcional
+- [x] `iso_map.gd` actualizado con las 4 puertas del laboratorio (N/S/E/O)
+- [x] `DESTINOS` y `LABELS` por tile: 5=norte/Azotea, 6=sur/Sótano, 7=este/Pasillo, 8=oeste/Máquinas
+- [x] `get_spawn_desde(desde)` — spawn en puerta opuesta al entrar desde otra zona
+- [x] `CharacterBody2D.MOTION_MODE_FLOATING` — fix movimiento top-down (antes bloqueado por gravedad)
+- [x] `Camera2D` zoom 2x agregada al player — mapa visible centrado en el jugador
+- [x] Fondo `ColorRect` 8000×8000 — cubre todo el mundo visible con cámara
+- [x] Título y objetivo en `CanvasLayer` layer 5 — no se mueven con la cámara
+- [x] Player busca IsoMap con `call_deferred` + grupo `iso_map` como fallback
+
+### 4 mapas de zonas secundarias (scripts independientes, sin herencia)
+- [x] `mapa_azotea.gd` — techo del edificio, azul-gris, solo puerta sur→Laboratorio, bordes peligrosos
+- [x] `mapa_sotano.gd` — subsuelo verde-negro, hongos bioluminiscentes, solo puerta norte→Laboratorio
+- [x] `mapa_pasillo.gd` — corredor marrón/hostil, solo puerta oeste→Laboratorio
+- [x] `mapa_maquinas.gd` — sala industrial naranja-rojo, calderas, solo puerta este→Laboratorio
+- [x] Cada zona tiene su propio layout, paleta de colores y spots únicos
+
+### Fix conexiones de zonas — sistema por zona, no global
+- [x] Cada zona tiene su propio diccionario `"conexiones"` en `ZONAS`
+- [x] `_on_entrar_zona` usa `ZONAS[_zona_actual]["conexiones"]` en lugar de `CONEXIONES` global
+- [x] Eliminado `const CONEXIONES` global que causaba que desde la Azotea se pudiera ir al Sótano
+- [x] Ahora: Azotea→solo Laboratorio, Sótano→solo Laboratorio, Pasillo→solo Laboratorio, Máquinas→solo Laboratorio
+
+### Minimapa en HUD
+- [x] Minimapa 68×68px en esquina superior derecha
+- [x] Cruz con 5 celdas coloreadas por zona (LAB/AZO/SOT/PAS/MAQ)
+- [x] Zona actual se ilumina, las demás quedan oscuras
+- [x] Punto amarillo indica posición actual
+- [x] Label de zona actual debajo del minimapa (7px, centrado)
+- [x] Se actualiza automáticamente al cambiar de zona
+
+### Estado actual del juego ✅
+- Juego arranca desde menú → creación de personaje → laboratorio
+- Mapa isométrico visible con 4 puertas etiquetadas
+- Player se mueve libremente (WASD/flechas)
+- Transiciones entre las 5 zonas funcionando con fade
+- Cada zona tiene mapa, colores y spots únicos
+- Minimapa muestra posición en la cruz del edificio
+
+### Pendientes inmediatos
+- [ ] Reintroducir colisiones con paredes (es_caminable_pos con offset correcto)
+- [ ] Testear flujo completo: Menú → Creación → Juego → Spots → Combate → Fin Demo
+- [ ] Verificar spawn correcto al entrar a cada zona secundaria
+- [ ] Exportar APK actualizada
+
+---
+
+## 📅 Sesión 6 — 1 Junio 2026
+
+### Cambio de alcance: Migración a 3D Low Poly + 2D Combat (estilo Cassette Beasts)
+- [x] Decisión: exploración pasa a 3D Low Poly, combate y diálogos se mantienen en 2D
+- [x] Referencia visual: Cassette Beasts — overworld 3D con combate 2D sprite-based
+- [x] Target cambia: PC Windows (Forward Plus renderer) — se abandona Android/mobile
+- [x] Futuro port: Nintendo Switch como objetivo secundario
+- [x] Input: Teclado + Xbox controller (XInput)
+- [x] Spec creado: `c:\Taxones\.kiro\specs\3d-exploration-2d-combat\requirements.md`
+- [x] 11 requirements definidos y aprobados
+
+### 3 Taxones DLC → Juego Base (ya no son DLC)
+- [x] 🪲 Escarabajo — "La Nobleza Acorazada" (TOR 9, QUI 10, Facción: La Colmena)
+- [x] 🦗 Grillo — "Los Bardos Exorcistas" (FER 9, SEN 8, Facción: Neutral, Soporte/Exorcista)
+- [x] 🌸 Mantis — "Las Inquisidoras" (CRI 9, TOR 8, Facción: Enjambre Negro, Asesina)
+- [x] Agregados a `data/criaturas.json` con stats, atavismos, defectos y lore completos
+- [x] Páginas wiki individuales: `taxon-escarabajos.html`, `taxon-grillos.html`, `taxon-mantis.html`
+- [x] CSS: `.dlc-badge` y `.dlc-tag` agregados a `style.css`
+- [x] Novela del Grillo definida: "El Exorcista del Gran Charco" (horror/thriller moral)
+
+### Organigrama Político del Gran Charco
+- [x] Cronología completa: 8 eras desde el Gran Éter (350M años) hasta el Día 8 de la crisis
+- [x] Estructura de poder: Reina → Consejo de Antenas (8 cargos) → 17 Primogénitos
+- [x] Superficie vs Subterráneo: quiénes viven arriba, quiénes abajo, cómo bajan
+- [x] 5 conflictos activos simultáneos definidos
+- [x] Post-humanos del Año 20.000 definidos (Gigantes Débiles en burbujas térmicas)
+- [x] Documento: `organigrama-politico.md` + `organigrama-politico.html` (wiki)
+- [x] Integración de los 3 nuevos taxones en la estructura política
+
+### Sistema de Diálogos (Dialogue Manager + IA)
+- [x] `dialogues/vlad_laboratorio.dialogue` — diálogo ramificado de Vlad (4 opciones, quest, condicional FER≥6)
+- [x] `scripts/dialogue_trigger.gd` — script para NPCs con diálogo (pausa player, fallback sin addon)
+- [x] `scripts/ai_npc_cache.gd` — sistema de caché progresivo con Gemini API
+- [x] `scripts/ai_npc.gd` — llamada directa a Gemini (sin caché)
+- [x] `dialogues/cache/vlad.json` — 10 respuestas pre-cacheadas para Vlad
+- [x] NPC Vlad agregado al Laboratorio en tile (5,3) con diálogo
+- [x] `.env` con API key de Gemini (protegida por `.gitignore`)
+- [x] `.env.example` como template para otros desarrolladores
+
+### API Gemini — Estado
+- [x] Key creada y configurada (`AIzaSy...`)
+- [x] Cuota temporalmente agotada (429) — se resetea automáticamente
+- [x] Sistema listo para generar y cachear diálogos cuando la cuota vuelva
+
+### Pendientes (próxima sesión)
+- [ ] Probar API Gemini cuando se resetee la cuota
+- [ ] Expandir organigrama con descripciones detalladas de todos los NPCs (estilo VTM/GoT)
+- [ ] Instalar Dialogue Manager en Godot (desde AssetLib)
+- [ ] Generar diseño técnico (Implementation Plan) del spec 3D
+- [ ] Crear primer prototipo 3D del Laboratorio (MeshInstance3D básicos)
+- [ ] Configurar CharacterBody3D con billboard sprite
+- [ ] Configurar Camera3D ortográfica con seguimiento
+- [ ] Probar transición 3D→2D para combate
+- [ ] Alimentar caché de diálogos de Vlad con más respuestas via Gemini

@@ -1,0 +1,108 @@
+PROMPT PARA GEMINI — ORGANIGRAMA POLÍTICO COMPLETO DEL GRAN CHARCO
+
+═══════════════════════════════════════════════════════════════════
+ROL: Eres el editor narrativo principal de "Plaga: La Descarada", un RPG de insectos inspirado en Vampiro: La Mascarada y Game of Thrones. Tu trabajo es expandir el organigrama político de la ciudad con descripciones detalladas de CADA personaje.
+═══════════════════════════════════════════════════════════════════
+
+CONTEXTO DEL MUNDO:
+- Año 20.000. Era glacial. Los insectos son la especie dominante bajo tierra.
+- Los post-humanos ("Gigantes") sobreviven arriba en ciudades-burbuja. Son irrelevantes.
+- El Gran Charco es una metrópolis insecto bajo Santiago de Chile (en las cunetas, alcantarillas, grietas de un edificio).
+- 4 facciones: La Colmena (orden/jerarquía), El Enjambre Negro (guerra/apocalipsis), Los Sueltos (libertad/igualdad), Los Parásitos Libres (mercenarios/neutrales).
+- 17 taxones jugables (14 base + Escarabajo, Grillo, Mantis).
+- El Silencio Verde (Cordyceps) amenaza a todos — un hongo que te convierte en zombi.
+- Los Sembradores son una secta del Enjambre Negro que quiere elevar el O2 al 35%.
+- Hace 7 días, los Zancudos emitieron la "Directriz de Incubación Viva" — usan prisioneros como incubadoras para sus huevos porque el agua se congela.
+- Los Zancudos acusaron a las Típulas (inocentes) como chivos expiatorios.
+- Las Cucarachas descubrieron la verdad y extorsionan a los Zancudos.
+
+ESTRUCTURA DE PODER ACTUAL:
+- Reina: Cimex III "El Patrón" (Chinche) — gobernante suprema
+- Consejo de Antenas: Zángano Mayor, Aguijón, Chismosa, Fumigador, Guardián del Panal, Heraldo Mayor (vacante), Inquisidora Mayor (infiltrada)
+- 17 Primogénitos (líderes de cada taxón)
+- Fauna no-jugable con roles políticos: Hormigas, Abejas, Termitas, Libélulas, Cigarras, etc.
+
+═══════════════════════════════════════════════════════════════════
+TAREA: Para CADA personaje de la lista, genera una ficha detallada con:
+═══════════════════════════════════════════════════════════════════
+
+1. NOMBRE COMPLETO (nombre + apodo + taxón)
+2. CARGO / ROL en la ciudad
+3. FACCIÓN
+4. ZONA donde opera
+5. DESCRIPCIÓN FÍSICA (2-3 frases, escala insecto, detalles grotescos/bellos)
+6. PERSONALIDAD (3 adjetivos + 1 frase que diría)
+7. MOTIVACIÓN PÚBLICA (lo que todos creen que quiere)
+8. MOTIVACIÓN SECRETA (lo que realmente quiere — estilo GoT)
+9. A QUIÉN CAZA (sus objetivos/presas/enemigos)
+10. QUIÉN LO CAZA (quién quiere eliminarlo y por qué)
+11. ALIANZAS SECRETAS (con quién conspira a espaldas de su facción)
+12. MIEDOS (qué lo aterroriza — vulnerabilidad narrativa)
+13. CONEXIÓN CON LA CRISIS (cómo le afecta la Directriz de Incubación Viva / el hielo)
+14. REFERENCIA VTM (a qué arquetipo de Vampiro se parece)
+15. REFERENCIA GOT (a qué personaje de Game of Thrones se parece)
+
+═══════════════════════════════════════════════════════════════════
+LISTA DE PERSONAJES A DETALLAR:
+═══════════════════════════════════════════════════════════════════
+
+CONSEJO DE ANTENAS (gobierno formal):
+1. Cimex III "El Patrón" — 🛏️ Chinche — Reina del Gran Charco
+2. Lepidóptera "La Doña" — 🦋 Mariposa — Zángano Mayor (segunda al mando)
+3. Vespula "El Perro" — 🐝 Avispa — Aguijón (sheriff/ejecutor)
+4. Lepidóptera "La Chismosa" — 🦋 Mariposa — Chismosa (espionaje/reputación)
+5. Triatoma "El Cuervo" — 🗡️ Vinchuca — Fumigador (cazador de infractores)
+6. Cimex "El Guardián" — 🛏️ Chinche — Guardián del Panal
+7. [VACANTE] — 🦗 Grillo — Heraldo Mayor (el último fue asesinado — ¿por quién?)
+8. Mantis "La Orquídea" — 🌸 Mantis — Inquisidora Mayor (INFILTRADA del Enjambre Negro)
+
+PRIMOGÉNITOS (líderes de taxón):
+9. Cimex "Roberto" — 🛏️ Chinche — quiere independizarse de la Reina
+10. Lepidóptera "La Musa" — 🦋 Mariposa — quiere robar control mediático
+11. Vespula "El Toro" — 🐝 Avispa — financia a Los Sueltos en secreto
+12. Loxosceles "El Profesor" — 🕸️ Araña — quiere despertar al Fósil Viviente
+13. Ixodes "El Caleuche" — 🕷️ Garrapata — quiere pactar con las Aves
+14. Pandinus "Lucía" — 🦂 Escorpión — quiere apagar toda luz del Gran Charco
+15. Triatoma "Hassan" — 🗡️ Vinchuca — asesino, recolecta Hemolinfa pura
+16. Calliphora "Don Corleone" — 🪰 Mosca — padrino del mercado negro
+17. Hirudo "Padre Ignacio" — 💉 Sanguijuela — obispo, quiere sacrificar su manada
+18. Lámina "Doña Locura" — 🌙 Polilla — vidente, ve catástrofe que nadie más ve
+19. Pulex "El Chulo" — ⚡ Pulga — estafador nómada
+20. Doña Esperanza — 🦿 Típula — exiliada, quiere demostrar inocencia de su pueblo
+21. Don Mosin Nagant — 🦟 Zancudo — comandante supremo, Directriz de Incubación Viva
+22. Gregarina "El Rata" — 🪳 Cucaracha — info broker, busca nido ancestral
+23. Dynastes "El Campeón" — 🪲 Escarabajo — gladiador, quiere vengar la Presa Cero
+24. "El Cantor Ciego" — 🦗 Grillo — exorcista errante, busca purificar al infectado más poderoso
+25. Mantis "La Orquídea" — 🌸 Mantis — (ya listada arriba como Inquisidora infiltrada)
+
+OTROS NPCs CLAVE:
+26. Vespula "El Chispas" — 🐝 Avispa — Barón de Los Sueltos
+27. Vespula "La Roja" — 🐝 Avispa — Sicaria, quiere vengar a su Cepa
+28. Gregarina "El Hacker" — 🪳 Cucaracha — Informante anarquista
+29. Calliphora "Sofía" — 🪰 Mosca — Nigromante, esclaviza espíritus
+30. Hirudo "Cleopatra" — 💉 Sanguijuela — Traficante, templo al Silencio Verde
+31. Anopheles "Vlad" — 🦟 Zancudo — Cirujano del Laboratorio
+32. Don Rufino — 🛏️ Chinche — disputa el Neo-Túnel Central
+33. Roxana "La Avispa" — 🐝 Avispa — rival de Rufino, Enjambre Negro
+
+FAUNA NO-JUGABLE CON ROL POLÍTICO:
+34. La Reina Abeja — 🐝 — Comerciante de miel, aliada de La Colmena
+35. La Sacerdotisa Libélula — 🪻 — Custodia del templo de Meganeura
+36. La Cigarra Profeta — 🦗 — Oráculo dormido, emerge cada 13 años
+37. Dynastes "El Campeón" (Escarabajo Gladiador) — ya listado
+38. Scolopendra "El Mercenario" — 🐛 Ciempiés — berserker del Enjambre Negro
+39. La Hormiga Reina del Sector 7 — 🐜 — superorganismo rival, controla túneles del metro
+
+═══════════════════════════════════════════════════════════════════
+INSTRUCCIONES DE ESTILO:
+═══════════════════════════════════════════════════════════════════
+
+- Tono: cínico, descarado, con humor negro. Como si Ramazzottius (el Tardígrado narrador omnisciente de 530M años) estuviera describiendo a cada uno con desprecio cariñoso.
+- Escala: todo es a escala insecto. Un escritorio es una montaña. Una gota de agua es un lago. Un cable es un puente.
+- Política: nadie es bueno. Nadie es malo. Todos tienen razones. Todos mienten.
+- Violencia: es un mundo donde comerte a tu pareja es un sacramento (Mantis) y usar prisioneros como incubadoras es "supervivencia" (Zancudos).
+- Referencias: usa equivalencias de VTM (Príncipe, Primogénito, Sabbat, Camarilla, Anarquistas) y GoT (Lannister, Stark, Targaryen, Meñique, Varys) pero NUNCA las nombres directamente en el texto — solo en el campo de referencia.
+
+FORMATO DE SALIDA: JSON array con objetos por personaje. Cada objeto tiene los 15 campos listados arriba.
+
+GENERA LOS 39 PERSONAJES COMPLETOS.
