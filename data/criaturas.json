@@ -238,6 +238,48 @@
       "defecto": "Cristal Ambulante — extremadamente frágil",
       "atavismos": ["Ocelo Ancestral", "Exoesqueleto Ancestral", "Antenas Ancestrales"],
       "lore": ""
+    },
+    {
+      "id": "escarabajo",
+      "nombre": "Escarabajo",
+      "emoji": "🪲",
+      "tipo": "taxon_dlc",
+      "zona": "DLC — Los Yuyos",
+      "imagen": "img/2d_escarabajo.png",
+      "stats": { "tor": 9, "gan": 3, "qui": 10, "sen": 4, "cri": 2, "fer": 5 },
+      "faccion": "La Colmena",
+      "recurso": "Quitina Noble",
+      "defecto": "Orgullo de Casta — no acepta órdenes de taxones 'inferiores'",
+      "atavismos": ["Coraza Ancestral", "Mandíbula de Acero", "Carga del Hércules"],
+      "lore": "Descendientes directos de Arthropleura. La nobleza acorazada del Gran Charco. Uno de cada cuatro animales del planeta es un escarabajo — y ellos lo saben."
+    },
+    {
+      "id": "grillo",
+      "nombre": "Grillo",
+      "emoji": "🦗",
+      "tipo": "taxon_dlc",
+      "zona": "DLC — La Periferia",
+      "imagen": "img/2d_grillo.png",
+      "stats": { "tor": 3, "gan": 6, "qui": 4, "sen": 8, "cri": 3, "fer": 9 },
+      "faccion": "Neutral",
+      "recurso": "Resonancia Acústica",
+      "defecto": "Compulsión del Canto — no puede dejar de cantar, revela su posición",
+      "atavismos": ["Canto Purificador", "Armonía del Enjambre", "Réquiem del Silencio"],
+      "lore": "Los Bardos del Gran Charco. Su canto no es música — es un ritual ancestral que limpia la infección del Silencio Verde. Los Grillos son los únicos que pueden exorcizar a un infectado sin matarlo. Por eso los Sembradores los cazan."
+    },
+    {
+      "id": "mantis",
+      "nombre": "Mantis",
+      "emoji": "🌸",
+      "tipo": "taxon_dlc",
+      "zona": "DLC — La Mancha de Vino",
+      "imagen": "img/2d_mantis.png",
+      "stats": { "tor": 8, "gan": 7, "qui": 3, "sen": 7, "cri": 9, "fer": 2 },
+      "faccion": "El Enjambre Negro",
+      "recurso": "Sangre de Presa",
+      "defecto": "Hambre Ritual — debe matar para mantener su cordura",
+      "atavismos": ["Decapitación Raptorial", "Camuflaje Orquídea", "Juicio del Depredador"],
+      "lore": "Las Inquisidoras. Juezas, verdugos y ejecutoras del Enjambre Negro. Se disfrazan de flores para atraer a sus víctimas. Su belleza es un arma — más atractivas que una flor real. Nadie escapa de su juicio."
     }
   ]
 }
