@@ -688,3 +688,11 @@ Escape = (Velocidad propia / Velocidad enemiga) × 50%
 - [x] API key válida y verificada
 - [x] Rate limited en tier gratuito (429) — se resetea diariamente
 - [x] Script `generar_dataset_gemini.js` listo para correr cuando haya cuota
+
+---
+
+## 🔴 PENDIENTE MÁXIMA PRIORIDAD (próxima sesión)
+
+- [ ] **COHERENCIA WIKI:** Revisar y actualizar mecánicas de Típulas en sistemas.html, taxon-tipulas.html — ahora son Columnas (tanque), no Danzarinas (agilidad). Ajustar stats, defecto genético y rol.
+- [ ] **COHERENCIA WIKI:** Verificar que todas las páginas de novelas estén linkeadas correctamente desde todos los sidebars
+- [ ] **COHERENCIA WIKI:** Actualizar página novelas.html con las 8 novelas nuevas
