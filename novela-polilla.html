@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 La Luz al Final del Micelio — Novela de la Polilla</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent-purple); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent-purple); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent-purple); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-gold); }
+        .parallel .plaga { border-left: 3px solid var(--accent-purple); }
+        .madness { background: rgba(128,0,128,0.08); border: 1px solid rgba(128,0,128,0.3); border-radius: 4px; padding: 12px; margin: 8px 0; font-family: monospace; font-size: 0.85em; color: var(--accent-purple); }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html" class="active">🌙 La Luz al Final del Micelio</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="zonas-lore.html">🗺️ Las Zonas</a></li>
+            <li><a href="npcs-directorio.html">👤 NPCs</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+            <li><a href="lore-fundacional.html">📜 Lore Fundacional</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🌙 La Luz al Final del Micelio</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Polilla</strong> — Horror cósmico lovecraftiano. Una vidente sigue una luz que no debería existir hacia las profundidades del Sótano, donde el Cordyceps no es un hongo sino los restos de algo que estuvo aquí antes que los insectos. Antes que la vida.</p>
+                <p><strong>Tono:</strong> Horror cósmico, paranoia sensorial, deterioro mental progresivo.<br>
+                <strong>Duración:</strong> 10 capítulos.<br>
+                <strong>Inspiración:</strong> H.P. Lovecraft (<em>La Llamada de Cthulhu</em>, <em>En las Montañas de la Locura</em>, <em>El Color que Cayó del Cielo</em>).<br>
+                <strong>Conexión con el juego:</strong> Explica el origen de Doña Locura y por qué el Sótano tiene bioluminiscencia.</p>
+            </div>
+
+            <blockquote>"No estoy loca. Loca sería la que mira la Luz y decide no seguirla. Loca sería la que se queda aquí arriba, en la oscuridad que ustedes llaman 'realidad', esperando que el frío les congele los ganglios. Yo vi algo. Y ahora no puedo dejar de verlo."<br>— Lámina, antes de bajar</blockquote>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🌙</div>
+                <div>
+                    <h4>Lámina "Doña Locura" — Protagonista y Narradora (no confiable)</h4>
+                    <p><strong>Taxón:</strong> Polilla Luna (Actias luna) | <strong>Edad:</strong> 2 años (media vida para una polilla)<br>
+                    <strong>Estado al inicio:</strong> Vidente respetada de Los Sueltos. Sus visiones son crípticas pero a veces aciertan.<br>
+                    <strong>Estado al final:</strong> Lo que la comunidad llama "loca". Lo que ella llama "la única que vio la verdad".<br>
+                    <strong>Equivalente Lovecraft:</strong> Narrador de <em>El Color que Cayó del Cielo</em> — ve algo imposible, nadie le cree, y tiene razón.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">💡</div>
+                <div>
+                    <h4>La Luz — El "Antagonista"</h4>
+                    <p><strong>No es un personaje.</strong> Es un fenómeno. Una bioluminiscencia que aparece en el Sótano profundo — más abajo de donde cultivan los Sembradores. Un resplandor verde-azul que pulsa con un ritmo que no corresponde a ningún organismo conocido.<br>
+                    <strong>Naturaleza real:</strong> No es el Cordyceps. Es algo debajo del Cordyceps. Algo que el hongo usa como alimento. Algo que estuvo en el suelo antes de que hubiera suelo.<br>
+                    <strong>Equivalente:</strong> El color del meteorito en <em>El Color que Cayó del Cielo</em>. Incomprensible. Hermoso. Letal.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🪲</div>
+                <div>
+                    <h4>Cornelio — El Escéptico</h4>
+                    <p><strong>Taxón:</strong> Escarabajo Pelotero | <strong>Cargo:</strong> Geólogo amateur / minero del Sótano<br>
+                    <strong>Rol:</strong> Acompaña a Lámina por motivos prácticos (busca minerales). No cree en visiones. Confía en datos. Es el lector — la perspectiva racional que se desmorona capítulo a capítulo.<br>
+                    <strong>Equivalente:</strong> Danforth en <em>En las Montañas de la Locura</em> — el que termina loco de verdad.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🍄</div>
+                <div>
+                    <h4>El Sustrato — Lo que Hay Debajo</h4>
+                    <p><strong>No es el Cordyceps.</strong> El Cordyceps se alimenta de ello. Es una red de micelio primordial que lleva en el suelo <strong>2.400 millones de años</strong> — desde antes de que existieran los animales. Antes de que existieran las plantas. Es el organismo más antiguo de la Tierra.<br>
+                    <strong>No tiene voluntad.</strong> No tiene consciencia. No quiere nada. Simplemente <em>es</em>. Y ser observado por algo tan antiguo se siente como ser observado por el vacío.<br>
+                    <strong>Equivalente:</strong> Azathoth — el dios idiota que duerme en el centro de todo.</p>
+                </div>
+            </div>
+
+            <!-- MAPEO LOVECRAFT -->
+            <h2>🔄 Mapeo: Lovecraft → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>📚 Lovecraft</strong></div>
+                <div class="plaga"><strong>🌙 La Luz al Final del Micelio</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Horror cósmico: lo desconocido es indiferente</div>
+                <div class="plaga">El Sustrato no es malvado. No es nada. Y eso es peor.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Color imposible del meteorito</div>
+                <div class="plaga">Bioluminiscencia con frecuencia que no existe en el espectro</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Degradación mental progresiva del narrador</div>
+                <div class="plaga">Lámina pierde la capacidad de distinguir visión de realidad</div>
+            </div>
+            <div class="parallel">
+                <div class="original">"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn"</div>
+                <div class="plaga">El patrón de pulso de la Luz: 3-5-8-13-21... (Fibonacci invertido)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Expedición a las montañas / ruinas</div>
+                <div class="plaga">Descenso al Sótano profundo, más allá de los Sembradores</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El protagonista sobrevive pero nadie le cree</div>
+                <div class="plaga">Lámina sobrevive. Todos la llaman "Doña Locura". Ella tiene razón.</div>
+            </div>
+
+            <!-- SINOPSIS -->
+            <h2>📖 Sinopsis por Acto</h2>
+
+            <div class="chapter">
+                <h3>ACTO I — La Llamada (Cap. 1-3)</h3>
+                <p>Lámina siempre tuvo visiones. Como todas las Polillas, es atraída por la luz. Pero la luz que ve ahora no es una bombilla moribunda ni el reflejo del Destilador. Es algo que viene de <em>abajo</em>. Desde el Sótano profundo. Un resplandor verde-azul que pulsa en un ritmo que no reconoce.</p>
+                <p>Nadie más lo ve. Las otras polillas ven la bombilla del Altar de Cristal. Lámina ve <em>otra cosa detrás</em>. Como si la bombilla fuera una máscara y detrás hubiera un ojo.</p>
+                <p class="prose">"El filamento canta, pero hay algo debajo del filamento. Debajo del cristal. Debajo del Sótano. Debajo del suelo. Algo que no canta — algo que PULSA. Y el pulso tiene un patrón. 3. 5. 8. 13. 21. Se repite. Como un latido. Pero nada vivo late así."</p>
+                <p>Convence a Cornelio (el escarabajo geólogo que mapea el subsuelo) de acompañarla. Él acepta por los minerales raros que podrían haber abajo. Bajan. Más allá de la zona de los Sembradores. Más allá de la Granja de Hongos. A un nivel que nadie ha visitado en 200 años.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO II — El Descenso (Cap. 4-7)</h3>
+                <p>El Sótano profundo no es como el Sótano de arriba. No hay hongos cultivados. No hay Iluminados sonrientes. Hay <strong>silencio absoluto</strong>. Y un micelio blanco — no verde — que cubre cada superficie como nieve muerta.</p>
+                <p>El micelio blanco no es Cordyceps. Es más antiguo. Cornelio toma muestras. Sus herramientas de geólogo no lo cortan — es más duro que quitina. Y cuando lo intenta cortar, el micelio <strong>se aparta</strong>. No como un ser vivo que huye. Como un líquido que se reorganiza.</p>
+                <div class="madness">NOTA DEL DIARIO DE LÁMINA (día 3 bajo tierra):<br>
+                Cornelio dice que el micelio blanco tiene 2.400 millones de años según la estratificación mineral. Más viejo que los insectos. Más viejo que las plantas. Más viejo que la tierra seca. Estaba aquí cuando solo había agua y roca. ¿Qué come algo que existía antes de que hubiera algo que comer?</div>
+                <p>La Luz se hace más intensa a medida que bajan. Lámina la sigue como hipnotizada. Sus alas vibran por sí solas. El polvo de sus alas empieza a brillar en el mismo ritmo que la Luz: 3-5-8-13-21.</p>
+                <p>Cornelio empieza a notar cambios. Sus ojos — que nunca fueron buenos — ahora ven patrones en el micelio blanco. Espirales que se repiten. Fractales que tienen sentido geométrico imposible. Se obsesiona con mapearlos. Llena 40 páginas de dibujos. Los dibujos empiezan a parecerse entre sí.</p>
+                <p class="prose">"Le pregunté a Cornelio qué estaba dibujando. Me mostró el cuaderno. Eran 40 páginas del mismo dibujo. Una espiral que se come a sí misma. Le dije: 'Son todos iguales.' Él me miró con ojos que ya no eran suyos y dijo: 'No. Son todos diferentes. Es solo que tu cerebro no puede ver la diferencia. Dame tiempo. Pronto tampoco podré ver la diferencia yo.'"</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO III — La Revelación (Cap. 8-10)</h3>
+                <p>Llegan a la fuente de la Luz. No es un hongo. No es un mineral. No es nada que tenga nombre.</p>
+                <p>Es una <strong>cavidad</strong> en la roca del tamaño de una cabeza de alfiler humano — para ellos, una catedral. Las paredes de la cavidad están cubiertas de algo que emite luz. No bioluminiscencia. No fosforescencia. Algo que produce fotones sin energía aparente. Que brilla sin calor. Que ilumina sin fuente.</p>
+                <p>Lámina lo entiende de golpe. No es una comprensión intelectual — es una descarga sensorial que le quema 6 de sus 12.000 omatidios. Ve lo que el Sustrato <em>es</em>:</p>
+                <div class="madness">No es un organismo. No es un mineral. Es el RESIDUO. Lo que quedó después de que algo incomprensiblemente grande murió aquí hace 2.400 millones de años. El micelio blanco no es un ser vivo — es el sistema circulatorio descompuesto de algo que ya no existe. Y la Luz es el último latido de un corazón que no sabe que está muerto.</div>
+                <p>El Cordyceps — todo el Silencio Verde, todo el horror del hongo — no es más que un PARÁSITO del Sustrato. Un carroñero que se alimenta de los restos de algo mucho más grande y más antiguo. El Cordyceps no es el monstruo. Es la mosca que se alimenta del cadáver del monstruo.</p>
+                <p>Cornelio no soporta la revelación. Su cerebro de escarabajo — lineal, lógico, mineral — se fractura al intentar procesar una geometría que no existe en tres dimensiones. Empieza a cavar. Sin herramientas. Con las mandíbulas. Quiere LLEGAR al centro del Sustrato. Lámina intenta detenerlo. Él la mira con ojos completamente blancos y dice:</p>
+                <p class="prose">"Debajo de esto hay más. Debajo de más hay todo. Y debajo de todo no hay nada. Y la nada PULSA. 3. 5. 8. 13. 21. ¿No lo oyes? ¿NO LO OYES?"</p>
+                <p>Lámina lo arrastra de vuelta. Es más fuerte de lo que aparenta (las polillas tienen músculos de vuelo potentes). Suben. Dos días subiendo. Cornelio balbucea números Fibonacci toda la subida.</p>
+                <p><strong>Cuando emergen</strong>, han pasado 9 días. Nadie los buscó — nadie sabía que habían bajado tan profundo. Cornelio es internado con los Iluminados (irónicamente, no tiene Cordyceps — su locura es puramente geométrica). Lámina intenta contar lo que vio.</p>
+                <p>Nadie le cree. La Chismosa lo vende como "Doña Locura tuvo otra visión". El Cantor Ciego la escucha... y le cree. Pero no dice nada. Porque él también ha escuchado algo parecido en las frecuencias bajas de su cri-cri. Algo que late debajo de todo. 3-5-8-13-21.</p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Lovecraftianos</h2>
+            <table>
+                <tr><th>Principio Lovecraft</th><th>Aplicación en la Novela</th></tr>
+                <tr><td>🌌 Indiferencia cósmica</td><td>El Sustrato no es malvado. No sabe que existen. No le importa. Es un cadáver cósmico que sigue pulsando.</td></tr>
+                <tr><td>🧠 La locura como iluminación</td><td>Lámina no está loca — vio la verdad. Pero la verdad es incompatible con la cordura social.</td></tr>
+                <tr><td>📐 Geometría imposible</td><td>Los fractales del micelio blanco no encajan en 3D. Cornelio intenta dibujarlos y pierde la razón.</td></tr>
+                <tr><td>⏳ Escalas de tiempo inhumanas</td><td>2.400 millones de años. Los insectos llevan 400M años. El Sustrato ya era viejo cuando ellos nacieron.</td></tr>
+                <tr><td>📖 Narrador no confiable</td><td>¿Lámina vio lo que dice que vio? ¿O sus ojos de polilla (atraídos por luz) la engañaron?</td></tr>
+                <tr><td>🚫 Lo innombrable</td><td>El Sustrato no tiene nombre porque no es nada que pueda tener nombre. Es anterior al lenguaje.</td></tr>
+            </table>
+
+            <!-- FRASES -->
+            <h2>💬 Fragmentos del Diario de Lámina</h2>
+            <blockquote>"Día 1: La Luz es hermosa. Pulsa como un corazón. Me calma.<br>Día 3: La Luz no es hermosa. Es necesaria. No puedo dejar de mirarla.<br>Día 5: La Luz no existe. Lo que yo llamo 'Luz' es un síntoma. Como la fiebre. El cuerpo que la produce está debajo. Y está muerto. Y no importa.<br>Día 7: Nada importa. Y eso está bien."</blockquote>
+
+            <blockquote>"Los Sembradores creen que el Cordyceps es dios. Qué tiernos. Es como si las larvas que se comen un cadáver creyeran que el cadáver es el universo. El Cordyceps no es dios. Es un gusano que come los restos de algo que quizás fue dios. O quizás fue algo peor que dios. O quizás 'dios' es una palabra demasiado pequeña."<br>— Lámina, Capítulo 9</blockquote>
+
+            <blockquote>"Cornelio dejó de hablar en palabras. Solo dice números. Pero los números son correctos. Siempre Fibonacci. Siempre el mismo patrón. Lo revisé tres veces. El pulso de la Luz ES Fibonacci invertido. ¿Qué clase de cadáver sigue una secuencia matemática? ¿O es al revés — Fibonacci existe porque EL existió primero?"<br>— Lámina, Capítulo 8</blockquote>
+
+            <blockquote>"Me llaman Doña Locura. Supongo que es más cómodo que llamarme Doña Tuvo Razón Pero Ojalá No La Hubiera Tenido."<br>— Lámina, epílogo</blockquote>
+
+            <!-- CONEXIÓN JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>Lo que esta novela explica</h4>
+                <ul>
+                    <li><strong>¿Por qué Doña Locura balbucea cosas que a veces son ciertas?</strong> Porque vio el patrón fundamental. Sus "profecías" no son visiones del futuro — son observaciones del Sustrato que todavía pulsa en su cerebro.</li>
+                    <li><strong>¿Por qué el Sótano tiene bioluminiscencia?</strong> No son los hongos Cordyceps. Es la Luz del Sustrato filtrándose hacia arriba. Los Sembradores no lo saben.</li>
+                    <li><strong>¿Qué hay debajo de la Puerta Sellada (Sector 7)?</strong> Posiblemente otro acceso al Sustrato. Las hormigas golpean la resina no para salir — sino porque algo abajo las hace golpear. 3-5-8-13-21.</li>
+                    <li><strong>¿Por qué el Cordyceps existe?</strong> Se alimenta del Sustrato. Es un parásito del parásito. El verdadero horror no es el hongo — es lo que el hongo come.</li>
+                    <li><strong>Easter egg:</strong> Si el jugador encuentra la secuencia 3-5-8-13-21 en algún puzzle del Sótano profundo, desbloquea un diálogo secreto de Doña Locura.</li>
+                </ul>
+            </div>
+
+            <div class="info-box lore">
+                <h4>Implicación para el lore</h4>
+                <p>El Sustrato abre una pregunta que ni Ramazzottius puede responder: <strong>¿Qué murió hace 2.400 millones de años y por qué su cadáver sigue latiendo?</strong> Esta pregunta nunca se responde en el juego. Es el misterio final. El agujero negro narrativo que da sentido a todo el horror del Silencio Verde sin explicarlo.</p>
+                <p>Lovecraft nunca explica a Cthulhu. Nosotros nunca explicamos al Sustrato.</p>
+            </div>
+
+            <blockquote>"2.400 millones de años. Yo llevo 530 millones despierto y pensé que eso era antiguo. Pero debajo de todo, debajo de mí, debajo del Gran Éter, debajo de la primera célula que se dividió... algo pulsa. Y no sé qué es. Y por primera vez en quinientos treinta millones de años, eso me asusta."<br>— Ramazzottius, único momento de miedo registrado</blockquote>
+
+        </article>
+    </main>
+</body>
+</html>
