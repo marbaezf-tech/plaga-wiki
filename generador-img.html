@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Imágenes · Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gen-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1rem 0; }
+        .gen-panel { background: #0d0d0d; border: 1px solid #333; border-radius: 8px; padding: 1.2rem; }
+        .gen-panel h3 { color: #4ecca3; margin-top: 0; }
+        .gen-form label { display: block; color: #aaa; font-size: 0.85rem; margin-top: 0.8rem; }
+        .gen-form textarea, .gen-form input, .gen-form select {
+            width: 100%; padding: 0.6rem; background: #1a1a1a; color: #e0e0e0;
+            border: 1px solid #444; border-radius: 6px; font-family: inherit; font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        .gen-form textarea { min-height: 80px; resize: vertical; }
+        .gen-form textarea:focus, .gen-form input:focus, .gen-form select:focus { outline: none; border-color: #4ecca3; }
+        .gen-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .btn-gen { width: 100%; padding: 0.8rem; background: #4ecca3; color: #000; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; margin-top: 1rem; }
+        .btn-gen:hover { background: #3db892; }
+        .btn-gen:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-sm { padding: 0.4rem 0.8rem; background: #333; color: #ccc; border: 1px solid #555; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+        .btn-sm:hover { background: #444; }
+        .btn-save { background: #2a6b4a; color: #fff; border-color: #4ecca3; }
+        .preview-area {
+            min-height: 300px; display: flex; align-items: center; justify-content: center;
+            background: #111; border: 2px dashed #333; border-radius: 8px; position: relative; overflow: hidden;
+        }
+        .preview-area img { max-width: 100%; max-height: 500px; border-radius: 6px; }
+        .preview-placeholder { color: #555; text-align: center; }
+        .preview-placeholder p { margin: 0.5rem; }
+        .progress-bar { width: 100%; height: 6px; background: #1a1a1a; border-radius: 3px; margin-top: 0.5rem; overflow: hidden; }
+        .progress-fill { height: 100%; background: #4ecca3; transition: width 0.3s; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+        .gallery-item { position: relative; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+        .gallery-item:hover { border-color: #4ecca3; }
+        .gallery-item img { width: 100%; height: 150px; object-fit: cover; }
+        .gallery-item .gallery-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); color: #ccc; font-size: 0.7rem; padding: 0.3rem; text-align: center; }
+        .status-badge { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.6rem; border-radius: 12px; font-size: 0.75rem; }
+        .status-online { background: #1a3a2a; color: #4ecca3; }
+        .status-offline { background: #3a1a1a; color: #ff6666; }
+        .presets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.5rem; margin: 0.8rem 0; }
+        .preset-btn { padding: 0.5rem; background: #1a1a2e; border: 1px solid #333; border-radius: 6px; color: #ccc; cursor: pointer; font-size: 0.75rem; text-align: center; transition: all 0.15s; }
+        .preset-btn:hover { background: #2a2a4e; border-color: #4ecca3; color: #fff; }
+        .save-form { display: flex; gap: 0.5rem; margin-top: 0.8rem; align-items: center; }
+        .save-form input { flex: 1; }
+        .history-item { display: flex; gap: 0.5rem; align-items: center; padding: 0.4rem; border-bottom: 1px solid #222; font-size: 0.8rem; }
+        .history-item img { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; }
+        .history-item .hist-prompt { flex: 1; color: #aaa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tab-bar { display: flex; gap: 0; border-bottom: 2px solid #333; margin-bottom: 1rem; }
+        .tab { padding: 0.6rem 1.2rem; cursor: pointer; color: #888; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+        .tab.active { color: #4ecca3; border-bottom-color: #4ecca3; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        @media (max-width: 900px) { .gen-layout { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🪲 PLAGA</h1><span class="subtitle">La Descarada · Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">✨ El Gran Éter</a></li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="npcs.html">👥 NPCs</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="ollama-guia.html">🤖 Ollama (IA Local)</a></li>
+            <li><a href="chat.html">💬 Chat IA</a></li>
+            <li><a href="entrenamiento-ia.html">🧠 Entrenamiento IA</a></li>
+            <li><a href="comfyui-guia.html">🎨 ComfyUI (Arte IA)</a></li>
+            <li><a href="generador-img.html" class="active">🖼️ Generador Imágenes</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔🏆 PvP v2</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🖼️ Generador de Imágenes</h1>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+                <p style="margin:0;color:#888">Genera concept art, sprites y retratos directamente desde la wiki via ComfyUI</p>
+                <span class="status-badge status-offline" id="comfyStatus">⬤ ComfyUI offline</span>
+            </div>
+
+            <!-- TABS -->
+            <div class="tab-bar">
+                <div class="tab active" onclick="switchTab('generate')">🎨 Generar</div>
+                <div class="tab" onclick="switchTab('gallery')">🖼️ Galería</div>
+                <div class="tab" onclick="switchTab('training')">🧬 Entrenar LoRA</div>
+            </div>
+
+            <!-- TAB: GENERAR -->
+            <div class="tab-content active" id="tab-generate">
+                <h3>⚡ Presets rápidos</h3>
+                <div class="presets-grid">
+                    <div class="preset-btn" onclick="applyPreset('npc')">👤 Retrato NPC</div>
+                    <div class="preset-btn" onclick="applyPreset('zona')">🗺️ Zona/Ambiente</div>
+                    <div class="preset-btn" onclick="applyPreset('item')">🎒 Item/Reliquia</div>
+                    <div class="preset-btn" onclick="applyPreset('sprite')">🕹️ Sprite 2D</div>
+                    <div class="preset-btn" onclick="applyPreset('concept')">📐 Concept Sheet</div>
+                    <div class="preset-btn" onclick="applyPreset('3d')">🧊 Low Poly 3D</div>
+                </div>
+
+                <div class="gen-layout">
+                    <!-- Panel izquierdo: Formulario -->
+                    <div class="gen-panel">
+                        <h3>✍️ Prompt</h3>
+                        <div class="gen-form">
+                            <label>Prompt positivo:</label>
+                            <textarea id="promptPos" placeholder="portrait of an anthropomorphic cockroach elder, dark fantasy RPG..."></textarea>
+
+                            <label>Prompt negativo:</label>
+                            <textarea id="promptNeg" style="min-height:40px" placeholder="blurry, low quality, deformed, text, watermark">blurry, low quality, deformed, text, watermark, human face, extra limbs, bad anatomy</textarea>
+
+                            <div class="gen-row">
+                                <div>
+                                    <label>Ancho:</label>
+                                    <select id="imgWidth">
+                                        <option value="512">512</option>
+                                        <option value="768" selected>768</option>
+                                        <option value="1024">1024</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label>Alto:</label>
+                                    <select id="imgHeight">
+                                        <option value="512">512</option>
+                                        <option value="768" selected>768</option>
+                                        <option value="1024">1024</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="gen-row">
+                                <div>
+                                    <label>Steps: <span id="stepsVal">20</span></label>
+                                    <input type="range" id="imgSteps" min="10" max="50" value="20" oninput="document.getElementById('stepsVal').textContent=this.value">
+                                </div>
+                                <div>
+                                    <label>CFG: <span id="cfgVal">7</span></label>
+                                    <input type="range" id="imgCfg" min="1" max="15" value="7" step="0.5" oninput="document.getElementById('cfgVal').textContent=this.value">
+                                </div>
+                            </div>
+                            <div class="gen-row">
+                                <div>
+                                    <label>Seed (0=random):</label>
+                                    <input type="number" id="imgSeed" value="0" min="0">
+                                </div>
+                                <div>
+                                    <label>Checkpoint:</label>
+                                    <select id="imgCheckpoint"><option value="">Cargando...</option></select>
+                                </div>
+                            </div>
+
+                            <button class="btn-gen" id="btnGenerate" onclick="generateImage()">🎨 Generar Imagen</button>
+                            <div class="progress-bar" id="progressBar" style="display:none"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+                            <p id="genStatus" style="color:#888;font-size:0.85rem;margin-top:0.5rem"></p>
+                        </div>
+                    </div>
+
+                    <!-- Panel derecho: Preview -->
+                    <div class="gen-panel">
+                        <h3>👁️ Preview</h3>
+                        <div class="preview-area" id="previewArea">
+                            <div class="preview-placeholder">
+                                <p>🖼️</p>
+                                <p>La imagen aparecerá aquí</p>
+                                <p style="font-size:0.75rem">Requiere ComfyUI corriendo en localhost:8188</p>
+                            </div>
+                        </div>
+                        <div class="save-form" id="saveForm" style="display:none">
+                            <input type="text" id="saveName" placeholder="nombre_archivo.png">
+                            <button class="btn-sm btn-save" onclick="saveImage()">💾 Guardar en Wiki</button>
+                            <button class="btn-sm" onclick="saveToGodot()">🎮 + Godot</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: GALERÍA -->
+            <div class="tab-content" id="tab-gallery">
+                <h2>🖼️ Galería de Generaciones</h2>
+                <p style="color:#888">Historial de imágenes generadas desde la wiki. Click en una para verla en grande.</p>
+                <div class="gallery" id="galleryGrid">
+                    <p style="color:#555">Sin imágenes generadas aún.</p>
+                </div>
+            </div>
+
+            <!-- TAB: ENTRENAR LoRA -->
+            <div class="tab-content" id="tab-training">
+                <h2>🧬 Entrenar LoRA Visual</h2>
+                <div class="info-box mechanic">
+                    <h4>🎯 Objetivo</h4>
+                    <p>Crear un LoRA con el estilo visual de Plaga para que todas las imágenes generadas sean consistentes. Necesitas 20-50 imágenes de referencia del estilo que quieres replicar.</p>
+                </div>
+
+                <div class="gen-layout">
+                    <div class="gen-panel">
+                        <h3>📁 Imágenes de Referencia</h3>
+                        <p style="color:#888;font-size:0.85rem">Sube 20-50 imágenes que representen el estilo visual que quieres entrenar.</p>
+                        <input type="file" id="loraFiles" multiple accept="image/*" style="margin:0.5rem 0">
+                        <div id="loraPreviewGrid" class="gallery" style="margin-top:0.5rem"></div>
+                        <p id="loraFileCount" style="color:#4ecca3;font-size:0.85rem"></p>
+                    </div>
+                    <div class="gen-panel">
+                        <h3>⚙️ Configuración</h3>
+                        <div class="gen-form">
+                            <label>Nombre del LoRA:</label>
+                            <input type="text" id="loraName" placeholder="plaga-npc-style" value="plaga-npc-style">
+                            <label>Trigger word:</label>
+                            <input type="text" id="loraTrigger" placeholder="plaga_style" value="plaga_style">
+                            <label>Épocas:</label>
+                            <input type="number" id="loraEpochs" value="20" min="5" max="100">
+                            <label>Resolución:</label>
+                            <select id="loraRes">
+                                <option value="512">512×512</option>
+                                <option value="768" selected>768×768</option>
+                                <option value="1024">1024×1024</option>
+                            </select>
+                            <label>Network dim (rank):</label>
+                            <select id="loraDim">
+                                <option value="16">16 (ligero)</option>
+                                <option value="32" selected>32 (recomendado)</option>
+                                <option value="64">64 (alta calidad, más lento)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn-gen" onclick="generateTrainScript()">📝 Generar Script de Entrenamiento</button>
+                        <p style="color:#666;font-size:0.8rem;margin-top:0.5rem">Genera un script .bat que puedes ejecutar de noche.</p>
+                    </div>
+                </div>
+
+                <div id="trainScriptOutput" style="display:none;margin-top:1rem">
+                    <h3>📋 Script generado</h3>
+                    <pre style="background:#0d0d0d;border:1px solid #333;border-radius:6px;padding:1rem;color:#e0e0e0;font-size:0.8rem;overflow-x:auto;white-space:pre-wrap" id="trainScriptCode"></pre>
+                    <button class="btn-sm" onclick="copyTrainScript()">📋 Copiar</button>
+                    <button class="btn-sm btn-save" onclick="downloadTrainScript()">💾 Descargar .bat</button>
+                </div>
+
+                <div class="info-box warning" style="margin-top:1.5rem">
+                    <h4>📦 Requisitos para entrenar</h4>
+                    <ul>
+                        <li>Python 3.10+</li>
+                        <li><a href="https://github.com/bmaltais/kohya_ss" target="_blank">Kohya_ss</a> instalado</li>
+                        <li>20-50 imágenes + tags (auto-generados con WD Tagger)</li>
+                        <li>~2 horas de GPU (dejar de noche)</li>
+                        <li>Resultado: archivo <code>.safetensors</code> → copiar a <code>ComfyUI/models/loras/</code></li>
+                    </ul>
+                </div>
+            </div>
+
+        </article>
+    </main>
+    <script>
+        // ============================================
+        // STATE
+        // ============================================
+        const GALLERY_KEY = 'plaga_img_gallery';
+        let currentImage = null; // {filename, subfolder, type}
+        let pollInterval = null;
+
+        // ============================================
+        // PRESETS
+        // ============================================
+        const PRESETS = {
+            npc: {
+                prompt: "portrait of an anthropomorphic insect character, dark moody lighting, RPG character art, detailed chitin texture, glowing compound eyes, cinematic, painterly style, dark fantasy, concept art",
+                negative: "human, realistic human face, text, watermark, blurry, low quality, deformed, extra limbs, bad anatomy, childish, oversaturated",
+                width: 768, height: 1024, steps: 25, cfg: 7
+            },
+            zona: {
+                prompt: "underground insect city inside a drain pipe, bioluminescent fungi on walls, dark atmosphere, isometric view, low poly 3d render, Cassette Beasts inspired style, muted dark colors with neon green accents, game environment",
+                negative: "text, watermark, blurry, humans, bright daylight, photorealistic",
+                width: 1024, height: 768, steps: 25, cfg: 7
+            },
+            item: {
+                prompt: "game item icon, dark background, glowing ethereal light, RPG inventory item, detailed digital painting, centered composition, clean edges",
+                negative: "text, watermark, blurry, hands holding, person, background clutter",
+                width: 512, height: 512, steps: 20, cfg: 7.5
+            },
+            sprite: {
+                prompt: "pixel art character sprite, insect warrior, side view, transparent background, retro game style, detailed, clean lines, 2D game asset",
+                negative: "3d render, realistic, blurry, text, messy background",
+                width: 512, height: 512, steps: 20, cfg: 7
+            },
+            concept: {
+                prompt: "concept art reference sheet, anthropomorphic insect character, multiple poses and expressions, armor made of chitin and plant matter, dark fantasy RPG style, white background, professional character design",
+                negative: "text, watermark, blurry, single pose only, photorealistic, humans",
+                width: 1024, height: 768, steps: 30, cfg: 7
+            },
+            '3d': {
+                prompt: "3D low poly character model, stylized insect creature, Cassette Beasts art style, colorful, simple geometry, game ready, clean topology, soft lighting, studio render",
+                negative: "realistic, photorealistic, high poly, text, watermark, blurry",
+                width: 768, height: 768, steps: 20, cfg: 7
+            }
+        };
+
+        function applyPreset(name) {
+            const p = PRESETS[name];
+            if (!p) return;
+            document.getElementById('promptPos').value = p.prompt;
+            document.getElementById('promptNeg').value = p.negative;
+            document.getElementById('imgWidth').value = p.width;
+            document.getElementById('imgHeight').value = p.height;
+            document.getElementById('imgSteps').value = p.steps;
+            document.getElementById('stepsVal').textContent = p.steps;
+            document.getElementById('imgCfg').value = p.cfg;
+            document.getElementById('cfgVal').textContent = p.cfg;
+        }
+
+        // ============================================
+        // GENERATE
+        // ============================================
+        async function generateImage() {
+            const btn = document.getElementById('btnGenerate');
+            const status = document.getElementById('genStatus');
+            const progressBar = document.getElementById('progressBar');
+
+            const prompt = document.getElementById('promptPos').value.trim();
+            if (!prompt) return alert('Escribe un prompt');
+
+            btn.disabled = true;
+            status.textContent = '⏳ Enviando a ComfyUI...';
+            progressBar.style.display = 'block';
+            document.getElementById('progressFill').style.width = '10%';
+
+            try {
+                const res = await fetch('/api/comfyui/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        prompt: prompt,
+                        negative: document.getElementById('promptNeg').value,
+                        width: parseInt(document.getElementById('imgWidth').value),
+                        height: parseInt(document.getElementById('imgHeight').value),
+                        steps: parseInt(document.getElementById('imgSteps').value),
+                        cfg: parseFloat(document.getElementById('imgCfg').value),
+                        seed: parseInt(document.getElementById('imgSeed').value) || 0,
+                        checkpoint: document.getElementById('imgCheckpoint').value
+                    })
+                });
+                const data = await res.json();
+
+                if (data.ok) {
+                    status.textContent = '🔄 Generando... (esto tarda 10-30 seg)';
+                    document.getElementById('progressFill').style.width = '30%';
+                    pollForResult(data.prompt_id);
+                } else {
+                    status.textContent = `❌ ${data.error}`;
+                    btn.disabled = false;
+                    progressBar.style.display = 'none';
+                }
+            } catch(e) {
+                status.textContent = `❌ Error de conexión: ${e.message}`;
+                btn.disabled = false;
+                progressBar.style.display = 'none';
+            }
+        }
+
+        function pollForResult(promptId) {
+            let attempts = 0;
+            pollInterval = setInterval(async () => {
+                attempts++;
+                document.getElementById('progressFill').style.width = Math.min(90, 30 + attempts * 3) + '%';
+
+                try {
+                    const res = await fetch(`/api/comfyui/history/${promptId}`);
+                    const data = await res.json();
+
+                    if (data.ok && data.done && data.images.length > 0) {
+                        clearInterval(pollInterval);
+                        document.getElementById('progressFill').style.width = '100%';
+                        showGeneratedImage(data.images[0]);
+                    } else if (attempts > 60) {
+                        clearInterval(pollInterval);
+                        document.getElementById('genStatus').textContent = '⚠️ Timeout — la generación tardó demasiado';
+                        document.getElementById('btnGenerate').disabled = false;
+                        document.getElementById('progressBar').style.display = 'none';
+                    }
+                } catch(e) { /* retry */ }
+            }, 2000);
+        }
+
+        function showGeneratedImage(img) {
+            currentImage = img;
+            const url = `/api/comfyui/view?filename=${encodeURIComponent(img.filename)}&subfolder=${encodeURIComponent(img.subfolder)}&type=${encodeURIComponent(img.type)}`;
+            document.getElementById('previewArea').innerHTML = `<img src="${url}" alt="Generated">`;
+            document.getElementById('genStatus').textContent = '✅ Imagen generada';
+            document.getElementById('btnGenerate').disabled = false;
+            document.getElementById('progressBar').style.display = 'none';
+            document.getElementById('saveForm').style.display = 'flex';
+            document.getElementById('saveName').value = img.filename;
+
+            // Save to gallery history
+            const gallery = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]');
+            gallery.unshift({ ...img, prompt: document.getElementById('promptPos').value, date: new Date().toISOString(), url });
+            if (gallery.length > 100) gallery.length = 100;
+            localStorage.setItem(GALLERY_KEY, JSON.stringify(gallery));
+            renderGallery();
+        }
+
+        // ============================================
+        // SAVE IMAGE
+        // ============================================
+        async function saveImage() {
+            if (!currentImage) return;
+            const saveName = document.getElementById('saveName').value.trim();
+            if (!saveName) return alert('Nombre requerido');
+
+            try {
+                const res = await fetch('/api/comfyui/save', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...currentImage, saveName })
+                });
+                const data = await res.json();
+                if (data.ok) {
+                    alert(`✅ Guardada en wiki: ${data.saved}`);
+                } else {
+                    alert(`❌ Error: ${data.error}`);
+                }
+            } catch(e) { alert(`❌ ${e.message}`); }
+        }
+
+        function saveToGodot() {
+            alert('📋 Para guardar en Godot:\n1. Guarda en la wiki primero\n2. El server auto-copia a la carpeta de sprites de Godot si GODOT_SPRITES_PATH está configurado en .env');
+        }
+
+        // ============================================
+        // GALLERY
+        // ============================================
+        function renderGallery() {
+            const gallery = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]');
+            const grid = document.getElementById('galleryGrid');
+
+            if (gallery.length === 0) {
+                grid.innerHTML = '<p style="color:#555">Sin imágenes generadas aún.</p>';
+                return;
+            }
+
+            grid.innerHTML = gallery.map((item, i) => `
+                <div class="gallery-item" onclick="viewGalleryItem(${i})">
+                    <img src="${item.url}" alt="${item.prompt?.substring(0,30) || 'img'}" loading="lazy">
+                    <div class="gallery-label">${new Date(item.date).toLocaleDateString('es-CL')}</div>
+                </div>
+            `).join('');
+        }
+
+        function viewGalleryItem(idx) {
+            const gallery = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]');
+            const item = gallery[idx];
+            if (!item) return;
+
+            document.getElementById('promptPos').value = item.prompt || '';
+            currentImage = item;
+            document.getElementById('previewArea').innerHTML = `<img src="${item.url}" alt="Gallery item">`;
+            document.getElementById('saveForm').style.display = 'flex';
+            document.getElementById('saveName').value = item.filename || 'image.png';
+            switchTab('generate');
+        }
+
+        // ============================================
+        // LORA TRAINING SCRIPT
+        // ============================================
+        document.getElementById('loraFiles').addEventListener('change', function() {
+            const count = this.files.length;
+            document.getElementById('loraFileCount').textContent = `${count} imágenes seleccionadas`;
+            const grid = document.getElementById('loraPreviewGrid');
+            grid.innerHTML = '';
+            Array.from(this.files).slice(0, 12).forEach(f => {
+                const url = URL.createObjectURL(f);
+                grid.innerHTML += `<div class="gallery-item"><img src="${url}" style="height:80px"></div>`;
+            });
+            if (count > 12) grid.innerHTML += `<p style="color:#888">+${count-12} más...</p>`;
+        });
+
+        function generateTrainScript() {
+            const name = document.getElementById('loraName').value || 'plaga-style';
+            const trigger = document.getElementById('loraTrigger').value || 'plaga_style';
+            const epochs = document.getElementById('loraEpochs').value || 20;
+            const res = document.getElementById('loraRes').value || 768;
+            const dim = document.getElementById('loraDim').value || 32;
+
+            const script = `@echo off
+REM ============================================
+REM LoRA Training Script — ${name}
+REM Generado por Plaga Wiki — ${new Date().toLocaleString()}
+REM Dejar corriendo de noche (~1-2 horas)
+REM ============================================
+
+REM CONFIGURACIÓN
+set LORA_NAME=${name}
+set TRIGGER_WORD=${trigger}
+set TRAIN_DIR=D:\\LoRA_Training\\${name}\\images
+set OUTPUT_DIR=D:\\LoRA_Training\\${name}\\output
+set MODEL_PATH=D:\\ComfyUI\\models\\checkpoints\\dreamshaper_xl.safetensors
+set RESOLUTION=${res}
+set EPOCHS=${epochs}
+set NETWORK_DIM=${dim}
+set LEARNING_RATE=1e-4
+set BATCH_SIZE=1
+
+REM CREAR DIRECTORIOS
+mkdir "%TRAIN_DIR%\\${epochs}_${trigger}" 2>nul
+mkdir "%OUTPUT_DIR%" 2>nul
+
+echo.
+echo ============================================
+echo   PLAGA LoRA TRAINER: %LORA_NAME%
+echo   Trigger: %TRIGGER_WORD%
+echo   Epocas: %EPOCHS% | Dim: %NETWORK_DIM%
+echo ============================================
+echo.
+echo PASO 1: Copia tus imagenes a:
+echo   %TRAIN_DIR%\\${epochs}_${trigger}\\
+echo.
+echo PASO 2: Ejecuta este script de nuevo cuando esten listas
+echo.
+pause
+
+REM ENTRENAMIENTO (requiere kohya_ss instalado)
+cd /d "D:\\kohya_ss"
+python sdxl_train_network.py ^
+  --pretrained_model_name_or_path="%MODEL_PATH%" ^
+  --train_data_dir="%TRAIN_DIR%" ^
+  --output_dir="%OUTPUT_DIR%" ^
+  --output_name="%LORA_NAME%" ^
+  --resolution=%RESOLUTION% ^
+  --train_batch_size=%BATCH_SIZE% ^
+  --max_train_epochs=%EPOCHS% ^
+  --network_module=networks.lora ^
+  --network_dim=%NETWORK_DIM% ^
+  --network_alpha=16 ^
+  --learning_rate=%LEARNING_RATE% ^
+  --optimizer_type=AdamW8bit ^
+  --mixed_precision=fp16 ^
+  --save_precision=fp16 ^
+  --save_every_n_epochs=5 ^
+  --caption_extension=.txt ^
+  --cache_latents ^
+  --xformers
+
+echo.
+echo ============================================
+echo   ENTRENAMIENTO COMPLETADO
+echo   LoRA guardado en: %OUTPUT_DIR%\\%LORA_NAME%.safetensors
+echo   Copialo a: ComfyUI\\models\\loras\\
+echo ============================================
+pause`;
+
+            document.getElementById('trainScriptCode').textContent = script;
+            document.getElementById('trainScriptOutput').style.display = 'block';
+        }
+
+        function copyTrainScript() {
+            navigator.clipboard.writeText(document.getElementById('trainScriptCode').textContent);
+            alert('📋 Script copiado');
+        }
+
+        function downloadTrainScript() {
+            const script = document.getElementById('trainScriptCode').textContent;
+            const blob = new Blob([script], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `train_lora_${document.getElementById('loraName').value || 'plaga'}.bat`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // ============================================
+        // COMFYUI STATUS & CHECKPOINTS
+        // ============================================
+        async function checkComfyStatus() {
+            const badge = document.getElementById('comfyStatus');
+            try {
+                const res = await fetch('/api/comfyui/status');
+                const data = await res.json();
+                if (data.ok && data.online) {
+                    badge.className = 'status-badge status-online';
+                    badge.textContent = '⬤ ComfyUI online';
+                    loadCheckpoints();
+                } else {
+                    badge.className = 'status-badge status-offline';
+                    badge.textContent = '⬤ ComfyUI offline';
+                }
+            } catch(e) {
+                badge.className = 'status-badge status-offline';
+                badge.textContent = '⬤ ComfyUI offline';
+            }
+        }
+
+        async function loadCheckpoints() {
+            try {
+                const res = await fetch('/api/comfyui/checkpoints');
+                const data = await res.json();
+                const sel = document.getElementById('imgCheckpoint');
+                if (data.ok && data.checkpoints.length > 0) {
+                    sel.innerHTML = data.checkpoints.map(c => `<option value="${c}">${c}</option>`).join('');
+                } else {
+                    sel.innerHTML = '<option value="">Sin checkpoints</option>';
+                }
+            } catch(e) {}
+        }
+
+        // ============================================
+        // TABS
+        // ============================================
+        function switchTab(name) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-' + name).classList.add('active');
+            if (name === 'gallery') renderGallery();
+        }
+
+        // ============================================
+        // INIT
+        // ============================================
+        checkComfyStatus();
+        setInterval(checkComfyStatus, 30000);
+        renderGallery();
+    </script>
+</body>
+</html>

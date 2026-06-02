@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama — Guía de IA Local · Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🪲 PLAGA</h1><span class="subtitle">La Descarada · Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">✨ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⚔ Los 14 Semidioses</a></li>
+            <li><a href="caida.html">💀 La Caída del Éter</a></li>
+            <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
+            <li><a href="silencio-verde.html">🌿 El Silencio Verde</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="santiago.html">🗺️ El Gran Charco</a></li>
+            <li><a href="npcs.html">👥 NPCs</a></li>
+            <li><a href="items.html">🎒 Armas y Objetos</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="trazabilidad.html">📋 Trazabilidad</a></li>
+            <li><a href="arquitectura.html">🏗️ UML</a></li>
+            <li><a href="ollama-guia.html" class="active">🤖 Ollama (IA Local)</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔🏆 PvP v2 + META</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🤖 Ollama — IA Local para Plaga</h1>
+            <div class="intro-box">
+                <p>Guía completa para usar <strong>Ollama</strong> como motor de IA local en el desarrollo de Plaga: La Descarada. Genera diálogos de NPCs, lore dinámico y respuestas contextuales sin depender de APIs externas ni gastar cuota.</p>
+            </div>
+
+            <!-- SECCIÓN 1: OVERVIEW -->
+            <h2>📋 ¿Qué es Ollama?</h2>
+            <div class="info-box mechanic">
+                <h4>🔧 Resumen</h4>
+                <p>Ollama es un runtime local para LLMs. Descarga y ejecuta modelos de lenguaje en tu propio hardware, expone una API REST compatible con OpenAI en <code>localhost:11434</code>, y permite crear modelos personalizados con system prompts fijos.</p>
+                <ul>
+                    <li><strong>Sin internet requerido</strong> — todo corre en tu GPU/CPU</li>
+                    <li><strong>Sin cuota ni API key</strong> — uso ilimitado</li>
+                    <li><strong>Privacidad total</strong> — el lore nunca sale de tu PC</li>
+                    <li><strong>API REST</strong> — se integra con GDScript vía HTTPRequest</li>
+                </ul>
+            </div>
+
+            <div class="stat-block">
+                <h3>Hardware Requerido (este PC)</h3>
+                <div class="stat-row"><span class="stat-label">GPU</span><span class="stat-value">NVIDIA RTX 3060 Ti (8 GB VRAM) ✅</span></div>
+                <div class="stat-row"><span class="stat-label">RAM</span><span class="stat-value">32 GB ✅</span></div>
+                <div class="stat-row"><span class="stat-label">CPU</span><span class="stat-value">Ryzen 7 3700X ✅</span></div>
+                <div class="stat-row"><span class="stat-label">Espacio</span><span class="stat-value">~8 GB por modelo 7B-9B</span></div>
+                <div class="stat-row"><span class="stat-label">Modelos posibles</span><span class="stat-value">Hasta 8B/9B params (Q4 quantization)</span></div>
+            </div>
+
+            <!-- SECCIÓN 2: INSTALACIÓN -->
+            <h2>📥 Instalación en Windows</h2>
+            <div class="info-box warning">
+                <h4>⚠️ Requisitos del sistema</h4>
+                <ul>
+                    <li>Windows 10 22H2 o superior</li>
+                    <li>Drivers NVIDIA 452.39+ (RTX 3060 Ti ya los tiene)</li>
+                    <li>4 GB libres para binarios + espacio para modelos</li>
+                </ul>
+            </div>
+
+            <div class="stat-block">
+                <h3>Método 1: Instalador (Recomendado)</h3>
+                <div class="stat-row"><span class="stat-label">1</span><span class="stat-value">Descargar <a href="https://ollama.com/download/windows" target="_blank">OllamaSetup.exe</a></span></div>
+                <div class="stat-row"><span class="stat-label">2</span><span class="stat-value">Click derecho → Ejecutar como Administrador</span></div>
+                <div class="stat-row"><span class="stat-label">3</span><span class="stat-value">Verificar: <code>ollama --version</code></span></div>
+                <div class="stat-row"><span class="stat-label">Nota</span><span class="stat-value">NO requiere admin si instalas en tu home</span></div>
+            </div>
+
+            <div class="stat-block">
+                <h3>Método 2: PowerShell</h3>
+                <pre><code>irm https://ollama.com/install.ps1 | iex</code></pre>
+                <p><em>Si falla con exit code 5: desactivar Windows Defender temporalmente, o usar Método 1.</em></p>
+            </div>
+
+            <div class="stat-block">
+                <h3>Método 3: Winget</h3>
+                <pre><code>winget install --id Ollama.Ollama</code></pre>
+            </div>
+
+            <div class="stat-block">
+                <h3>Cambiar ubicación de modelos</h3>
+                <p>Por defecto los modelos se guardan en <code>%HOMEPATH%\.ollama</code>. Para moverlos:</p>
+                <ol>
+                    <li>Configuración → Variables de entorno</li>
+                    <li>Nueva variable: <code>OLLAMA_MODELS</code> = <code>D:\OllamaModels</code></li>
+                    <li>Reiniciar Ollama desde el tray</li>
+                </ol>
+            </div>
+
+            <!-- SECCIÓN 3: COMANDOS CLI -->
+            <h2>💻 Comandos CLI Esenciales</h2>
+            <div class="stat-block">
+                <h3>Gestión de Modelos</h3>
+                <table class="data-table">
+                    <thead><tr><th>Comando</th><th>Descripción</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>ollama pull llama3.1:8b</code></td><td>Descargar un modelo</td></tr>
+                        <tr><td><code>ollama run llama3.1:8b</code></td><td>Ejecutar chat interactivo</td></tr>
+                        <tr><td><code>ollama list</code></td><td>Ver modelos instalados</td></tr>
+                        <tr><td><code>ollama ps</code></td><td>Ver modelos en ejecución (cargados en VRAM)</td></tr>
+                        <tr><td><code>ollama rm nombre-modelo</code></td><td>Eliminar un modelo</td></tr>
+                        <tr><td><code>ollama show llama3.1:8b</code></td><td>Ver detalles de un modelo</td></tr>
+                        <tr><td><code>ollama show --modelfile llama3.1:8b</code></td><td>Ver Modelfile del modelo</td></tr>
+                        <tr><td><code>ollama cp modelo nuevo-nombre</code></td><td>Copiar/renombrar un modelo</td></tr>
+                        <tr><td><code>ollama serve</code></td><td>Iniciar servidor manualmente (normalmente ya corre)</td></tr>
+                        <tr><td><code>ollama stop nombre-modelo</code></td><td>Descargar modelo de VRAM</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stat-block">
+                <h3>Modelos Recomendados para Plaga</h3>
+                <table class="data-table">
+                    <thead><tr><th>Modelo</th><th>Tamaño</th><th>Uso ideal</th><th>Comando</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Llama 3.1 8B</strong></td><td>~4.7 GB</td><td>Diálogos creativos, lore</td><td><code>ollama pull llama3.1:8b</code></td></tr>
+                        <tr><td><strong>Gemma 2 9B</strong></td><td>~5.4 GB</td><td>Roleplay, personalidades</td><td><code>ollama pull gemma2:9b</code></td></tr>
+                        <tr><td><strong>Mistral 7B</strong></td><td>~4.1 GB</td><td>Respuestas rápidas, caché</td><td><code>ollama pull mistral:7b</code></td></tr>
+                        <tr><td><strong>Phi-3 Mini</strong></td><td>~2.3 GB</td><td>Tests rápidos, prototipos</td><td><code>ollama pull phi3:mini</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECCIÓN 4: API REST -->
+            <h2>🌐 API REST — Endpoints</h2>
+            <div class="info-box mechanic">
+                <h4>📡 Base URL</h4>
+                <p>Una vez corriendo, Ollama sirve su API en:</p>
+                <pre><code>http://localhost:11434/api</code></pre>
+                <p>Todos los endpoints aceptan y devuelven JSON. Desde GDScript se accede con <code>HTTPRequest</code>.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>POST /api/generate — Generar texto</h3>
+                <p>Genera una respuesta dada un prompt y un modelo. Endpoint principal para diálogos de NPCs.</p>
+                <pre><code>{
+  "model": "llama3.1:8b",
+  "prompt": "Eres Vlad, una cucaracha anciana. Responde con cinismo.",
+  "system": "Narrador de Plaga: La Descarada. Tono despectivo.",
+  "stream": false,
+  "options": {
+    "temperature": 0.8,
+    "num_predict": 200,
+    "num_ctx": 4096
+  }
+}</code></pre>
+                <p><strong>Respuesta:</strong></p>
+                <pre><code>{
+  "model": "llama3.1:8b",
+  "response": "Ah, otro insecto que cree que merece mi tiempo...",
+  "done": true,
+  "total_duration": 1234567890
+}</code></pre>
+            </div>
+
+            <div class="stat-block">
+                <h3>POST /api/chat — Chat con historial</h3>
+                <p>Para conversaciones multi-turno con contexto previo.</p>
+                <pre><code>{
+  "model": "llama3.1:8b",
+  "messages": [
+    {"role": "system", "content": "Eres Vlad, cucaracha de 400 años..."},
+    {"role": "user", "content": "¿Qué opinas del Sector 7?"},
+    {"role": "assistant", "content": "Ese lugar apesta a hormigas..."},
+    {"role": "user", "content": "¿Y la Hormiga Reina?"}
+  ],
+  "stream": false
+}</code></pre>
+            </div>
+
+            <div class="stat-block">
+                <h3>POST /api/embed — Embeddings</h3>
+                <p>Genera vectores semánticos. Útil para búsqueda por similitud en lore.</p>
+                <pre><code>{
+  "model": "llama3.1:8b",
+  "input": "La Díada Verde controla los espóridos en secreto"
+}</code></pre>
+            </div>
+
+            <div class="stat-block">
+                <h3>Otros Endpoints Útiles</h3>
+                <table class="data-table">
+                    <thead><tr><th>Método</th><th>Endpoint</th><th>Descripción</th></tr></thead>
+                    <tbody>
+                        <tr><td>GET</td><td><code>/api/tags</code></td><td>Listar modelos instalados</td></tr>
+                        <tr><td>POST</td><td><code>/api/show</code></td><td>Info de un modelo específico</td></tr>
+                        <tr><td>POST</td><td><code>/api/pull</code></td><td>Descargar modelo vía API</td></tr>
+                        <tr><td>DELETE</td><td><code>/api/delete</code></td><td>Eliminar modelo vía API</td></tr>
+                        <tr><td>POST</td><td><code>/api/create</code></td><td>Crear modelo desde Modelfile</td></tr>
+                        <tr><td>HEAD</td><td><code>/</code></td><td>Health check (200 = servidor vivo)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECCIÓN 5: MODELFILE -->
+            <h2>📄 Modelfile — Modelos Personalizados</h2>
+            <div class="info-box mechanic">
+                <h4>🧠 ¿Qué es un Modelfile?</h4>
+                <p>Un archivo de texto que define un modelo personalizado: base, system prompt, temperatura, stop tokens. Funciona como un Dockerfile pero para LLMs. Permite crear un "NPC engine" fijo para Plaga.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>Estructura</h3>
+                <table class="data-table">
+                    <thead><tr><th>Instrucción</th><th>Función</th><th>Requerido</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>FROM</code></td><td>Modelo base (llama3.1:8b, etc.)</td><td>✅ Sí</td></tr>
+                        <tr><td><code>SYSTEM</code></td><td>System prompt permanente</td><td>No</td></tr>
+                        <tr><td><code>PARAMETER</code></td><td>Temperatura, num_ctx, stops, etc.</td><td>No</td></tr>
+                        <tr><td><code>TEMPLATE</code></td><td>Plantilla de prompt completa</td><td>No</td></tr>
+                        <tr><td><code>MESSAGE</code></td><td>Historial de ejemplo (few-shot)</td><td>No</td></tr>
+                        <tr><td><code>ADAPTER</code></td><td>LoRA adapter (fine-tuning)</td><td>No</td></tr>
+                        <tr><td><code>LICENSE</code></td><td>Licencia del modelo</td><td>No</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stat-block">
+                <h3>Ejemplo: Modelo "plaga-narrator"</h3>
+                <pre><code># Modelfile para el narrador de Plaga: La Descarada
+FROM llama3.1:8b
+
+PARAMETER temperature 0.85
+PARAMETER num_ctx 4096
+PARAMETER num_predict 300
+PARAMETER repeat_penalty 1.2
+PARAMETER stop "---"
+PARAMETER stop "[FIN]"
+
+SYSTEM """
+Eres el narrador de Plaga: La Descarada, un RPG de insectos ambientado en el año 20.000.
+Hablas como Ramazzottius, un tardígrado de 530 millones de años: omnisciente, despectivo, cínico.
+Los insectos se llaman "Plagas" y dominan la Tierra. Los humanos son "Gigantes" — ganado torpe
+que vive en burbujas sobre las nubes.
+Nadie es bueno. Nadie es malo. Todos tienen razones. Todos mienten.
+Responde siempre en español. Máximo 3 párrafos. Nunca rompas el personaje.
+"""
+
+MESSAGE user ¿Quién gobierna el Gran Charco?
+MESSAGE assistant Ja. "Gobernar". Qué concepto tan tierno. El Charco se pudre bajo
+el peso de 17 taxones que se odian entre sí con la misma pasión con la que odian a
+los Gigantes. ¿Quién gobierna? El que no está muerto todavía. Por ahora.</code></pre>
+            </div>
+
+            <div class="stat-block">
+                <h3>Crear y usar el modelo</h3>
+                <pre><code># Guardar como: descarada/ollama/Modelfile.plaga-narrator
+# Luego en terminal:
+ollama create plaga-narrator -f ./Modelfile.plaga-narrator
+ollama run plaga-narrator</code></pre>
+            </div>
+
+            <!-- SECCIÓN 6: PARÁMETROS -->
+            <h2>⚙️ Parámetros de Generación</h2>
+            <div class="stat-block">
+                <h3>Referencia de parámetros</h3>
+                <table class="data-table">
+                    <thead><tr><th>Parámetro</th><th>Default</th><th>Descripción</th><th>Para Plaga</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>temperature</code></td><td>0.8</td><td>Creatividad. Mayor = más random</td><td>0.85 para diálogos, 0.3 para lore factual</td></tr>
+                        <tr><td><code>num_ctx</code></td><td>2048</td><td>Ventana de contexto (tokens)</td><td>4096 para NPCs con mucho lore</td></tr>
+                        <tr><td><code>num_predict</code></td><td>-1</td><td>Máx tokens de respuesta</td><td>200-300 para diálogos, 500 para lore</td></tr>
+                        <tr><td><code>top_k</code></td><td>40</td><td>Diversidad (menor = conservador)</td><td>50 para roleplay</td></tr>
+                        <tr><td><code>top_p</code></td><td>0.9</td><td>Nucleus sampling</td><td>0.9 funciona bien</td></tr>
+                        <tr><td><code>repeat_penalty</code></td><td>1.1</td><td>Penaliza repeticiones</td><td>1.2 para evitar loops</td></tr>
+                        <tr><td><code>seed</code></td><td>0</td><td>Semilla (0 = random)</td><td>Fijar para respuestas reproducibles</td></tr>
+                        <tr><td><code>stop</code></td><td>—</td><td>Secuencias de parada</td><td>"---", "[FIN]", "\n\n\n"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECCIÓN 7: INTEGRACIÓN GODOT -->
+            <h2>🎮 Integración con Godot (GDScript)</h2>
+            <div class="info-box mechanic">
+                <h4>🔌 Arquitectura</h4>
+                <p>El sistema <code>ai_npc_cache.gd</code> ya soporta HTTP requests. Solo se necesita cambiar el endpoint de Gemini a Ollama. El caché progresivo funciona igual: genera respuestas offline → guarda en JSON → sirve en runtime sin latencia.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>Script: ollama_client.gd</h3>
+                <pre><code>extends Node
+
+const OLLAMA_URL = "http://localhost:11434/api/generate"
+var http_request: HTTPRequest
+
+func _ready():
+    http_request = HTTPRequest.new()
+    add_child(http_request)
+    http_request.request_completed.connect(_on_response)
+
+func generate(prompt: String, model: String = "plaga-narrator") -> void:
+    var body = {
+        "model": model,
+        "prompt": prompt,
+        "stream": false,
+        "options": {
+            "temperature": 0.85,
+            "num_predict": 250,
+            "num_ctx": 4096
+        }
+    }
+    var json = JSON.stringify(body)
+    var headers = ["Content-Type: application/json"]
+    http_request.request(OLLAMA_URL, headers, HTTPClient.METHOD_POST, json)
+
+func _on_response(result, code, headers, body):
+    if code == 200:
+        var json = JSON.parse_string(body.get_string_from_utf8())
+        var text = json.get("response", "")
+        emit_signal("generation_complete", text)
+    else:
+        push_warning("Ollama error: HTTP %d" % code)
+
+signal generation_complete(text: String)</code></pre>
+            </div>
+
+            <div class="stat-block">
+                <h3>Ejemplo: Generador de caché batch</h3>
+                <pre><code># Script para generar respuestas offline y guardar en JSON
+# Ejecutar: ollama run plaga-narrator < prompts.txt > respuestas.txt
+
+# O vía PowerShell con la API:
+$body = @{
+    model = "plaga-narrator"
+    prompt = "Vlad, ¿qué piensas de las avispas?"
+    stream = $false
+} | ConvertTo-Json
+
+$response = Invoke-WebRequest -Method POST -Uri "http://localhost:11434/api/generate" `
+    -Body $body -ContentType "application/json"
+($response.Content | ConvertFrom-Json).response</code></pre>
+            </div>
+
+            <!-- SECCIÓN 8: ESTRATEGIA DUAL -->
+            <h2>🔄 Estrategia Dual: Ollama + Gemini</h2>
+            <div class="stat-block">
+                <h3>Cuándo usar cada uno</h3>
+                <table class="data-table">
+                    <thead><tr><th>Escenario</th><th>Backend</th><th>Razón</th></tr></thead>
+                    <tbody>
+                        <tr><td>Pre-cachear diálogos de NPCs</td><td>🏠 Ollama local</td><td>Batch sin límite, gratis</td></tr>
+                        <tr><td>Generar lore extenso</td><td>🏠 Ollama local</td><td>Prompts largos sin coste</td></tr>
+                        <tr><td>Respuestas en tiempo real (jugador)</td><td>☁️ Gemini</td><td>Mayor calidad, más rápido</td></tr>
+                        <tr><td>Fallback si Gemini sin cuota</td><td>🏠 Ollama local</td><td>Siempre disponible</td></tr>
+                        <tr><td>Testing y prototipos</td><td>🏠 Ollama local</td><td>Iterar sin consumir API</td></tr>
+                        <tr><td>Contenido final publicado</td><td>☁️ Gemini</td><td>Calidad editorial</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box warning">
+                <h4>💡 Flujo recomendado</h4>
+                <ol>
+                    <li><strong>Desarrollo:</strong> Ollama genera borradores de diálogos (batch)</li>
+                    <li><strong>Revisión:</strong> El dev edita/aprueba los mejores</li>
+                    <li><strong>Caché:</strong> Los aprobados van a <code>dialogues/cache/*.json</code></li>
+                    <li><strong>Runtime:</strong> El juego sirve del caché. Si no hay hit → Gemini cloud</li>
+                    <li><strong>Fallback:</strong> Si Gemini no responde → Ollama local en tiempo real</li>
+                </ol>
+            </div>
+
+            <!-- SECCIÓN 9: TROUBLESHOOTING -->
+            <h2>🔧 Troubleshooting Windows</h2>
+            <div class="stat-block">
+                <h3>Ubicaciones de archivos</h3>
+                <table class="data-table">
+                    <thead><tr><th>Ruta</th><th>Contenido</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>%LOCALAPPDATA%\Ollama</code></td><td>Logs (app.log, server.log)</td></tr>
+                        <tr><td><code>%LOCALAPPDATA%\Programs\Ollama</code></td><td>Binarios (en PATH)</td></tr>
+                        <tr><td><code>%HOMEPATH%\.ollama</code></td><td>Modelos descargados</td></tr>
+                        <tr><td><code>%TEMP%\ollama*</code></td><td>Ejecutables temporales</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stat-block">
+                <h3>Problemas comunes</h3>
+                <table class="data-table">
+                    <thead><tr><th>Error</th><th>Causa</th><th>Solución</th></tr></thead>
+                    <tbody>
+                        <tr><td>Exit code 5 al instalar</td><td>Antivirus bloqueando</td><td>Desactivar Defender → instalar → reactivar</td></tr>
+                        <tr><td>Connection refused :11434</td><td>Ollama no está corriendo</td><td><code>ollama serve</code> o iniciar desde tray</td></tr>
+                        <tr><td>Out of memory</td><td>Modelo muy grande para VRAM</td><td>Usar modelo más pequeño o Q4 quant</td></tr>
+                        <tr><td>Respuestas lentas</td><td>Modelo en CPU (no GPU)</td><td>Verificar drivers NVIDIA, reinstalar CUDA</td></tr>
+                        <tr><td>Caracteres raros en terminal</td><td>Font no soporta unicode</td><td>Cambiar font de terminal (Cascadia Code)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECCIÓN 10: REFERENCIAS -->
+            <h2>📚 Referencias</h2>
+            <div class="stat-block">
+                <h3>Links oficiales</h3>
+                <ul>
+                    <li><a href="https://ollama.com" target="_blank">ollama.com</a> — Sitio oficial</li>
+                    <li><a href="https://docs.ollama.com" target="_blank">docs.ollama.com</a> — Documentación completa</li>
+                    <li><a href="https://ollama.com/library" target="_blank">ollama.com/library</a> — Catálogo de modelos</li>
+                    <li><a href="https://github.com/ollama/ollama" target="_blank">GitHub</a> — Código fuente</li>
+                    <li><a href="https://docs.ollama.com/modelfile" target="_blank">Modelfile Reference</a> — Crear modelos custom</li>
+                    <li><a href="https://docs.ollama.com/api/introduction" target="_blank">API Reference</a> — Endpoints REST</li>
+                </ul>
+            </div>
+
+        </article>
+    </main>
+</body>
+</html>

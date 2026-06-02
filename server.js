@@ -289,6 +289,284 @@ function _exportarGodot() {
     } catch(e) { /* silencioso si falla */ }
 }
 
+// ── CHAT CON OLLAMA (IA LOCAL) ──────────────────────────────────────────────
+
+// Cargar contexto de la wiki para inyectar en cada conversación
+function buildWikiContext() {
+    let context = '';
+    try {
+        // NPCs
+        const npcs = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'npcs_organigrama.json'), 'utf8'));
+        context += '\n## NPCs del Gran Charco:\n';
+        npcs.forEach(npc => {
+            context += `- ${npc['NOMBRE COMPLETO']}: ${npc['CARGO']}. ${npc['FACCIÓN']}. ${npc['PERSONALIDAD'] || ''}\n`;
+        });
+        // Criaturas
+        const criDB = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'criaturas.json'), 'utf8'));
+        context += '\n## Taxones y Criaturas:\n';
+        (criDB.criaturas || []).forEach(c => {
+            context += `- ${c.nombre} (${c.tipo}): ${c.comportamiento || ''}\n`;
+        });
+        // Objetos
+        const objDB = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'objetos.json'), 'utf8'));
+        context += '\n## Objetos:\n';
+        (objDB.objetos || []).forEach(o => {
+            context += `- ${o.nombre}: ${o.descripcion || ''}\n`;
+        });
+    } catch(e) { /* silencioso */ }
+    return context;
+}
+
+// Endpoint de chat — proxy a Ollama con contexto de la wiki
+app.post('/api/chat', async (req, res) => {
+    const { message, history, model } = req.body;
+    if (!message) return res.status(400).json({ ok: false, error: 'message requerido' });
+
+    const ollamaModel = model || 'plaga-narrator';
+    const wikiContext = buildWikiContext();
+
+    // Construir mensajes con system + contexto + historial
+    const messages = [
+        {
+            role: 'system',
+            content: `Eres el narrador y experto absoluto de "Plaga: La Descarada", un RPG de insectos.
+Conoces TODO el lore, NPCs, facciones, taxones y mecánicas del juego.
+Respondes en español. Tono: cínico, descarado, inteligente.
+Si te preguntan algo del juego, responde con precisión usando los datos que conoces.
+Si te preguntan algo creativo (diálogos, lore nuevo), genera contenido consistente con el mundo.
+
+DATOS DEL JUEGO:
+${wikiContext}`
+        }
+    ];
+
+    // Agregar historial previo
+    if (history && Array.isArray(history)) {
+        history.forEach(h => messages.push(h));
+    }
+
+    // Mensaje actual del usuario
+    messages.push({ role: 'user', content: message });
+
+    try {
+        const http = require('http');
+        const ollamaBody = JSON.stringify({
+            model: ollamaModel,
+            messages: messages,
+            stream: false,
+            options: { temperature: 0.85, num_predict: 400, num_ctx: 4096 }
+        });
+
+        const ollamaRes = await new Promise((resolve, reject) => {
+            const req2 = http.request({
+                hostname: 'localhost',
+                port: 11434,
+                path: '/api/chat',
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            }, (resp) => {
+                let data = '';
+                resp.on('data', chunk => data += chunk);
+                resp.on('end', () => resolve(data));
+            });
+            req2.on('error', reject);
+            req2.write(ollamaBody);
+            req2.end();
+        });
+
+        const parsed = JSON.parse(ollamaRes);
+        const reply = parsed.message ? parsed.message.content : (parsed.response || 'Sin respuesta');
+        res.json({ ok: true, response: reply, model: ollamaModel });
+    } catch(err) {
+        res.status(500).json({ ok: false, error: `Ollama no responde: ${err.message}. ¿Está corriendo?` });
+    }
+});
+
+// Listar modelos de Ollama disponibles
+app.get('/api/ollama/models', async (req, res) => {
+    try {
+        const http = require('http');
+        const data = await new Promise((resolve, reject) => {
+            http.get('http://localhost:11434/api/tags', (resp) => {
+                let d = '';
+                resp.on('data', chunk => d += chunk);
+                resp.on('end', () => resolve(d));
+            }).on('error', reject);
+        });
+        const parsed = JSON.parse(data);
+        res.json({ ok: true, models: parsed.models || [] });
+    } catch(err) {
+        res.json({ ok: true, models: [] });
+    }
+});
+
+// ── COMFYUI PROXY (Generación de imágenes) ──────────────────────────────────
+
+// Proxy para generar imagen con ComfyUI
+app.post('/api/comfyui/generate', async (req, res) => {
+    const { prompt, negative, width, height, steps, cfg, seed, checkpoint } = req.body;
+    if (!prompt) return res.status(400).json({ ok: false, error: 'prompt requerido' });
+
+    const clientId = 'plaga-wiki-' + Date.now();
+    const actualSeed = seed || Math.floor(Math.random() * 999999999);
+    const actualWidth = width || 768;
+    const actualHeight = height || 768;
+    const actualSteps = steps || 20;
+    const actualCfg = cfg || 7;
+    const actualCheckpoint = checkpoint || 'dreamshaper_xl.safetensors';
+
+    // Workflow JSON estándar de ComfyUI (txt2img)
+    const workflow = {
+        "4": { class_type: "CheckpointLoaderSimple", inputs: { ckpt_name: actualCheckpoint } },
+        "5": { class_type: "EmptyLatentImage", inputs: { width: actualWidth, height: actualHeight, batch_size: 1 } },
+        "6": { class_type: "CLIPTextEncode", inputs: { text: prompt, clip: ["4", 1] } },
+        "7": { class_type: "CLIPTextEncode", inputs: { text: negative || "blurry, low quality, deformed, text, watermark", clip: ["4", 1] } },
+        "3": { class_type: "KSampler", inputs: { seed: actualSeed, steps: actualSteps, cfg: actualCfg, sampler_name: "euler_ancestral", scheduler: "normal", denoise: 1, model: ["4", 0], positive: ["6", 0], negative: ["7", 0], latent_image: ["5", 0] } },
+        "8": { class_type: "VAEDecode", inputs: { samples: ["3", 0], vae: ["4", 2] } },
+        "9": { class_type: "SaveImage", inputs: { filename_prefix: "plaga_wiki", images: ["8", 0] } }
+    };
+
+    try {
+        const http = require('http');
+        const body = JSON.stringify({ client_id: clientId, prompt: workflow });
+
+        const result = await new Promise((resolve, reject) => {
+            const req2 = http.request({ hostname: 'localhost', port: 8188, path: '/prompt', method: 'POST', headers: { 'Content-Type': 'application/json' } }, resp => {
+                let data = '';
+                resp.on('data', chunk => data += chunk);
+                resp.on('end', () => resolve({ status: resp.statusCode, data }));
+            });
+            req2.on('error', reject);
+            req2.write(body);
+            req2.end();
+        });
+
+        if (result.status === 200) {
+            const parsed = JSON.parse(result.data);
+            res.json({ ok: true, prompt_id: parsed.prompt_id, client_id: clientId });
+        } else {
+            res.status(500).json({ ok: false, error: `ComfyUI respondió ${result.status}: ${result.data}` });
+        }
+    } catch(err) {
+        res.status(500).json({ ok: false, error: `ComfyUI no responde en :8188. ¿Está corriendo? ${err.message}` });
+    }
+});
+
+// Obtener resultado de generación
+app.get('/api/comfyui/history/:promptId', async (req, res) => {
+    try {
+        const http = require('http');
+        const data = await new Promise((resolve, reject) => {
+            http.get(`http://localhost:8188/history/${req.params.promptId}`, resp => {
+                let d = '';
+                resp.on('data', chunk => d += chunk);
+                resp.on('end', () => resolve(d));
+            }).on('error', reject);
+        });
+        const parsed = JSON.parse(data);
+        const entry = parsed[req.params.promptId];
+        if (entry && entry.outputs) {
+            // Find saved images
+            const images = [];
+            Object.values(entry.outputs).forEach(output => {
+                if (output.images) {
+                    output.images.forEach(img => {
+                        images.push({ filename: img.filename, subfolder: img.subfolder || '', type: img.type || 'output' });
+                    });
+                }
+            });
+            res.json({ ok: true, done: true, images });
+        } else {
+            res.json({ ok: true, done: false });
+        }
+    } catch(err) {
+        res.json({ ok: false, error: err.message });
+    }
+});
+
+// Proxy para ver imagen generada por ComfyUI
+app.get('/api/comfyui/view', async (req, res) => {
+    const { filename, subfolder, type } = req.query;
+    try {
+        const http = require('http');
+        const url = `http://localhost:8188/view?filename=${encodeURIComponent(filename)}&subfolder=${encodeURIComponent(subfolder || '')}&type=${encodeURIComponent(type || 'output')}`;
+        http.get(url, proxyRes => {
+            res.set('Content-Type', proxyRes.headers['content-type'] || 'image/png');
+            proxyRes.pipe(res);
+        }).on('error', err => {
+            res.status(500).json({ ok: false, error: err.message });
+        });
+    } catch(err) {
+        res.status(500).json({ ok: false, error: err.message });
+    }
+});
+
+// Guardar imagen generada en la wiki
+app.post('/api/comfyui/save', async (req, res) => {
+    const { filename, subfolder, type, saveName } = req.body;
+    if (!filename || !saveName) return res.status(400).json({ ok: false, error: 'filename y saveName requeridos' });
+
+    try {
+        const http = require('http');
+        const url = `http://localhost:8188/view?filename=${encodeURIComponent(filename)}&subfolder=${encodeURIComponent(subfolder || '')}&type=${encodeURIComponent(type || 'output')}`;
+
+        const imgData = await new Promise((resolve, reject) => {
+            http.get(url, resp => {
+                const chunks = [];
+                resp.on('data', chunk => chunks.push(chunk));
+                resp.on('end', () => resolve(Buffer.concat(chunks)));
+            }).on('error', reject);
+        });
+
+        const safeName = saveName.replace(/[^a-zA-Z0-9._-]/g, '_');
+        const destPath = path.join(IMG_DIR, safeName);
+        fs.writeFileSync(destPath, imgData);
+
+        res.json({ ok: true, saved: `/img/${safeName}`, size: imgData.length });
+    } catch(err) {
+        res.status(500).json({ ok: false, error: err.message });
+    }
+});
+
+// Check ComfyUI status
+app.get('/api/comfyui/status', async (req, res) => {
+    try {
+        const http = require('http');
+        const data = await new Promise((resolve, reject) => {
+            const req2 = http.get('http://localhost:8188/system_stats', resp => {
+                let d = '';
+                resp.on('data', chunk => d += chunk);
+                resp.on('end', () => resolve(d));
+            });
+            req2.on('error', reject);
+            req2.setTimeout(3000, () => { req2.destroy(); reject(new Error('timeout')); });
+        });
+        const parsed = JSON.parse(data);
+        res.json({ ok: true, online: true, stats: parsed });
+    } catch(err) {
+        res.json({ ok: true, online: false });
+    }
+});
+
+// List available checkpoints
+app.get('/api/comfyui/checkpoints', async (req, res) => {
+    try {
+        const http = require('http');
+        const data = await new Promise((resolve, reject) => {
+            http.get('http://localhost:8188/object_info/CheckpointLoaderSimple', resp => {
+                let d = '';
+                resp.on('data', chunk => d += chunk);
+                resp.on('end', () => resolve(d));
+            }).on('error', reject);
+        });
+        const parsed = JSON.parse(data);
+        const checkpoints = parsed.CheckpointLoaderSimple?.input?.required?.ckpt_name?.[0] || [];
+        res.json({ ok: true, checkpoints });
+    } catch(err) {
+        res.json({ ok: true, checkpoints: [] });
+    }
+});
+
 // ── Ruta principal ──────────────────────────────────────────────────────────
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 

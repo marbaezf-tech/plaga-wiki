@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenamiento IA · Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .train-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+        .train-card { background: #1a1a2e; border: 1px solid #333; border-radius: 8px; padding: 1rem; }
+        .train-card h4 { color: #4ecca3; margin-top: 0; }
+        .dataset-editor { width: 100%; min-height: 200px; background: #0d0d0d; color: #e0e0e0; border: 1px solid #444; border-radius: 6px; padding: 0.8rem; font-family: monospace; font-size: 0.85rem; resize: vertical; }
+        .btn-action { padding: 0.6rem 1.2rem; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin: 0.3rem; }
+        .btn-primary { background: #4ecca3; color: #000; }
+        .btn-primary:hover { background: #3db892; }
+        .btn-secondary { background: #333; color: #ccc; border: 1px solid #555; }
+        .btn-secondary:hover { background: #444; }
+        .btn-danger { background: #cc4444; color: #fff; }
+        .progress-bar { width: 100%; height: 24px; background: #1a1a1a; border-radius: 12px; overflow: hidden; margin: 0.5rem 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #4ecca3, #3db892); transition: width 0.3s; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; }
+        .stat-number { font-size: 2rem; font-weight: bold; color: #4ecca3; }
+        .pair-form { display: grid; gap: 0.5rem; margin: 1rem 0; }
+        .pair-form textarea { width: 100%; min-height: 60px; background: #0d0d0d; color: #e0e0e0; border: 1px solid #444; border-radius: 6px; padding: 0.6rem; font-family: inherit; resize: vertical; }
+        .pair-form label { color: #aaa; font-size: 0.85rem; }
+        .pair-list { max-height: 400px; overflow-y: auto; }
+        .pair-item { background: #111; border: 1px solid #333; border-radius: 6px; padding: 0.6rem; margin: 0.4rem 0; font-size: 0.85rem; }
+        .pair-item .instruction { color: #4ecca3; }
+        .pair-item .output { color: #ccc; }
+        .tab-bar { display: flex; gap: 0; border-bottom: 2px solid #333; margin-bottom: 1rem; }
+        .tab { padding: 0.6rem 1.2rem; cursor: pointer; color: #888; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+        .tab.active { color: #4ecca3; border-bottom-color: #4ecca3; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        code { background: #1a1a2e; padding: 0.2rem 0.4rem; border-radius: 3px; color: #4ecca3; }
+        .terminal-block { background: #0d0d0d; border: 1px solid #333; border-radius: 6px; padding: 1rem; font-family: monospace; font-size: 0.85rem; color: #e0e0e0; white-space: pre-wrap; overflow-x: auto; }
+        @media (max-width: 768px) { .train-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🪲 PLAGA</h1><span class="subtitle">La Descarada · Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">✨ El Gran Éter</a></li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="npcs.html">👥 NPCs</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="ollama-guia.html">🤖 Ollama (IA Local)</a></li>
+            <li><a href="chat.html">💬 Chat IA</a></li>
+            <li><a href="entrenamiento-ia.html" class="active">🧠 Entrenamiento IA</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔🏆 PvP v2</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🧠 Entrenamiento IA — Fine-tuning para Plaga</h1>
+            <div class="intro-box">
+                <p>Panel para gestionar el dataset de entrenamiento, agregar pares de ejemplo, generar el JSONL, y lanzar el fine-tuning con QLoRA. Todo el conocimiento del juego concentrado para crear un modelo que <strong>habla como Plaga</strong>.</p>
+            </div>
+
+            <!-- TABS -->
+            <div class="tab-bar">
+                <div class="tab active" onclick="switchTab('dataset')">📝 Dataset</div>
+                <div class="tab" onclick="switchTab('generate')">⚡ Generar Automático</div>
+                <div class="tab" onclick="switchTab('training')">🔥 Entrenar</div>
+                <div class="tab" onclick="switchTab('guide')">📖 Guía</div>
+            </div>
+
+            <!-- TAB: DATASET -->
+            <div class="tab-content active" id="tab-dataset">
+                <h2>📝 Dataset de Entrenamiento</h2>
+                <div class="train-grid">
+                    <div class="train-card">
+                        <h4>📊 Estado del Dataset</h4>
+                        <div class="stat-number" id="pairCount">0</div>
+                        <p>pares instrucción/respuesta</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%">0/400 meta</div>
+                        </div>
+                        <p style="color:#888;font-size:0.8rem">Meta: 400 pares para fine-tuning óptimo (1-2 noches)</p>
+                    </div>
+                    <div class="train-card">
+                        <h4>📁 Acciones</h4>
+                        <button class="btn-action btn-primary" onclick="exportJSONL()">💾 Exportar JSONL</button>
+                        <button class="btn-action btn-secondary" onclick="importJSONL()">📂 Importar JSONL</button>
+                        <button class="btn-action btn-secondary" onclick="autoGenerate()">⚡ Auto-generar desde wiki</button>
+                        <br><br>
+                        <button class="btn-action btn-danger" onclick="clearDataset()">🗑️ Limpiar todo</button>
+                    </div>
+                </div>
+
+                <h3>➕ Agregar Par de Entrenamiento</h3>
+                <div class="pair-form">
+                    <label>📌 Instrucción (lo que el usuario preguntaría):</label>
+                    <textarea id="newInstruction" placeholder="Ej: ¿Quién es Don Corleone en el Gran Charco?"></textarea>
+                    <label>✅ Respuesta esperada (cómo debería responder el modelo):</label>
+                    <textarea id="newOutput" placeholder="Ej: Calliphora 'Don Corleone', una mosca verde botella, es el Padrino del mercado negro..."></textarea>
+                    <div>
+                        <button class="btn-action btn-primary" onclick="addPair()">Agregar par</button>
+                        <button class="btn-action btn-secondary" onclick="addFromChat()">📋 Importar desde Chat IA</button>
+                    </div>
+                </div>
+
+                <h3>📋 Pares actuales (<span id="listCount">0</span>)</h3>
+                <div class="pair-list" id="pairList">
+                    <p style="color:#666">No hay pares aún. Agrega manualmente o usa "Auto-generar desde wiki".</p>
+                </div>
+            </div>
+
+            <!-- TAB: AUTO-GENERATE -->
+            <div class="tab-content" id="tab-generate">
+                <h2>⚡ Generar Dataset Automáticamente</h2>
+                <div class="info-box mechanic">
+                    <h4>🔄 Generación automática</h4>
+                    <p>Extrae pares de entrenamiento directamente de los datos de la wiki: NPCs, taxones, objetos. Cada NPC genera ~4 pares (presentación, motivación, miedos, crisis). También puedes usar Ollama para generar respuestas de ejemplo.</p>
+                </div>
+
+                <div class="train-grid">
+                    <div class="train-card">
+                        <h4>📦 Fuentes disponibles</h4>
+                        <div id="sourcesInfo">Cargando...</div>
+                    </div>
+                    <div class="train-card">
+                        <h4>⚙️ Opciones</h4>
+                        <label><input type="checkbox" id="genNPCs" checked> NPCs (~4 pares c/u)</label><br>
+                        <label><input type="checkbox" id="genCriaturas" checked> Criaturas/Taxones</label><br>
+                        <label><input type="checkbox" id="genObjetos" checked> Objetos</label><br>
+                        <label><input type="checkbox" id="genLore" checked> Lore manual (10 pares gold)</label><br><br>
+                        <button class="btn-action btn-primary" onclick="runAutoGenerate()">🚀 Generar ahora</button>
+                    </div>
+                </div>
+
+                <h3>🤖 Generar con Ollama (quality boost)</h3>
+                <div class="info-box warning">
+                    <p>Usa el modelo actual para generar variaciones de alta calidad. Más lento pero produce pares más naturales. Ideal para dejarlo corriendo de noche.</p>
+                </div>
+                <div class="pair-form">
+                    <label>Tema para generar variaciones:</label>
+                    <textarea id="ollamaGenTopic" placeholder="Ej: Genera 5 diálogos de Vlad hablando sobre diferentes temas del Gran Charco"></textarea>
+                    <button class="btn-action btn-primary" onclick="generateWithOllama()">🤖 Generar con Ollama</button>
+                    <div id="ollamaGenResult" style="margin-top:0.5rem;color:#888"></div>
+                </div>
+            </div>
+
+            <!-- TAB: TRAINING -->
+            <div class="tab-content" id="tab-training">
+                <h2>🔥 Lanzar Fine-tuning</h2>
+                <div class="info-box warning">
+                    <h4>⚠️ Requisitos</h4>
+                    <ul>
+                        <li>Python 3.10+ instalado</li>
+                        <li>CUDA toolkit (viene con drivers NVIDIA)</li>
+                        <li>Dataset con mínimo 50 pares (recomendado 300+)</li>
+                        <li>~6-8 GB de VRAM libres (cerrar juegos)</li>
+                    </ul>
+                </div>
+
+                <h3>1️⃣ Instalar dependencias (una sola vez)</h3>
+                <div class="terminal-block">pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+pip install --no-deps trl peft accelerate bitsandbytes
+pip install datasets transformers torch</div>
+
+                <h3>2️⃣ Script de entrenamiento</h3>
+                <div class="terminal-block">python train_plaga.py --dataset dataset_plaga.jsonl --epochs 3 --output plaga-lora</div>
+                <p>El script <code>train_plaga.py</code> se genera automáticamente al exportar el dataset.</p>
+
+                <h3>3️⃣ Importar a Ollama</h3>
+                <div class="terminal-block"># Después de entrenar, exportar a GGUF:
+python export_gguf.py --input plaga-lora --output plaga-trained.gguf
+
+# Crear Modelfile:
+# FROM ./plaga-trained.gguf
+# SYSTEM "Eres el narrador de Plaga..."
+
+# Registrar en Ollama:
+ollama create plaga-trained -f Modelfile.trained</div>
+
+                <h3>4️⃣ Tiempos estimados (tu PC: RTX 3060 Ti)</h3>
+                <table class="data-table">
+                    <thead><tr><th>Pares</th><th>Épocas</th><th>Tiempo</th><th>Calidad</th></tr></thead>
+                    <tbody>
+                        <tr><td>50-100</td><td>3</td><td>~1 hora</td><td>⭐⭐ Básica</td></tr>
+                        <tr><td>200-300</td><td>3</td><td>~4 horas</td><td>⭐⭐⭐ Buena</td></tr>
+                        <tr><td>400-500</td><td>5</td><td>~10 horas (1 noche)</td><td>⭐⭐⭐⭐ Muy buena</td></tr>
+                        <tr><td>1000+</td><td>5</td><td>~24 horas (2 noches)</td><td>⭐⭐⭐⭐⭐ Excelente</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="train-card" style="margin-top:1rem">
+                    <h4>📊 Estado actual</h4>
+                    <p>Dataset: <strong id="trainDatasetStatus">No exportado</strong></p>
+                    <p>Unsloth: <strong id="trainUnslothStatus">No verificado</strong></p>
+                    <p>Último entrenamiento: <strong id="trainLastRun">Nunca</strong></p>
+                </div>
+            </div>
+
+            <!-- TAB: GUIDE -->
+            <div class="tab-content" id="tab-guide">
+                <h2>📖 Guía de Fine-tuning</h2>
+
+                <h3>¿Qué es QLoRA?</h3>
+                <div class="info-box mechanic">
+                    <p><strong>QLoRA</strong> (Quantized Low-Rank Adaptation) entrena solo ~2% de los parámetros del modelo usando 4-bit quantization. Resultado: un modelo de 8B parámetros cabe en 8GB de VRAM para entrenamiento. El modelo base no cambia — solo se agregan pequeños "adaptadores" encima.</p>
+                </div>
+
+                <h3>Formato del Dataset (JSONL)</h3>
+                <div class="terminal-block">{"instruction": "¿Quién es Vlad?", "input": "", "output": "Vlad es una cucaracha anciana de 400 años..."}
+{"instruction": "Narra la llegada al Gran Charco", "input": "", "output": "Otro insecto creyendo que el mundo..."}</div>
+                <p>Cada línea es un JSON independiente con 3 campos:</p>
+                <ul>
+                    <li><code>instruction</code> — Lo que el usuario preguntaría</li>
+                    <li><code>input</code> — Contexto extra (opcional, puede ir vacío)</li>
+                    <li><code>output</code> — La respuesta ideal que queremos que aprenda</li>
+                </ul>
+
+                <h3>Consejos para pares de alta calidad</h3>
+                <table class="data-table">
+                    <thead><tr><th>✅ Bueno</th><th>❌ Malo</th></tr></thead>
+                    <tbody>
+                        <tr><td>Respuestas con tono cínico y vocabulario del juego</td><td>Respuestas genéricas sin personalidad</td></tr>
+                        <tr><td>Datos precisos (nombres, zonas, facciones)</td><td>Información inventada o contradictoria</td></tr>
+                        <tr><td>Variedad de preguntas sobre el mismo tema</td><td>Muchos pares repetitivos</td></tr>
+                        <tr><td>Incluir diálogos de NPCs con personalidad propia</td><td>Todos los NPCs hablando igual</td></tr>
+                        <tr><td>Mezclar narración + datos + opiniones</td><td>Solo datos secos tipo enciclopedia</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Flujo de trabajo recomendado</h3>
+                <ol>
+                    <li><strong>Auto-generar</strong> base desde la wiki (~150 pares)</li>
+                    <li><strong>Usar el Chat IA</strong> para generar respuestas → importar las buenas al dataset</li>
+                    <li><strong>Escribir manualmente</strong> 50-100 pares "gold" con el tono perfecto</li>
+                    <li><strong>Exportar JSONL</strong> y verificar calidad</li>
+                    <li><strong>Entrenar de noche</strong> — lanzar y dormir</li>
+                    <li><strong>Probar</strong> el modelo entrenado → repetir si hace falta</li>
+                </ol>
+            </div>
+
+        </article>
+    </main>
+
+    <script>
+        // ============================================
+        // DATASET MANAGEMENT
+        // ============================================
+        const STORAGE_KEY = 'plaga_training_dataset';
+
+        function getDataset() {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            return raw ? JSON.parse(raw) : [];
+        }
+
+        function saveDataset(data) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            updateUI();
+        }
+
+        function updateUI() {
+            const data = getDataset();
+            const count = data.length;
+            document.getElementById('pairCount').textContent = count;
+            document.getElementById('listCount').textContent = count;
+
+            const pct = Math.min(100, Math.round((count / 400) * 100));
+            const fill = document.getElementById('progressFill');
+            fill.style.width = pct + '%';
+            fill.textContent = `${count}/400 meta`;
+
+            // Render list
+            const list = document.getElementById('pairList');
+            if (count === 0) {
+                list.innerHTML = '<p style="color:#666">No hay pares aún. Agrega manualmente o usa "Auto-generar desde wiki".</p>';
+            } else {
+                const items = data.slice(-50).reverse().map((p, i) => `
+                    <div class="pair-item">
+                        <div class="instruction">📌 ${escapeHtml(p.instruction).substring(0, 120)}${p.instruction.length > 120 ? '...' : ''}</div>
+                        <div class="output">✅ ${escapeHtml(p.output).substring(0, 150)}${p.output.length > 150 ? '...' : ''}</div>
+                        <button class="btn-action btn-danger" style="padding:0.2rem 0.5rem;font-size:0.7rem;margin-top:0.3rem" onclick="removePair(${data.length - 1 - i})">✕</button>
+                    </div>
+                `).join('');
+                list.innerHTML = items + (count > 50 ? `<p style="color:#888">Mostrando últimos 50 de ${count}</p>` : '');
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function addPair() {
+            const instruction = document.getElementById('newInstruction').value.trim();
+            const output = document.getElementById('newOutput').value.trim();
+            if (!instruction || !output) return alert('Ambos campos son requeridos');
+
+            const data = getDataset();
+            data.push({ instruction, input: '', output });
+            saveDataset(data);
+
+            document.getElementById('newInstruction').value = '';
+            document.getElementById('newOutput').value = '';
+        }
+
+        function removePair(index) {
+            const data = getDataset();
+            data.splice(index, 1);
+            saveDataset(data);
+        }
+
+        function clearDataset() {
+            if (!confirm('¿Borrar TODO el dataset? Esta acción no se puede deshacer.')) return;
+            saveDataset([]);
+        }
+
+        // ============================================
+        // EXPORT / IMPORT
+        // ============================================
+        function exportJSONL() {
+            const data = getDataset();
+            if (data.length === 0) return alert('Dataset vacío');
+
+            const jsonl = data.map(d => JSON.stringify(d)).join('\n');
+            const blob = new Blob([jsonl], { type: 'application/jsonl' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'dataset_plaga.jsonl';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importJSONL() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.jsonl,.json';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    try {
+                        const lines = ev.target.result.trim().split('\n');
+                        const pairs = lines.map(l => JSON.parse(l)).filter(p => p.instruction && p.output);
+                        const data = getDataset();
+                        data.push(...pairs);
+                        saveDataset(data);
+                        alert(`Importados ${pairs.length} pares`);
+                    } catch(e) { alert('Error al parsear archivo: ' + e.message); }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        // ============================================
+        // AUTO-GENERATE FROM WIKI
+        // ============================================
+        async function runAutoGenerate() {
+            const genNPCs = document.getElementById('genNPCs').checked;
+            const genCriaturas = document.getElementById('genCriaturas').checked;
+            const genObjetos = document.getElementById('genObjetos').checked;
+            const genLore = document.getElementById('genLore').checked;
+
+            const data = getDataset();
+            let added = 0;
+
+            // NPCs
+            if (genNPCs) {
+                try {
+                    const res = await fetch('/data/npcs_organigrama.json');
+                    const npcs = await res.json();
+                    npcs.forEach(npc => {
+                        const nombre = npc['NOMBRE COMPLETO'] || '';
+                        const cargo = npc['CARGO'] || '';
+                        const personalidad = npc['PERSONALIDAD'] || '';
+                        const desc = npc['DESCRIPCIÓN FÍSICA'] || '';
+                        const motivPub = npc['MOTIVACIÓN PÚBLICA'] || '';
+                        const motivSec = npc['MOTIVACIÓN SECRETA'] || '';
+                        const miedos = npc['MIEDOS'] || '';
+                        const crisis = npc['CONEXIÓN CON LA CRISIS'] || '';
+
+                        if (nombre && personalidad) {
+                            data.push({ instruction: `Preséntate como ${nombre}. Cargo: ${cargo}.`, input: '', output: `${desc} ${personalidad}` });
+                            added++;
+                        }
+                        if (nombre && motivPub && motivSec) {
+                            data.push({ instruction: `¿Cuáles son los objetivos de ${nombre}?`, input: '', output: `Públicamente: ${motivPub}. En secreto: ${motivSec}` });
+                            added++;
+                        }
+                        if (nombre && miedos) {
+                            data.push({ instruction: `¿Qué teme ${nombre}?`, input: '', output: miedos });
+                            added++;
+                        }
+                        if (nombre && crisis) {
+                            data.push({ instruction: `¿Cómo afecta la crisis a ${nombre}?`, input: '', output: crisis });
+                            added++;
+                        }
+                    });
+                } catch(e) { console.warn('Error cargando NPCs:', e); }
+            }
+
+            // Criaturas
+            if (genCriaturas) {
+                try {
+                    const res = await fetch('/data/criaturas.json');
+                    const db = await res.json();
+                    (db.criaturas || []).forEach(c => {
+                        if (c.nombre && c.comportamiento) {
+                            data.push({ instruction: `Describe a ${c.nombre} en combate.`, input: '', output: `${c.nombre} (${c.tipo}): ${c.comportamiento}` });
+                            added++;
+                        }
+                    });
+                } catch(e) { console.warn('Error cargando criaturas:', e); }
+            }
+
+            // Objetos
+            if (genObjetos) {
+                try {
+                    const res = await fetch('/data/objetos.json');
+                    const db = await res.json();
+                    (db.objetos || []).forEach(o => {
+                        if (o.nombre && o.descripcion) {
+                            data.push({ instruction: `¿Qué es "${o.nombre}"?`, input: '', output: `${o.descripcion}${o.efecto ? ' Efecto: ' + o.efecto : ''}` });
+                            added++;
+                        }
+                    });
+                } catch(e) { console.warn('Error cargando objetos:', e); }
+            }
+
+            // Lore manual gold
+            if (genLore) {
+                const lore = [
+                    { instruction: "¿Qué es el Gran Éter?", output: "El Gran Éter. La Era Dorada. Hace 350 millones de años, cuando la atmósfera tenía 35% de oxígeno y los insectos eran titanes. Meganeura oscurecía el sol con alas de 70 centímetros. Arthropleura, 2.5 metros de quitina pura, hacía temblar bosques. Hoy respiramos un patético 21% y nos arrastramos por cunetas." },
+                    { instruction: "¿Quiénes son los Progenitores Divinos?", output: "Meganeura — libélula de 70cm, Patriarca del Cielo, dios de los voladores. Arthropleura — milpiés de 2.5 metros, La Tierra Inamovible, dios de los rastreros. Sus fósiles son reliquias de poder incalculable." },
+                    { instruction: "¿Qué es La Fumigación?", output: "La ley de silencio. Jamás revelar nuestra civilización a los Gigantes. Quien rompe La Fumigación pone en riesgo a todo el Gran Charco. El castigo es la muerte — o el exilio a superficie abierta donde las aves te devoran." },
+                    { instruction: "Describe las 4 facciones.", output: "La Colmena — burócratas del orden. El Enjambre Negro — apocalípticos que buscan El Retorno. Los Sueltos — anarquistas igualitarios. Los Parásitos Libres — mercenarios sin lealtad." },
+                    { instruction: "¿Qué es la Esencia de Taxón?", output: "Tu voluntad individual. De 0% a 100%. Al 0% eres una Marioneta del Cordyceps — un zombi que brota esporas. Game over no es morir — es perder lo que te hace TÚ." },
+                    { instruction: "¿Quién es Ramazzottius?", output: "Yo. 530 millones de años. Tardígrado. He sobrevivido cinco extinciones masivas, el vacío del espacio, radiación letal. Narro esta historia porque me aburro." },
+                    { instruction: "¿Qué es el Retorno del 35%?", output: "La profecía. Algún día el oxígeno volverá al 35% y las Plagas recuperarán su tamaño titánico. El Enjambre Negro lo busca activamente manipulando invernaderos humanos." },
+                    { instruction: "¿Qué es el Silencio Verde?", output: "El Cordyceps. Un hongo que hackea tu sistema nervioso. Se mete en tus ganglios, susurra en tu hemolinfa. Un día te despiertas trepando una pared sin saber por qué. Cuando llegas arriba, ya no eres tú." },
+                    { instruction: "¿Quién gobierna el Gran Charco?", output: "La Reina Cimex III — una chinche que cree que su trono de algodón la hace legítima. Los Parásitos Libres le venden info. Los Sueltos le escupen. El Enjambre Negro reza para que el Cordyceps le coma el cerebro." },
+                    { instruction: "Narra la llegada al Gran Charco.", output: "Otro insecto diminuto creyendo que el mundo le espera. El Gran Charco no te espera — te tolera. He visto imperios nacer y morir en el tiempo que te tomará cruzar esa primera calle sin que te maten. Bienvenido a la cuneta más política de Sudamérica." }
+                ];
+                lore.forEach(l => { data.push({ instruction: l.instruction, input: '', output: l.output }); added++; });
+            }
+
+            saveDataset(data);
+            alert(`✅ Generados ${added} pares nuevos. Total: ${data.length}`);
+        }
+
+        async function autoGenerate() { runAutoGenerate(); }
+
+        // ============================================
+        // GENERATE WITH OLLAMA
+        // ============================================
+        async function generateWithOllama() {
+            const topic = document.getElementById('ollamaGenTopic').value.trim();
+            if (!topic) return alert('Escribe un tema para generar');
+
+            const resultDiv = document.getElementById('ollamaGenResult');
+            resultDiv.textContent = '🤖 Generando... (puede tardar 30-60 segundos)';
+
+            const prompt = `Genera exactamente 5 pares de entrenamiento para un modelo de IA sobre "Plaga: La Descarada".
+Tema: ${topic}
+
+Responde SOLO en este formato JSON (un array):
+[
+  {"instruction": "pregunta del usuario", "output": "respuesta del narrador en tono cínico"},
+  ...
+]
+
+Usa vocabulario del juego: Hemolinfa, Quitina, Taxón, Gran Éter, Fumigación, etc.
+Tono: cínico, despectivo, descarado. Responde en español.`;
+
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: prompt, model: 'plaga-narrator', history: [] })
+                });
+                const data = await res.json();
+
+                if (data.ok) {
+                    // Try to parse JSON from response
+                    const text = data.response;
+                    const jsonMatch = text.match(/\[[\s\S]*\]/);
+                    if (jsonMatch) {
+                        const pairs = JSON.parse(jsonMatch[0]);
+                        const dataset = getDataset();
+                        let added = 0;
+                        pairs.forEach(p => {
+                            if (p.instruction && p.output) {
+                                dataset.push({ instruction: p.instruction, input: '', output: p.output });
+                                added++;
+                            }
+                        });
+                        saveDataset(dataset);
+                        resultDiv.innerHTML = `✅ Agregados ${added} pares generados por Ollama`;
+                    } else {
+                        resultDiv.innerHTML = `⚠️ No se pudo parsear JSON. Respuesta:<br><pre style="font-size:0.8rem;color:#aaa">${escapeHtml(text.substring(0, 500))}</pre>`;
+                    }
+                } else {
+                    resultDiv.textContent = `❌ Error: ${data.error}`;
+                }
+            } catch(e) {
+                resultDiv.textContent = `❌ Error de conexión: ${e.message}`;
+            }
+        }
+
+        function addFromChat() {
+            alert('Tip: usa el Chat IA, genera respuestas buenas, y cópialas aquí manualmente.\nEn futuras versiones se podrá importar directamente del historial del chat.');
+        }
+
+        // ============================================
+        // LOAD SOURCES INFO
+        // ============================================
+        async function loadSourcesInfo() {
+            const div = document.getElementById('sourcesInfo');
+            let html = '';
+            try {
+                const npcs = await (await fetch('/data/npcs_organigrama.json')).json();
+                html += `<p>👥 NPCs: <strong>${npcs.length}</strong> → ~${npcs.length * 4} pares</p>`;
+            } catch(e) { html += '<p>👥 NPCs: error</p>'; }
+            try {
+                const db = await (await fetch('/data/criaturas.json')).json();
+                html += `<p>🧬 Criaturas: <strong>${(db.criaturas||[]).length}</strong> → ~${(db.criaturas||[]).length} pares</p>`;
+            } catch(e) { html += '<p>🧬 Criaturas: error</p>'; }
+            try {
+                const db = await (await fetch('/data/objetos.json')).json();
+                html += `<p>🎒 Objetos: <strong>${(db.objetos||[]).length}</strong> → ~${(db.objetos||[]).length} pares</p>`;
+            } catch(e) { html += '<p>🎒 Objetos: error</p>'; }
+            html += '<p>📖 Lore manual: <strong>10</strong> pares gold</p>';
+            div.innerHTML = html;
+        }
+
+        // ============================================
+        // TABS
+        // ============================================
+        function switchTab(name) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-' + name).classList.add('active');
+        }
+
+        // Init
+        updateUI();
+        loadSourcesInfo();
+    </script>
+</body>
+</html>
+

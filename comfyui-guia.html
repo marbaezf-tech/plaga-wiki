@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComfyUI — Generador de Imágenes · Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🪲 PLAGA</h1><span class="subtitle">La Descarada · Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">✨ El Gran Éter</a></li>
+            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="npcs.html">👥 NPCs</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="ollama-guia.html">🤖 Ollama (IA Local)</a></li>
+            <li><a href="chat.html">💬 Chat IA</a></li>
+            <li><a href="entrenamiento-ia.html">🧠 Entrenamiento IA</a></li>
+            <li><a href="comfyui-guia.html" class="active">🎨 ComfyUI (Arte IA)</a></li>
+            <li class="section-title">Balance / Torneos</li>
+            <li><a href="torneo_pvp_v2.html">⚔🏆 PvP v2</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🎨 ComfyUI — Generación de Arte Local</h1>
+            <div class="intro-box">
+                <p>Guía para instalar y usar <strong>ComfyUI + Stable Diffusion</strong> como generador de imágenes local para Plaga: La Descarada. Concept art, sprites, retratos de NPCs, texturas, fondos — todo generado en tu GPU sin pagar API ni subir tu arte a la nube.</p>
+            </div>
+
+            <!-- SECCIÓN 1: OVERVIEW -->
+            <h2>📋 ¿Qué es ComfyUI?</h2>
+            <div class="info-box mechanic">
+                <h4>🖼️ Resumen</h4>
+                <p>ComfyUI es una interfaz basada en nodos para ejecutar modelos de difusión (Stable Diffusion, FLUX, etc.) localmente. Funciona como un "Unreal Blueprints pero para generar imágenes". Expone una API REST en <code>localhost:8188</code> que permite generar imágenes desde scripts o desde esta wiki.</p>
+                <ul>
+                    <li><strong>Node-based</strong> — pipelines visuales flexibles</li>
+                    <li><strong>API REST</strong> — integrable con el juego y la wiki</li>
+                    <li><strong>LoRA training</strong> — entrenar tu propio estilo visual</li>
+                    <li><strong>100% local</strong> — sin suscripciones ni límites</li>
+                </ul>
+            </div>
+
+            <div class="stat-block">
+                <h3>Hardware (tu PC)</h3>
+                <div class="stat-row"><span class="stat-label">GPU</span><span class="stat-value">RTX 3060 Ti (8 GB VRAM) ✅</span></div>
+                <div class="stat-row"><span class="stat-label">Modelos soportados</span><span class="stat-value">SDXL, SD 1.5, FLUX.1 Dev (con offloading)</span></div>
+                <div class="stat-row"><span class="stat-label">Resolución</span><span class="stat-value">512×512 a 1024×1024</span></div>
+                <div class="stat-row"><span class="stat-label">Tiempo por imagen</span><span class="stat-value">~10-30 segundos (SDXL, 20 steps)</span></div>
+                <div class="stat-row"><span class="stat-label">Espacio</span><span class="stat-value">~7 GB por modelo checkpoint</span></div>
+            </div>
+
+            <!-- SECCIÓN 2: INSTALACIÓN -->
+            <h2>📥 Instalación en Windows</h2>
+            <div class="stat-block">
+                <h3>Método Portable (Recomendado)</h3>
+                <div class="stat-row"><span class="stat-label">1</span><span class="stat-value">Ir a <a href="https://github.com/comfyanonymous/ComfyUI/releases" target="_blank">GitHub Releases de ComfyUI</a></span></div>
+                <div class="stat-row"><span class="stat-label">2</span><span class="stat-value">Descargar <code>ComfyUI_windows_portable_nvidia.7z</code></span></div>
+                <div class="stat-row"><span class="stat-label">3</span><span class="stat-value">Extraer en <code>D:\ComfyUI\</code> (necesitas ~15 GB libres)</span></div>
+                <div class="stat-row"><span class="stat-label">4</span><span class="stat-value">Ejecutar <code>run_nvidia_gpu.bat</code></span></div>
+                <div class="stat-row"><span class="stat-label">5</span><span class="stat-value">Abrir <code>http://localhost:8188</code> en el navegador</span></div>
+            </div>
+
+            <div class="stat-block">
+                <h3>Descargar modelo SDXL</h3>
+                <p>Después de instalar ComfyUI, necesitas un modelo. Descarga uno de estos en <code>ComfyUI/models/checkpoints/</code>:</p>
+                <table class="data-table">
+                    <thead><tr><th>Modelo</th><th>Tamaño</th><th>Estilo</th><th>Fuente</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Juggernaut XL</strong></td><td>~6.5 GB</td><td>Realista + Fantasía</td><td><a href="https://civitai.com/models/133005" target="_blank">CivitAI</a></td></tr>
+                        <tr><td><strong>DreamShaper XL</strong></td><td>~6.5 GB</td><td>Estilo painterly</td><td><a href="https://civitai.com/models/112902" target="_blank">CivitAI</a></td></tr>
+                        <tr><td><strong>Pony Diffusion XL</strong></td><td>~6.5 GB</td><td>Cartoon/Anime (Cassette Beasts style)</td><td><a href="https://civitai.com/models/257749" target="_blank">CivitAI</a></td></tr>
+                        <tr><td><strong>FLUX.1 Dev</strong></td><td>~12 GB</td><td>Última generación, alta calidad</td><td><a href="https://huggingface.co/black-forest-labs/FLUX.1-dev" target="_blank">HuggingFace</a></td></tr>
+                    </tbody>
+                </table>
+                <p><em>Para estilo Cassette Beasts (low poly colorido), recomiendo <strong>Pony Diffusion XL</strong> o <strong>DreamShaper XL</strong>.</em></p>
+            </div>
+
+            <!-- SECCIÓN 3: API -->
+            <h2>🌐 API REST — Generar desde la Wiki</h2>
+            <div class="info-box mechanic">
+                <h4>📡 Endpoints principales</h4>
+                <p>ComfyUI sirve su API en <code>http://localhost:8188</code>. Se puede enviar un workflow completo como JSON y recibir imágenes generadas.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>Endpoints</h3>
+                <table class="data-table">
+                    <thead><tr><th>Método</th><th>Endpoint</th><th>Descripción</th></tr></thead>
+                    <tbody>
+                        <tr><td>POST</td><td><code>/prompt</code></td><td>Enviar workflow para generar imagen</td></tr>
+                        <tr><td>GET</td><td><code>/history/{prompt_id}</code></td><td>Obtener resultado de generación</td></tr>
+                        <tr><td>GET</td><td><code>/view?filename=X</code></td><td>Descargar imagen generada</td></tr>
+                        <tr><td>POST</td><td><code>/upload/image</code></td><td>Subir imagen (para img2img, ControlNet)</td></tr>
+                        <tr><td>GET</td><td><code>/object_info</code></td><td>Lista todos los nodos disponibles</td></tr>
+                        <tr><td>GET</td><td><code>/system_stats</code></td><td>Estado del sistema (VRAM, GPU)</td></tr>
+                        <tr><td>WebSocket</td><td><code>ws://localhost:8188/ws</code></td><td>Progreso en tiempo real</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stat-block">
+                <h3>Ejemplo: Generar imagen vía API</h3>
+                <pre><code># PowerShell — generar un concept art de insecto
+$workflow = @{
+    client_id = "plaga-wiki"
+    prompt = @{
+        "3" = @{
+            class_type = "KSampler"
+            inputs = @{
+                seed = (Get-Random)
+                steps = 20
+                cfg = 7
+                sampler_name = "euler_ancestral"
+                scheduler = "normal"
+                denoise = 1
+                model = @("4", 0)
+                positive = @("6", 0)
+                negative = @("7", 0)
+                latent_image = @("5", 0)
+            }
+        }
+        # ... (workflow completo exportado desde ComfyUI)
+    }
+} | ConvertTo-Json -Depth 10
+
+Invoke-RestMethod -Method POST -Uri "http://localhost:8188/prompt" `
+    -Body $workflow -ContentType "application/json"</code></pre>
+            </div>
+
+            <!-- SECCIÓN 4: PROMPTS PARA PLAGA -->
+            <h2>✍️ Prompts para Plaga: La Descarada</h2>
+            <div class="info-box mechanic">
+                <h4>🎯 Estilo visual objetivo</h4>
+                <p>Cassette Beasts style: <strong>3D Low Poly colorido</strong> para overworld, <strong>2D painterly</strong> para retratos de NPCs y concept art. Paleta oscura con acentos neón verdes/púrpura. Insectos antropomorfizados con personalidad visible.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>Prompts base por categoría</h3>
+                <table class="data-table">
+                    <thead><tr><th>Categoría</th><th>Prompt base</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>NPC Retrato</strong></td><td><code>portrait of an anthropomorphic [insecto], dark moody lighting, RPG character art, detailed chitin texture, glowing green eyes, cinematic, painterly style, dark fantasy</code></td></tr>
+                        <tr><td><strong>Zona/Ambiente</strong></td><td><code>underground insect city inside a drain, bioluminescent fungi, dark atmosphere, isometric view, low poly 3d render, Cassette Beasts style, muted colors with neon green accents</code></td></tr>
+                        <tr><td><strong>Item/Reliquia</strong></td><td><code>game item icon, amber fossil with trapped insect, glowing ethereal light, dark background, RPG inventory item, detailed, digital painting</code></td></tr>
+                        <tr><td><strong>Sprite 2D</strong></td><td><code>pixel art sprite, [insecto] character, side view, transparent background, retro game style, detailed, 64x64</code></td></tr>
+                        <tr><td><strong>Concept Art</strong></td><td><code>concept art sheet, anthropomorphic [insecto] warrior, multiple poses, dark fantasy RPG, armor made of chitin, reference sheet, white background</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stat-block">
+                <h3>Negative prompts recomendados</h3>
+                <pre><code>human, realistic human face, text, watermark, signature, blurry, low quality, deformed, 
+extra limbs, bad anatomy, cartoon eyes on realistic body, oversaturated, childish</code></pre>
+            </div>
+
+            <div class="stat-block">
+                <h3>Ejemplos por NPC</h3>
+                <table class="data-table">
+                    <thead><tr><th>NPC</th><th>Prompt específico</th></tr></thead>
+                    <tbody>
+                        <tr><td>Don Corleone</td><td><code>portrait of a mafia boss fly, green bottle fly, greasy chitin, huge compound red eyes, rubbing front legs together, dark suit made of leaf, noir lighting, cinematic</code></td></tr>
+                        <tr><td>Doña Locura</td><td><code>portrait of an ethereal luna moth, pale green wings burned at edges, ghostly white compound eyes, tattered wings with moon patterns, mystical oracle, purple bioluminescent glow</code></td></tr>
+                        <tr><td>Cimex III</td><td><code>portrait of a regal bed bug queen, sitting on cotton throne, crown of thorns, arrogant pose, dark red exoskeleton, royal chamber with golden webs, fantasy portrait</code></td></tr>
+                        <tr><td>Vlad</td><td><code>portrait of ancient cockroach sage, 400 years old, weathered brown chitin, wise tired eyes, sitting in laboratory setting, surrounded by old books and vials, warm dim lighting</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECCIÓN 5: LoRA VISUAL -->
+            <h2>🧬 LoRA Visual — Entrenar tu propio estilo</h2>
+            <div class="info-box mechanic">
+                <h4>🎨 ¿Qué es un LoRA de imagen?</h4>
+                <p>Un pequeño archivo (~100-300 MB) que enseña al modelo a generar en un estilo específico. Entrenas con 20-50 imágenes de referencia y luego cada imagen que generes mantiene ese estilo consistente. Ideal para sprites del juego.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>Flujo de entrenamiento LoRA visual</h3>
+                <table class="data-table">
+                    <thead><tr><th>Paso</th><th>Qué hacer</th><th>Tiempo</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Recolectar 20-50 imágenes de referencia (tu concept art, estilo objetivo)</td><td>Manual</td></tr>
+                        <tr><td>2</td><td>Etiquetar imágenes con tags (automático con WD Tagger o BLIP)</td><td>~5 min</td></tr>
+                        <tr><td>3</td><td>Instalar <a href="https://github.com/bmaltais/kohya_ss" target="_blank">Kohya_ss</a> o usar <a href="https://github.com/derrian-distro/LoRA_Easy_Training_Scripts" target="_blank">LoRA Easy Training</a></td><td>Una vez</td></tr>
+                        <tr><td>4</td><td>Configurar: 20 épocas, lr=1e-4, dim=32, batch=1</td><td>~2 min</td></tr>
+                        <tr><td>5</td><td>Lanzar entrenamiento (dejar corriendo)</td><td>~1-2 horas</td></tr>
+                        <tr><td>6</td><td>Copiar .safetensors resultante a <code>ComfyUI/models/loras/</code></td><td>~1 min</td></tr>
+                        <tr><td>7</td><td>Usar en workflow con nodo "LoRA Loader" (weight: 0.7-1.0)</td><td>Listo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stat-block">
+                <h3>Ideas de LoRAs para Plaga</h3>
+                <table class="data-table">
+                    <thead><tr><th>LoRA</th><th>Imágenes fuente</th><th>Uso</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>plaga-npc-style</strong></td><td>Retratos existentes de NPCs, concept art de insectos antropomorfos</td><td>Generar nuevos retratos consistentes</td></tr>
+                        <tr><td><strong>plaga-zones</strong></td><td>Screenshots de zonas del juego, concept art de ambientes subterráneos</td><td>Fondos y zonas nuevas</td></tr>
+                        <tr><td><strong>plaga-items</strong></td><td>Icons de items existentes, estilo RPG pixel/painterly</td><td>Generar nuevos items</td></tr>
+                        <tr><td><strong>cassette-beasts-3d</strong></td><td>Screenshots de Cassette Beasts, low poly 3D colorido</td><td>Overworld 3D consistente</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECCIÓN 6: INTEGRACIÓN WIKI -->
+            <h2>🔗 Integración con la Wiki</h2>
+            <div class="info-box warning">
+                <h4>🚧 Próximamente</h4>
+                <p>Una vez ComfyUI esté instalado, se habilitará un generador de imágenes integrado en esta wiki. Podrás escribir un prompt, generar la imagen, y guardarla directamente en <code>img/</code> para usarla en las páginas de NPCs y taxones.</p>
+            </div>
+
+            <div class="stat-block">
+                <h3>Pipeline completo (objetivo)</h3>
+                <ol>
+                    <li>Desde la wiki: escribir prompt + seleccionar estilo</li>
+                    <li>ComfyUI genera la imagen (localhost:8188)</li>
+                    <li>Preview en el navegador</li>
+                    <li>Si apruebas → guardar en <code>wiki/img/</code> y <code>godot/assets/sprites/</code></li>
+                    <li>Auto-asociar a NPC/taxón/zona correspondiente</li>
+                </ol>
+            </div>
+
+            <!-- SECCIÓN 7: REFERENCIAS -->
+            <h2>📚 Referencias</h2>
+            <div class="stat-block">
+                <h3>Links útiles</h3>
+                <ul>
+                    <li><a href="https://github.com/comfyanonymous/ComfyUI" target="_blank">ComfyUI GitHub</a> — Código fuente y releases</li>
+                    <li><a href="https://civitai.com" target="_blank">CivitAI</a> — Modelos, LoRAs, workflows compartidos</li>
+                    <li><a href="https://huggingface.co" target="_blank">HuggingFace</a> — Modelos oficiales (SDXL, FLUX)</li>
+                    <li><a href="https://github.com/bmaltais/kohya_ss" target="_blank">Kohya_ss</a> — Entrenamiento de LoRAs</li>
+                    <li><a href="https://comfyui.org" target="_blank">comfyui.org</a> — Workflows compartidos por la comunidad</li>
+                    <li><a href="https://stable-diffusion-art.com/comfyui/" target="_blank">SD Art — Guía ComfyUI</a> — Tutoriales paso a paso</li>
+                </ul>
+            </div>
+
+        </article>
+    </main>
+</body>
+</html>
+

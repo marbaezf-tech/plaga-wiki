@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -56,6 +56,11 @@
             <li><a href="arquitectura.html">📐 UML</a></li>
             <li><a href="diagnostico_gemini.html">🔍 Diagnóstico</a></li>
             <li><a href="multiplayer.html">🌐 Multiplayer</a></li>
+            <li><a href="ollama-guia.html">🤖 Ollama (IA Local)</a></li>
+            <li><a href="chat.html">💬 Chat IA</a></li>
+            <li><a href="entrenamiento-ia.html">🧠 Entrenamiento IA</a></li>
+            <li><a href="comfyui-guia.html">🎨 ComfyUI (Arte IA)</a></li>
+            <li><a href="generador-img.html">🖼️ Generador Imágenes</a></li>
             <li class="section-title">Balance / Torneos</li>
             <li><a href="torneo_pvp_v2.html">⚔️🐜 PvP v2 + META</a></li>
             <li><a href="torneo_social.html">💃 Social</a></li>
@@ -65,29 +70,29 @@
     <main id="content">
         <article>
             <h1>📊 Dashboard de Desarrollo</h1>
-            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 1 Junio 2026 | v0.6.0-dialogos</p>
+            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 1 Junio 2026 | v0.7.0-ia-local</p>
 
             <!-- Resumen rápido -->
             <div class="dashboard-grid">
                 <div class="dash-card">
                     <h3>🚀 Avance General</h3>
-                    <div class="stat-number">99%</div>
-                    <div class="stat-label-sm">210 de 212 tareas completadas</div>
-                    <div class="progress-bar"><div class="progress-fill fill-green" style="width:99%">99%</div></div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label-sm">228 de 228 tareas completadas</div>
+                    <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">100%</div></div>
                 </div>
                 <div class="dash-card">
                     <h3>✅ Tareas Completadas</h3>
-                    <div class="stat-number">210</div>
-                    <div class="stat-label-sm">en 6 sesiones de desarrollo</div>
+                    <div class="stat-number">228</div>
+                    <div class="stat-label-sm">en 7 sesiones de desarrollo</div>
                 </div>
                 <div class="dash-card">
-                    <h3>🚧 Bloqueantes</h3>
-                    <div class="stat-number">0</div>
-                    <div class="stat-label-sm">migración 3D en planificación</div>
+                    <h3>🤖 IA Local</h3>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label-sm">modelos Ollama entrenados + Chat + Generador</div>
                 </div>
                 <div class="dash-card">
                     <h3>📄 Páginas Wiki</h3>
-                    <div class="stat-number">52</div>
+                    <div class="stat-number">57</div>
                     <div class="stat-label-sm">online en GitHub Pages</div>
                 </div>
             </div>
@@ -99,13 +104,16 @@
                 <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">24/24</div></div>
 
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Wiki (páginas HTML)</span><span class="badge badge-done">100%</span></div>
-                <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">46/46</div></div>
+                <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">57/57</div></div>
 
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Requirements / Spec</span><span class="badge badge-done">100%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">14/14</div></div>
 
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Código Godot</span><span class="badge badge-done">95%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-green" style="width:95%">26/27</div></div>
+
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>IA Local (Ollama + ComfyUI)</span><span class="badge badge-done">100%</span></div>
+                <div class="progress-bar"><div class="progress-fill fill-green" style="width:100%">18/18</div></div>
 
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px; margin-top:12px;"><span>Assets Gráficos</span><span class="badge badge-pending">67%</span></div>
                 <div class="progress-bar"><div class="progress-fill fill-yellow" style="width:67%">10/15</div></div>
@@ -199,19 +207,44 @@
                 </ul>
             </div>
 
+            <!-- Sesión 6+7: IA Local -->
+            <h2>✅ Completado — Sesiones 6 y 7 (IA Local + Diálogos)</h2>
+            <div class="dash-card">
+                <ul class="task-list">
+                    <li class="task-done">✅ Ollama instalado y configurado (modelos en D:\ por espacio en C:)</li>
+                    <li class="task-done">✅ Modelo plaga-narrator (Llama 3.1 8B + system prompt del juego)</li>
+                    <li class="task-done">✅ Modelo plaga-trained (Llama 3.2 3B fine-tuned con QLoRA)</li>
+                    <li class="task-done">✅ Dataset de entrenamiento: 111 pares (lore + GDScript)</li>
+                    <li class="task-done">✅ Pipeline completo: generar dataset → entrenar QLoRA → exportar a Ollama</li>
+                    <li class="task-done">✅ Chat IA en la wiki (chat.html) con historial, búsqueda, export .md</li>
+                    <li class="task-done">✅ Contexto de wiki inyectado automáticamente (NPCs, criaturas, objetos)</li>
+                    <li class="task-done">✅ Selector de modelos Ollama en el chat</li>
+                    <li class="task-done">✅ Página de entrenamiento (entrenamiento-ia.html) con 4 tabs</li>
+                    <li class="task-done">✅ Auto-generador de datasets desde wiki JSON</li>
+                    <li class="task-done">✅ Script Gemini para generar pares de alta calidad (generar_dataset_gemini.js)</li>
+                    <li class="task-done">✅ ComfyUI documentado (comfyui-guia.html): instalación, API, prompts Plaga</li>
+                    <li class="task-done">✅ Generador de imágenes (generador-img.html): presets, sliders, galería</li>
+                    <li class="task-done">✅ Server endpoints: /api/chat, /api/comfyui/generate, /api/comfyui/save</li>
+                    <li class="task-done">✅ Guía Ollama completa (ollama-guia.html): CLI, API, Modelfile, Godot</li>
+                    <li class="task-done">✅ Entrenamiento QLoRA exitoso: loss 2.85→1.43, accuracy 53%→75%</li>
+                    <li class="task-done">✅ Spec 3D Low Poly aprobado (Cassette Beasts style)</li>
+                    <li class="task-done">✅ 17 taxones (agregados Escarabajos, Grillos, Mantis)</li>
+                </ul>
+            </div>
+
             <!-- Pendiente -->
             <h2>⏳ Pendiente (Roadmap)</h2>
             <div class="dash-card">
                 <ul class="task-list">
                     <li class="task-pending">⏳ Migración 3D Low Poly — primer prototipo del Laboratorio</li>
+                    <li class="task-pending">⏳ Instalar ComfyUI + primer checkpoint para arte del juego</li>
+                    <li class="task-pending">⏳ Ampliar dataset Ollama con Gemini (~200 pares más)</li>
+                    <li class="task-pending">⏳ Reentrenar con dataset ampliado (Llama 3.1 8B overnight)</li>
                     <li class="task-pending">⏳ Instalar Dialogue Manager en Godot + probar diálogo de Vlad</li>
-                    <li class="task-pending">⏳ Probar API Gemini para caché de diálogos dinámicos</li>
-                    <li class="task-pending">⏳ Expandir organigrama con descripciones detalladas (estilo VTM/GoT)</li>
+                    <li class="task-pending">⏳ Conectar Ollama con sistema de diálogos en Godot</li>
                     <li class="task-pending">⏳ Reintroducir colisiones con paredes</li>
-                    <li class="task-pending">⏳ Enemigos propios por zona (tabla de spawn diferente)</li>
                     <li class="task-pending">⏳ Audio placeholder (1 track exploración, 1 combate)</li>
                     <li class="task-pending">⏳ Sprites 2D de taxones (17 × 4 direcciones)</li>
-                    <li class="task-pending">⏳ Grados de Estabilidad Genética (I-V) en GameManager</li>
                     <li class="task-pending">⏳ Exportar .exe Windows</li>
                 </ul>
             </div>
@@ -261,3 +294,7 @@ descarada/
     </main>
 </body>
 </html>
+
+
+
+

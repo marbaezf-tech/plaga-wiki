@@ -403,13 +403,14 @@
 | Área | Completado | Total | % |
 |---|---|---|---|
 | Lore/Diseño | 48 | 48 | 100% |
-| Wiki | 53 | 53 | 100% |
+| Wiki | 57 | 57 | 100% |
 | Requirements | 14 | 14 | 100% |
 | Código Godot | 38 | 40 | 95% |
+| IA Local | 18 | 18 | 100% |
 | Assets Gráficos | 16 | 20 | 80% |
 | Audio/Video | 5 | 5 | 100% |
 | Exportación | 3 | 3 | 100% |
-| **TOTAL** | **177** | **183** | **97%** |
+| **TOTAL** | **199** | **205** | **97%** |
 
 ---
 
@@ -614,3 +615,76 @@ Escape = (Velocidad propia / Velocidad enemiga) × 50%
 - [ ] Configurar Camera3D ortográfica con seguimiento
 - [ ] Probar transición 3D→2D para combate
 - [ ] Alimentar caché de diálogos de Vlad con más respuestas via Gemini
+
+---
+
+## 📅 Sesión 7 — 1 Junio 2026 (continuación)
+
+### Ollama — IA Local instalada y configurada
+- [x] Ollama instalado via OllamaSetup.exe (C:\Users\HardwareX\AppData\Local\Programs\Ollama\)
+- [x] Modelos en D:\ (C: es pequeño) — OLLAMA_MODELS_DIR configurado
+- [x] Llama 3.1 8B descargado (4.9 GB)
+- [x] Modelo `plaga-narrator` creado (Llama 3.1 8B + system prompt de Ramazzottius)
+- [x] Modelo `plaga-trained` creado (Llama 3.2 3B fine-tuned con QLoRA, 6.4 GB)
+- [x] Ollama responde via API en localhost:11434
+
+### Fine-tuning QLoRA — Entrenamiento exitoso
+- [x] Python 3.11 instalado con PyTorch CUDA 12.1
+- [x] Dependencias: transformers, PEFT, TRL, bitsandbytes, datasets
+- [x] `train_plaga.py` — script de entrenamiento QLoRA completo
+- [x] Dataset: 129 pares (87 lore + 24 GDScript + 18 wiki)
+- [x] Base model: unsloth/Llama-3.2-3B-Instruct (4-bit QLoRA)
+- [x] Loss: 2.855 → 1.431 | Token accuracy: 53% → 75%
+- [x] LoRA exportado + modelo mergeado a safetensors
+- [x] Conversión safetensors → GGUF via `ollama create` exitosa
+- [x] Modelfile.plaga-trained con temperature 0.85, ctx 4096
+
+### Generador de Datasets
+- [x] `preparar_dataset.js` — genera pares desde wiki JSONs (NPCs, criaturas, objetos)
+- [x] `dataset_godot_code.js` — genera pares de código GDScript del juego
+- [x] `generar_dataset_gemini.js` — usa Gemini API para pares de alta calidad (43 prompts temáticos)
+- [x] `dataset_completo.jsonl` — 129 pares combinados
+- [x] `dataset_wiki_updates.jsonl` — 18 pares nuevos sobre wiki/IA/estado del proyecto
+- [x] `prompt_gemini_manual.txt` — 8 prompts para copiar-pegar en Gemini manualmente
+
+### Wiki — Chat IA integrado
+- [x] `chat.html` — interfaz de chat con Ollama estilo ChatGPT/Gemini
+- [x] Historial de conversaciones persistente (localStorage)
+- [x] Búsqueda en historial, export a .md
+- [x] Selector de modelos Ollama disponibles
+- [x] Contexto de wiki inyectado automáticamente (NPCs, criaturas, objetos)
+- [x] `/api/chat` endpoint en server.js (proxy a Ollama con contexto)
+- [x] `/api/ollama/models` endpoint (lista modelos disponibles)
+
+### Wiki — Entrenamiento IA
+- [x] `entrenamiento-ia.html` — página con 4 tabs:
+  - Dataset: agregar/eliminar pares, import/export JSONL
+  - Auto-generar: desde datos de la wiki
+  - Training: instrucciones Unsloth/QLoRA
+  - Guía: referencia QLoRA completa
+
+### Wiki — ComfyUI + Generador de Imágenes
+- [x] `comfyui-guia.html` — documentación: instalación, API, prompts Plaga, LoRA visual
+- [x] `generador-img.html` — generador funcional con 3 tabs:
+  - Generar: presets, sliders, preview, guardar a wiki
+  - Galería: historial de imágenes generadas
+  - Train LoRA: upload imágenes + generar .bat de entrenamiento
+- [x] Server endpoints: /api/comfyui/generate, /history, /view, /save, /status, /checkpoints
+
+### Wiki — Guía Ollama
+- [x] `ollama-guia.html` — documentación completa:
+  - Instalación, CLI, API REST, Modelfile
+  - Integración con Godot (GDScript)
+  - Estrategia dual (Ollama local + Gemini cloud)
+  - Troubleshooting
+
+### Wiki — Actualizaciones de páginas existentes
+- [x] `dashboard.html` actualizado: v0.7.0-ia-local, 228 tareas, sección IA Local
+- [x] `pitch.html` actualizado: roadmap con v0.7, disclaimer de lo que NO existe
+- [x] `quickstart.html` actualizado: 17 taxones, 5 zonas, Step 6 herramientas IA
+- [x] Sidebar actualizado en todas las páginas con links a IA
+
+### Estado de Gemini
+- [x] API key válida y verificada
+- [x] Rate limited en tier gratuito (429) — se resetea diariamente
+- [x] Script `generar_dataset_gemini.js` listo para correr cuando haya cuota
