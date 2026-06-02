@@ -232,6 +232,92 @@
                 </ul>
             </div>
 
+            <!-- Training Metrics -->
+            <h2>🧠 Training IA — Métricas en Vivo</h2>
+            <div class="dashboard-grid">
+                <div class="dash-card">
+                    <h3>📉 Best Loss</h3>
+                    <div class="stat-number" style="color:#3fb950;">0.6321</div>
+                    <div class="stat-label-sm">Ciclo #3 (LR: 1.00e-04, 5 epochs)</div>
+                </div>
+                <div class="dash-card">
+                    <h3>🔄 Ciclos Completados</h3>
+                    <div class="stat-number">7</div>
+                    <div class="stat-label-sm">3,392 steps totales | 423 pares × 5 epochs</div>
+                </div>
+                <div class="dash-card">
+                    <h3>🤖 Modelo Base</h3>
+                    <div class="stat-number" style="font-size:1.2em;">Llama 3.2 3B</div>
+                    <div class="stat-label-sm">QLoRA 4-bit | Rank 16 | Alpha 32</div>
+                </div>
+                <div class="dash-card">
+                    <h3>📂 Dataset</h3>
+                    <div class="stat-number">423</div>
+                    <div class="stat-label-sm">pares instrucción/respuesta (lore + code + wiki)</div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3>📊 Loss por Ciclo</h3>
+                <div style="display:flex; align-items:flex-end; gap:8px; height:180px; padding:20px 0 0;">
+                    <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
+                        <span style="font-size:0.7em; color:var(--text-muted); margin-bottom:4px;">0.717</span>
+                        <div style="width:100%; background:#3fb950; border-radius:4px 4px 0 0; height:112px;"></div>
+                        <span style="font-size:0.65em; color:var(--text-muted); margin-top:4px;">#1</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
+                        <span style="font-size:0.7em; color:var(--text-muted); margin-bottom:4px;">0.640</span>
+                        <div style="width:100%; background:#3fb950; border-radius:4px 4px 0 0; height:100px;"></div>
+                        <span style="font-size:0.65em; color:var(--text-muted); margin-top:4px;">#2</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
+                        <span style="font-size:0.7em; color:#3fb950; margin-bottom:4px; font-weight:700;">0.632★</span>
+                        <div style="width:100%; background:#3fb950; border-radius:4px 4px 0 0; height:98px; border:2px solid #fff;"></div>
+                        <span style="font-size:0.65em; color:var(--text-muted); margin-top:4px;">#3</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
+                        <span style="font-size:0.7em; color:var(--text-muted); margin-bottom:4px;">0.701</span>
+                        <div style="width:100%; background:#d2992280; border-radius:4px 4px 0 0; height:109px;"></div>
+                        <span style="font-size:0.65em; color:var(--text-muted); margin-top:4px;">#4</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
+                        <span style="font-size:0.7em; color:var(--text-muted); margin-bottom:4px;">0.748</span>
+                        <div style="width:100%; background:#d2992280; border-radius:4px 4px 0 0; height:117px;"></div>
+                        <span style="font-size:0.65em; color:var(--text-muted); margin-top:4px;">#5</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
+                        <span style="font-size:0.7em; color:var(--text-muted); margin-bottom:4px;">0.805</span>
+                        <div style="width:100%; background:#d2992280; border-radius:4px 4px 0 0; height:126px;"></div>
+                        <span style="font-size:0.65em; color:var(--text-muted); margin-top:4px;">#6</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:center; flex:1;">
+                        <span style="font-size:0.7em; color:var(--text-muted); margin-bottom:4px;">0.876</span>
+                        <div style="width:100%; background:#f8514980; border-radius:4px 4px 0 0; height:137px;"></div>
+                        <span style="font-size:0.65em; color:var(--text-muted); margin-top:4px;">#7</span>
+                    </div>
+                </div>
+                <div style="border-top:1px solid var(--border); margin-top:8px; padding-top:8px; font-size:0.75em; color:var(--text-muted);">
+                    Verde = mejoró best loss | Amarillo = reforzó sin mejorar | Rojo = divergiendo (LR demasiado bajo)
+                </div>
+            </div>
+
+            <div class="dash-card" style="margin-top:15px;">
+                <h3>📋 Historial de Ciclos</h3>
+                <table style="font-size:0.8em;">
+                    <tr><th>Ciclo</th><th>Loss</th><th>LR</th><th>Epochs</th><th>Steps</th><th>Total</th><th>Estado</th></tr>
+                    <tr><td>#1</td><td>0.7173</td><td>2.00e-04</td><td>3</td><td>318</td><td>318</td><td><span class="badge badge-done">📈 MEJORÓ</span></td></tr>
+                    <tr><td>#2</td><td>0.6402</td><td>1.50e-04</td><td>4</td><td>424</td><td>742</td><td><span class="badge badge-done">📈 MEJORÓ</span></td></tr>
+                    <tr><td>#3</td><td style="color:#3fb950; font-weight:700;">0.6321 ★</td><td>1.00e-04</td><td>5</td><td>530</td><td>1,272</td><td><span class="badge badge-done">📈 BEST</span></td></tr>
+                    <tr><td>#4</td><td>0.7007</td><td>8.00e-05</td><td>5</td><td>530</td><td>1,802</td><td><span class="badge badge-pending">📉 Reforzó</span></td></tr>
+                    <tr><td>#5</td><td>0.7481</td><td>7.00e-05</td><td>5</td><td>530</td><td>2,332</td><td><span class="badge badge-pending">📉 Reforzó</span></td></tr>
+                    <tr><td>#6</td><td>0.8051</td><td>6.00e-05</td><td>5</td><td>530</td><td>2,862</td><td><span class="badge badge-pending">📉 Reforzó</span></td></tr>
+                    <tr><td>#7</td><td>0.8757</td><td>5.00e-05</td><td>5</td><td>530</td><td>3,392</td><td><span class="badge badge-blocked">⚠️ Diverge</span></td></tr>
+                </table>
+                <div style="margin-top:12px; padding:10px; background:rgba(210,153,34,0.1); border-radius:4px; font-size:0.8em; color:var(--text-secondary);">
+                    <strong>📝 Observación:</strong> El loss subió después del ciclo #3. El LR ya está muy bajo (5e-05) y el modelo está sobreentrenando — los ciclos 4-7 refuerzan el conocimiento pero no mejoran la métrica. El best checkpoint es el ciclo #3 (loss 0.6321). Considerar: ampliar dataset o resetear LR.
+                </div>
+            </div>
+
             <!-- Pendiente -->
             <h2>⏳ Pendiente (Roadmap)</h2>
             <div class="dash-card">
