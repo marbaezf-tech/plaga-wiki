@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪳 El Rastro de la Antena — Novela de la Cucaracha</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid #5c4a1a; padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: #a08030; }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: #a08030; }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid #c9a84c; }
+        .parallel .plaga { border-left: 3px solid #5c4a1a; }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html">🌙 La Luz al Final del Micelio</a></li>
+            <li><a href="novela-arana.html">🕸️ Los Crímenes del Hilo Rojo</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Quitina y Escamas</a></li>
+            <li><a href="novela-mosca.html">🪰 La Larva de Prometeo</a></li>
+            <li><a href="novela-chinche.html">🛏️ Quitina y Prejuicio</a></li>
+            <li><a href="novela-tipula.html">🦿 La Lista de Esperanza</a></li>
+            <li><a href="novela-vinchuca.html">🗡️ La Colmena Silenciosa</a></li>
+            <li><a href="novela-cucaracha.html" class="active">🪳 El Rastro de la Antena</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🪳 El Rastro de la Antena</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Cucaracha</strong> — Noir detectivesco bajo tierra. Una investigadora de la red de información cucaracha es contratada para encontrar al topo que está desangrando a su propia facción. El problema: el topo es ella misma. No lo sabe. No lo recuerda. Sus antenas sí.</p>
+                <p><strong>Tono:</strong> Noir hardboiled, cínico, claustrofóbico. Narrado en primera persona como monólogo interior de detective. Condensación goteando en túneles oscuros. Bruma de feromonas como humo de cigarrillo.<br>
+                <strong>Inspiración:</strong> Edipo Rey (Sófocles) + Chinatown (Polanski) + Memento (Nolan) + El Largo Adiós (Chandler).<br>
+                <strong>Duración:</strong> 10 capítulos.<br>
+                <strong>Línea temporal:</strong> 3 semanas antes del inicio del juego. Esta es la razón por la que la red cucaracha está fracturada cuando el jugador despierta.</p>
+            </div>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🪳</div>
+                <div>
+                    <h4>Gregarina "La Fiscal"</h4>
+                    <p>Investigadora y fixer de la red cucaracha. Fría, metódica, implacable. La mejor rastreadora de fugas del Gran Charco. Nadie sabe que fue abandonada como huevo — ni ella misma. Lleva un Vínculo de Feromona implantado sin su conocimiento que la convierte en agente durmiente del Enjambre Negro. Es Edipo: buscando al culpable, sin saber que se busca a sí misma.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🪳</div>
+                <div>
+                    <h4>La Madrina</h4>
+                    <p>Matriarca de la red cucaracha. 200 años de edad. Controla el flujo de Secretos Destilados en el sector norte. Su secreto: abandonó un huevo hace décadas para protegerlo de Don Bismuto — ese huevo era La Fiscal. Es Yocasta: madre que reconoce a su hija demasiado tarde, y cuyo silencio alimentó la tragedia.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">💀</div>
+                <div>
+                    <h4>Don Bismuto (muerto)</h4>
+                    <p>Broker de información de primer nivel. Fue asesinado hace 4 años por el Enjambre Negro gracias a información que alguien filtró sobre sus rutas seguras. Ese "alguien" fue La Fiscal, bajo el efecto del Vínculo, sin recordarlo jamás. Es Layo: el padre muerto por la mano de su propia sangre sin saberlo.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🌙</div>
+                <div>
+                    <h4>Lumínica "La Pitonisa"</h4>
+                    <p>Polilla vidente del Santuario de la Llama Fría. Tiene visiones fragmentarias del futuro cuando se expone a esporas bioluminiscentes. Le advierte a La Fiscal: "La que buscas lleva tu cara." La Fiscal no entiende. Es el Oráculo de Delfos: la verdad que nadie quiere escuchar.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦗</div>
+                <div>
+                    <h4>El Cantor Ciego (Crisófono)</h4>
+                    <p>Ex-exorcista grillo, ahora ermitaño en las Ruinas Congeladas. Escuchó la verdad sobre La Fiscal en las frecuencias residuales del Vínculo de Feromona. Se niega a hablar. "Pregúntale a tus antenas." Es Tiresias: el ciego que ve más que todos, y cuyo silencio es misericordia disfrazada de crueldad.</p>
+                </div>
+            </div>
+
+            <!-- MAPEO PARALELO -->
+            <h2>🏛️ Mapeo: Edipo Rey → El Rastro de la Antena</h2>
+
+            <div class="parallel">
+                <div class="original"><strong>Edipo Rey (Sófocles)</strong><br>Edipo, rey de Tebas, investiga la causa de la plaga que azota su ciudad.</div>
+                <div class="plaga"><strong>El Rastro de la Antena</strong><br>La Fiscal, fixer cucaracha, investiga la fuga que está desangrando a su red.</div>
+            </div>
+            <div class="parallel">
+                <div class="original"><strong>La plaga sobre Tebas</strong><br>Una maldición divina castiga a la ciudad por un crimen sin resolver.</div>
+                <div class="plaga"><strong>Las muertes en la red</strong><br>Cucarachas de la red aparecen muertas — vendidas al Enjambre Negro una por una.</div>
+            </div>
+            <div class="parallel">
+                <div class="original"><strong>El Oráculo de Delfos</strong><br>"La plaga cesará cuando el asesino de Layo sea expulsado."</div>
+                <div class="plaga"><strong>Lumínica la Pitonisa</strong><br>"La que buscas lleva tu cara. El rastro termina en tus propias antenas."</div>
+            </div>
+            <div class="parallel">
+                <div class="original"><strong>Layo (padre asesinado)</strong><br>Rey anterior de Tebas, muerto por Edipo sin saberlo en un cruce de caminos.</div>
+                <div class="plaga"><strong>Don Bismuto</strong><br>Broker poderoso, padre biológico de La Fiscal, vendido al Enjambre por ella misma bajo el Vínculo.</div>
+            </div>
+            <div class="parallel">
+                <div class="original"><strong>Yocasta (madre/esposa)</strong><br>Se ahorca al descubrir la verdad. Había intentado matar a Edipo de bebé.</div>
+                <div class="plaga"><strong>La Madrina</strong><br>Abandonó el huevo de La Fiscal para "protegerla". Al descubrirse la verdad, se exilia a las cloacas profundas. Su silencio fue su crimen.</div>
+            </div>
+            <div class="parallel">
+                <div class="original"><strong>Tiresias (profeta ciego)</strong><br>Sabe la verdad pero se niega a hablar. Edipo lo acusa de traidor.</div>
+                <div class="plaga"><strong>El Cantor Ciego</strong><br>Escuchó la verdad en las frecuencias. Se niega a decirla. "Pregúntale a tus antenas." La Fiscal lo amenaza.</div>
+            </div>
+            <div class="parallel">
+                <div class="original"><strong>Edipo se arranca los ojos</strong><br>Al descubrir que es el asesino y el esposo de su madre, se ciega.</div>
+                <div class="plaga"><strong>La Fiscal se corta las antenas</strong><br>Al descubrir que es la fuga, se amputa las antenas — el órgano de memoria cucaracha. Pierde todo recuerdo. Para siempre.</div>
+            </div>
+
+            <!-- CAPÍTULOS -->
+            <h2>📖 Capítulos</h2>
+
+            <div class="chapter">
+                <h3>Capítulo 1 — El Encargo</h3>
+                <p>La Madrina convoca a La Fiscal. Tres cucarachas de la red han muerto en dos semanas. Todas vendidas al Enjambre Negro — rutas expuestas, refugios revelados, identidades quemadas. Alguien dentro está filtrando. La Fiscal acepta el caso. La paga: un archivo completo de Secretos Destilados del sector sur. Eso, y seguir viva.</p>
+                <p class="prose">"Hay dos tipos de trabajo en este charco: los que te pagan lo suficiente y los que no puedes rechazar. Este era ambos. La Madrina no te contrata — te informa que ya aceptaste. Sus ojos compuestos me miraron como se mira a una herramienta. Y yo me dejé agarrar. Porque las herramientas no tienen la culpa de lo que cortan."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 2 — Los Muertos que Hablan</h3>
+                <p>La Fiscal examina las tres víctimas. Fermín "Dos Cercos" — corredor de mensajes, encontrado en un ducto de ventilación con las antenas arrancadas. Quirina "La Plomera" — especialista en rutas de escape, ahogada en condensación ácida. Tobías "Muñón" — archivista, desaparecido, solo encontraron su exoesqueleto vacío. Los tres tenían algo en común: acceso al Anillo Interior de la red. Alguien con acceso al Anillo los delató.</p>
+                <p class="prose">"Los muertos no hablan, dicen. Mentira. Los muertos gritan. Solo hay que saber escuchar la frecuencia correcta. Fermín tenía marcas de feromona ajena en el cuello. Quirina fue empujada — las cucarachas no se ahogan solas, sabemos nadar en ácido desde antes de que existiera el hielo. Y Tobías... Tobías ni siquiera dejó un cadáver completo. Solo un disfraz vacío. El Enjambre se lo llevó con traje y todo."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 3 — El Oráculo</h3>
+                <p>Siguiendo una pista sobre transferencias de información al Sector Bioluminiscente, La Fiscal visita a Lumínica, la polilla vidente. La Pitonisa la recibe en su cámara de esporas brillantes y le dice lo que no quiere oír: "La que buscas lleva tu cara. El rastro termina donde empiezan tus antenas." La Fiscal descarta la advertencia como misticismo inútil. Error.</p>
+                <p class="prose">"Las polillas hablan en acertijos porque no saben hablar de otra forma. O porque la verdad directa quema más que la Llama Fría. Lumínica me miró con esos ojos que brillan como si supieran algo que el universo todavía no ha decidido. 'Lleva tu cara,' dijo. Pensé que hablaba en metáforas. Ahora sé que las polillas no usan metáforas. Solo dicen verdades que suenan imposibles hasta que dejan de serlo."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 4 — Pistas Falsas</h3>
+                <p>La Fiscal rastrea a tres sospechosos del Anillo Interior. "Gárgola" — una cucaracha con deudas de juego que podría haber vendido info por desesperación. "Pólvora" — un ex-agente del Enjambre supuestamente reformado. "Cristal" — una joven ambiciosa que quiere subir rápido. Cada uno tiene motive, oportunidad, medios. La Fiscal los interroga con la precisión de un bisturí. Todos mienten sobre algo. Ninguno miente sobre esto.</p>
+                <p class="prose">"En este negocio todos son culpables de algo. El truco no es encontrar al que miente — es encontrar al que miente sobre lo correcto. Gárgola debía tres temporadas de Secretos al sector este. Pólvora todavía olía a Enjambre si te acercabas lo suficiente. Cristal tenía los ojos de alguien que haría lo que fuera por un ascenso. Pero ninguno olía a traición de este calibre. Esto era trabajo de profesional. De alguien que ni siquiera sabe que lo hace."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 5 — Don Bismuto</h3>
+                <p>Investigando el historial de las víctimas, La Fiscal descubre un patrón: todas tuvieron contacto con un broker llamado Don Bismuto — asesinado hace 4 años en circunstancias nunca resueltas. La Fiscal revisa sus propios archivos. Tiene un vacío de memoria de exactamente 72 horas alrededor de la fecha de la muerte de Bismuto. Lo atribuye a una borrachera de feromonas destiladas. No lo es.</p>
+                <p class="prose">"El nombre me sonó como suenan los nombres que olvidaste a propósito. Don Bismuto. Broker de primer nivel. Muerto en el 19,996. Mis archivos personales de esa semana están... vacíos. Tres días en blanco. Le pasa a cualquiera, me dije. Nos emborrachamos. Nos desmayamos. Perdemos tiempo. Pero mi Memoria de Cloaca nunca pierde nada. Nunca. Excepto esos tres días. Y eso, en mi especie, no es un accidente. Es una cirugía."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 6 — La Madrina</h3>
+                <p>La Fiscal confronta a La Madrina con preguntas sobre Bismuto. La matriarca se pone nerviosa por primera vez. Evade, redirige, amenaza sutilmente. Pero La Fiscal presiona. Y entonces La Madrina comete un error: la llama "hija" en un susurro. No como expresión coloquial — como identificación biológica. Las antenas de La Fiscal captan la feromona materna. Es inequívoca. La Madrina es su madre. Don Bismuto era su padre. Y alguien lo vendió al Enjambre Negro.</p>
+                <p class="prose">"'Hija.' Lo dijo como se dice un secreto que llevas 40 años tragándote. Su feromona no mentía — las feromonas maternas son la única verdad que queda en este charco podrido. Me miró con ojos de culpa antigua. Y yo entendí que este caso acababa de dejar de ser un trabajo. Acababa de convertirse en una autopsia de mi propia vida. La información tiene un precio, decimos. Pero nadie te avisa que a veces el precio eres tú."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 7 — El Cantor Ciego</h3>
+                <p>Desesperada por respuestas, La Fiscal viaja a las Ruinas Congeladas para consultar al Cantor Ciego. Crisófono la recibe sin sorpresa. "Te esperaba," dice. "Tus antenas vibran con una frecuencia que no es tuya." La Fiscal exige saber quién filtró a Bismuto. Quién está filtrando ahora. El Cantor Ciego le da la respuesta más cruel del mundo: "Pregúntale a tus antenas." La Fiscal lo amenaza. Él no se inmuta. "Puedes matarme. Pero no puedes des-escuchar lo que ya sabes."</p>
+                <p class="prose">"El grillo ciego vivía entre estalactitas que goteaban como un reloj roto. No me miró — no puede — pero me vio mejor que nadie en 40 años. 'Tus antenas vibran con una frecuencia que no es tuya,' dijo, y su voz de grillo tenía el tono de un médico que te da un diagnóstico terminal. 'Pregúntale a tus antenas.' Le puse una pinza en el cuello. No se movió. 'El problema,' susurró, 'no es que no sepas la respuesta. Es que tus antenas la saben y tú no la escuchas.' Lo solté. Me fui. Pero sus palabras se quedaron. Como esporas."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 8 — El Vínculo</h3>
+                <p>De vuelta en su refugio, La Fiscal hace lo que nunca había hecho: se examina a sí misma. Usa un espejo de mica para revisar la base de sus antenas. Y ahí está. Un residuo de feromona cristalizada — un Vínculo de Feromona — incrustado en la cutícula desde hace años. Alguien la programó. Alguien la convirtió en transmisor involuntario. Cada vez que el Vínculo se activa, ella filtra información sin saberlo — su Memoria de Cloaca se convierte en una transmisión abierta. Las 72 horas perdidas no fueron borrachera. Fue la primera activación.</p>
+                <p class="prose">"El cristal estaba ahí. En la base de mi antena izquierda. Pequeño como una escama, brillante como una condena. Un Vínculo de Feromona. Tecnología del Enjambre Negro — te convierte en radio sin que lo sepas. Cada vez que se activa, tu memoria se vuelve pública. Todo lo que sabes, todo lo que recuerdas, todo lo que tocaste — transmitido a quien tenga el receptor. Yo era la fuga. Yo era la plaga. Y no lo sabía. No podía saberlo. Eso es lo más elegante del Vínculo: el transmisor nunca escucha su propia señal."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 9 — La Revelación</h3>
+                <p>La Fiscal regresa donde La Madrina. Le muestra el Vínculo. La Madrina llora — primera vez en un siglo. Confiesa todo: abandonó el huevo de La Fiscal para alejarla de Bismuto, que tenía enemigos. Pero el Enjambre Negro encontró a la cría de todas formas. La criaron. La entrenaron. Le implantaron el Vínculo antes de "liberarla" a los 6 meses de edad. La Fiscal fue diseñada como arma desde que salió del huevo. Toda su carrera — cada caso resuelto, cada red infiltrada, cada secreto descubierto — alimentó al Enjambre. Ella mató a su propio padre. Ella condenó a Fermín, a Quirina, a Tobías. La plaga sobre la red cucaracha lleva su nombre.</p>
+                <p class="prose">"Yo era la respuesta. Siempre fui la respuesta. Cada caso que resolví, cada red que mapeé, cada secreto que destilé — todo iba directo al Enjambre como agua por un ducto roto. Don Bismuto. Mi padre. Lo vendí yo. No lo recuerdo. Pero mis antenas sí. Mis antenas recuerdan cada traición que cometí durmiendo. Cuarenta años de servicio impecable a la red. Cuarenta años de ser la mejor investigadora del Gran Charco. Y cuarenta años transmitiendo cada maldito secreto al enemigo. El topo perfecto no es el que elige traicionar. Es el que ni siquiera sabe que lo hace."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 10 — Las Antenas Cortadas</h3>
+                <p>La Fiscal toma la única decisión posible. Si sus antenas son el transmisor — y además el órgano de su Memoria de Cloaca — entonces hay una sola forma de detener la fuga y borrar el arma que la convierte en amenaza. Con una cuchilla de obsidiana volcánica, se corta ambas antenas en la base. El dolor es cegador. Pero peor que el dolor es lo que viene después: el silencio. Cuarenta años de recuerdos se disuelven como sal en condensación. Todo. Los casos, los muertos, La Madrina, Bismuto, hasta su propio nombre. Se queda vacía. Se exilia a las cloacas profundas. Nadie la busca. Nadie la recuerda. Porque en la red cucaracha, si no puedes recordar, no existes.</p>
+                <p class="prose">"El filo entró limpio. La antena izquierda cayó primero — con ella se fueron los primeros veinte años. Casos, nombres, caras, sabores de feromona que ya no significan nada. La derecha fue peor. Con ella se fue todo lo demás. Don Bismuto. La Madrina. Mi nombre. El caso. La razón por la que estoy cortándome las antenas. Ya no sé por qué lo hice. Solo sé que era necesario. Creo. Hay condensación cayendo sobre mi cabeza. Estoy en un túnel. No sé cuál. No sé quién soy. Solo sé una cosa — la última frase que mis antenas registraron antes de morir: 'Yo era la respuesta que estaba buscando. Y ahora no puedo ni recordar la pregunta.'"</p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Centrales</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta que plantea</th></tr>
+                <tr><td>🪳 Culpa sin memoria</td><td>¿Eres responsable de crímenes que cometiste sin saberlo? ¿La ignorancia absuelve o solo anestesia?</td></tr>
+                <tr><td>🔍 La investigación como espejo</td><td>¿Qué pasa cuando la verdad que buscas es la verdad que eres?</td></tr>
+                <tr><td>🧠 Identidad y memoria</td><td>Si borras tus recuerdos, ¿muere la persona que fuiste? ¿Es eso suicidio o renacimiento?</td></tr>
+                <tr><td>🕸️ El control invisible</td><td>¿Cuántas de tus decisiones son realmente tuyas? ¿El libre albedrío existe si tu biología es hackeable?</td></tr>
+                <tr><td>👁️ La verdad como castigo</td><td>Edipo se ciega por ver demasiado. La Fiscal se amputa por recordar demasiado. ¿La ignorancia es piedad?</td></tr>
+                <tr><td>🩸 Herencia y destino</td><td>¿Puedes escapar de lo que te hicieron antes de que pudieras elegir?</td></tr>
+            </table>
+
+            <!-- FRASES CLAVE -->
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"La información tiene un precio. El silencio tiene uno más alto. Pero el precio más caro de todos es descubrir que la información que vendes... es la tuya."<br>— La Fiscal, Capítulo 8</blockquote>
+            <blockquote>"La que buscas lleva tu cara. El rastro termina donde empiezan tus antenas."<br>— Lumínica "La Pitonisa", Capítulo 3</blockquote>
+            <blockquote>"No te llamé hija por afecto. Te llamé hija porque es un hecho biológico que llevo cuarenta años intentando olvidar. Y las cucarachas, hija mía, no podemos olvidar nada. Ese es nuestro castigo."<br>— La Madrina, Capítulo 6</blockquote>
+            <blockquote>"Pregúntale a tus antenas. Ellas saben lo que tú te niegas a escuchar. El problema nunca fue encontrar al traidor. El problema es que el traidor eres tú, y tu cuerpo lo grita en una frecuencia que solo tú no puedes oír."<br>— El Cantor Ciego, Capítulo 7</blockquote>
+            <blockquote>"El topo perfecto no es el que elige traicionar. Es el que ni siquiera sabe que lo hace. Cuarenta años. Cuarenta malditos años de servicio impecable. Y cada segundo, una transmisión abierta."<br>— La Fiscal, Capítulo 9</blockquote>
+            <blockquote>"Yo era la respuesta que estaba buscando. Y ahora no puedo ni recordar la pregunta."<br>— La Fiscal, últimas palabras antes de perder la memoria</blockquote>
+
+            <!-- CONEXIÓN CON EL JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>NPCs originados en esta novela</h4>
+                <ul>
+                    <li><strong>Gregarina "El Rata"</strong> — El informante cucaracha que el jugador encuentra. NO es La Fiscal — es su reemplazo en la red. Pero usa sus métodos, sus rutas, su estilo. La ironía: está construido sobre los restos de alguien que ya no existe.</li>
+                    <li><strong>La Madrina</strong> — NPC en las cloacas profundas. Si el jugador la encuentra, está medio loca, repitiendo "hija, hija, hija" sin contexto. Ahora sabes por qué.</li>
+                    <li><strong>"La Sin Antenas"</strong> — Rumor del Gran Charco. Una cucaracha sin memoria que vaga por los túneles más profundos. Nadie sabe quién es. Si el jugador la encuentra (evento raro), ella le dice la única frase que recuerda: "La información tiene un precio." No sabe por qué la dice.</li>
+                    <li><strong>El Cantor Ciego</strong> — Ya aparece en la novela del Grillo. Esta novela explica por qué dice "pregúntale a tus antenas" si un jugador cucaracha lo visita.</li>
+                    <li><strong>Lumínica "La Pitonisa"</strong> — NPC polilla en el Santuario de la Llama Fría. Da pistas crípticas al jugador. Su línea más famosa: "No busques la respuesta. La respuesta te busca a ti."</li>
+                </ul>
+            </div>
+            <div class="info-box lore">
+                <h4>Mecánicas del juego explicadas por esta novela</h4>
+                <ul>
+                    <li><strong>¿Por qué la red cucaracha está fracturada al inicio del juego?</strong> Porque La Fiscal era su mejor agente y su peor enemiga simultáneamente. Cuando se cortó las antenas, la red perdió décadas de Secretos Destilados que solo ella archivaba.</li>
+                    <li><strong>¿Por qué "Memoria de Cloaca" es un defecto jugable?</strong> Porque esta novela demuestra su horror: no puedes olvidar nada — excepto si te amputan el órgano. Recordar todo involuntariamente es una maldición que te convierte en blanco perfecto para quien quiera extraer información.</li>
+                    <li><strong>¿Por qué los "Secretos Destilados" son recurso Y moneda?</strong> Porque en la economía cucaracha, la información ES poder. Don Bismuto murió por ella. La Fiscal mató por ella sin saberlo. Todo tiene un precio en secretos.</li>
+                    <li><strong>¿Qué es el "Vínculo de Feromona" como ítem del juego?</strong> Es el arma que el Enjambre Negro usó contra La Fiscal. Si un jugador lo encuentra, puede implantarlo en un NPC para convertirlo en transmisor involuntario. Es poderoso. Es repugnante. Es exactamente lo que le hicieron a una cría de 6 meses.</li>
+                    <li><strong>¿Por qué Periplaneta (Specimen Alpha) no intervino?</strong> Porque Periplaneta lleva 320 millones de años observando. Una tragedia más entre cucarachas es martes para ella. Pero si el jugador le pregunta sobre La Fiscal, mueve sus antenas ancestrales y dice: "Esa ya no tiene nombre. Los que se cortan las antenas dejan de existir en nuestra historia. Es mejor así."</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h4>Quests conectadas</h4>
+                <ul>
+                    <li><strong>"El Archivo de Bismuto"</strong> — Quest secundaria: encontrar los registros perdidos de Don Bismuto. Recompensa: mapa de rutas seguras (algunas ya comprometidas).</li>
+                    <li><strong>"La Frecuencia Fantasma"</strong> — Si el jugador es cucaracha, puede detectar residuos del Vínculo de Feromona en ciertos túneles. Seguir el rastro lleva a un laboratorio abandonado del Enjambre Negro.</li>
+                    <li><strong>"Pregúntale a tus antenas"</strong> — Diálogo especial con El Cantor Ciego si el jugador es cucaracha con más de 50 Secretos Destilados. Crisófono cuenta una versión cifrada de la historia de La Fiscal como advertencia.</li>
+                </ul>
+            </div>
+
+            <blockquote>"320 millones de años de memoria colectiva. 320 millones de años de sobrevivir a todo: meteoritos, glaciaciones, imperios, plagas. Y la única amenaza que una cucaracha no puede sobrevivir es a sí misma. Delicioso. Absolutamente delicioso. Esta especie se autodestruye con la misma eficiencia con la que sobrevive a todo lo demás. Es casi artístico."<br>— Ramazzottius, sobre la novela</blockquote>
+        </article>
+    </main>
+</body>
+</html>
