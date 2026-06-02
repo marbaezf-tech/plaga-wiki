@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦿 La Lista de Cristal — Novela de la Típula</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent-green); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent-green); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent-green); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .list-item { background: rgba(63,185,80,0.05); border: 1px solid rgba(63,185,80,0.2); border-radius: 4px; padding: 8px 12px; margin: 4px 0; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novela-zancudo.html">🦟 Thriller Militar</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista</a></li>
+            <li><a href="novela-polilla.html">🌙 Lovecraft</a></li>
+            <li><a href="novela-arana.html">🕸️ Policial Poe</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Romeo y Julieta</a></li>
+            <li><a href="novela-mosca.html">🪰 Frankenstein</a></li>
+            <li><a href="novela-chinche.html">🛏️ Orgullo y Prejuicio</a></li>
+            <li><a href="novela-tipula.html" class="active">🦿 La Lista de Cristal</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🦿 La Lista de Cristal</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Típula</strong> — Drama de supervivencia y genocidio. Tras la Falsa Bandera de Don Mosin Nagant, las Típulas son perseguidas como "cómplices de los Zancudos". Encerradas en campos de frío forzado donde sus patas de cristal se quiebran una a una. Doña Esperanza — una Típula diplomática — usa su red de contactos para sacar a cuantas puede. Una lista. Un nombre a la vez.</p>
+                <p><strong>Tono:</strong> Devastador, humano, esperanzador en la oscuridad.<br>
+                <strong>Inspiración:</strong> La Lista de Schindler (Spielberg/Keneally).<br>
+                <strong>Duración:</strong> 10 capítulos.<br>
+                <strong>Contexto temporal:</strong> Días 8-30 después de la Falsa Bandera (inmediatamente después de "El Decreto de la Aguja").<br>
+                <strong>Lore nuevo:</strong> Introduce los 2 sublinajes de Típula — Las Danzarinas (agilidad) y Las Columnas (tanque).</p>
+            </div>
+
+            <blockquote>"Diecisiete nombres. Eso es lo que pude escribir en la seda antes de que se congelara. Diecisiete de ciento cuarenta y tres. Lo llaman heroísmo. Yo lo llamo fracaso con buena prensa."<br>— Doña Esperanza, después</blockquote>
+
+            <h2>🧬 Los 2 Sublinajes Típula</h2>
+            <div class="info-box lore">
+                <h4>Antes de la glaciación, las Típulas eran dos pueblos hermanos:</h4>
+            </div>
+            <div class="character-card">
+                <div class="emoji">💃</div>
+                <div>
+                    <h4>Las Danzarinas — Sublinaje de Agilidad</h4>
+                    <p><strong>Patas:</strong> Finas como agujas, 6 articulaciones extra. Frágiles pero velocísimas.<br>
+                    <strong>Evasión:</strong> 80% base. Imposibles de golpear.<br>
+                    <strong>Rol:</strong> Soporte/evasión. Se mueven entre aliados curando y buffando sin ser tocadas.<br>
+                    <strong>Debilidad:</strong> Un solo golpe les quiebra una pata. A 0 patas = muerte.<br>
+                    <strong>Cultura:</strong> Valoran la gracia, el movimiento, el baile como oración. "Si te quedas quieta, mueres."</p>
+                </div>
+            </div>
+            <div class="character-card">
+                <div class="emoji">🏛️</div>
+                <div>
+                    <h4>Las Columnas — Sublinaje Tanque</h4>
+                    <p><strong>Patas:</strong> Gruesas como pilares, reforzadas con calcio extra. Lentas pero irrompibles.<br>
+                    <strong>Defensa:</strong> QUI 8. Absorben daño. No se quiebran.<br>
+                    <strong>Rol:</strong> Soporte/tanque. Se plantan frente a aliados y absorben golpes. Escudo viviente.<br>
+                    <strong>Debilidad:</strong> Velocidad 1. Últimas en todo. Si necesitan huir, no pueden.<br>
+                    <strong>Cultura:</strong> Valoran la quietud, la resistencia, la meditación. "Si te mueves sin propósito, te quiebras."</p>
+                </div>
+            </div>
+            <div class="info-box warning">
+                <h4>⚠️ Solo una rama llega a la glaciación</h4>
+                <p>Las Columnas no sobrevivieron el Campo de Cristal. Su lentitud les impidió escapar cuando Doña Esperanza abrió la puerta. Las Danzarinas — las que podían correr — son las Típulas que existen en el juego. Las Columnas son historia. Fantasmas. Nombres en una lista que nadie completó.</p>
+            </div>
+
+            <h2>🎭 Personajes</h2>
+            <div class="character-card">
+                <div class="emoji">🦿</div>
+                <div>
+                    <h4>Doña Esperanza — Schindler</h4>
+                    <p><strong>Sublinaje:</strong> Danzarina | <strong>NPC existente del juego</strong><br>
+                    <strong>Perfil:</strong> Diplomática respetada por TODAS las facciones. Habla 4 dialectos de feromona. Tiene contactos en La Colmena, Los Parásitos, y hasta en el Enjambre. Usa cada favor, cada deuda, cada secreto para comprar nombres. Un nombre = una vida = una Típula sacada del campo.<br>
+                    <strong>Dilema:</strong> Cada nombre que añade a la lista cuesta un favor. Los favores se acaban. Las Típulas no.</p>
+                </div>
+            </div>
+            <div class="character-card">
+                <div class="emoji">🦟</div>
+                <div>
+                    <h4>Capitán Rizo — El Carcelero (Amon Göth)</h4>
+                    <p><strong>Taxón:</strong> Zancudo Cercenado (sin alas) | <strong>Facción:</strong> La Colmena (seguridad interna)<br>
+                    <strong>Perfil:</strong> Veterano del Escuadrón Primera Sangre. Fue de los primeros en usar la Presa Cero. No odia a las Típulas por convicción — las odia porque le ORDENARON odiarlas y él solo sabe obedecer. Es la banalidad del mal: un burócrata del sufrimiento.<br>
+                    <strong>Método:</strong> El Campo de Cristal está diseñado para romper patas. Suelo irregular, temperatura -12°C, ductos de aire que soplan ráfagas. Cada día, 2-3 Típulas pierden una pata. A 0 patas se las "procesa" (se las entrega a los Sembradores como biomasa).</p>
+                </div>
+            </div>
+            <div class="character-card">
+                <div class="emoji">🏛️</div>
+                <div>
+                    <h4>Abuela Pilar — La Columna Mayor</h4>
+                    <p><strong>Sublinaje:</strong> Columna (la más vieja del campo) | <strong>Edad:</strong> 5 años (anciana)<br>
+                    <strong>Rol:</strong> Matriarca de las Columnas. Sus patas gruesas resisten el frío. Protege a las Danzarinas jóvenes poniéndose entre ellas y el viento. Cada ráfaga la golpea a ella en vez de a las frágiles. Se está sacrificando en cámara lenta.<br>
+                    <strong>Frase:</strong> "Las Columnas existimos para que las Danzarinas puedan seguir bailando. Siempre fue así. Esto no es diferente."</p>
+                </div>
+            </div>
+
+            <h2>📖 Sinopsis</h2>
+
+            <div class="chapter">
+                <h3>Cap. 1-3 — El Campo de Cristal</h3>
+                <p>Día 8 post-Falsa Bandera. La Colmena ordena "internamiento preventivo" de todas las Típulas del Charco — 143 individuos. "Por su seguridad", dicen. Las llevan al Ducto Norte (la zona más fría del Laboratorio). Lo llaman "El Campo de Cristal" porque el suelo tiene escarcha cristalizada que quiebra patas al caminar.</p>
+                <p>Las Danzarinas (ágiles) aprenden rápido a moverse sin pisar los cristales. Las Columnas (lentas) no pueden esquivarlos. Cada paso es un riesgo. El Capitán Rizo añade "ejercicios matutinos" obligatorios: todas deben caminar de un extremo al otro del ducto. Las que no pueden caminar "se procesan".</p>
+                <p class="prose">"Día 3 en el Campo. La primera Columna perdió su sexta pata hoy. Se llamaba Doña Graciela. Tenía 4 años. Cocinaba. Cuando cayó, no gritó. Dijo: 'Díganle a mi hija que no mire para abajo cuando camine. Que mire al frente. Siempre al frente.' La procesaron a las 6 horas."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Cap. 4-6 — La Lista</h3>
+                <p>Doña Esperanza no está en el campo — su estatus diplomático la protege (por ahora). Desde afuera, negocia. Cada nombre cuesta:</p>
+                <div class="list-item">Nombre #1-3: Regalados por Tipula "La Diplomática" (que gastó sus últimos favores con La Colmena)</div>
+                <div class="list-item">Nombre #4-7: Comprados a Blatta "La Chismosa" a cambio de 3 secretos sobre el Enjambre Negro</div>
+                <div class="list-item">Nombre #8-11: Negociados con Don Corleone a cambio de acceso comercial al exterior por 6 meses</div>
+                <div class="list-item">Nombre #12-14: Pagados a Carmen "La Patrona" con la ubicación de un refugio térmico secreto</div>
+                <div class="list-item">Nombre #15-17: Arrancados al Capitán Rizo con chantaje (ella sabe que él vendió hemolinfa del campo al mercado negro)</div>
+                <p>17 nombres. 17 Típulas que salen del campo con "permisos de trabajo" falsificados. Todas son Danzarinas — las únicas que pueden correr cuando la puerta se abre.</p>
+                <p class="prose">"Rizo me preguntó: '¿Por qué solo Danzarinas? ¿No te importan las Columnas?' Le dije la verdad más horrible de mi vida: 'Las Columnas no pueden correr. Si abro la puerta y no corres, te matan en la salida. No elijo favoritas. Elijo las que pueden SOBREVIVIR a ser elegidas.'"</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Cap. 7-9 — La Elección Imposible</h3>
+                <p>Día 20. Quedan 126 Típulas en el campo. 84 Danzarinas. 42 Columnas. Doña Esperanza consiguió 17 permisos. No hay más favores. No hay más secretos. No hay más chantaje.</p>
+                <p>Abuela Pilar le envía un mensaje desde dentro (vía Tomás "Fosforito" que pasa información): "No gastes más favores en nosotras. Las Columnas decidimos quedarnos. Somos el escudo. Siempre lo fuimos. Usa todo lo que te quede en sacar a las Danzarinas jóvenes. Que bailen. Que corran. Que cuenten lo que pasó aquí."</p>
+                <p>Día 25. El frío aumenta. 8 Columnas más caen. Abuela Pilar pierde su cuarta pata (de 6). Sigue en pie. Con 2 patas. Plantada como un pilar de hielo frente al viento, protegiendo a 3 Danzarinas que tiemblan detrás de ella.</p>
+                <p class="prose">"Le pregunté a la Abuela por qué no se movía del viento. Me dijo: 'Porque si me muevo, el viento llega a ellas. Y ellas son futuro. Yo soy pasado. El pasado no se mueve, niña. El pasado se planta.'"</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Cap. 10 — El Día 30 (La Liberación)</h3>
+                <p>Doña Esperanza ejecuta su último plan: no más negociación. Acción directa. Convence a Dermestes "El Abuelo" de hacer público el registro del campo (violación de 4 leyes de La Colmena). El escándalo obliga a la Reina Cimex III a ordenar el cierre del campo — "por razones de imagen pública".</p>
+                <p>La puerta se abre. Las 67 Danzarinas sobrevivientes corren. Las 19 Columnas que quedan... no pueden. Sus patas rotas. Su velocidad nula. El Capitán Rizo tiene 30 segundos antes de que llegue la guardia de La Colmena a cerrar oficialmente.</p>
+                <p>Abuela Pilar — 2 patas, cuerpo roto, 5 años de vida — se pone EN la puerta. Con lo que le queda de fuerza. Es una Columna. Las Columnas se plantan. Y plantada en esa puerta, obliga al Capitán Rizo a pasar SOBRE ella para cerrarla. Él no se atreve. No por misericordia — por superstición. Pisar a una anciana Columna es mal augurio.</p>
+                <p>Las 19 Columnas salen. Lentas. Arrastrándose. Con 2 patas, con 1 pata, rodando. Pero salen.</p>
+                <p>Abuela Pilar se desploma en el umbral. Su última pata se quiebra al dejar de sostenerla. Muere en la puerta. Mitad dentro, mitad fuera. Como un puente.</p>
+                <p class="prose">"143 entraron. 86 salieron. 57 no. De las 86 que salieron, 67 eran Danzarinas y 19 Columnas. De las 19 Columnas, solo 4 sobrevivieron el invierno siguiente — sus patas nunca se regeneraron. La última Columna pura murió hace 200 años. Las Típulas del juego son TODAS Danzarinas. Las Columnas son la mitad perdida. El fantasma de la otra pata."</p>
+            </div>
+
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"Las Columnas existimos para que las Danzarinas puedan seguir bailando."<br>— Abuela Pilar</blockquote>
+            <blockquote>"Diecisiete nombres. Ciento veintiséis que no pude escribir."<br>— Doña Esperanza</blockquote>
+            <blockquote>"El pasado no se mueve. El pasado se planta."<br>— Abuela Pilar, con 2 patas</blockquote>
+            <blockquote>"No elijo favoritas. Elijo las que pueden sobrevivir a ser elegidas."<br>— Doña Esperanza, sobre por qué solo Danzarinas</blockquote>
+
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <ul>
+                    <li><strong>Doña Esperanza (NPC):</strong> Su quest "demostrar inocencia" ahora tiene peso brutal — no busca limpiar su nombre. Busca limpiar el nombre de 57 muertas.</li>
+                    <li><strong>Las Típulas del juego son SOLO Danzarinas:</strong> Por eso tienen evasión 80% y patas frágiles. Las Columnas se extinguieron. Si alguien menciona "Columnas" en el Charco, los viejos guardan silencio.</li>
+                    <li><strong>Easter egg:</strong> En el Ducto Norte hay 57 marcas pequeñas en la pared. Una por cada Típula que no salió. Si el jugador las cuenta y habla con Doña Esperanza, ella llora y da la reliquia "Fragmento de Pata de Cristal" (+5 evasión, descripción: "Esto es todo lo que queda de ellas").</li>
+                    <li><strong>Abuela Pilar:</strong> Su nombre aparece grabado en el umbral de la puerta del Ducto Norte. Borrado parcialmente. Pero legible con Sensilios ≥ 8.</li>
+                    <li><strong>Sublinaje Columna como mecánica futura:</strong> Si algún DLC permite "resucitar" linajes extintos, las Columnas serían un tanque soporte con patas irrompibles pero velocidad 1.</li>
+                </ul>
+            </div>
+
+            <blockquote>"He visto 47 extinciones desde que despertó mi consciencia. Pero las Columnas no se extinguieron por selección natural. Se extinguieron porque alguien DECIDIÓ que no merecían existir. Y eso, en 530 millones de años, nunca deja de ser repugnante."<br>— Ramazzottius, único comentario que hace sin cinismo</blockquote>
+        </article>
+    </main>
+</body>
+</html>
