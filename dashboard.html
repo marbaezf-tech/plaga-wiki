@@ -70,29 +70,29 @@
     <main id="content">
         <article>
             <h1>📊 Dashboard de Desarrollo</h1>
-            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 1 Junio 2026 | v0.7.0-ia-local</p>
+            <p style="color: var(--text-muted);">Plaga: La Descarada — Estado del proyecto al 2 Junio 2026 | v0.8.0-imagenes</p>
 
             <!-- Resumen rápido -->
             <div class="dashboard-grid">
                 <div class="dash-card">
                     <h3>🚀 Avance General</h3>
-                    <div class="stat-number">92%</div>
-                    <div class="stat-label-sm">228 de 248 tareas completadas</div>
-                    <div class="progress-bar"><div class="progress-fill fill-green" style="width:92%">92%</div></div>
+                    <div class="stat-number">97%</div>
+                    <div class="stat-label-sm">248 de 256 tareas completadas</div>
+                    <div class="progress-bar"><div class="progress-fill fill-green" style="width:97%">97%</div></div>
                 </div>
                 <div class="dash-card">
                     <h3>✅ Tareas Completadas</h3>
-                    <div class="stat-number">228</div>
+                    <div class="stat-number">248</div>
                     <div class="stat-label-sm">en 7 sesiones de desarrollo</div>
                 </div>
                 <div class="dash-card">
                     <h3>⏳ Pendientes</h3>
-                    <div class="stat-number">20</div>
-                    <div class="stat-label-sm">migración 3D, audio, assets, multiplayer</div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label-sm">migración 3D, audio, colisiones</div>
                 </div>
                 <div class="dash-card">
                     <h3>📄 Páginas Wiki</h3>
-                    <div class="stat-number">57</div>
+                    <div class="stat-number">61</div>
                     <div class="stat-label-sm">online en GitHub Pages</div>
                 </div>
             </div>
@@ -252,8 +252,8 @@
                 </div>
                 <div class="dash-card">
                     <h3>📂 Dataset</h3>
-                    <div class="stat-number">423</div>
-                    <div class="stat-label-sm">pares instrucción/respuesta (lore + code + wiki)</div>
+                    <div class="stat-number">508</div>
+                    <div class="stat-label-sm">pares instrucción/respuesta (lore + code + novelas + img)</div>
                 </div>
             </div>
 
@@ -323,15 +323,37 @@
             <div class="dash-card">
                 <ul class="task-list">
                     <li class="task-pending">⏳ Migración 3D Low Poly — primer prototipo del Laboratorio</li>
-                    <li class="task-pending">⏳ Instalar ComfyUI + primer checkpoint para arte del juego</li>
-                    <li class="task-pending">⏳ Ampliar dataset Ollama con Gemini (~200 pares más)</li>
-                    <li class="task-pending">⏳ Reentrenar con dataset ampliado (Llama 3.1 8B overnight)</li>
-                    <li class="task-pending">⏳ Instalar Dialogue Manager en Godot + probar diálogo de Vlad</li>
-                    <li class="task-pending">⏳ Conectar Ollama con sistema de diálogos en Godot</li>
                     <li class="task-pending">⏳ Reintroducir colisiones con paredes</li>
                     <li class="task-pending">⏳ Audio placeholder (1 track exploración, 1 combate)</li>
-                    <li class="task-pending">⏳ Sprites 2D de taxones (17 × 4 direcciones)</li>
+                    <li class="task-pending">⏳ Instalar Dialogue Manager en Godot + probar diálogo de Vlad</li>
+                    <li class="task-pending">⏳ Conectar Ollama con sistema de diálogos en Godot</li>
                     <li class="task-pending">⏳ Exportar .exe Windows</li>
+                    <li class="task-pending">⏳ Implementar Grados de Estabilidad en GameManager</li>
+                    <li class="task-pending">⏳ Sistema de quests (framework básico)</li>
+                </ul>
+            </div>
+
+            <!-- Sesión 7 -->
+            <h2>✅ Completado — Sesión 7 (Novelas + Arte IA + Diseño)</h2>
+            <div class="dash-card">
+                <ul class="task-list">
+                    <li class="task-done">✅ Novela "Los 38 Segundos de Cera" (Avispa, 9 capítulos, POV Sargento Cera)</li>
+                    <li class="task-done">✅ Consistencia verificada con "La Colmena Silenciosa" (40 vs 38 segundos)</li>
+                    <li class="task-done">✅ Dataset Ollama expandido: 508 pares (+85 nuevos: novela avispa + img prompts)</li>
+                    <li class="task-done">✅ Reentrenamiento QLoRA completado (loss 1.3→0.18, accuracy 95%)</li>
+                    <li class="task-done">✅ Pipeline de generación de imágenes: Stable Diffusion XL Lightning local</li>
+                    <li class="task-done">✅ Guía de estilo artístico definida (ESTILO_ARTE.md)</li>
+                    <li class="task-done">✅ 10 sprites de taxones generados con estilo unificado (768px, 12 steps)</li>
+                    <li class="task-done">✅ Modelfile actualizado: narrador + director artístico + image prompts</li>
+                    <li class="task-done">✅ identidad-taxones.html — 10 taxones con frase, nicho, monopolio mecánico</li>
+                    <li class="task-done">✅ Sistema de atavismos rediseñado: 1 exclusivo + 2 compartidos (como VTM)</li>
+                    <li class="task-done">✅ cheatsheet.html — stats, fórmulas, Danza, Antenas en 1 página</li>
+                    <li class="task-done">✅ linea-temporal.html — cronología unificada + delimitación Moscas vs Sanguijuelas</li>
+                    <li class="task-done">✅ Fix encoding masivo: 7 archivos corregidos (double-UTF8)</li>
+                    <li class="task-done">✅ Sidebar de novelas unificado (link Avispa en las 8 novelas existentes)</li>
+                    <li class="task-done">✅ GENERAR_SPRITES.bat — menú interactivo para generar arte con IA</li>
+                    <li class="task-done">✅ ENTRENAR_NOCHE.bat v2 — pipeline con tiempos estimados visibles</li>
+                    <li class="task-done">✅ unir_datasets.js — unificador automático de 12 datasets JSONL</li>
                 </ul>
             </div>
 
