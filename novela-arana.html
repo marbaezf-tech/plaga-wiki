@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕸️ Los Crímenes del Hilo Rojo — Novela de la Araña</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .evidence { background: #0a0f0a; border: 1px solid var(--border); border-left: 4px solid var(--accent-red); padding: 12px; margin: 10px 0; font-family: monospace; font-size: 0.85em; color: var(--accent-red); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-gold); }
+        .parallel .plaga { border-left: 3px solid var(--accent); }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 Thriller Militar</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista</a></li>
+            <li><a href="novela-polilla.html">🌙 Lovecraft</a></li>
+            <li><a href="novela-arana.html" class="active">🕸️ Policial Poe</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Romeo y Julieta</a></li>
+            <li><a href="novela-mosca.html">🪰 Frankenstein</a></li>
+            <li><a href="novela-chinche.html">🛏️ Orgullo y Prejuicio</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🕸️ Los Crímenes del Hilo Rojo</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Araña</strong> — Policial gótico. Una detective de telaraña investiga asesinatos imposibles en la Sala de Máquinas. Cada víctima aparece vaciada de hemolinfa — pero sin una sola marca de punción. La asesina está dejando pistas que solo otra araña podría leer. Porque la asesina QUIERE ser atrapada.</p>
+                <p><strong>Tono:</strong> Gótico, cerebral, claustrofóbico. Narración en primera persona obsesiva.<br>
+                <strong>Inspiración:</strong> Edgar Allan Poe — <em>Los Crímenes de la Calle Morgue</em>, <em>El Corazón Delator</em>, <em>El Gato Negro</em>.<br>
+                <strong>Duración:</strong> 9 capítulos.<br>
+                <strong>Método de detección:</strong> La protagonista "lee" crímenes a través de las vibraciones en su red. Cada movimiento en el Charco llega a ella como una nota musical distorsionada.</p>
+            </div>
+
+            <blockquote>"Toda muerte vibra. Toda mentira vibra diferente. Mi tela no miente — la seda no sabe mentir. Solo hay que escucharla con las ocho patas inmóviles y la mente despierta. El crimen es una frecuencia. Y yo estoy sintonizada."<br>— Arachne, Capítulo 1</blockquote>
+
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🕸️</div>
+                <div>
+                    <h4>Arachne "La Tejedora" — La Detective (C. Auguste Dupin)</h4>
+                    <p><strong>Taxón:</strong> Araña de Rincón | <strong>Facción:</strong> La Colmena (contratista)<br>
+                    <strong>Método:</strong> No sale a investigar. No interroga. No se mueve. Su telaraña cubre TODA la Sala de Máquinas — cada cable, cada ducto, cada grieta. Siente CADA vibración. Cada paso. Cada susurro. Reconstruye crímenes leyendo cómo se movió el aire 6 horas antes.<br>
+                    <strong>Defecto:</strong> Misantrópica extrema. No le importan las víctimas — le importa el puzzle. La belleza del crimen perfecto la excita intelectualmente. Y eso la hace peligrosa.<br>
+                    <strong>NPC existente:</strong> Ya aparece en el juego como ingeniera de infraestructura.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🩸</div>
+                <div>
+                    <h4>"La Seda Roja" — La Asesina (nunca se ve hasta el final)</h4>
+                    <p><strong>Taxón:</strong> Araña Viuda (especie diferente a Arachne)<br>
+                    <strong>Método:</strong> Inyecta enzimas digestivas dentro de las víctimas (como hacen las arañas reales: digestión externa). La víctima se licúa POR DENTRO. No hay punción visible porque la seda conduce la enzima por capilaridad — la araña no toca al cuerpo. Mata a distancia. Con hilo.<br>
+                    <strong>Motivación:</strong> No es dinero. No es venganza. Es COMUNICACIÓN. Cada asesinato deja un patrón en la telaraña que solo otra araña experta puede leer. Los crímenes son cartas de amor dirigidas a Arachne. La Seda Roja la admira. La desafía. La corteja con muerte.<br>
+                    <strong>Equivalente Poe:</strong> La mente criminal en <em>Los Crímenes de la Calle Morgue</em> + la culpa autoimpuesta del <em>Corazón Delator</em>.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🐝</div>
+                <div>
+                    <h4>Vespa "La Sargento" — La que Pide Ayuda (Prefecto de Policía)</h4>
+                    <p><strong>Rol:</strong> 3 obreros del calor aparecen muertos. Vacíos. Sin marcas. La Sargento no entiende cómo. Recurre a Arachne — la única que puede "leer" la escena.<br>
+                    <strong>Tensión:</strong> La Sargento necesita respuestas rápidas (la Reina presiona). Arachne se niega a apurarse. "El hilo no se lee con prisa. Se lee con silencio."</p>
+                </div>
+            </div>
+
+            <h2>🔄 Mapeo: Poe → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>📚 Edgar Allan Poe</strong></div>
+                <div class="plaga"><strong>🕸️ Los Crímenes del Hilo Rojo</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Dupin — genio detective que resuelve desde su sillón</div>
+                <div class="plaga">Arachne — resuelve desde su telaraña sin moverse jamás</div>
+            </div>
+            <div class="parallel">
+                <div class="original">La habitación cerrada (crimen imposible)</div>
+                <div class="plaga">Cuerpos vaciados sin punción visible (digestión por capilaridad de seda)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El narrador obsesivo que se pierde en su propia lógica</div>
+                <div class="plaga">Arachne empieza a admirar a la asesina más que a querer atraparla</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El Corazón Delator — la culpa que late bajo las tablas</div>
+                <div class="plaga">La vibración del último latido de cada víctima queda grabada en la seda para siempre</div>
+            </div>
+            <div class="parallel">
+                <div class="original">"Deep into that darkness peering, long I stood there wondering, fearing"</div>
+                <div class="plaga">"Ocho patas inmóviles. Ocho puntos de escucha. Y en el centro de la red, el eco de algo que no debería estar vivo."</div>
+            </div>
+
+            <h2>📖 Sinopsis</h2>
+
+            <div class="chapter">
+                <h3>Cap. 1-3 — Los Cadáveres Imposibles</h3>
+                <p>Tres obreros del calor aparecen muertos en la Sala de Máquinas. Intervalos: uno cada 48 horas. Misma causa de muerte: completamente vaciados de hemolinfa. Secos como cáscaras de muda. Pero NO hay marcas de punción. No hay agujeros. No hay mordeduras. Es como si la hemolinfa hubiera decidido irse sola.</p>
+                <div class="evidence">INFORME DE ESCENA — Víctima 1:<br>
+                Nombre: Obrero 7 ("Calderas")<br>
+                Estado: Exoesqueleto intacto. Interior vacío. 0% hemolinfa residual.<br>
+                Marcas externas: NINGUNA.<br>
+                Nota: Hebras de seda fina adheridas al tórax. Casi invisibles. Color: rojo.</div>
+                <p>La Sargento llama a Arachne. Le lleva los tres informes. Arachne los lee sin mirarlos — ya lo sabe. Su telaraña cubre la Sala. Sintió las tres muertes como vibraciones anómalas: un temblor largo, suave, decreciente. "Como un arpa que alguien toca al revés."</p>
+                <p class="prose">"Le dije a La Sargento: 'No busques agujeros. Busca seda.' Me miró como si estuviera loca. Pero yo no miro las cosas — las SIENTO. Y lo que sentí en mi red la noche del primer asesinato fue esto: un hilo que no era mío. Tendido entre mi ducto y la víctima. Un hilo rojo. Fino como un pensamiento. Y por ese hilo, gota a gota, la vida del obrero se deslizó hacia abajo. Digestión por capilaridad. Solo una araña puede hacer eso. Solo una araña BRILLANTE."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Cap. 4-6 — El Patrón en la Red</h3>
+                <p>Arachne mapea las posiciones de los tres crímenes. Conecta los puntos con hilo en su red. Forman un triángulo. No cualquier triángulo — un triángulo de Penrose (imposible en 2D, solo funciona en perspectiva). La asesina está dejando geometría imposible como firma. Está hablando EN SEDA.</p>
+                <p>Arachne empieza a decodificar: cada crimen tiene un hilo rojo que conecta con el siguiente. Los hilos forman letras si los lees en el espectro UV. Las letras forman palabras:</p>
+                <div class="evidence">Mensaje decodificado de los hilos rojos:<br><br>
+                Víctima 1 → Víctima 2: "ME"<br>
+                Víctima 2 → Víctima 3: "VES"<br>
+                Víctima 3 → ???: "A_"<br><br>
+                Mensaje parcial: "ME VES A_____"</div>
+                <p>La asesina está escribiéndole a ella. Directamente. Los crímenes son una CARTA. Y necesita más víctimas para terminar la frase.</p>
+                <p class="prose">"Debería haberle dicho a La Sargento inmediatamente. Debería haber puesto guardias en la cuarta posición del patrón. Debería haber hecho lo correcto. Pero no lo hice. Porque quería leer el final del mensaje. Quería saber qué decía después de 'ME VES A'. Y esa curiosidad — esa maldita curiosidad de araña — es mi confesión."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Cap. 7-9 — El Mensaje Completo</h3>
+                <p>Cuarta víctima. Quinta. Arachne no interviene. Deja que mueran para leer la frase completa. Se lo dice a sí misma: "Necesito el mensaje entero para identificar a la asesina." Pero la verdad es peor: disfruta la elegancia del crimen. La Seda Roja es la mente más brillante que ha encontrado. Y Arachne lleva 3 años sin encontrar nada brillante.</p>
+                <div class="evidence">Mensaje COMPLETO decodificado:<br><br>
+                "ME VES AHORA"<br><br>
+                Posición de la última víctima: directamente debajo del nodo central de Arachne.<br>
+                La Seda Roja está EN su red. Ha estado ahí todo el tiempo.</div>
+                <p>La revelación: La Seda Roja no operaba DESDE FUERA. Estaba integrada a la red de Arachne. Sus hilos rojos estaban tejidos DENTRO de la infraestructura. Arachne literalmente dormía sobre la asesina cada noche. Cada vibración que sentía pasaba primero por los hilos de la asesina.</p>
+                <p class="prose">"Levanté la pata delantera izquierda. La apoyé sobre el hilo más cercano. Y el hilo me respondió. No con vibración — con VOZ. Una voz de seda que dijo: 'Hola, Tejedora. Llevas 3 años tejiendo sola. Yo llevo 3 años mirándote tejer. ¿No te cansaste de la soledad? Yo sí. Por eso escribí. En el único idioma que ambas hablamos. ¿Me VES ahora?'"</p>
+                <p><strong>El dilema final:</strong> La Seda Roja se revela. Es una araña viuda — más pequeña, más letal, perfectamente camuflada entre los hilos de Arachne durante AÑOS. No quiere huir. No quiere morir. Quiere QUEDARSE. Quiere que Arachne la acepte como igual. Como compañera de red.</p>
+                <p>Arachne tiene que elegir: delatar a la asesina (que la entiende como nadie) o protegerla (y ser cómplice de 5 muertes). La elección de Poe: el narrador siempre se condena a sí mismo.</p>
+                <p><strong>Final:</strong> Arachne delata la posición de La Seda Roja a La Sargento. La Sargento la ejecuta en el acto. Los hilos rojos se cortan. La red de Arachne pierde 30% de su estructura — se derrumba parcialmente. Arachne se queda sola de nuevo. Más sola que antes. Porque ahora sabe lo que se siente tener a alguien en tu red.</p>
+                <p class="prose">"Hice lo correcto. Entregué a la asesina. Cinco familias tienen justicia. La Sargento tiene su caso cerrado. La Reina tiene su estabilidad. Y yo tengo un agujero en mi red con forma de la única persona que me entendió. Lo correcto duele más que el veneno. Siempre lo supe. Ahora lo SIENTO."</p>
+            </div>
+
+            <h2>🎯 Elementos de Poe</h2>
+            <table>
+                <tr><th>Elemento Poe</th><th>Aplicación</th></tr>
+                <tr><td>🔍 Detective de sillón (Dupin)</td><td>Arachne no se mueve. Resuelve todo desde su red leyendo vibraciones.</td></tr>
+                <tr><td>💀 Crimen de habitación cerrada</td><td>Cuerpos vaciados sin punción. Imposible para todos excepto una araña con conocimiento de capilaridad.</td></tr>
+                <tr><td>❤️ El Corazón Delator (culpa)</td><td>Arachne deja morir a 2 víctimas extra por curiosidad. La culpa vibra en su red para siempre.</td></tr>
+                <tr><td>🐱 El Gato Negro (lo oculto en casa)</td><td>La asesina vivía DENTRO de la red de la detective. Emparedada en seda.</td></tr>
+                <tr><td>📝 Narrador no confiable</td><td>Arachne narra en primera persona. ¿Cuánto de su "lógica" es racionalización de su falta de acción?</td></tr>
+                <tr><td>🌑 Atmósfera gótica opresiva</td><td>Sala de Máquinas: calor, oscuridad, cables como telarañas, zumbido eléctrico constante.</td></tr>
+            </table>
+
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"El crimen perfecto no es el que no se resuelve. Es el que se resuelve demasiado tarde porque el detective estaba disfrutándolo."<br>— Arachne, Capítulo 6</blockquote>
+            <blockquote>"ME VES AHORA"<br>— La Seda Roja, mensaje en hilo, Capítulo 8</blockquote>
+            <blockquote>"Cinco muertos para escribir tres palabras. Cuatro letras por cadáver. Es la tasa de conversión más cara de la historia de la comunicación."<br>— Arachne, analizando el crimen con admiración</blockquote>
+            <blockquote>"La soledad es la telaraña más grande. Y yo acabo de cortar el único hilo que la cruzaba."<br>— Arachne, después de delatar a La Seda Roja</blockquote>
+            <blockquote>"Nevermore."<br>— Último mensaje en hilo rojo, encontrado después de la ejecución. Estaba tejido con la propia seda de Arachne. La Seda Roja lo dejó antes de morir. Sabía que la iba a delatar.</blockquote>
+
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <ul>
+                    <li><strong>Arachne (NPC post-novela):</strong> Si el jugador la visita, su red tiene un agujero visible. Si pregunta por él, ella dice: "No preguntes por los agujeros. Los agujeros son lo que queda cuando haces lo correcto."</li>
+                    <li><strong>Quest "El Hilo Rojo":</strong> Si el jugador tiene SEN ≥ 8, puede detectar hilos rojos residuales en la Sala de Máquinas. Llevan a un mensaje escondido de La Seda Roja (dejó un último crimen sin ejecutar, con la respuesta a una pregunta que nadie hizo).</li>
+                    <li><strong>Mecánica de telaraña:</strong> Si el jugador es Araña, puede "leer vibraciones" en ciertas zonas para obtener información sobre lo que pasó antes (ecos del pasado en la seda).</li>
+                    <li><strong>"Nevermore":</strong> Easter egg. Si el jugador examina la red de Arachne con UV activo, ve las letras tejidas en el agujero. Solo eso. Sin contexto. Sin explicación.</li>
+                </ul>
+            </div>
+
+            <blockquote>"Poe entendía algo que los insectos confirman: el verdadero horror no es el monstruo. Es el detective que deja pasar al monstruo porque quiere ver qué hace después. La curiosidad mata. Pero primero, la curiosidad OBSERVA."<br>— Ramazzottius</blockquote>
+        </article>
+    </main>
+</body>
+</html>
