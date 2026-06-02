@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪰 La Larva de Prometeo — Novela de la Mosca</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent-red); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent-red); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent-red); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-gold); }
+        .parallel .plaga { border-left: 3px solid var(--accent-red); }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista</a></li>
+            <li><a href="novela-polilla.html">🌙 Lovecraft</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Romeo y Julieta</a></li>
+            <li><a href="novela-mosca.html" class="active">🪰 Frankenstein</a></li>
+            <li><a href="novela-chinche.html">🛏️ Orgullo y Prejuicio</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🪰 La Larva de Prometeo</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Mosca</strong> — Ciencia ficción gótica. Una nigromante reúne cadáveres congelados y los reanima usando larvas parasitarias como "sistema nervioso artificial". La criatura despierta. Piensa. Habla. Y le pregunta a su creadora por qué la hizo.</p>
+                <p><strong>Tono:</strong> Gótico, filosófico, trágico. La creadora destruida por su creación.<br>
+                <strong>Inspiración:</strong> Frankenstein (Mary Shelley, 1818).<br>
+                <strong>Duración:</strong> 10 capítulos.<br>
+                <strong>Subtítulo completo:</strong> "La Larva de Prometeo, o el Nigromante Moderno"</p>
+            </div>
+
+            <blockquote>"No le di vida. Le di movimiento. Vida es lo que ella se dio a sí misma cuando abrió los ojos y me preguntó: '¿Por qué?'"<br>— Calliphora "Sofía", Capítulo 4</blockquote>
+
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🪰</div>
+                <div>
+                    <h4>Calliphora "Sofía" — La Creadora (Victor Frankenstein)</h4>
+                    <p><strong>Taxón:</strong> Mosca Verde Botella | <strong>Facción:</strong> Parásitos Libres<br>
+                    <strong>Cargo:</strong> Nigromante del Cementerio de Polvo (NPC existente del juego)<br>
+                    <strong>Motivación:</strong> Demostrar que la muerte no es un final. Que la hemolinfa congelada puede reactivarse. Que un cadáver es solo un cuerpo sin chispa — y ella puede fabricar la chispa.<br>
+                    <strong>Defecto fatal:</strong> Arrogancia intelectual. Nunca se preguntó si su creación QUERRÍA existir.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🧟</div>
+                <div>
+                    <h4>"Retazo" — La Criatura (El Monstruo de Frankenstein)</h4>
+                    <p><strong>Taxón:</strong> Ninguno. Es un ensamblaje de 7 cadáveres de 5 taxones diferentes.<br>
+                    <strong>Composición:</strong> Tórax de Escarabajo (fuerza), patas de Araña (agarre), cabeza de Grillo (percepción acústica), alas de Polilla (vestigiales, no vuela), abdomen de Cucaracha (resistencia), ojos de Mantis (visión 360°), sistema nervioso: larvas de Mosca vivas que simulan sinapsis.<br>
+                    <strong>Nombre:</strong> Sofía la llama "Proyecto Amalgama". La criatura se pone el nombre "Retazo" — porque es pedazos de otros cosidos juntos.<br>
+                    <strong>Inteligencia:</strong> Alta. Las larvas que forman su red neuronal procesan información en paralelo. Piensa más rápido que cualquier plaga individual. Pero no tiene recuerdos. No tiene infancia. No tiene identidad previa. Empieza de cero.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">💀</div>
+                <div>
+                    <h4>Staphylinus "El Enterrador" — El Cómplice (Henry Clerval)</h4>
+                    <p><strong>Taxón:</strong> Escarabajo Enterrador (NPC existente)<br>
+                    <strong>Rol:</strong> Provee los cadáveres a Sofía. No pregunta para qué. No quiere saber. Pero cuando Retazo despierta y habla, El Enterrador es el primero que dice: "¿Qué hemos hecho?"</p>
+                </div>
+            </div>
+
+            <h2>🔄 Mapeo: Frankenstein → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>📚 Frankenstein (Shelley)</strong></div>
+                <div class="plaga"><strong>🪰 La Larva de Prometeo</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Victor Frankenstein (científico obsesivo)</div>
+                <div class="plaga">Sofía (nigromante obsesiva con vencer la muerte)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El Monstruo (ensamblado de cadáveres)</div>
+                <div class="plaga">Retazo (7 cadáveres de 5 taxones + larvas como nervios)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Electricidad como chispa de vida</div>
+                <div class="plaga">Larvas parasitarias como red neuronal artificial</div>
+            </div>
+            <div class="parallel">
+                <div class="original">"It's alive!"</div>
+                <div class="plaga">"Se mueve. Pero... ¿por qué me está mirando?"</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El Monstruo pide una compañera</div>
+                <div class="plaga">Retazo pide que Sofía lo destruya (quiere no existir)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Victor muere persiguiendo al Monstruo</div>
+                <div class="plaga">Sofía muere cuando Retazo le devuelve las larvas (le "devuelve la vida que le dio")</div>
+            </div>
+
+            <h2>📖 Sinopsis</h2>
+
+            <div class="chapter">
+                <h3>ACTO I — La Obsesión (Cap. 1-3)</h3>
+                <p>Sofía lleva 2 años recolectando cadáveres congelados. La crisis de frío del año 20.000 le da material infinito — cada semana hay nuevos muertos. El Enterrador se los vende por hemolinfa caliente sin preguntar.</p>
+                <p>Su teoría: la muerte en insectos no es instantánea. La hemolinfa se congela pero las células no mueren — entran en criptobiosis (como los tardígrados). Si pudieras reconectar los ganglios nerviosos con un sistema externo, el cuerpo volvería a moverse. Y si se mueve... ¿está vivo?</p>
+                <p>Usa sus propias larvas. Las Moscas ponen huevos en cadáveres — las larvas comen tejido muerto. Pero Sofía las ha modificado: en vez de comer, sus larvas se INTEGRAN al sistema nervioso del huésped. Forman conexiones. Simulan sinapsis. Son un cerebro distribuido.</p>
+                <p class="prose">"La muerte es una desconexión. Los ganglios dejan de comunicarse. El sistema falla. Pero ¿qué pasa si les das otro sistema? ¿Uno que no se congele? ¿Uno que crezca con el huésped? Mis larvas no son parásitos. Son infraestructura."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO II — El Despertar (Cap. 4-7)</h3>
+                <p>La noche 847 de su proyecto, Retazo abre los ojos de mantis. Los 6 ojos compuestos se mueven independientemente. Las patas de araña se flexionan. El tórax de escarabajo cruje al expandirse. Y entonces — algo que no debería ser posible — emite un sonido. Con la cabeza de grillo. Un cri-cri quebrado, distorsionado, como una radio mal sintonizada que intenta encontrar una frecuencia.</p>
+                <p>Sofía llora de emoción. El Enterrador retrocede horrorizado.</p>
+                <p>En 72 horas, Retazo aprende a hablar. Las larvas procesan el lenguaje que absorben del ambiente. Su primera frase completa es:</p>
+                <p class="prose">"Yo no pedí esto. ¿Por qué hiciste esto?"</p>
+                <p>Sofía no tiene respuesta. Nunca se lo preguntó. La pregunta "¿por qué?" no era parte del experimento. El éxito de su criatura es su primer fracaso moral.</p>
+                <p>Retazo crece intelectualmente a velocidad absurda (las larvas procesan en paralelo). En una semana lee los registros de El Abuelo. En dos, entiende la política del Charco. En tres, formula su primera demanda a Sofía: "Quiero conocer a otros como yo." Pero no hay otros como él. Es único. Y la unicidad, descubre, es la forma más aguda de soledad.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO III — La Consecuencia (Cap. 8-10)</h3>
+                <p>Retazo intenta integrarse al Charco. Las reacciones son viscerales: horror, repulsión, violencia. La Sargento lo ataca pensando que es un infectado de Cordyceps. Don Corleone quiere capturarlo como atracción de circo. Los Sembradores creen que es una señal del Silencio Verde.</p>
+                <p>Retazo entiende: no fue creado para vivir. Fue creado para probar un punto. Es un experimento, no una persona. Y eso lo destruye por dentro (o por dentro de donde sus larvas simulan un "dentro").</p>
+                <p>Le pide a Sofía que lo destruya. "Desármame. Devuelve los pedazos. Deja que mueran como debían haber muerto."</p>
+                <p>Sofía se niega. No por amor — por orgullo. "Eres mi obra maestra. No te destruiré." Retazo entiende que ella no lo ama. Ama lo que él representa: su victoria sobre la muerte.</p>
+                <p><strong>El final:</strong> Retazo toma una decisión. Si ella no lo destruye, él le devolverá lo que le dio. Extrae sus propias larvas — una a una — y las deposita en Sofía mientras duerme. No para matarla. Para darle lo que ella le dio a él: una segunda vida que no pidió. Que no eligió. Que ahora tiene que vivir.</p>
+                <p>Sofía despierta con larvas bajo su quitina. Conectándose. Expandiéndose. Escucha pensamientos que no son suyos — los fragmentos de memoria de los 7 cadáveres que usó. Está viva. Pero ya no es solo ella.</p>
+                <p>Retazo, sin su red neuronal, se desmorona. Las piezas se separan. Los pedazos vuelven a ser cadáveres. Muere — o deja de estar ensamblado — en silencio, en el Cementerio de Polvo, volviendo a donde salió.</p>
+                <p class="prose">"No me arrepiento de existir. Me arrepiento de que me hayas hecho existir sin preguntarme. Ahora tú sabrás lo que se siente. Buenas noches, madre."</p>
+            </div>
+
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <ul>
+                    <li><strong>Sofía (NPC post-novela):</strong> Si el jugador la visita en el Cementerio de Polvo, ella habla con pausas raras — como si procesara pensamientos ajenos. A veces dice frases que no son suyas.</li>
+                    <li><strong>Retazo como concepto:</strong> Si el jugador consigue 5 partes de cadáveres diferentes, puede intentar la "Fusión de Amalgama" — un crafting secreto que crea un aliado temporal con stats combinados.</li>
+                    <li><strong>El Enterrador cambia:</strong> Después de esta novela, Staphylinus se niega a vender cadáveres. Su diálogo cambia: "Ya no vendo material. No después de lo que vi despertar."</li>
+                </ul>
+            </div>
+
+            <blockquote>"Crear vida es fácil. Cualquier huevo lo hace. Crear vida que PIENSA — eso es jugar a ser Progenitor. Y los Progenitores, recordemos, están muertos. Quizás por buenas razones."<br>— Ramazzottius</blockquote>
+        </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛏️ Quitina y Prejuicio — Novela de la Chinche</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent-gold); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent-gold); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent-gold); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent); }
+        .parallel .plaga { border-left: 3px solid var(--accent-gold); }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista</a></li>
+            <li><a href="novela-polilla.html">🌙 Lovecraft</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Romeo y Julieta</a></li>
+            <li><a href="novela-mosca.html">🪰 Frankenstein</a></li>
+            <li><a href="novela-chinche.html" class="active">🛏️ Orgullo y Prejuicio</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🛏️ Quitina y Prejuicio</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Chinche</strong> — Comedia de costumbres, sátira política y romance imposible en la aristocracia del Gran Charco. Una chinche de alta cuna es forzada a aliarse con una cucaracha de alcantarilla para sobrevivir a una conspiración de palacio. Descubre que el "prejuicio" era mutuo — y que el orgullo mata más que el veneno.</p>
+                <p><strong>Tono:</strong> Satírico, elegante, con puñaladas verbales. Comedia negra con romance lento.<br>
+                <strong>Inspiración:</strong> Orgullo y Prejuicio (Jane Austen, 1813).<br>
+                <strong>Duración:</strong> 12 capítulos.</p>
+            </div>
+
+            <blockquote>"Es una verdad universalmente reconocida que una chinche de buena fortuna debe estar en posesión de un buen colchón. Sin embargo, poco se sabe de los sentimientos o parecer de tales chinches al adquirir su primer vecino... de alcantarilla."<br>— Capítulo 1, primera línea</blockquote>
+
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🛏️</div>
+                <div>
+                    <h4>Cimex "Rebeca" Montalbán — Elizabeth Bennet</h4>
+                    <p><strong>Taxón:</strong> Chinche de Cama | <strong>Facción:</strong> La Colmena (aristocracia menor)<br>
+                    <strong>Edad:</strong> 1 año | <strong>Zona:</strong> Sala de Máquinas (apartamentos de la corte)<br>
+                    <strong>Perfil:</strong> Tercera hija de una familia de chinches venida a menos. Inteligente, mordaz, orgullosa de su linaje pero avergonzada de su pobreza. Su madre la presiona para "casarse bien" — encontrar un macho de casa rica que asegure acceso al calor de la Sala.<br>
+                    <strong>Voz:</strong> "Mi quitina es tan antigua como la de la Reina. Mi cuenta bancaria, en cambio, es más moderna. Moderna como en: no existe."</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🪳</div>
+                <div>
+                    <h4>Gregarina "El Lucho" Sepúlveda — Mr. Darcy</h4>
+                    <p><strong>Taxón:</strong> Cucaracha Americana | <strong>Facción:</strong> Parásitos Libres (magnate de información)<br>
+                    <strong>Edad:</strong> 2 años | <strong>Zona:</strong> El Pasillo (imperio de datos)<br>
+                    <strong>Perfil:</strong> Cucaracha de alcantarilla que se hizo millonario vendiendo información. Es el NPC más rico del Charco después de Don Corleone (que es su socio). Despreciado por la aristocracia chinche como "nuevo rico de cloaca". Callado, arrogante por timidez, incapaz de expresar afecto sin que suene a insulto.<br>
+                    <strong>Voz:</strong> "No necesito la aprobación de nadie cuyo linaje sea más antiguo que su capacidad de pensamiento. Lo cual describe a todas las chinches que he conocido."<br>
+                    <strong>Giro:</strong> Secretamente financia un refugio para plagas sin facción. Nadie lo sabe. Él no lo dice. Porque decirlo sería "buscar aprobación".</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🛏️</div>
+                <div>
+                    <h4>Doña Consuelo Montalbán — Mrs. Bennet</h4>
+                    <p><strong>Taxón:</strong> Chinche de Cama | <strong>Rol:</strong> Madre de Rebeca<br>
+                    <strong>Perfil:</strong> Histérica, obsesionada con casar a sus 5 hijas con machos de buen colchón. Su frase constante: "¡Mis nervios! ¡Mis ganglios! ¡Vamos a morir de frío si no consiguen marido antes del próximo goteo!"</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🪳</div>
+                <div>
+                    <h4>Gregarina "La Cuica" Portales — Caroline Bingley</h4>
+                    <p><strong>Taxón:</strong> Cucaracha (pero se pinta la quitina de dorado para parecer Escarabajo)<br>
+                    <strong>Rol:</strong> Hermana de El Lucho. Desesperada por entrar a la aristocracia chinche. Se avergüenza de ser cucaracha. Odia a Rebeca porque Rebeca no se avergüenza de nada.<br>
+                    <strong>Voz:</strong> "No somos de alcantarilla, querida. Somos de... conducto principal. Hay una diferencia de presupuesto."</p>
+                </div>
+            </div>
+
+            <h2>🔄 Mapeo: Austen → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>📚 Orgullo y Prejuicio</strong></div>
+                <div class="plaga"><strong>🛏️ Quitina y Prejuicio</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Clase social rígida (nobleza vs burguesía)</div>
+                <div class="plaga">Taxón como clase (Chinches = aristócratas, Cucarachas = "nuevos ricos de cloaca")</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El baile de Netherfield</div>
+                <div class="plaga">La Gala del Goteo — evento mensual donde se reparte el agua tibia entre las familias nobles</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Pemberley (la mansión de Darcy)</div>
+                <div class="plaga">El Nodo Central del Pasillo — imperio de información de El Lucho (impresionantemente organizado)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Wickham (el canalla encantador)</div>
+                <div class="plaga">"El Galán" — un Chinche de cama que corteja a todas para robar secretos y venderlos al Enjambre</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Lizzy rechaza la propuesta de Darcy</div>
+                <div class="plaga">Rebeca le dice a El Lucho: "Prefiero morir de frío antes que deber mi calor a una cucaracha."</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Darcy salva a Lydia del escándalo</div>
+                <div class="plaga">El Lucho salva a la hermana menor de Rebeca de ser vendida al Enjambre — sin que nadie se entere</div>
+            </div>
+
+            <h2>📖 Sinopsis</h2>
+
+            <div class="chapter">
+                <h3>ACTO I — La Gala del Goteo (Cap. 1-4)</h3>
+                <p>Doña Consuelo arrastra a sus 5 hijas a la Gala del Goteo — el evento mensual donde las familias nobles reciben su cuota de agua tibia. Gregarina "El Lucho" aparece como invitado de Don Rufino (que le debe favores). Es la primera vez que una cucaracha pisa la Gala.</p>
+                <p>El desprecio es palpable. Las chinches murmuran: "Huele a alcantarilla." "¿Quién lo dejó entrar?" "El dinero no compra linaje." El Lucho, incómodo, se pega a la pared y no habla con nadie. Rebeca lo observa con curiosidad — es la única que no murmura. Pero tampoco se acerca.</p>
+                <p class="prose">"Era grande para una cucaracha. O quizás las cucarachas siempre fueron de ese tamaño y yo nunca me había fijado porque nunca miré para abajo. Tenía la quitina limpia — demasiado limpia. Como si la puliera. Como si le importara lo que pensáramos. Y eso me molestó más que si hubiera llegado sucia."</p>
+                <p>Don Rufino le sugiere a El Lucho que corteje a una de las Montalbán: "Buen linaje, mala cuenta. Tú tienes cuenta. Hagan matemáticas." El Lucho mira a Rebeca y dice la frase que la enfurece para 7 capítulos: "Tolerable, pero no lo suficiente para tentarme."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO II — La Conspiración (Cap. 5-8)</h3>
+                <p>"El Galán" (chinche encantador) corteja a la hermana menor de Rebeca. Es apuesto, divertido, tiene anécdotas del Enjambre Negro que lo hacen parecer aventurero. En realidad trabaja para Blatta "La Chismosa" — seduce hijas de nobles para extraer secretos familiares.</p>
+                <p>Rebeca está encantada con El Galán. Odia a El Lucho. El orden natural del prejuicio funciona perfecto... hasta que La Chismosa publica un rumor devastador: la familia Montalbán tiene un antepasado cucaracha (tres generaciones atrás). El escándalo amenaza con expulsarlas de la corte.</p>
+                <p>Rebeca busca aliados. Nadie la ayuda. Los nobles la evitan. Don Rufino le retira el saludo. La madre entra en crisis nerviosa ("¡MIS GANGLIOS!"). El único que no cambia su comportamiento es El Lucho — porque a él nunca le importó el linaje.</p>
+                <p class="prose">"Le dije que prefería morir de frío antes que deber mi calor a una cucaracha. Y ahora resulta que soy parte cucaracha. El universo tiene un sentido del humor que merece una paliza."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO III — El Orgullo Cae (Cap. 9-12)</h3>
+                <p>El Galán secuestra a la hermana menor — la llevará al Enjambre Negro donde vale más como rehén que como novia. Rebeca descubre que El Lucho ya lo sabía (su red de información lo detectó) y <em>ya actuó</em>: compró la deuda del Galán con Los Parásitos, lo neutralizó, y devolvió a la hermana a casa. Todo en silencio. Sin pedir crédito.</p>
+                <p>Rebeca va a confrontarlo. No a agradecerle — a preguntarle POR QUÉ.</p>
+                <p class="prose">"Entré a su oficina lista para pelear. Le dije: '¿Por qué la salvaste?' Esperaba: 'Porque te amo' o 'Porque era lo correcto'. Él dijo: 'Porque El Galán le debía información a mi red y se negó a pagarla. Tu hermana era colateral. No hagas de esto una historia de amor.' Casi lo golpeo. Casi lo beso. Hice ninguna de las dos cosas. Me fui."</p>
+                <p>Pero con el tiempo, Rebeca entiende: El Lucho no miente. No embellece. No dice lo que quieres oír. Dice lo que es. Y "lo que es" incluye el hecho de que financió un refugio secreto para plagas desplazadas — incluyendo chinches que perdieron su estatus. Como ella.</p>
+                <p><strong>El final:</strong> No hay declaración romántica grandilocuente. No hay beso bajo la lluvia (que en el Charco sería una gotera con óxido). Hay una conversación. Honesta. Incómoda. Donde ambos admiten que se juzgaron mal. Que el orgullo de ella (por linaje) y el de él (por autosuficiencia) son la misma enfermedad con distinto nombre.</p>
+                <p class="prose">"No te propongo matrimonio. Te propongo una alianza de datos. Tú tienes acceso social a lugares donde yo no puedo entrar. Yo tengo recursos que tu familia necesita. Es un trato." Pausa. "Y si en el proceso descubrimos que no nos odiamos... supongo que eso también se puede negociar."</p>
+                <p>Rebeca se ríe por primera vez en 8 capítulos. "Eres terrible con las emociones." "Sí. ¿Y tú?" "También. Hacemos pareja."</p>
+            </div>
+
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"Tolerable, pero no lo suficiente para tentarme."<br>— El Lucho sobre Rebeca, Capítulo 1 (se arrepiente el resto de su vida)</blockquote>
+            <blockquote>"¡Mis ganglios! ¡Cinco hijas y ningún pretendiente con colchón propio! ¡Vamos a morir de frío, aplastadas y SOLTERAS!"<br>— Doña Consuelo, cada capítulo</blockquote>
+            <blockquote>"El linaje es como la quitina vieja: impresionante de lejos, frágil de cerca. Yo prefiero el dinero. El dinero no se agrieta con el frío."<br>— El Lucho, Capítulo 3</blockquote>
+            <blockquote>"Me avergoncé de mi sangre cucaracha. Y luego me avergoncé de haberme avergonzado. El orgullo tiene capas. Como un exoesqueleto. Pelar cada capa duele."<br>— Rebeca, Capítulo 10</blockquote>
+
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <ul>
+                    <li><strong>La Gala del Goteo:</strong> Evento mensual en la Sala de Máquinas al que el jugador puede asistir si tiene FER ≥ 6 o invitación de un NPC noble.</li>
+                    <li><strong>Don Rufino:</strong> NPC existente. Ahora con más profundidad — es el que mueve los hilos sociales.</li>
+                    <li><strong>Gregarina "El Rata":</strong> NPC existente. En esta novela se revela que "El Rata" y "El Lucho" son primos — la red de información cucaracha es familiar.</li>
+                    <li><strong>Mecánica de Estatus:</strong> Si el jugador es Chinche, empieza con +20 rep en La Colmena pero -10 en Parásitos Libres. Si es Cucaracha, al revés. El prejuicio es mecánico.</li>
+                    <li><strong>Quest "El Galán":</strong> Misión secundaria donde el jugador puede ayudar o sabotear al estafador. Afecta reputación con 3 facciones simultáneamente.</li>
+                </ul>
+            </div>
+
+            <blockquote>"Jane Austen escribió sobre humanos que se juzgaban por dinero y apellido. Yo observo insectos que se juzgan por el grosor de su quitina y la limpieza de sus antenas. La diferencia es estética. El patetismo es idéntico."<br>— Ramazzottius, sobre los matrimonios de conveniencia</blockquote>
+        </article>
+    </main>
+</body>
+</html>
