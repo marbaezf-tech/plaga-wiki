@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕷️ La Muda — Novela de la Garrapata</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid #4a3a3a; padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: #7a5a5a; }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: #7a5a5a; }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid #8b6914; }
+        .parallel .plaga { border-left: 3px solid #4a3a3a; }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html">🌙 La Luz al Final del Micelio</a></li>
+            <li><a href="novela-arana.html">🕸️ Los Crímenes del Hilo Rojo</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Quitina y Escamas</a></li>
+            <li><a href="novela-mosca.html">🪰 La Larva de Prometeo</a></li>
+            <li><a href="novela-chinche.html">🛏️ Quitina y Prejuicio</a></li>
+            <li><a href="novela-tipula.html">🦿 La Lista de Esperanza</a></li>
+            <li><a href="novela-vinchuca.html">🗡️ La Colmena Silenciosa</a></li>
+            <li><a href="novela-cucaracha.html">🪳 El Rastro de la Antena</a></li>
+            <li><a href="novela-garrapata.html" class="active">🕷️ La Muda</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🕷️ La Muda</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Garrapata</strong> — Horror doméstico kafkiano. Una garrapata despierta y su exoesqueleto se está ablandando. No puede anclarse. No puede parasitar. Se está convirtiendo en algo que no necesita a nadie — y eso aterroriza a una especie cuya identidad completa es ser parásita de otros. Inspirada en <em>La Metamorfosis</em> (Franz Kafka, 1915) — pero invertida.</p>
+                <p><strong>Tono:</strong> Kafkaesque — horror mundano, burocracia de lo monstruoso, asfixia doméstica, comedia oscura en la precisión administrativa del sufrimiento.<br>
+                <strong>Duración estimada:</strong> 8 capítulos.<br>
+                <strong>Conexión con el juego:</strong> Explora el defecto racial "Dependencia de Anclaje" como prisión existencial, y plantea que la evolución puede ser más aterradora que la enfermedad.</p>
+            </div>
+
+            <blockquote>"Una mañana, tras un sueño intranquilo, Ixodina descubrió que su placa dorsal había perdido la dureza durante la noche. No era dolor. Era peor. Era blandura."<br>— Apertura, Capítulo 1</blockquote>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes Principales</h2>
+
+            <div class="character-card">
+                <div class="emoji">🕷️</div>
+                <div>
+                    <h4>Ixodina — La Proveedora</h4>
+                    <p><strong>Taxón:</strong> Garrapata | <strong>Rol:</strong> Alimentadora principal del Clan Ixodina<br>
+                    <strong>Edad:</strong> 2 años (adulta joven) | <strong>Facción:</strong> La Colmena (rama parasitaria)<br>
+                    <strong>Don:</strong> Anclaje Vital excepcional — capaz de drenar hemolinfa de los hospedadores más blindados del subterráneo. La mejor ancladora de su generación.<br>
+                    <strong>Defecto:</strong> Su exoesqueleto se está ablandando. Sus garfios de anclaje se retraen. Sus quelíceros se atrofian. Se está volviendo blanda, translúcida, incapaz de parasitar. Incapaz de hablar.<br>
+                    <strong>Equivalente:</strong> Gregor Samsa — el hijo que sostenía a la familia y cuya transformación revela que el amor era transaccional.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦴</div>
+                <div>
+                    <h4>Padre Quelato — El Retirado</h4>
+                    <p><strong>Taxón:</strong> Garrapata (viejo) | <strong>Rol:</strong> Patriarca jubilado del clan<br>
+                    <strong>Estado:</strong> "Articulaciones malas." No ancla desde hace un año. Vive de lo que Ixodina trae. Camina por la madriguera con autoridad que ya no se merece.<br>
+                    <strong>Acto definitorio:</strong> Lanza un trozo de resina endurecida contra Ixodina. Se incrusta en su tejido blando. No puede expulsarlo porque su exoesqueleto no endurece.<br>
+                    <strong>Equivalente:</strong> Herr Samsa — el padre que recupera su vigor cuando el hijo deja de ser útil.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🫧</div>
+                <div>
+                    <h4>Madre Hemolina — La Negadora</h4>
+                    <p><strong>Taxón:</strong> Garrapata | <strong>Rol:</strong> Matriarca doméstica<br>
+                    <strong>Estado:</strong> Ansiosa. Niega que su hija esté cambiando. "Se le pasará." "Necesita reposo." "Es la estación." Limpia obsesivamente la madriguera como si la limpieza pudiera curar la blandura.<br>
+                    <strong>Frase recurrente:</strong> "Cuando endurezca de vuelta, todo será como antes."<br>
+                    <strong>Equivalente:</strong> Frau Samsa — la madre que llora pero nunca actúa.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🩷</div>
+                <div>
+                    <h4>Ninfeta — La Hermana</h4>
+                    <p><strong>Taxón:</strong> Garrapata (ninfa, juvenil) | <strong>Rol:</strong> Hermana menor de Ixodina<br>
+                    <strong>Arco:</strong> Inicialmente la única que la cuida. Le lleva células muertas de piel. Le habla. Le pone mantas de seda de araña. Después de 3 capítulos: "Ya ni siquiera se parece a nosotras. Eso que hay ahí no es mi hermana."<br>
+                    <strong>Acto definitorio:</strong> Deja de alimentarla. Es quien dice a la familia: "Tiene que irse."<br>
+                    <strong>Equivalente:</strong> Grete Samsa — la hermana cuyo amor tiene fecha de vencimiento.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🏠</div>
+                <div>
+                    <h4>Los Inquilinos — Los que Reemplazan</h4>
+                    <p><strong>Taxón:</strong> Garrapatas diversas | <strong>Rol:</strong> Parásitos que alquilan los spots de anclaje de Ixodina<br>
+                    <strong>Función narrativa:</strong> La familia renta los hospedadores que antes eran de Ixodina a extraños. Ixodina los escucha alimentarse a través de las paredes de su cuarto. El sonido húmedo del anclaje exitoso — lo que ella ya no puede hacer.<br>
+                    <strong>Equivalente:</strong> Los inquilinos de los Samsa — la degradación de la familia medida en extraños que ocupan tu espacio.</p>
+                </div>
+            </div>
+
+            <!-- EQUIVALENCIAS -->
+            <h2>🔄 Mapeo: La Metamorfosis → La Muda</h2>
+            <div class="parallel">
+                <div class="original"><strong>📖 La Metamorfosis (Kafka, 1915)</strong></div>
+                <div class="plaga"><strong>🕷️ La Muda</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Gregor despierta convertido en insecto</div>
+                <div class="plaga">Ixodina despierta y su exoesqueleto se está ablandando — se convierte en algo NO-insecto</div>
+            </div>
+            <div class="parallel">
+                <div class="original">La transformación es degradación (humano → bicho)</div>
+                <div class="plaga">La transformación es evolución (parásito → autosuficiente) — pero la familia la lee como degradación</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Gregor sostiene a la familia con su trabajo</div>
+                <div class="plaga">Ixodina sostiene al clan con su anclaje — drena hemolinfa para todos</div>
+            </div>
+            <div class="parallel">
+                <div class="original">La habitación de Gregor — su prisión</div>
+                <div class="plaga">La cámara de la madriguera — sellada "para que descanse"</div>
+            </div>
+            <div class="parallel">
+                <div class="original">La manzana que el padre le lanza, se pudre en su caparazón</div>
+                <div class="plaga">La resina endurecida que Quelato le lanza, se incrusta en su tejido blando sin poder ser expulsada</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Grete toca el violín — último momento de conexión</div>
+                <div class="plaga">Ninfeta le trae células muertas — último acto de cuidado antes del rechazo</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Los inquilinos invaden el hogar</div>
+                <div class="plaga">Garrapatas extrañas alquilan los hospedadores de Ixodina</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Gregor muere. La familia siente alivio.</div>
+                <div class="plaga">Ixodina NO muere. Se transforma completamente. Fotosintética. Independiente. La familia siente HORROR — peor que si hubiera muerto.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">La familia va de paseo, aliviada, planea el futuro</div>
+                <div class="plaga">La familia nunca vuelve a mencionar su nombre. Una garrapata libre es una herejía que no se puede procesar.</div>
+            </div>
+
+            <!-- CAPÍTULOS -->
+            <h2>📖 Capítulos</h2>
+
+            <div class="chapter">
+                <h3>I — El Despertar</h3>
+                <p>Ixodina despierta en su lecho de quitina compactada. Intenta levantarse y nota que su placa dorsal cede bajo su propio peso. El escudo que debería ser rígido como ámbar fósil se pliega como una membrana húmeda. Intenta extender sus garfios de anclaje: no responden. Se quedan retraídos, blandos, como apéndices de larva.</p>
+                <p>Hoy debía anclarse al Hospedador 7 — un escarabajo blindado del Nivel 4 que le costó semanas localizar. El clan espera su cargamento de hemolinfa para la semana. Ixodina mira sus garfios inútiles y calcula cuántos días de reserva tiene la familia.</p>
+                <p class="prose">"El informe médico de la mañana era el siguiente: placa dorsal — flexible; garfios primarios — retracción involuntaria; quelíceros — sensibilidad reducida en un 40%. El sujeto comunicó al clan que se encontraba 'algo indispuesta' y que requería un día adicional de preparación antes del anclaje previsto. El clan recibió la información sin comentarios inmediatos, aunque se registró un aumento del 15% en la frecuencia respiratoria colectiva."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>II — La Familia</h3>
+                <p>El Clan Ixodina funciona como toda familia garrapata del subterráneo: un miembro ancla, todos comen. Ixodina es ese miembro desde hace ocho meses, cuando su padre Quelato declaró "articulaciones malas" y se retiró a la cámara principal a supervisar lo que otros hacían.</p>
+                <p>Madre Hemolina administra las reservas de hemolinfa con una meticulosidad que raya en la neurosis. Ninfeta todavía es demasiado joven para anclar — sus garfios no han endurecido del todo. El clan entero depende de que Ixodina salga, se ancle, drene, y vuelva. Cada tres días. Sin excepción.</p>
+                <p>Esta noche, la reserva de hemolinfa baja a nivel naranja. Quelato recorre el pasillo arrastrando sus patas artríticas. Se detiene frente al cuarto de Ixodina. No entra. Solo dice, a través de la pared: "Mañana. Sin falta."</p>
+                <p class="prose">"Según los registros del clan, el último día productivo de Ixodina fue el martes. El miércoles se reportó como 'día de mantenimiento'. El jueves, como 'revisión de garfios'. El viernes, el padre solicitó formalmente a la administradora de reservas un recálculo del presupuesto hemolinfático semanal, 'por precaución'. Nadie mencionó la palabra 'blanda'. Todavía."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>III — El Cuarto</h3>
+                <p>El séptimo día, Ixodina no puede disimular. Su dorso es completamente translúcido — se ven sus órganos pulsando debajo. Sus garfios no se extienden en absoluto. La membrana de sus patas es tan fina que deja huellas húmedas por donde camina.</p>
+                <p>Reunión familiar en la cámara principal. Ixodina no está invitada pero lo escucha todo — las paredes de la madriguera son quitina compactada, no piedra. Cada palabra resuena.</p>
+                <p>"Necesita reposo", dice Hemolina. "Necesita trabajar", dice Quelato. "Necesita que la vea un quitinólogo", dice Ninfeta. Los tres están de acuerdo en algo: Ixodina debe quedarse en su cuarto hasta que "endurezca de vuelta".</p>
+                <p>Le sellan la entrada con una cortina de seda. "Por tu comodidad", explica Hemolina. "Para que descanses sin corrientes de aire." Ixodina no protesta. Su garganta también se está ablandando.</p>
+                <p class="prose">"El protocolo de aislamiento fue implementado a las 14:00 horas del octavo día. Se proporcionó al sujeto una ración diaria de células epidérmicas muertas (calidad estándar), acceso a un recipiente de humedad, y una cortina de seda arácnida de grado 3 para 'privacidad'. El sujeto aceptó las condiciones sin objeción verbal. Nota al margen: se desconoce si la ausencia de objeción fue por conformidad o por incapacidad articulatoria progresiva."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>IV — Los Inquilinos</h3>
+                <p>Sin Ixodina, el clan necesita hemolinfa. Quelato — que hace un año no podía caminar hasta la cocina — de pronto tiene la energía para "gestionar" la situación. Contacta a tres garrapatas independientes. Les ofrece los hospedadores que Ixodina tenía mapeados: el escarabajo del Nivel 4, la cucaracha dormilona del pasaje Este, el ciempiés lento del pozo de condensación.</p>
+                <p>El trato: los inquilinos anclan en esos hospedadores, y pagan al clan un 30% de la hemolinfa obtenida como "renta de ruta". Es menos de lo que Ixodina traía. Pero es algo.</p>
+                <p>Ixodina escucha todo a través de las paredes. El sonido húmedo de garfios clavándose en quitina ajena. El succionar rítmico. Las risas de extraños en su madriguera, alimentándose de sus rutas, durmiendo en las cámaras que ella mantenía limpias.</p>
+                <p class="prose">"Los nuevos residentes fueron registrados bajo contrato temporal (renovable) en el ledger hemolinfático del clan. Se les asignaron las rutas de alimentación previamente operadas por el miembro Ixodina (actualmente en licencia médica indefinida). La productividad de los inquilinos fue catalogada como 'aceptable' por la administración. Se consignó en actas que 'el arreglo actual, aunque subóptimo, demuestra que la operación del clan no depende de ningún miembro individual'. La minuta fue leída en voz alta. La puerta del cuarto de Ixodina estaba abierta."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>V — La Manzana</h3>
+                <p>Día veintidós. Uno de los inquilinos se queja del olor que viene del cuarto de Ixodina. "Huele a vivo", dice. "A algo húmedo y vivo. No es normal."</p>
+                <p>Quelato va al cuarto. Abre la cortina. Lo que ve lo perturba de una forma que no puede nombrar: Ixodina está acurrucada en un rincón. Su cuerpo es casi completamente translúcido. No tiene nada del aspecto duro, oscuro, impenetrable de una garrapata. Parece... una gota. Una cosa blanda que respira.</p>
+                <p>"Esto no es una garrapata", dice Quelato. No grita. Lo dice con la calma de quien constata un hecho administrativo. Después agarra un trozo de resina endurecida — de las que se usan para sellar túneles — y lo lanza. Con fuerza. El trozo impacta en el dorso de Ixodina y se HUNDE. Se incrusta en el tejido blando como una piedra en barro. No rebota. No se puede quitar. Su exoesqueleto no endurece para expulsarlo.</p>
+                <p>Ixodina no grita. No puede. Solo se contrae alrededor del objeto extraño que ahora es parte de ella.</p>
+                <p class="prose">"Incidente registrado: el patriarca arrojó un fragmento de resina (clasificación: material de construcción, dureza 7) hacia el sujeto. El proyectil penetró el tejido dorsal a una profundidad de 4mm. No se observó respuesta de endurecimiento defensivo. El objeto permanece incrustado. Se programó una 'extracción' para la semana siguiente. La extracción fue pospuesta. Y luego vuelta a posponer. El fragmento sigue ahí. Eventualmente, la familia dejó de verlo. Dejaron de ver muchas cosas."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>VI — La Hermana</h3>
+                <p>Ninfeta fue la última en rendirse. Durante las tres primeras semanas, entraba al cuarto cada noche. Le traía células muertas de piel (el alimento básico de una garrapata confinada). Le limpiaba la humedad excesiva que su cuerpo blando exudaba. Le hablaba. Le contaba qué pasaba afuera — quién anclaba dónde, qué rutas estaban abiertas, qué chismes corrían por las galerías.</p>
+                <p>Semana cuatro: las visitas se espacian. "Estoy ocupada." "Mañana voy." "Le dejé la comida en la puerta."</p>
+                <p>Semana cinco: Ninfeta entra por última vez. Mira a Ixodina — que para este punto es una masa translúcida con vagos contornos de extremidades, sin garfios visibles, sin placa, sin quelíceros funcionales — y dice lo que nadie se atrevía a decir:</p>
+                <p>"Ya ni siquiera te pareces a nosotras. Eso —" señala a Ixodina con una pata que no tiembla "— eso no es mi hermana. Mi hermana era dura. Mi hermana se anclaba a los hospedadores más difíciles del Nivel 4. Eso que hay ahí es otra cosa. Y no sé qué es. Pero no es una garrapata."</p>
+                <p>Sale. No vuelve.</p>
+                <p class="prose">"La visitante designada (Ninfeta, parentesco: hermana) completó su última ronda de cuidados el día 34 del aislamiento. En su informe final al clan, describió al sujeto como 'irreconocible a nivel taxonómico' y recomendó 'discontinuar la ficción de que esto es temporal'. La moción fue aprobada por unanimidad. Se procedió a retirar el nombre 'Ixodina' del ledger familiar. En su lugar se consignó: 'Ocupante, Cuarto 3'."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>VII — La Voz que se Apaga</h3>
+                <p>Los quelíceros de Ixodina se retrajeron completamente el día 41. Los quelíceros son las piezas bucales que las garrapatas usan para hablar — vibran a frecuencias específicas que codifican el lenguaje táctil-acústico de la especie. Sin quelíceros, no hay voz. Sin voz, no hay forma de decir "estoy aquí" en garrapata.</p>
+                <p>Ixodina es ahora, literalmente, "la muda". La que no habla. La que no puede hablar. La que fue silenciada por su propia metamorfosis.</p>
+                <p>Pero algo curioso ocurre en el silencio: Ixodina descubre que puede sentir cosas que antes no percibía. Vibraciones en el sustrato. Cambios de temperatura microscópicos. La humedad del aire. Como si su cuerpo blando, libre de la armadura de quitina, se hubiera convertido en un sensor completo. Recibe el mundo entero a través de su piel desnuda.</p>
+                <p>No puede decírselo a nadie. Pero empieza a no necesitar decírselo a nadie.</p>
+                <p class="prose">"Día 41: el sujeto ha perdido toda capacidad de emisión queliceral. De acuerdo con el protocolo del Registro Civil de Garrapatas, un individuo sin quelíceros funcionales es reclasificado como 'no-comunicante'. La familia fue notificada. El padre firmó el formulario sin leerlo. La madre preguntó si esto afectaba la herencia de las rutas de anclaje. La hermana no asistió a la notificación. Se cerró el expediente vocal del sujeto. Sección de observaciones: en blanco."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>VIII — La Luz</h3>
+                <p>Día 58. Nadie entra al cuarto de Ixodina desde hace dos semanas. La comida que dejan en la puerta no se toca. Hemolina lo nota — "quizás ya no come" — y lo dice con el mismo tono con que diría "quizás llueva mañana".</p>
+                <p>Lo que no saben: algo está creciendo en la piel de Ixodina. Un liquen bioluminiscente — del tipo que crece en las paredes más profundas del subterráneo — ha colonizado su superficie blanda. Al principio parecía una infección. Pero Ixodina no siente dolor. Siente... energía. El liquen absorbe la bioluminiscencia ambiental de las cavernas y la convierte en alimento. Fotosíntesis subterránea. Ixodina está alimentándose de la LUZ.</p>
+                <p>No necesita hemolinfa. No necesita hospedadores. No necesita anclarse a nadie. No necesita a su familia.</p>
+                <p>El día 60, al amanecer artificial de las lámparas de hongos, Ixodina se arrastra fuera de su cuarto. Es irreconocible: una criatura translúcida que brilla con un verde suave, sin garfios, sin placa, sin quelíceros. Blanda, luminosa, completa. Atraviesa la madriguera en silencio.</p>
+                <p>La familia la ve pasar. Quelato se queda inmóvil. Hemolina se cubre los ojos con las patas delanteras. Ninfeta retrocede hasta la pared. Los inquilinos dejan de masticar.</p>
+                <p>Nadie la detiene. Nadie le habla. ¿Qué le dices a algo que ya no necesita nada de ti?</p>
+                <p>Ixodina sale de la madriguera. La luz del liquen en su piel pulsa una vez — como un latido, como una despedida, como un primer aliento — y desaparece en las galerías superiores, donde la bioluminiscencia es más intensa, donde nadie ancla porque no hay hospedadores, donde nadie va porque no hay nada que parasitar.</p>
+                <p>La familia no la sigue. Esa noche, Hemolina limpia el cuarto. Quelato borra su nombre del mural genealógico. Ninfeta, cuando le preguntan si tiene hermana, dice: "Soy hija única."</p>
+                <p>Nunca la mencionan de nuevo.</p>
+                <p class="prose">"Informe de cierre, Caso Ixodina: El sujeto abandonó la unidad familiar el día 60 del aislamiento sin autorización formal. Su destino se registra como 'desconocido'. Las rutas de anclaje previamente asignadas al sujeto han sido redistribuidas de forma permanente. El nombre 'Ixodina' fue eliminado del registro civil del clan y del ledger hemolinfático. Según el patriarca: 'No hubo tal miembro. Error administrativo.' Según la matriarca: 'A veces la quitina falla. Es genético. No es culpa de nadie.' Según la hermana: [sin declaración]. Caso cerrado. Archivo: destruir después de 90 días."</p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Centrales</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta que plantea</th></tr>
+                <tr><td>🔗 Dependencia como Identidad</td><td>¿Qué eres si toda tu especie se define por necesitar a otros — y tú ya no necesitas a nadie?</td></tr>
+                <tr><td>🏠 La familia como parásito</td><td>¿Es amor o es extracción? ¿Te quieren a ti o quieren lo que produces?</td></tr>
+                <tr><td>🧬 Evolución como herejía</td><td>¿Por qué la independencia aterroriza más que la enfermedad? ¿Por qué preferirían que murieras a que dejaras de necesitarlos?</td></tr>
+                <tr><td>🤐 El silencio forzado</td><td>¿Qué pasa cuando pierdes la voz en el lenguaje de los que te oprimen? ¿Es pérdida o es liberación?</td></tr>
+                <tr><td>💡 La blandura como fortaleza</td><td>Lo duro protege pero aísla. Lo blando expone pero conecta con todo. ¿Qué es realmente la vulnerabilidad?</td></tr>
+            </table>
+
+            <!-- FRASES CLAVE -->
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"Una mañana, tras un sueño intranquilo, Ixodina descubrió que su placa dorsal había perdido la dureza durante la noche. No era dolor. Era peor. Era blandura."<br>— Capítulo 1</blockquote>
+            <blockquote>"El clan no necesita saber qué te pasa. El clan necesita saber cuándo vuelves a anclarte."<br>— Quelato, Capítulo 2</blockquote>
+            <blockquote>"Cuando endurezca de vuelta, todo será como antes. Siempre es como antes. Tiene que ser como antes."<br>— Hemolina, Capítulo 3 (repitiéndolo como un mantra mientras limpia una madriguera que ya está limpia)</blockquote>
+            <blockquote>"Ya ni siquiera te pareces a nosotras. Eso que hay ahí no es mi hermana. Mi hermana era dura."<br>— Ninfeta, Capítulo 6</blockquote>
+            <blockquote>"Día 41: el sujeto ha perdido toda capacidad de emisión queliceral. Se cerró el expediente vocal. Sección de observaciones: en blanco."<br>— Registro Civil de Garrapatas, Capítulo 7</blockquote>
+            <blockquote>"No hubo tal miembro. Error administrativo."<br>— Quelato, Informe de cierre</blockquote>
+
+            <!-- CONEXIÓN CON EL JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>Mecánicas del juego exploradas</h4>
+                <ul>
+                    <li><strong>Dependencia de Anclaje (defecto racial):</strong> Esta novela muestra por qué el defecto existe a nivel cultural, no solo biológico. Las garrapatas PODRÍAN evolucionar más allá del parasitismo — pero su sociedad lo prohíbe. La dependencia es una cárcel elegida.</li>
+                    <li><strong>Anclaje Vital (habilidad):</strong> Vista desde el otro lado. No es solo una mecánica de combate — es la identidad completa de una especie. Sin anclaje, una garrapata no es "garrapata" para su propia gente.</li>
+                    <li><strong>Stats TOR 4, QUI 7:</strong> La alta Quitina (dureza del exoesqueleto) es el orgullo racial. Ixodina pierde exactamente eso — el stat que define a su especie. Es como si un escorpión perdiera su veneno.</li>
+                    <li><strong>Hemolinfa Drenad (recurso):</strong> El recurso que alimenta al clan. Cuando el jugador drena hemolinfa como garrapata, ahora sabe que hay familias enteras viviendo de esa acción.</li>
+                </ul>
+            </div>
+            <div class="info-box lore">
+                <h4>Implicaciones para el lore</h4>
+                <ul>
+                    <li><strong>¿Existen otras "mudas"?</strong> Si Ixodina evolucionó, ¿es la única? ¿Hay una colonia de garrapatas luminosas en las galerías superiores que nadie ha encontrado?</li>
+                    <li><strong>El miedo de La Colmena:</strong> Si un miembro puede volverse autosuficiente, la estructura parasitaria del clan se derrumba. La Colmena necesita la dependencia para existir. Ixodina es una amenaza existencial.</li>
+                    <li><strong>La "enfermedad" como evolución:</strong> Los quitinólogos garrapata probablemente clasifican lo que le pasó a Ixodina como una patología. Pero el jugador sabe la verdad.</li>
+                    <li><strong>Easter egg potencial:</strong> En las galerías superiores del mapa, si el jugador tiene una garrapata en el party y la bioluminiscencia ambiental es alta, podría encontrar un NPC translúcido y brillante que no habla pero que pulsa luz. No da quests. No pelea. Solo está ahí. Siendo libre.</li>
+                </ul>
+            </div>
+
+            <blockquote>"530 millones de años y todavía no entienden que la piel más dura es la que más fácil se rompe. Esa garrapata blanda va a sobrevivir a su familia entera. Pero no se lo digan — me gusta ver cómo lo descubren solos."<br>— Ramazzottius, observando desde un cristal de hielo</blockquote>
+        </article>
+    </main>
+</body>
+</html>
