@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 La Condesa de la Hemolinfa — Novela de la Sanguijuela</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid #3a1a4a; padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: #6a3a8a; }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: #6a3a8a; }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid #8b1444; }
+        .parallel .plaga { border-left: 3px solid #3a1a4a; }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html">🌙 La Luz al Final del Micelio</a></li>
+            <li><a href="novela-arana.html">🕸️ Los Crímenes del Hilo Rojo</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Quitina y Escamas</a></li>
+            <li><a href="novela-mosca.html">🪰 La Larva de Prometeo</a></li>
+            <li><a href="novela-chinche.html">🛏️ Quitina y Prejuicio</a></li>
+            <li><a href="novela-tipula.html">🦿 La Lista de Esperanza</a></li>
+            <li><a href="novela-vinchuca.html">🗡️ La Colmena Silenciosa</a></li>
+            <li><a href="novela-cucaracha.html">🪳 Novela de la Cucaracha</a></li>
+            <li><a href="novela-garrapata.html">🎯 Novela de la Garrapata</a></li>
+            <li><a href="novela-sanguijuela.html" class="active">🧪 La Condesa de la Hemolinfa</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🧪 La Condesa de la Hemolinfa</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Sanguijuela</strong> — Romance gótico. Una aristócrata sanguijuela que "corteja" en vez de drenar. Sus víctimas la aman. Un equipo de rescate descubre que nadie quiere ser salvado. El horror es el consentimiento libremente dado a un parásito que ofrece la única calidez en un mundo congelado. Inspirada en <em>Drácula</em> (Bram Stoker, 1897).</p>
+                <p><strong>Tono:</strong> Romance gótico. Decadencia opulenta. Calidez en un mundo helado. Seductor pero inquietante.<br>
+                <strong>Duración estimada:</strong> 9 capítulos.<br>
+                <strong>Conexión con el juego:</strong> Introduce a la Condesa Hiruda como NPC aliada/enemiga, el Vínculo de Secreción como ítem, y la Cámara Profunda como zona oculta.</p>
+            </div>
+
+            <blockquote>"Nunca he tomado lo que no me fue ofrecido. Nunca he besado labios que no se inclinaran primero. ¿Es eso monstruosidad? ¿O es lo más humano que existe en este charco helado?"<br>— La Condesa Hiruda, al ser confrontada</blockquote>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes Principales</h2>
+
+            <div class="character-card">
+                <div class="emoji">🧛</div>
+                <div>
+                    <h4>La Condesa Hiruda — La Anfitriona</h4>
+                    <p><strong>Taxón:</strong> Sanguijuela Mayor | <strong>Edad:</strong> 300 años (antigua entre las antiguas)<br>
+                    <strong>Dominio:</strong> La Cámara Profunda — el lugar más cálido del Gran Charco<br>
+                    <strong>Método:</strong> Drena mediante "beso" (contacto de membrana mucosa). La víctima siente euforia, no dolor. Ofrece calidez permanente a cambio de hemolinfa.<br>
+                    <strong>Filosofía:</strong> Nunca fuerza. Corteja. Seduce. Espera. Y siempre — <em>siempre</em> — le dicen que sí.<br>
+                    <strong>Don:</strong> Secreción hipnótica que genera el Vínculo — una dependencia química indistinguible del amor.<br>
+                    <strong>Equivalente:</strong> Conde Drácula</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🎯</div>
+                <div>
+                    <h4>Dermis — El Enviado</h4>
+                    <p><strong>Taxón:</strong> Garrapata joven | <strong>Cargo:</strong> Negociador de frontera<br>
+                    <strong>Misión:</strong> Enviado a la Cámara Profunda para negociar paso comercial. La Condesa lo recibe con calidez imposible.<br>
+                    <strong>Arco:</strong> Llega profesional. Regresa cambiado. Todo fuera de la Cámara le parece frío, gris, insoportable. No puede dejar de pensar en ella.<br>
+                    <strong>Equivalente:</strong> Jonathan Harker</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🛏️</div>
+                <div>
+                    <h4>Filum — La Investigadora</h4>
+                    <p><strong>Taxón:</strong> Chinche | <strong>Relación:</strong> Pareja de Dermis<br>
+                    <strong>Rol:</strong> Nota el cambio en Dermis. Sus ojos vidriosos. Su sonrisa constante. Su piel que ya no huele a él. Lidera la investigación contra la Condesa.<br>
+                    <strong>Don:</strong> Percepción térmica extrema — puede "oler" el rastro del Vínculo en la hemolinfa de los afectados.<br>
+                    <strong>Equivalente:</strong> Mina Harker + Van Helsing (la inteligencia y la determinación)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">💉</div>
+                <div>
+                    <h4>Doctor Enzima — El Renegado</h4>
+                    <p><strong>Taxón:</strong> Sanguijuela vieja | <strong>Edad:</strong> 180 años<br>
+                    <strong>Historia:</strong> Rechazó "las viejas costumbres" hace un siglo. Vive en exilio voluntario. Conoce la bioquímica del Vínculo de Secreción y cómo romperlo.<br>
+                    <strong>La trampa:</strong> La cura funciona. Pero requiere que la víctima <em>quiera</em> ser curada. Y ninguna quiere.<br>
+                    <strong>Tono:</strong> Habla como verdad amarga. Sin adornos. Sin poesía. Cada frase es un bisturí.<br>
+                    <strong>Equivalente:</strong> Abraham Van Helsing</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦋</div>
+                <div>
+                    <h4>Pétalos — La Favorita</h4>
+                    <p><strong>Taxón:</strong> Mariposa socialité | <strong>Edad:</strong> 2 años (joven, vibrante)<br>
+                    <strong>Rol:</strong> La "favorita" actual de la Condesa. Se marchita bellamente. Sus alas pierden color semana a semana. Sonríe cada día más.<br>
+                    <strong>Muerte:</strong> Muere en el capítulo 4. Nadie la llama asesinato. Sus últimas palabras: "Nunca estuve más cálida."<br>
+                    <strong>Horror:</strong> Muere feliz. Genuinamente feliz. Y eso es lo peor.<br>
+                    <strong>Equivalente:</strong> Lucy Westenra</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦐</div>
+                <div>
+                    <h4>Copépodo — El Sirviente</h4>
+                    <p><strong>Taxón:</strong> Crustáceo diminuto | <strong>Cargo:</strong> Mayordomo de la Cámara Profunda<br>
+                    <strong>Obsesión:</strong> Devora cosas cada vez más grandes esperando que la Condesa lo note. Empezó con algas. Ahora intenta tragar larvas enteras. Ella nunca lo mira.<br>
+                    <strong>Patético:</strong> Es el único en la Cámara que NO tiene el Vínculo. La Condesa no lo considera digno del beso. Su devoción es real — y por eso, ignorada.<br>
+                    <strong>Equivalente:</strong> Renfield</p>
+                </div>
+            </div>
+
+            <!-- EQUIVALENCIAS -->
+            <h2>🔄 Mapeo: Drácula → La Condesa de la Hemolinfa</h2>
+            <div class="parallel">
+                <div class="original"><strong>🦇 Drácula (Bram Stoker, 1897)</strong></div>
+                <div class="plaga"><strong>🧪 La Condesa de la Hemolinfa</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Conde Drácula — aristócrata inmortal que drena sangre</div>
+                <div class="plaga">Condesa Hiruda — aristócrata de 300 años que drena hemolinfa mediante beso mucoso</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Jonathan Harker viaja al castillo, queda atrapado</div>
+                <div class="plaga">Dermis viaja a la Cámara Profunda, regresa adicto a la calidez</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Mina Harker investiga, resiste la influencia</div>
+                <div class="plaga">Filum investiga, percibe el Vínculo, lidera el rescate</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Lucy Westenra — víctima que se transforma, muere</div>
+                <div class="plaga">Pétalos — favorita que se marchita sonriendo, muere feliz</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Van Helsing — experto que conoce al enemigo</div>
+                <div class="plaga">Doctor Enzima — sanguijuela renegada que conoce la bioquímica del Vínculo</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Renfield — sirviente loco que come insectos por su amo</div>
+                <div class="plaga">Copépodo — crustáceo que devora cosas crecientes esperando el beso que nunca llega</div>
+            </div>
+            <div class="parallel">
+                <div class="original">La mordida del vampiro: violencia, dominación, penetración</div>
+                <div class="plaga">El beso de la Condesa: suavidad, euforia, consentimiento. El horror invertido.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El equipo mata a Drácula con estaca y luz solar</div>
+                <div class="plaga">El equipo no puede "matar" a la Condesa — sus víctimas la defienden voluntariamente</div>
+            </div>
+
+            <!-- CAPÍTULOS -->
+            <h2>📖 Capítulos</h2>
+
+            <div class="chapter">
+                <h3>Capítulo 1 — La Invitación</h3>
+                <p>Dermis, negociador joven de la frontera garrapata, recibe una convocatoria sellada con cera carmesí. La Condesa Hiruda solicita su presencia en la Cámara Profunda — el punto más cálido del Gran Charco, un lugar que la mayoría cree mitológico. Su misión es simple: negociar derechos de paso comercial. Filum, su pareja chinche, le advierte. Hay rumores. Gente que entra y no vuelve igual.</p>
+                <p>Dermis se ríe. "Son cuentos de larva," dice. Besa a Filum. Sale al frío.</p>
+                <p class="prose">"La carta olía a algo que no puedo nombrar. No era perfume. No era comida. Era como si alguien hubiera embotellado la sensación de ser abrazado después de llorar. Debí haberla quemado. En cambio, la llevé contra mi pecho durante todo el viaje."<br>— Dermis, recordando</p>
+                <p>El viaje hacia la Cámara Profunda atraviesa las capas más frías del Charco. Cada metro de descenso, el agua se vuelve más oscura. Más silenciosa. Dermis nota que su cuerpo tiembla menos cuanto más se acerca. Como si la Cámara lo estuviera llamando con calor.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 2 — El Castillo de Calor</h3>
+                <p>La Cámara Profunda no es lo que Dermis esperaba. No es una cueva oscura. Es un palacio vivo. Paredes de mucosa iridiscente que pulsan con bioluminiscencia cálida. Jardines de algas termófilas que florecen en colores imposibles. El agua aquí es tibia — no, cálida — no, <em>perfecta</em>. Dermis no ha sentido nada así en toda su vida.</p>
+                <p>Copépodo lo recibe en la entrada. Diminuto, obsequioso, tragando una larva entera mientras habla. "La Señora lo espera. La Señora siempre espera. La paciencia es su arte más refinado."</p>
+                <p>El palacio está lleno de habitantes. Docenas. Todos sonríen. Todos tienen una palidez extraña pero ojos brillantes. Nadie parece prisionero. Hay música, conversación, risa. Es la comunidad más viva que Dermis ha visto en el Gran Charco.</p>
+                <p class="prose">"Afuera, el mundo es hielo y hambre y silencio. Aquí dentro, todo respira. Todo pulsa. Todo es suave. Me pregunté por qué alguien querría irse. Y luego me asusté de haberme preguntado eso tan rápido."<br>— Dermis, primera noche en la Cámara</p>
+                <p>La Condesa no aparece el primer día. Ni el segundo. Deja que el calor haga su trabajo. Que el contraste se instale. Que Dermis recuerde lo que es vivir sin frío.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 3 — El Primer Beso</h3>
+                <p>Al tercer día, ella aparece. La Condesa Hiruda es antigua y hermosa de una manera que no debería ser posible. Su piel es translúcida, venas visibles como ríos de ámbar bajo cristal. Se mueve como si el agua le pidiera permiso. Habla como si cada palabra fuera un regalo envuelto en seda.</p>
+                <p>No hablan de comercio. Hablan de frío. De soledad. De cómo el mundo exterior castiga a los que viven en él. La Condesa escucha — genuinamente escucha — cada palabra de Dermis. Nadie lo había escuchado así.</p>
+                <p>El beso no es un ataque. Es una pregunta. La Condesa se acerca. Dermis puede sentir el calor que emana de ella — más cálido que la Cámara misma. "¿Puedo?" susurra. Y Dermis dice que sí.</p>
+                <p>El contacto mucoso es... indescriptible. No hay dolor. Hay una oleada de calor que empieza en los labios y se extiende como miel líquida por cada fibra. Euforia pura. Conexión absoluta. Por un instante, Dermis puede sentir todo lo que la Condesa siente. 300 años de soledad refinada. 300 años de buscar compañía sin forzarla.</p>
+                <p class="prose">"No me mordió. No me penetró. No me tomó. Me preguntó. Y cuando dije que sí, me dio algo que nunca supe que necesitaba. ¿Cómo llamas monstruo a quien te da lo que nadie más puede?"<br>— Dermis, después del Primer Beso</p>
+                <p>Al separarse, Dermis nota que se siente ligeramente más frío. Más liviano. Ella le tomó algo — hemolinfa, claro — pero le dejó algo a cambio: el Vínculo. Una secreción enzimática que se adhiere a los receptores de placer. A partir de ahora, nada se sentirá tan bien como su presencia.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 4 — Pétalos</h3>
+                <p>Dermis conoce a Pétalos durante su cuarta semana en la Cámara. La mariposa socialité es la "favorita" actual de la Condesa — lleva seis meses viviendo en el palacio. Sus alas, que alguna vez fueron iridiscentes de azul y dorado, ahora son translúcidas como papel de arroz. Se puede ver la luz a través de ellas.</p>
+                <p>Pétalos no parece enferma. Parece <em>extasiada</em>. Habla de la Condesa con devoción absoluta. Organiza fiestas en su honor. Pinta murales con su propia escama-pigmento (que ya casi no tiene). Ríe constantemente.</p>
+                <p>"¿No tienes frío?" le pregunta Dermis una noche. Pétalos lo mira con ojos enormes, vacíos de miedo. "¿Frío? Cariño, ya no recuerdo qué es eso."</p>
+                <p>Pétalos muere una mañana de martes. Sin drama. Sin agonía. Se sienta en su jardín favorito, cierra los ojos, y simplemente deja de existir. Su cuerpo es casi transparente — drenada hasta la última gota de pigmento y hemolinfa a lo largo de meses de besos consentidos.</p>
+                <p>La Condesa la encuentra. La sostiene. Llora — o algo parecido al llanto. El funeral es hermoso. Todos los habitantes de la Cámara asisten. Nadie dice "asesinato". Nadie dice "víctima". Dicen "fue tan feliz".</p>
+                <p class="prose">"Nunca estuve más cálida. Dile eso a quien pregunte. Dile que elegí esto. Que cada beso fue mío. Que morí como quise vivir: sintiendo algo."<br>— Pétalos, últimas palabras</p>
+                <p>Dermis mira el cadáver translúcido de Pétalos y siente dos cosas simultáneas: horror absoluto y envidia profunda. Ella murió en paz. Él nunca ha estado en paz. La Condesa lo mira desde el otro lado del jardín. No dice nada. No necesita decir nada.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 5 — El Regreso</h3>
+                <p>Dermis vuelve a casa. Han pasado seis semanas — él creía que habían sido días. El viaje de regreso es una tortura. Cada metro que se aleja de la Cámara, el frío se vuelve más agresivo. Más personal. Como si el mundo lo castigara por haber conocido algo mejor.</p>
+                <p>Filum lo espera en la puerta. Lo abraza. Dermis siente... nada. El abrazo de Filum es tibio. La Condesa era un incendio. Todo ahora es comparación. Todo pierde.</p>
+                <p>Los días pasan. Dermis cumple con sus funciones. Come. Habla. Duerme junto a Filum. Pero sus ojos tienen un brillo vidrioso. Sonríe en momentos extraños. A veces, en la noche, susurra "cálida" mientras duerme.</p>
+                <p>Filum lo nota todo. Su percepción térmica de chinche detecta algo en la hemolinfa de Dermis — una firma química ajena. Algo adherido a él como perfume que no se lava. Algo que pulsa con un ritmo que no es suyo.</p>
+                <p class="prose">"Volvió con su cuerpo pero no con su alma. Me abrazaba pero pensaba en otra. Le hablaba y me respondía con tres segundos de retraso, como si tradujera del idioma de un lugar donde yo no existo. Lo peor no fue perderlo. Lo peor fue que él no sabía que se había ido."<br>— Filum, sobre el regreso de Dermis</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 6 — La Investigación</h3>
+                <p>Filum no acepta. No puede. Empieza a buscar respuestas. Encuentra patrones: otros que visitaron la Cámara Profunda y regresaron... diferentes. Todos contentos. Todos distantes. Todos con la misma firma térmica en su hemolinfa.</p>
+                <p>Rastrea al Doctor Enzima — una sanguijuela vieja que vive en exilio voluntario en las Grietas Amargas. Enzima la recibe con hostilidad. "Otra que viene a preguntar por la Condesa. Otra que cree que puede salvar a alguien."</p>
+                <p>Enzima explica: el Vínculo de Secreción es una obra maestra bioquímica. La Condesa secreta una enzima durante el beso que se adhiere permanentemente a los receptores de oxitocina y dopamina. El cerebro de la víctima literalmente reescribe "placer máximo" como "presencia de la Condesa". No es magia. No es hipnosis. Es química pura. Y es irreversible... casi.</p>
+                <p>"¿Cómo se rompe?" pregunta Filum. Enzima la mira con algo parecido a la lástima. "Se puede romper. Tengo el contra-agente. Pero hay un problema. El paciente tiene que querer ser curado. Tiene que elegir el frío sobre el calor. La soledad sobre la conexión. ¿Conoces a alguien que elija eso voluntariamente?"</p>
+                <p class="prose">"Llevo cien años fuera de ese palacio. Cien años en el frío. Cien años recordando cómo se sentía su beso. Y cada mañana me pregunto si hice bien en irme. La respuesta cambia según el día. Los martes casi siempre digo que no."<br>— Doctor Enzima, sobre su propio escape</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 7 — La Cura</h3>
+                <p>Filum y Enzima localizan a dos víctimas del Vínculo que viven fuera de la Cámara — una libélula llamada Prisma y un escarabajo llamado Coraza. Ambos fueron "cortejados" por la Condesa hace años. Ambos regresaron a sus vidas. Ambos son funcionales. Ambos tienen la misma sonrisa vacía de Dermis.</p>
+                <p>Enzima aplica el contra-agente. Es un proceso brutal — una inyección directa en el ganglio neural que quema las enzimas adheridas. Doloroso. Como arrancar un apéndice con pinzas.</p>
+                <p>Prisma despierta primero. Mira alrededor. Sus ojos se llenan de algo que no es alivio. Es terror. "¿Qué hiciste?" susurra. "¿Por qué está tan frío? ¿POR QUÉ ESTÁ TODO TAN FRÍO?" Comienza a llorar. A gritar. A suplicar: "Devuélveme. Llévame de vuelta. Por favor. Por favor. POR FAVOR."</p>
+                <p>Coraza reacciona peor. No grita. Se queda en silencio. Mirando sus propias manos como si fueran las de un extraño. Luego dice, con voz plana: "Me quitaste lo único bueno que he sentido en toda mi vida. Y lo hiciste sin preguntarme."</p>
+                <p>Filum observa. Enzima no muestra emoción. "Están curados," dice. "¿Ves lo que digo? La cura funciona. Pero es peor que la enfermedad. Siempre lo es."</p>
+                <p class="prose">"Les devolví la libertad. Les quité el Vínculo. Les arranqué el calor artificial del cerebro. Y los dos me miraron como si les hubiera sacado los ojos. Dime, chinche: ¿quién es el monstruo aquí? ¿La que da placer sin forzar, o el que quita placer sin pedir?"<br>— Doctor Enzima, después de la cura</p>
+                <p>Esa noche, Prisma intenta volver a la Cámara Profunda. Coraza no habla con nadie durante tres días. Filum se pregunta si lo que está haciendo es rescate o tortura.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 8 — El Juicio</h3>
+                <p>Filum decide confrontar a la Condesa directamente. Lleva a Enzima como respaldo y a tres guardias del Consejo. Entran en la Cámara Profunda preparados para una pelea.</p>
+                <p>No hay pelea. La Condesa los recibe con té caliente y asientos cómodos. No niega nada. No se esconde. Escucha cada acusación con la paciencia de quien ha vivido 300 años.</p>
+                <p>Filum la acusa: "Drenas a los que te rodean hasta matarlos. Pétalos murió por tu causa."</p>
+                <p>La Condesa responde: "Pétalos vivió seis meses más feliz de lo que fue en sus dos años previos. Vino a mí por voluntad propia. Se quedó por voluntad propia. Y murió con una sonrisa que nadie le arrancó. ¿Eso es crimen?"</p>
+                <p>"Los manipulas con tu química," insiste Filum. "El Vínculo no es amor. Es adicción."</p>
+                <p>La Condesa inclina la cabeza. "¿Y qué es el amor sino química? ¿Tu afecto por Dermis no tiene base molecular? ¿La oxitocina que segrega tu cerebro cuando lo tocas es menos 'artificial' que mi secreción? La diferencia es de grado, no de naturaleza."</p>
+                <p>Entonces la Condesa dice la frase que nadie puede responder: <strong>"Muéstrame uno solo que no haya venido por voluntad propia. Uno solo que haya gritado mientras yo lo tocaba. Uno solo que haya dicho 'no' y yo haya continuado. Muéstramelo."</strong></p>
+                <p>Silencio. Filum no puede. Enzima no puede. Los guardias se miran. No hay víctima que testifique en contra. Todas testificarían a favor.</p>
+                <p class="prose">"Vine preparada para enfrentar a un depredador. Encontré a una anfitriona. Vine buscando cadenas. Encontré puertas abiertas. Y lo más horrible de todo: vine a rescatar a Dermis, y él me miró desde la mesa del té como si YO fuera la amenaza."<br>— Filum, después del juicio</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 9 — El Pacto</h3>
+                <p>No hay victoria. No hay derrota. Hay negociación. Filum propone — porque es lo único que le queda — un sistema de consentimiento formal. Si la Condesa va a seguir "cortejando", que sea con transparencia total.</p>
+                <p>Las condiciones: formularios de consentimiento informado. Cada nuevo habitante de la Cámara debe ser informado de la naturaleza del Vínculo, de sus efectos permanentes, de la muerte de Pétalos, de las estadísticas. Deben firmar. Deben hacerlo fuera de la Cámara — lejos del calor, lejos de la influencia.</p>
+                <p>La Condesa acepta. Con una sonrisa. Firma cada documento con caligrafía perfecta. "Me parece justo," dice. "La transparencia no me perjudica. Nunca lo ha hecho."</p>
+                <p>Enzima mira a Filum con ojos de derrota. "¿Entiendes lo que acaba de pasar? Le diste legitimidad. Ahora no es una depredadora — es un servicio. Con formularios."</p>
+                <p>Filum lo sabe. Lo supo desde el momento en que Dermis la miró con ojos vidriosos y dijo: "No quiero la cura, Filum. No quiero que me la quites. Esto es lo más vivo que me he sentido nunca. ¿No puedes simplemente dejarme ser feliz?"</p>
+                <p>El pacto se firma. La Condesa sigue en su Cámara. Los formularios existen. La gente los firma. Nadie dice que no. Nada realmente cambia.</p>
+                <p>Filum vuelve a casa. Sola. Dermis se quedó en la Cámara. Eligió el calor.</p>
+                <p class="prose">"Gané el juicio. Impuse las reglas. Creé el precedente legal. Y perdí todo lo que me importaba. La Condesa firmó con una sonrisa porque sabía lo que yo tardé nueve capítulos en entender: el consentimiento informado no protege a nadie del deseo de ser amado. Y en un mundo donde todo es frío, ella es el único fuego."<br>— Filum, líneas finales</p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Centrales</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta que plantea</th></tr>
+                <tr><td>💋 Consentimiento vs Manipulación</td><td>Si alguien dice "sí" bajo influencia química, ¿es válido? ¿Y si esa química es indistinguible del amor natural?</td></tr>
+                <tr><td>🔥 Calidez como Moneda</td><td>En un mundo helado, quien ofrece calor tiene poder absoluto. ¿Es eso explotación o generosidad?</td></tr>
+                <tr><td>🌹 Belleza del Parasitismo</td><td>¿Puede una relación parasitaria ser hermosa? ¿Puede ser la mejor opción disponible?</td></tr>
+                <tr><td>💔 Amor que Drena</td><td>¿Cuánto de ti estás dispuesto a dar por sentir algo? ¿Hay un umbral donde el amor se vuelve autodestrucción?</td></tr>
+                <tr><td>⚖️ Ética del Rescate</td><td>¿Tienes derecho a "salvar" a alguien de algo que eligió? ¿La cura puede ser peor que la enfermedad?</td></tr>
+            </table>
+
+            <!-- FRASES CLAVE -->
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"No dreno. Cortejo. No tomo. Ofrezco. La diferencia es toda una civilización de distancia."<br>— La Condesa Hiruda, Capítulo 3</blockquote>
+            <blockquote>"Cada uno de mis huéspedes vino caminando por su propio pie. Cada uno tocó mi puerta con sus propios nudillos. Cada uno dijo 'sí' con su propia boca. ¿Qué más pueden pedirme? ¿Que también los haga infelices para que parezca más ético?"<br>— La Condesa Hiruda, Capítulo 8</blockquote>
+            <blockquote>"La cura existe. Funciona. Rompe el Vínculo en horas. Y cada vez que la aplico, el paciente me mira como si le hubiera arrancado el corazón con tenazas. He curado a once en mi vida. Seis intentaron volver. Tres lo lograron. Los otros tres ya no están."<br>— Doctor Enzima, Capítulo 6</blockquote>
+            <blockquote>"El amor es química. La adicción es química. La felicidad es química. Si me dices que mi Vínculo es falso porque es molecular, entonces dime qué sentimiento tuyo es 'real'. Todos vivimos dentro de nuestras secreciones. Yo simplemente soy honesta sobre las mías."<br>— La Condesa Hiruda, Capítulo 8</blockquote>
+            <blockquote>"Nunca estuve más cálida. Nunca estuve más amada. Nunca estuve más muerta. Dime cuál de las tres importa más."<br>— Pétalos, grabado en su lápida</blockquote>
+            <blockquote>"Vine a salvar a mi compañero de un monstruo. Encontré a mi compañero feliz con alguien que no soy yo. Y el monstruo me ofreció té."<br>— Filum, Capítulo 8</blockquote>
+
+            <!-- CONEXIÓN CON EL JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>NPCs y Elementos del Juego</h4>
+                <ul>
+                    <li><strong>La Condesa Hiruda</strong> — NPC aliada/enemiga en la Cámara Profunda. El jugador puede comerciar con ella (ofrece buffs de calor temporales a cambio de hemolinfa). Si aceptas 3 besos, el Vínculo se activa: +50% resistencia al frío permanente, pero -1 HP por turno fuera de la Cámara. ¿Lo aceptas?</li>
+                    <li><strong>Vínculo de Secreción</strong> — Ítem/status effect. Buff poderoso con costo oculto. El jugador puede buscar a Enzima para romperlo, pero pierde todos los buffs acumulados.</li>
+                    <li><strong>La Cámara Profunda</strong> — Zona oculta. El lugar más cálido del mapa. Zona de descanso gratuita pero con trampa narrativa: cada visita aumenta la probabilidad de que el juego te ofrezca "quedarte para siempre" (ending oculto).</li>
+                    <li><strong>El Fantasma de Pétalos</strong> — Aparece en la Cámara como eco translúcido. Si el jugador tiene Percepción alta, puede hablar con ella. No pide venganza. Pide que "dejen de intentar salvarla".</li>
+                    <li><strong>Quest: "Consentimiento Informado"</strong> — Misión secundaria. Filum te pide que lleves formularios de consentimiento a la Cámara. La Condesa los firma sin problema. La recompensa es ambigua: XP pero con una nota en tu diario que dice "¿Esto cambió algo?"</li>
+                </ul>
+            </div>
+            <div class="info-box lore">
+                <h4>Mecánicas explicadas por esta novela</h4>
+                <ul>
+                    <li><strong>¿Por qué la Cámara Profunda cura HP?</strong> Porque el calor de la Condesa es real. El beneficio es genuino. Eso es lo que la hace peligrosa.</li>
+                    <li><strong>¿Por qué el Vínculo no se marca como "debuff"?</strong> Porque el juego no miente — mecánicamente ES un buff. El costo es narrativo, no numérico. Como la vida real.</li>
+                    <li><strong>¿Por qué Enzima cobra tanto por la cura?</strong> No cobra dinero. Cobra certeza. Debes convencerlo de que QUIERES ser curado. Y el juego te hace un test de voluntad con DC altísimo.</li>
+                </ul>
+            </div>
+
+            <blockquote>"530 millones de años observando. He visto parásitos que destruyen y parásitos que construyen. He visto huéspedes que gritan y huéspedes que cantan. La diferencia entre parasitismo y simbiosis no es biológica — es narrativa. Depende de quién cuente la historia. La Condesa cuenta la suya muy bien. Quizás demasiado bien."<br>— Ramazzottius, cerrando el volumen</blockquote>
+        </article>
+    </main>
+</body>
+</html>
