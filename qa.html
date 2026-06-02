@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -37,12 +37,12 @@
             <li class="section-title">Lore</li>
             <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
             <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
-            <li><a href="semidioses.html">⚔ Los 14 Semidioses</a></li>
+            <li><a href="semidioses.html">⚔ Los 17 Semidioses</a></li>
             <li><a href="caida.html">💀 La Caída del Éter</a></li>
             <li><a href="profecias.html">🔮 El Retorno del 35%</a></li>
             <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
             <li class="section-title">Taxones</li>
-            <li><a href="taxones.html">🧬 Los 14 Taxones</a></li>
+            <li><a href="taxones.html">🧬 Los 17 Taxones</a></li>
             <li class="section-title">Mundo</li>
             <li><a href="facciones.html">⚔️ Facciones</a></li>
             <li><a href="santiago.html">🏙️ El Gran Charco</a></li>
@@ -82,7 +82,7 @@
             <table class="qa-table">
                 <tr><th>ID</th><th>Caso</th><th>Estado</th><th>Notas</th></tr>
                 <tr><td>F01</td><td>Menú principal se muestra al iniciar</td><td class="qa-pass">✅ Pass</td><td>Título, botones Nueva/Cargar/Salir visibles</td></tr>
-                <tr><td>F02</td><td>"Nueva Conquista" → Pantalla de creación</td><td class="qa-pass">✅ Pass</td><td>Grid 14 taxones + campo nombre + ficha</td></tr>
+                <tr><td>F02</td><td>"Nueva Conquista" → Pantalla de creación</td><td class="qa-pass">✅ Pass</td><td>Grid 17 taxones + campo nombre + ficha</td></tr>
                 <tr><td>F03</td><td>Seleccionar taxón → stats se actualizan</td><td class="qa-pass">✅ Pass</td><td>Avatar cambia si existe 2d_*.png</td></tr>
                 <tr><td>F04</td><td>Seleccionar arquetipo → bonuses aplicados</td><td class="qa-pass">✅ Pass</td><td>Estratega/Ejecutor/Infiltrado/Diplomático</td></tr>
                 <tr><td>F05</td><td>"INOCULAR" → Entra al mapa del Laboratorio</td><td class="qa-pass">✅ Pass</td><td>HUD visible, spots interactivos, jugador se mueve</td></tr>
@@ -98,7 +98,7 @@
                 <tr><td>C01</td><td>Spot "Cazar" → inicia combate</td><td class="qa-pass">✅ Pass</td><td>Enemigo aleatorio de spawn table</td></tr>
                 <tr><td>C02</td><td>Botón "Atacar" → daño al enemigo</td><td class="qa-pass">✅ Pass</td><td>Fórmula: (TOR + arma) × 2 - Def ± 15%</td></tr>
                 <tr><td>C03</td><td>Botón "Atavismo" → submenú con 3 opciones</td><td class="qa-pass">✅ Pass</td><td>Muestra costo, descripción, deshabilitado si no hay hemo</td></tr>
-                <tr><td>C04</td><td>Usar atavismo → gasta hemolinfa + efecto</td><td class="qa-pass">✅ Pass</td><td>42 atavismos implementados (14 taxones × 3)</td></tr>
+                <tr><td>C04</td><td>Usar atavismo → gasta hemolinfa + efecto</td><td class="qa-pass">✅ Pass</td><td>42 atavismos implementados (17 taxones × 3)</td></tr>
                 <tr><td>C05</td><td>Botón "Danza" → submenú 4 posturas</td><td class="qa-pending">⏳ Pendiente</td><td>Recién implementado. Testear posturas y resolución.</td></tr>
                 <tr><td>C06</td><td>Danza: victoria → enemigo pierde turno</td><td class="qa-pending">⏳ Pendiente</td><td>Verificar que no ataca después de perder danza</td></tr>
                 <tr><td>C07</td><td>Botón "Retirada" → escape con probabilidad</td><td class="qa-pass">✅ Pass</td><td>Fórmula: (Vel propia / Vel enemiga) × 50%</td></tr>
@@ -217,7 +217,7 @@
             <table>
                 <tr><th>#</th><th>Criterio</th><th>Estado</th></tr>
                 <tr><td>1</td><td>Flujo completo Menú → Creación → Juego → Fin sin crash</td><td class="qa-pass">✅</td></tr>
-                <tr><td>2</td><td>Los 14 taxones seleccionables con stats correctos</td><td class="qa-pass">✅</td></tr>
+                <tr><td>2</td><td>Los 17 Taxones seleccionables con stats correctos</td><td class="qa-pass">✅</td></tr>
                 <tr><td>3</td><td>Combate funcional (atacar, atavismo, retirada)</td><td class="qa-pass">✅</td></tr>
                 <tr><td>4</td><td>Inventario con equipar, usar, fusionar</td><td class="qa-pass">✅</td></tr>
                 <tr><td>5</td><td>Game Over funcional (Turgencia 0 y Esencia 0)</td><td class="qa-pass">✅</td></tr>
@@ -235,3 +235,5 @@
     </main>
 </body>
 </html>
+
+
