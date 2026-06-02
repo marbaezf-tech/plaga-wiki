@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦟 El Decreto de la Aguja — Novela del Zancudo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent-red); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent-red); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent-red); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-gold); }
+        .parallel .plaga { border-left: 3px solid var(--accent-red); }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html" class="active">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista</a></li>
+            <li><a href="novela-polilla.html">🌙 Lovecraft</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Romeo y Julieta</a></li>
+            <li><a href="novela-mosca.html">🪰 Frankenstein</a></li>
+            <li><a href="novela-chinche.html">🛏️ Orgullo y Prejuicio</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🦟 El Decreto de la Aguja</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Zancudo</strong> — Thriller militar y espionaje político. 7 días. Un comandante desesperado. Una operación negra para salvar a su especie usando los cuerpos de otras como incubadoras. Propaganda, amputaciones voluntarias, y un crimen de guerra que redefine el Gran Charco para siempre.</p>
+                <p><strong>Tono:</strong> Oscuro, tenso, moralmente gris. Narrado como informe militar desclasificado.<br>
+                <strong>Inspiración:</strong> Apocalypse Now + Tinker Tailor Soldier Spy + El Corazón de las Tinieblas (Conrad).<br>
+                <strong>Duración:</strong> 8 capítulos (uno por día + epílogo).<br>
+                <strong>Línea temporal:</strong> 7 días antes del inicio del juego. Esto es lo que pasó ANTES de que el jugador despierte.</p>
+            </div>
+
+            <blockquote>"El sol se apaga. El agua será piedra. Si nuestra sangre ha de perdurar, debe hervir dentro de la carne ajena."<br>— Quimio-Memoria ancestral, Día 1</blockquote>
+
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🦟</div>
+                <div>
+                    <h4>Don Mosin Nagant — El Comandante (Kurtz / Smiley)</h4>
+                    <p><strong>Taxón:</strong> Zancudo Anopheles | <strong>Facción:</strong> La Colmena (rama militar secreta)<br>
+                    <strong>Apariencia:</strong> Capa de alas de polillas muertas. Monóculo de engranaje humano. Trompa reforzada con esquirlas de vidrio.<br>
+                    <strong>Perfil:</strong> Estratega frío. No es malvado — es pragmático hasta la obscenidad. Ama a su especie con la intensidad de alguien dispuesto a destruir todo lo demás para protegerla. Cada decisión monstruosa que toma es "lógica" dentro de sus premisas.<br>
+                    <strong>Dilema:</strong> ¿Cuántas atrocidades se justifican para evitar la extinción?</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🗡️</div>
+                <div>
+                    <h4>"El Baqueano" — El Guía (Willard / mercenario)</h4>
+                    <p><strong>Taxón:</strong> Vinchuca vieja y masiva | <strong>Facción:</strong> Ninguna (mercenario exiliado)<br>
+                    <strong>Perfil:</strong> Conoce cada túnel, cada grieta, cada respiradero del metro abandonado. Vendió su lealtad por hemolinfa vitalicia. No tiene opinión moral — solo precio. Es los ojos del lector: alguien que observa el horror sin participar emocionalmente. Hasta que no puede seguir mirando.<br>
+                    <strong>Voz:</strong> "Yo guío. No juzgo. Pero hay cosas que ni el mercenario más curtido puede ver sin que se le sequen las antenas."</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">✂️</div>
+                <div>
+                    <h4>Los Cercenados — El Escuadrón</h4>
+                    <p><strong>Taxón:</strong> Zancudos sin alas (amputados voluntarios)<br>
+                    <strong>Unidad:</strong> 12 operadores. Misiones sin retorno. Se cortaron las alas (Ritual de la Tijera), se dislocaron las patas, se retrajeron las trompas. Parecen chinches. Parecen crías de cucaracha. Parecen cualquier cosa menos lo que son.<br>
+                    <strong>Horror:</strong> Son soldados que se mutilaron a sí mismos por amor a su especie. No son villanos. Son los personajes más trágicos de la novela.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦿</div>
+                <div>
+                    <h4>Doña Esperanza — La Víctima Colateral (inocencia acusada)</h4>
+                    <p><strong>Taxón:</strong> Típula (NPC existente del juego)<br>
+                    <strong>Rol en la novela:</strong> Día 8, Don Mosin acusa a las Típulas de ser las parásitas (Falsa Bandera). Doña Esperanza lidera la defensa de su pueblo — demuestra su inocencia mostrando que las Típulas no tienen trompa perforadora. Su valentía expone a los Zancudos. Pero el daño ya está hecho.</p>
+                </div>
+            </div>
+
+            <h2>🔄 Mapeo: Inspiraciones → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>🎬 Apocalypse Now / Corazón de las Tinieblas</strong></div>
+                <div class="plaga"><strong>🦟 El Decreto de la Aguja</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Kurtz — genio militar enloquecido en la selva</div>
+                <div class="plaga">Don Mosin — genio militar que cruza cada línea moral "lógicamente"</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Willard — el observador enviado río arriba</div>
+                <div class="plaga">El Baqueano — mercenario que guía la expedición sin juzgar (hasta que no puede)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Los soldados que se pierden en el horror</div>
+                <div class="plaga">Los Cercenados — soldados que se mutilan voluntariamente por la misión</div>
+            </div>
+            <div class="parallel">
+                <div class="original">"The horror... the horror"</div>
+                <div class="plaga">"La aguja... siempre la aguja..." (último susurro de la Presa Cero)</div>
+            </div>
+
+            <h2>📖 Sinopsis — Los 7 Días</h2>
+
+            <div class="chapter">
+                <h3>DÍA 1 — La Profecía del Hielo</h3>
+                <p>La escarcha cristaliza el Gran Charco. Las larvas de zancudo empiezan a morir — 40 en las primeras 6 horas. Don Mosin convoca a su estado mayor en la Sala de Mando (una jeringa oxidada clavada en el suelo que usa como cuartel). La Quimio-Memoria ancestral le transmite el mensaje: <em>"Si nuestra sangre ha de perdurar, debe hervir dentro de la carne ajena."</em></p>
+                <p>Don Mosin entiende. La única forma de salvar los huevos es inyectarlos en cuerpos calientes de otros insectos. Es parasitismo. Es un crimen de guerra. Es supervivencia.</p>
+                <p class="prose">"No les pedí opinión. No les pedí permiso. Les informé. Dije: 'Nuestra especie se extingue en 72 horas. Les ofrezco la inmortalidad genética a cambio de su decencia moral. ¿Aceptan?' Nadie dijo que no. Nadie que dijera que no seguiría con cabeza."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>DÍA 2-3 — El Escuadrón Primera Sangre</h3>
+                <p>Se arma la unidad de élite: 4 Inyectores con trompas reforzadas con vidrio humano. Se recluta a El Baqueano (vinchuca mercenaria) como guía subterráneo. Descenso al metro abandonado buscando los respiraderos térmicos donde habitan larvas de Escarabajo — las incubadoras perfectas.</p>
+                <p>El viaje es un descenso a la oscuridad literal y moral. Cada nivel más profundo es más frío, más silencioso, más ajeno. El Baqueano narra el camino sin emoción — hasta que ven la primera larva de escarabajo dormida. Es enorme. Indefensa. Tibia.</p>
+                <p class="prose">"Era del tamaño de diez de nosotros. Blanca, blanda, pulsando calor como un sol diminuto. Los Inyectores la miraron y vi algo que nunca había visto en un soldado: hambre y vergüenza al mismo tiempo. Sabían lo que iban a hacer. Y lo hicieron igual."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>DÍA 4 — La Presa Cero</h3>
+                <p>La primera inyección. Los huevos entran en la larva de escarabajo paralizada con neurotoxina. El cuerpo cálido los incuba. En 48 horas nacerán zancudos de la carne de un inocente. Don Mosin llama esto "El Milagro de la Adaptación". El Baqueano lo llama "un asesinato con pasos extra".</p>
+                <p>Los escarabajos no saben. Las cucarachas espían. El reloj corre.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>DÍA 5 — Los Cercenados</h3>
+                <p>Don Mosin necesita escalar la operación. 4 inyectores no bastan — tiene 200 huevos más que salvar. Crea Los Cercenados: 12 voluntarios que se amputan las alas en el Ritual de la Tijera. Sin alas = sin zumbido = infiltración perfecta. Se dislocan patas, retráen trompas, modifican siluetas. Entran a territorios de chinches, grillos, cucarachas haciéndose pasar por locales.</p>
+                <p>Son misiones sin retorno. Lo saben. Van igual.</p>
+                <p class="prose">"El Ritual de la Tijera no tiene anestesia. La secreción genética sella pero no calma. Doce zancudos se cortaron las alas mirándose a los ojos. Nadie gritó. Nadie lloró. Solo el sonido húmedo del corte y después — silencio. El silencio más pesado que he oído. Más pesado que el hielo."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>DÍA 6 — El Descubrimiento</h3>
+                <p>Los escarabajos encuentran a su larva. La abren. Salen zancudos recién nacidos de dentro. El horror es absoluto. Dynastes "El Campeón" jura venganza con una sola frase: "Los voy a encontrar. Y no va a quedar ni el zumbido."</p>
+                <p>Las cucarachas — que ya sabían — empiezan a vender la información. Gregarina "El Rata" negocia con tres facciones simultáneamente. El secreto más valioso del Charco tiene 6 compradores.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>DÍA 7 — La Falsa Bandera</h3>
+                <p>Don Mosin ejecuta su maniobra final: acusa a las Típulas de ser las parásitas. El parecido físico entre Zancudos y Típulas hace creíble la propaganda. "Son ellas. Mírenlas — tienen la misma forma. Las mismas patas largas. Son parásitas disfrazadas de diplomáticas."</p>
+                <p>Las Típulas, inocentes, son atacadas. Doña Esperanza lidera la defensa: hace que los Escarabajos examinen su aparato bucal — no tiene trompa perforadora. Es biológicamente imposible que una Típula inyecte huevos. La inocencia es irrefutable.</p>
+                <p>Las miradas se vuelven hacia los charcos donde los Zancudos afilaban sus agujas. Don Mosin ha ganado 7 días. 200 huevos están a salvo en incubadoras por todo el Charco. Su especie sobrevivirá. Pero el precio...</p>
+            </div>
+
+            <div class="chapter">
+                <h3>DÍA 8 — El Juicio (Epílogo)</h3>
+                <p>Don Mosin no huye. Se presenta ante el Consejo de Antenas. No se disculpa. Dice:</p>
+                <p class="prose">"Condénenme. Ejecutenme. Expulsen mi nombre de la Historia. Pero en 3 semanas, 200 zancudos recién nacidos abrirán los ojos. Vivirán. Volarán. Y ninguno de ustedes podrá devolverlos a los huevos congelados donde habrían muerto. Hice lo que hice. No pido perdón. Pido que me demuestren que había otra forma. Nadie ha podido."</p>
+                <p>El Consejo no lo ejecuta. No lo absuelve. Lo exilia. Don Mosin desaparece en las profundidades — dicen que sigue operando desde las sombras, preparando "la siguiente fase". Nadie sabe cuál es. Todos tienen miedo de preguntar.</p>
+                <p>El Baqueano se retira. Deja el Charco. Su última frase al narrador:</p>
+                <p class="prose">"He visto muchas cosas en estos túneles. He guiado a monstruos y a santos. Pero Don Mosin... Don Mosin es la primera plaga que he conocido que es ambas cosas al mismo tiempo. Y eso me quita el sueño más que cualquier escarabajo enfurecido."</p>
+            </div>
+
+            <h2>🎯 Temas</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta</th></tr>
+                <tr><td>⚖️ Mal necesario</td><td>¿Se justifica un crimen de guerra para evitar la extinción? ¿Quién decide?</td></tr>
+                <tr><td>✂️ Sacrificio personal</td><td>Los Cercenados se mutilan por amor a su especie. ¿Es heroísmo o locura?</td></tr>
+                <tr><td>🎭 Propaganda</td><td>La Falsa Bandera funciona porque el prejuicio ya existía. Don Mosin no inventó el odio — lo usó.</td></tr>
+                <tr><td>👁️ El observador</td><td>El Baqueano ve todo sin actuar. ¿Ser testigo silencioso es complicidad?</td></tr>
+                <tr><td>🧬 Supervivencia vs Moralidad</td><td>Si tu especie muere mañana, ¿qué estás dispuesto a hacer HOY?</td></tr>
+            </table>
+
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"La moral es un lujo de los que tienen calor."<br>— Don Mosin Nagant, Día 1</blockquote>
+            <blockquote>"No hay buenos ni malos aquí. Solo taxones desesperados jugando al juego de tronos por un lugar cerca del respiradero."<br>— Ramazzottius, observando</blockquote>
+            <blockquote>"Si nuestra sangre ha de perdurar, debe hervir dentro de la carne ajena."<br>— Quimio-Memoria ancestral</blockquote>
+            <blockquote>"Doce zancudos se cortaron las alas mirándose a los ojos. Nadie gritó."<br>— El Baqueano, Día 5</blockquote>
+            <blockquote>"Condénenme. Pero demuestren que había otra forma."<br>— Don Mosin, Día 8</blockquote>
+
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <ul>
+                    <li><strong>Línea temporal:</strong> El juego empieza el Día 8 — justo cuando la verdad explota. El jugador despierta en un Charco que acaba de descubrir lo que los Zancudos hicieron.</li>
+                    <li><strong>Don Mosin Nagant:</strong> NPC existente. Ahora con contexto — es un criminal de guerra exiliado que sigue operando. Si el jugador lo encuentra, ¿lo ayuda o lo delata?</li>
+                    <li><strong>Doña Esperanza:</strong> NPC existente. Su quest ("demostrar inocencia") tiene raíz en la Falsa Bandera. El jugador puede ayudarla a limpiar el nombre de las Típulas.</li>
+                    <li><strong>Dynastes "El Campeón":</strong> Su odio hacia los Zancudos viene de la Presa Cero (su futura cría). Quest de venganza disponible.</li>
+                    <li><strong>Los Cercenados:</strong> Enemigos especiales que parecen otros taxones hasta que atacan. Revelan su trompa en el milisegundo del golpe.</li>
+                    <li><strong>Decisión moral:</strong> Si el jugador es Zancudo, puede heredar la Directriz. ¿La sigue o la destruye?</li>
+                </ul>
+            </div>
+
+            <blockquote>"530 millones de años y todavía no he visto una especie que no sea capaz de lo peor cuando el termómetro baja lo suficiente. Los Zancudos no son especiales por lo que hicieron. Son especiales porque lo documentaron."<br>— Ramazzottius</blockquote>
+        </article>
+    </main>
+</body>
+</html>
