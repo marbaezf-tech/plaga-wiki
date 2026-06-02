@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ El Salto Final — Novela de la Pulga</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid #d4a020; padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: #d4a020; }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .prose-fast { color: var(--text-secondary); line-height: 1.6; margin: 1em 0; font-size: 0.95em; }
+        .prose-fast strong { color: #d4a020; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid #4a3a0a; border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: #d4a020; }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-gold); }
+        .parallel .plaga { border-left: 3px solid #d4a020; }
+        .intro-box { border: 2px solid #4a3a0a; border-radius: 8px; padding: 1.2em; margin: 1em 0; background: rgba(212,160,32,0.05); }
+        blockquote { border-left: 4px solid #d4a020; }
+        h2 { color: #d4a020; }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html">🌙 La Luz al Final del Micelio</a></li>
+            <li><a href="novela-arana.html">🕸️ Los Crímenes del Hilo Rojo</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Quitina y Escamas</a></li>
+            <li><a href="novela-mosca.html">🪰 La Larva de Prometeo</a></li>
+            <li><a href="novela-chinche.html">🛏️ Quitina y Prejuicio</a></li>
+            <li><a href="novela-tipula.html">🦿 La Lista de Esperanza</a></li>
+            <li><a href="novela-vinchuca.html">🗡️ La Colmena Silenciosa</a></li>
+            <li><a href="novela-cucaracha.html">🪳 Novela Cucaracha</a></li>
+            <li><a href="novela-garrapata.html">🎰 Novela Garrapata</a></li>
+            <li><a href="novela-sanguijuela.html">🩸 Novela Sanguijuela</a></li>
+            <li><a href="novela-pulga.html" class="active">⚡ El Salto Final</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>⚡ El Salto Final</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Pulga</strong> — Heist frenético. Una pulga mensajera apuesta su libertad a cruzar las 5 zonas del Gran Charco en una noche con el objeto más codiciado del subsuelo. Inspirada en <em>El Jugador</em> (Dostoievski) + <em>Snatch</em> (Guy Ritchie) + <em>Ocean's Eleven</em> (Soderbergh).</p>
+                <p><strong>Tono:</strong> Frenético. Fragmentario. Cómico. Desesperado. Como un parkour narrado por un cafeinómano.<br>
+                <strong>Duración estimada:</strong> 7 capítulos (cortos. Rápidos. Como ella).<br>
+                <strong>Conexión con el juego:</strong> Explica por qué las pulgas tienen deudas con todas las facciones y por qué el "Circuito de Apuestas del Gordo" existe como mecánica del Charco.</p>
+            </div>
+
+            <blockquote>"La última apuesta siempre es la última. Hasta la siguiente."<br>— Chispa, 47 segundos antes de apostar su vida otra vez</blockquote>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">⚡</div>
+                <div>
+                    <h4>Chispa — Protagonista</h4>
+                    <p><strong>Taxón:</strong> Pulga | <strong>Oficio:</strong> Mensajera. Apostadora. Deudora profesional.<br>
+                    <strong>Stats:</strong> TOR 3, GAN 10, QUI 2, SEN 6, CRI 5, FER 3 — vidrio que vuela.<br>
+                    <strong>Facción:</strong> Los Sueltos (anarquistas). Bueno, "facción". Más bien un grupo de chat sin admin.<br>
+                    <strong>Don:</strong> Salto Dimensional — auto-esquiva + reposicionamiento. No la puedes tocar. No la puedes atrapar. No se puede tocar a sí misma tampoco.<br>
+                    <strong>Defecto:</strong> Adicción al Salto. Físicamente NO PUEDE quedarse quieta. Si para, se daña. Si deja de apostar, se muere de aburrimiento (literal — los pulgas mueren de quietud).<br>
+                    <strong>Deudas:</strong> Le debe a Don Corleone (3 favores), al Enjambre Negro (un paquete que "perdió"), a La Colmena (cruzó territorio sin pase), a Los Sembradores (apostó una reliquia que no era suya), a El Gordo (más fichas de las que puede contar).<br>
+                    <strong>Equivalente:</strong> Turkish (Snatch) + Alexéi Ivánovich (El Jugador) + Danny Ocean si tuviera TDAH</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🪳</div>
+                <div>
+                    <h4>Don Corleone — El que Pone la Apuesta</h4>
+                    <p><strong>Taxón:</strong> Cucaracha | <strong>Cargo:</strong> Señor del crimen del Pasillo<br>
+                    <strong>Motivación:</strong> No quiere el Huevo de Ámbar. No necesita a Chispa trabajando para él. Quiere VERLA CORRER. Es un espectador del caos. Colecciona historias, no objetos.<br>
+                    <strong>Estilo:</strong> Habla lento. Mastica cada palabra. Es la antítesis de Chispa — y por eso le fascina.<br>
+                    <strong>La trampa:</strong> Apuesta contra Chispa pero secretamente apuesta A FAVOR con El Gordo. Gana de todas formas. El entretenimiento es el premio real.<br>
+                    <strong>Equivalente:</strong> Brick Top (Snatch) + el casino (siempre gana la casa)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">⚡</div>
+                <div>
+                    <h4>Resorte — El Aprendiz</h4>
+                    <p><strong>Taxón:</strong> Pulga (juvenil) | <strong>Edad:</strong> 2 meses (adolescente)<br>
+                    <strong>Problema:</strong> Idolatra a Chispa. La sigue en la carrera sin permiso. Se mete en problemas. Chispa tiene que salvarlo. Chispa no quiere salvarlo. Chispa lo salva igual porque no puede parar de moverse y salvarlo queda de camino.<br>
+                    <strong>Lección:</strong> Velocidad sin propósito es huir. Chispa lo sabe pero no lo admite. Resorte lo aprende esta noche.<br>
+                    <strong>Equivalente:</strong> Tommy (Snatch) + el joven que admira al adicto sin ver la adicción</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🐝</div>
+                <div>
+                    <h4>Vespa "La Sargento" — La Ley</h4>
+                    <p><strong>Taxón:</strong> Avispa | <strong>Cargo:</strong> Capitana de la guardia del Pasillo y Sala de Máquinas<br>
+                    <strong>Motivación:</strong> El Huevo de Ámbar fue robado de La Colmena. Ella es responsable de recuperarlo. Si Chispa lo tiene, Chispa es su objetivo.<br>
+                    <strong>Estilo:</strong> Metódica. Lenta. Inevitable. Es el opuesto de Chispa — no corre, cierra puertas. No persigue, reduce opciones.<br>
+                    <strong>Conflicto:</strong> Respeta la velocidad de Chispa. Odia todo lo que representa.<br>
+                    <strong>Equivalente:</strong> Detective Alonzo (Training Day) + la gravedad (siempre te alcanza)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🎰</div>
+                <div>
+                    <h4>El Gordo — La Voz del Charco</h4>
+                    <p><strong>Taxón:</strong> Garrapata | <strong>Cargo:</strong> Corredor de apuestas. Comentarista. El que sabe todo.<br>
+                    <strong>Rol:</strong> Transmite la carrera de Chispa EN VIVO a todo el Charco. Toma apuestas. Da probabilidades. Se emociona. Es el coro griego pero gordo y con ánimo de lucro.<br>
+                    <strong>Las odds:</strong> Chispa cruzando las 5 zonas: 47 a 1. Chispa muriendo en la Zona 3: 3 a 1 (favorita). Chispa haciendo algo estúpido e impredecible: 1 a 1 (apuesta segura).<br>
+                    <strong>Equivalente:</strong> El narrador de Guy Ritchie + el bookie de cualquier película de apuestas británica</p>
+                </div>
+            </div>
+
+            <!-- EQUIVALENCIAS -->
+            <h2>🔄 Mapeo Paralelo: Inspiraciones → El Salto Final</h2>
+            <div class="parallel">
+                <div class="original"><strong>🎬 El Jugador / Snatch / Ocean's Eleven</strong></div>
+                <div class="plaga"><strong>⚡ El Salto Final</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Alexéi no puede dejar la ruleta. La adicción ES él.</div>
+                <div class="plaga">Chispa no puede dejar de apostar. El salto ES ella. Sin riesgo, no existe.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Turkish intenta un plan simple. Todo se complica por otros.</div>
+                <div class="plaga">Chispa solo quiere cruzar 5 zonas. Cada zona añade un problema nuevo.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Ocean's: el heist perfecto donde cada pieza encaja al final.</div>
+                <div class="plaga">Aquí nada encaja. Todo se improvisa. Funciona de milagro y adrenalina.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Brick Top: el jefe que disfruta la crueldad como espectáculo.</div>
+                <div class="plaga">Don Corleone: el jefe que disfruta el caos como arte. No es cruel — es aburrido.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Dostoievski: el jugador sabe que va a perder y juega igual.</div>
+                <div class="plaga">Chispa sabe que las odds son 47 a 1. Eso la hace MÁS feliz.</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El diamante en Snatch: todos lo quieren, nadie lo consigue limpio.</div>
+                <div class="plaga">El Huevo de Ámbar: todos lo quieren, Chispa lo lleva, nadie la puede atrapar.</div>
+            </div>
+
+            <!-- CAPÍTULOS -->
+            <h2>📖 Capítulos</h2>
+
+            <div class="chapter">
+                <h3>Capítulo 1 — La Deuda</h3>
+                <p class="prose-fast">Chispa debe dinero. Debe favores. Debe paquetes. Debe explicaciones. Debe disculpas que nunca va a dar.</p>
+                <p class="prose-fast">Le debe a Don Corleone tres favores y medio (el medio es una historia larga que involucra un grillo ciego y una apuesta sobre quién pestañea primero — Chispa insiste en que el grillo pestañeó, nadie la cree). Le debe al Enjambre Negro un paquete que "se perdió" (se lo apostó a una hormiga en una partida de dados). Le debe a La Colmena una disculpa oficial por cruzar el Laboratorio sin pase (la disculpa requiere quedarse quieta 30 segundos y eso es físicamente imposible). Le debe a El Gordo tantas fichas que el Gordo dejó de contar y empezó a redondear.</p>
+                <p class="prose-fast">Le debe a medio Charco. Y medio Charco quiere cobrar.</p>
+                <p class="prose-fast"><strong>Entonces Don Corleone la cita.</strong></p>
+                <p class="prose-fast">El Pasillo. La oficina que huele a quitina vieja y a hongos caros. Don Corleone mastica. Siempre mastica. Come lento. Habla lento. Es lo más irritante que existe para una pulga.</p>
+                <p class="prose-fast">"Tengo una propuesta," dice. Mastica. "El Huevo de Ámbar." Mastica. "Está en el Sótano." Mastica. "Lo quiero en la Azotea." Mastica. "Esta noche."</p>
+                <p class="prose-fast">Chispa calcula. Cinco zonas. Cada zona controlada por alguien que la quiere muerta o empleada (que para una pulga es lo mismo). Una noche. Un paquete que TODOS quieren.</p>
+                <p class="prose-fast">"¿Y qué gano?"</p>
+                <p class="prose-fast">"Tus deudas. Todas. Con todos. Desaparecen."</p>
+                <p class="prose-fast">Chispa no necesita pensarlo. No puede pensarlo. Pensar es quedarse quieta y quedarse quieta duele.</p>
+                <p class="prose-fast">"<strong>Hecho.</strong>"</p>
+                <p class="prose-fast">Don Corleone sonríe. Lento. Como todo lo que hace.</p>
+                <p class="prose-fast">"Sabía que dirías eso."</p>
+                <p class="prose-fast">Chispa ya se fue. La puerta todavía se mueve.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 2 — El Sótano (Salida)</h3>
+                <p class="prose-fast">El Sótano huele a húmedo. A esporas viejas. A cosas que crecen donde no deberían. Los Sembradores controlan esta zona y los Sembradores no corren — se expanden. Lento. Orgánico. Inevitable.</p>
+                <p class="prose-fast">Chispa odia el Sótano. Todo es lento aquí. El aire es lento. La luz es lenta. Hasta las sombras tardan en moverse.</p>
+                <p class="prose-fast">El Huevo está en una grieta del muro norte. Envuelto en seda de araña (¿quién lo puso ahí? No importa. No tiene tiempo para preguntas). Lo agarra. Cabe en su morral. Pesa menos de lo esperado. Brilla con un tono ámbar que parece latir.</p>
+                <p class="prose-fast"><strong>Y entonces suena la alarma.</strong></p>
+                <p class="prose-fast">No una alarma mecánica. Peor. Una alarma <em>orgánica</em>. Las esporas del suelo cambian de color. Verde a rojo. Rojo a púrpura. Los Sembradores saben. El micelio transmite información más rápido que cualquier mensajero.</p>
+                <p class="prose-fast">Casi cualquier mensajero.</p>
+                <p class="prose-fast">Chispa salta. Techo. Pared. Techo otra vez. Tres Sembradores emergen del suelo como plantas carnívoras con mala actitud. Lentos. Predecibles. Pero el pasillo es estrecho y las esporas flotan y si respira demasiado —</p>
+                <p class="prose-fast">No respira. Corre. Salta. El aire es opcional cuando tienes adrenalina.</p>
+                <p class="prose-fast">Sale del Sótano en 14 segundos. Récord personal. Los Sembradores ni registraron que llegó y se fue.</p>
+                <p class="prose-fast">Zona 1 de 5. Completada.</p>
+                <p class="prose-fast">Fácil.</p>
+                <p class="prose-fast">(No va a ser fácil.)</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 3 — El Laboratorio</h3>
+                <p class="prose-fast">El Laboratorio es territorio de Vlad. Las arañas tejedoras. Los que ven todo. Los que tienen hilos en cada esquina, literal y metafóricamente.</p>
+                <p class="prose-fast">Chispa conoce a Vlad. Le debe un favor. Otro favor. (A este punto la lista de deudas de Chispa necesita su propio índice.)</p>
+                <p class="prose-fast">No puede pasar por fuerza. Una araña tejedora contra una pulga es como una red contra una mosca — da igual qué tan rápido seas si el espacio entero es trampa.</p>
+                <p class="prose-fast">Así que bluffea.</p>
+                <p class="prose-fast">"¡Vlad!" grita al techo. Porque Vlad siempre está en el techo. "Llevo un paquete de Don Corleone. Tócame y él se entera. No me toques y paso en tres segundos. Tu eliges."</p>
+                <p class="prose-fast">Silencio. Los hilos vibran. Vlad piensa. Vlad siempre piensa demasiado.</p>
+                <p class="prose-fast">"¿Qué llevas?"</p>
+                <p class="prose-fast">"Nada que te importe."</p>
+                <p class="prose-fast">"Todo me importa. Es mi laboratorio."</p>
+                <p class="prose-fast">"Es un reloj." Mentira. "Para la Azotea." Verdad. "Don Corleone lo necesita antes del amanecer." Media verdad. "¿Vas a ser el que lo retrase?"</p>
+                <p class="prose-fast">Más silencio. Los hilos se relajan. Milímetro a milímetro. Vlad calcula riesgos. Las arañas siempre calculan riesgos.</p>
+                <p class="prose-fast">"Pasa. Pero me debes un favor."</p>
+                <p class="prose-fast">"Claro," dice Chispa. Ya va corriendo. Ya está del otro lado. "Añádelo a la lista."</p>
+                <p class="prose-fast">La lista es infinita. Chispa no piensa en listas. Chispa piensa en el siguiente salto.</p>
+                <p class="prose-fast">Zona 2. Completada. Sin sangre.</p>
+                <p class="prose-fast">Pero Vlad ya está mandando un mensaje. A alguien. Sobre algo. Las arañas siempre venden información.</p>
+                <p class="prose-fast"><strong>Tick. Tock.</strong></p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 4 — El Pasillo</h3>
+                <p class="prose-fast">El Pasillo es de Don Corleone. Su territorio. Su gente. Sus reglas.</p>
+                <p class="prose-fast">Y sus matones están esperando.</p>
+                <p class="prose-fast">Chispa lo sabía. Claro que lo sabía. <em>¿Un trabajo sin trampa?</em> Don Corleone no hace nada sin trampa. La trampa ES el entretenimiento.</p>
+                <p class="prose-fast">Tres cucarachas. Grandes. Blindadas. Lentas (todo es lento comparado con una pulga, pero estas son lentas hasta para cucarachas). Bloquean el pasillo en formación de muro.</p>
+                <p class="prose-fast">"Don Corleone manda saludos," dice la del medio. "Dice que el Huevo se queda aquí."</p>
+                <p class="prose-fast">"El trato era —"</p>
+                <p class="prose-fast">"El trato cambió."</p>
+                <p class="prose-fast">No. No cambió. Chispa lo entiende ahora. <strong>El trato nunca fue que ganara.</strong> El trato fue el espectáculo. Don Corleone apostó en su contra con El Gordo. Si la atrapan: cobra. Si escapa: entretenimiento máximo y apuesta a su favor en la siguiente ronda.</p>
+                <p class="prose-fast">La casa siempre gana.</p>
+                <p class="prose-fast">Pero Chispa no es la casa. Chispa es el dado que sale de la mesa y rueda por el suelo y termina debajo del mueble donde nadie puede leerlo.</p>
+                <p class="prose-fast"><strong>Salto Dimensional.</strong></p>
+                <p class="prose-fast">Desaparece. Reaparece. Detrás de ellas. Las tres cucarachas se miran. Se giran. Chispa ya no está ahí. Está en el techo. No. En la pared. No. Detrás otra vez.</p>
+                <p class="prose-fast">"¿Cómo — ?"</p>
+                <p class="prose-fast">No importa cómo. Está pasando. 0.3 segundos entre cada salto. Las cucarachas no pueden girar tan rápido. Nadie puede girar tan rápido.</p>
+                <p class="prose-fast">Chispa pasa. Chispa ríe. Chispa está a 200 metros cuando las cucarachas terminan de procesar que se fue.</p>
+                <p class="prose-fast">Zona 3. Completada. Trampa esquivada.</p>
+                <p class="prose-fast">Pero ahora TODO el Charco sabe lo que lleva. El Gordo está transmitiendo en vivo. Las odds cambiaron: 47 a 1 bajó a 12 a 1. La gente empieza a apostar a favor.</p>
+                <p class="prose-fast">Y La Sargento acaba de escuchar la transmisión.</p>
+                <p class="prose-fast"><strong>Mierda.</strong></p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 5 — La Sala de Máquinas</h3>
+                <p class="prose-fast">Calor. Calor. CALOR.</p>
+                <p class="prose-fast">La Sala de Máquinas es el infierno del Charco. Tuberías que hierven. Vapor que quema. El suelo está a 40 grados y subiendo. Es donde el Charco genera energía — y donde las pulgas van a morir.</p>
+                <p class="prose-fast">Porque el calor deshidrata. Y las pulgas son 80% velocidad y 20% agua. Quita el agua y queda... quietud.</p>
+                <p class="prose-fast">Chispa está más lenta. Lo siente. Cada salto cuesta más. La Adrenalina Acumulada se está quemando como combustible en un motor sobrecalentado. Tiene para 3 saltos dimensionales más. Quizás 4. Quizás 2. No puede contar. Contar es pensar. Pensar es parar.</p>
+                <p class="prose-fast">Y La Sargento está aquí.</p>
+                <p class="prose-fast">Vespa "La Sargento" no corre. Vespa cierra puertas. Vespa bloquea conductos. Vespa ha cortado tres de las cuatro rutas hacia la Azotea.</p>
+                <p class="prose-fast">"Chispa." La voz resuena entre las tuberías. Metálica. Paciente. "Tienes algo que pertenece a La Colmena."</p>
+                <p class="prose-fast">"¡Técnicamente el Enjambre Negro se lo robó primero! ¡Yo solo soy la que lo mueve!"</p>
+                <p class="prose-fast">"No me importa la cadena de custodia. Me importa el resultado."</p>
+                <p class="prose-fast">Tres avispas guardia emergen del vapor. Armadas. Rápidas (para avispas). Formación cerrada.</p>
+                <p class="prose-fast">Chispa tiene una ruta. UNA. El conducto de ventilación del sector 7. Estrecho. Ardiente. Pero demasiado pequeño para una avispa.</p>
+                <p class="prose-fast">Perfecto para una pulga.</p>
+                <p class="prose-fast">Salta. Se mete. El metal quema. Quema. <strong>QUEMA.</strong> Pero avanza. Arrastrándose. Empujando. El Huevo de Ámbar contra su pecho, tibio como un corazón que late.</p>
+                <p class="prose-fast">Detrás, La Sargento golpea el conducto. "¡CHISPA!"</p>
+                <p class="prose-fast">Adelante, luz. Aire frío. La salida.</p>
+                <p class="prose-fast">Sale. Cae. Rueda. Respira.</p>
+                <p class="prose-fast">Está viva. Está quemada. Está deshidratada. Está más lenta de lo que ha estado en toda su vida.</p>
+                <p class="prose-fast">Pero está del otro lado.</p>
+                <p class="prose-fast">Zona 4. Completada. Por los pelos. Por los pelos literales — tiene las antenas chamuscadas.</p>
+                <p class="prose-fast">Una zona más. Solo una.</p>
+                <p class="prose-fast">Y entonces — </p>
+                <p class="prose-fast">"¡Chispa! ¡Chispa, espera!"</p>
+                <p class="prose-fast"><strong>Resorte.</strong> El maldito crío la siguió. A través de todo. Hasta aquí.</p>
+                <p class="prose-fast">"¿QUÉ HACES AQUÍ?"</p>
+                <p class="prose-fast">"¡Quiero ayudar!"</p>
+                <p class="prose-fast">"¡VETE!"</p>
+                <p class="prose-fast">"¡No puedo! ¡La Sargento cerró todo atrás! ¡Solo queda adelante!"</p>
+                <p class="prose-fast">Chispa quiere gritar. No tiene tiempo para gritar. No tiene tiempo para nada que no sea moverse.</p>
+                <p class="prose-fast">"...Corre. Detrás de mí. No te pares. Si te paras te dejo."</p>
+                <p class="prose-fast">"¡Sí!"</p>
+                <p class="prose-fast">(No lo va a dejar. Lo sabe. Él no lo sabe. Todavía.)</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 6 — La Azotea</h3>
+                <p class="prose-fast">Aire libre. Frío. FRÍO. El contraste con la Sala de Máquinas es como meter la cara en un glaciar después de un incendio.</p>
+                <p class="prose-fast">La Azotea es lo más parecido al exterior que existe en el Charco. Techo abierto. Hielo arriba. Oscuridad infinita. Y pájaros. Los pájaros que cazan de noche. Las sombras que bajan del cielo congelado y se llevan lo que no se mueve rápido.</p>
+                <p class="prose-fast">Una pulga debilitada. Un pulga juvenil. Un Huevo que brilla en la oscuridad como un faro diciendo "CÓMEME".</p>
+                <p class="prose-fast">Condiciones perfectas para morir.</p>
+                <p class="prose-fast">Chispa calcula. Le quedan... dos saltos dimensionales. Quizás uno y medio. ¿Se puede hacer medio salto? No. No se puede. O saltas o no saltas. Como las apuestas. Todo o nada.</p>
+                <p class="prose-fast">El punto de entrega está al otro lado de la Azotea. 200 metros de espacio abierto. Sin cobertura. Sin sombras. Solo hielo y aire y cosas con alas que quieren comer.</p>
+                <p class="prose-fast">"Resorte."</p>
+                <p class="prose-fast">"¿Sí?"</p>
+                <p class="prose-fast">"¿Ves ese poste? A 50 metros."</p>
+                <p class="prose-fast">"Sí."</p>
+                <p class="prose-fast">"Corre ahí. Directo. No mires arriba."</p>
+                <p class="prose-fast">"¿Y tú?"</p>
+                <p class="prose-fast">"Yo voy a hacer algo estúpido."</p>
+                <p class="prose-fast">"¿Más estúpido que esto?"</p>
+                <p class="prose-fast">"Mucho más."</p>
+                <p class="prose-fast">Resorte corre. Chispa espera (duele, duele, DUELE esperar) hasta que el crío llega al poste. Bien. Seguro. Entonces:</p>
+                <p class="prose-fast">Chispa saca el Huevo de Ámbar. Lo levanta. Brilla. Brilla como un sol en miniatura. Todo el cielo se ilumina de dorado y las sombras con alas la ven y bajan y —</p>
+                <p class="prose-fast"><strong>Salto Dimensional.</strong></p>
+                <p class="prose-fast">Desaparece. El Huevo queda en el aire por una fracción de segundo — pero Chispa reaparece debajo, lo atrapa en caída, y está a 100 metros de donde estaba. Los pájaros bajan donde ESTABA. Pican hielo. Nada.</p>
+                <p class="prose-fast">Corre. El último tramo. Las patas le fallan. La Adrenalina está en cero. Está corriendo con pura inercia. Pura costumbre. Puro instinto de pulga que dice <em>si paras, mueres</em>.</p>
+                <p class="prose-fast">50 metros. 30. 20. Un pájaro baja en picada. Chispa lo ve. No tiene salto. No tiene esquiva. No tiene —</p>
+                <p class="prose-fast">Resorte salta. Desde el poste. Se lanza al pájaro. Le golpea el ojo. El pájaro se desvía. Resorte cae. Rueda. Se levanta. Sangra de una pata.</p>
+                <p class="prose-fast">"¡¿QUÉ HACES?!"</p>
+                <p class="prose-fast">"¡CORRE!"</p>
+                <p class="prose-fast">10 metros. 5.</p>
+                <p class="prose-fast">Chispa llega. Cae. El Huevo de Ámbar toca el suelo del punto de entrega.</p>
+                <p class="prose-fast"><strong>Zona 5. Completada.</strong></p>
+                <p class="prose-fast">El Charco entero estalla. El Gordo está gritando. Las apuestas se pagan. Las odds finales: Chispa lo hizo. 47 a 1.</p>
+                <p class="prose-fast">El amanecer entra por el techo abierto. Chispa está tirada en el suelo. No se mueve. Es la primera vez en su vida que no moverse se siente... bien.</p>
+                <p class="prose-fast">Dura un segundo.</p>
+                <p class="prose-fast">Dos, máximo.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 7 — El Cobro</h3>
+                <p class="prose-fast">Don Corleone llega al amanecer. Lento. Masticando. Siempre masticando.</p>
+                <p class="prose-fast">"Lo hiciste."</p>
+                <p class="prose-fast">"Lo hice."</p>
+                <p class="prose-fast">"Impresionante." Mastica. "Tus deudas están borradas. Todas. Con todos. Tienes mi palabra."</p>
+                <p class="prose-fast">"¿Y el Huevo?"</p>
+                <p class="prose-fast">"El Huevo nunca me importó." Sonríe. Lento. "La carrera. ESO me importó. Mejor que cualquier pelea en la arena. Le voy a contar esta historia a mis nietos."</p>
+                <p class="prose-fast">Chispa se levanta. Le duele todo. Las quemaduras. Las patas. Las antenas chamuscadas. Pero se levanta porque una pulga que no se mueve es una pulga muerta.</p>
+                <p class="prose-fast">Resorte está sentado en una esquina. La pata vendada con un trozo de seda de araña (robada, probablemente). La mira con ojos de héroe.</p>
+                <p class="prose-fast">"Chispa... eso fue —"</p>
+                <p class="prose-fast">"Estúpido. Fue estúpido. Todo fue estúpido. No lo vuelvas a hacer."</p>
+                <p class="prose-fast">"¿El qué? ¿Salvarte?"</p>
+                <p class="prose-fast">"Seguirme." Pausa. "...Pero gracias. Por el pájaro."</p>
+                <p class="prose-fast">Resorte sonríe. Chispa no lo mira. Mira al horizonte. Al Charco que despierta abajo. A las cinco zonas que cruzó en una noche.</p>
+                <p class="prose-fast">Libre. Sin deudas. Por primera vez en su vida, nadie le pide nada.</p>
+                <p class="prose-fast">El silencio dura exactamente cuatro segundos.</p>
+                <p class="prose-fast">"Oye, Resorte."</p>
+                <p class="prose-fast">"¿Sí?"</p>
+                <p class="prose-fast">"Apuesto a que puedo hacerlo de vuelta. La Azotea al Sótano. Misma ruta. <strong>Más rápido.</strong>"</p>
+                <p class="prose-fast">"...Chispa, acabas de —"</p>
+                <p class="prose-fast">"¿Sí o no? El Gordo todavía tiene la línea abierta. Las odds deben estar brutales."</p>
+                <p class="prose-fast">Resorte la mira. Y entiende. Esto no es valentía. No es estupidez. Es la Adicción al Salto. Es lo que las pulgas SON. Velocidad sin fin. Riesgo sin fondo. La apuesta que nunca se termina porque terminarla significaría parar y parar es —</p>
+                <p class="prose-fast">"No."</p>
+                <p class="prose-fast">Chispa se detiene. Lo mira. Nadie le dice no.</p>
+                <p class="prose-fast">"¿No?"</p>
+                <p class="prose-fast">"No voy a apostar contigo. Ni a seguirte otra vez." Se levanta. Cojea hacia la salida. "La velocidad sin propósito es solo huir, Chispa. Y yo no quiero huir."</p>
+                <p class="prose-fast">Se va.</p>
+                <p class="prose-fast">Chispa se queda sola. El viento de la Azotea sopla frío. El Huevo de Ámbar ya no está — Don Corleone se lo llevó. Las deudas ya no están. Resorte ya no está.</p>
+                <p class="prose-fast">No hay nada. Solo ella. Y el vacío. Y la necesidad física, química, existencial de MOVERSE.</p>
+                <p class="prose-fast">Cuatro segundos de silencio.</p>
+                <p class="prose-fast">Salta.</p>
+                <p class="prose-fast">Corre.</p>
+                <p class="prose-fast">Nadie la persigue esta vez. Pero corre igual.</p>
+                <p class="prose-fast">Siempre corre.</p>
+                <p class="prose-fast"><strong>Siempre.</strong></p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Centrales</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta que plantea</th></tr>
+                <tr><td>⚡ Adicción</td><td>¿Qué haces cuando tu identidad ES tu enfermedad? ¿Puedes dejar de ser tú mismo?</td></tr>
+                <tr><td>🎲 Riesgo como religión</td><td>¿La velocidad y el riesgo son libertad o una jaula en movimiento?</td></tr>
+                <tr><td>🏃 Huir vs Correr</td><td>¿Cuál es la diferencia entre correr HACIA algo y correr DESDE algo?</td></tr>
+                <tr><td>🤝 Deuda y libertad</td><td>¿Puedes ser libre si siempre debes? ¿Y qué haces cuando ya no debes nada?</td></tr>
+                <tr><td>👁️ El espectáculo del dolor</td><td>Don Corleone mira. El Gordo transmite. ¿La adicción de uno es el entretenimiento de otro?</td></tr>
+                <tr><td>🧒 Aprendiz y espejo</td><td>Resorte ve a Chispa como héroe. Chispa se ve como impulso. ¿Quién tiene razón?</td></tr>
+            </table>
+
+            <!-- FRASES CLAVE -->
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"La última apuesta siempre es la última. Hasta la siguiente. Y la siguiente. Y la siguiente. Y —"<br>— Chispa, ad infinitum</blockquote>
+            <blockquote>"47 a 1, señoras y señores. CUARENTA Y SIETE A UNO. ¿Y saben qué? Acabo de poner 50 fichas a favor. Porque si hay algo en este Charco que desafía las probabilidades, es una pulga con deudas y sin sentido de autopreservación."<br>— El Gordo, en vivo</blockquote>
+            <blockquote>"No me importa el Huevo. Me importa la historia. Las historias sobreviven a todo. Hasta al ámbar."<br>— Don Corleone</blockquote>
+            <blockquote>"La velocidad sin propósito es solo huir."<br>— Resorte, Capítulo 7</blockquote>
+            <blockquote>"Una pulga que no se mueve es una pulga muerta. Así que explícame, genio, por qué parar se sintió bien durante dos segundos."<br>— Chispa, para nadie</blockquote>
+            <blockquote>"Yo no persigo. Yo cierro puertas. Eventualmente, hasta las pulgas se quedan sin puertas."<br>— Vespa "La Sargento"</blockquote>
+
+            <!-- CONEXIÓN CON EL JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>Mecánicas del juego explicadas por esta novela</h4>
+                <ul>
+                    <li><strong>Adicción al Salto (defecto de Pulga):</strong> El jugador pulga DEBE moverse cada turno o recibe daño. No es una mecánica arbitraria — es identidad. Chispa muestra lo que significa vivir así.</li>
+                    <li><strong>Adrenalina Acumulada (recurso):</strong> Se construye con riesgo. Se gasta en hazañas imposibles. La novela muestra el ciclo: riesgo → adrenalina → hazaña → necesidad de más riesgo.</li>
+                    <li><strong>Salto Dimensional (habilidad):</strong> Auto-esquiva + reposición. Chispa lo usa 4 veces en la novela. Cada vez con menos reserva. El jugador siente lo mismo: ¿cuántos saltos me quedan?</li>
+                    <li><strong>El Circuito de Apuestas del Gordo:</strong> Sistema de apuestas NPC donde el jugador puede apostar en eventos del Charco. El Gordo es el bookie. Ahora sabes de dónde salió.</li>
+                    <li><strong>GAN 10 (Ganas de Vivir máxima):</strong> Las pulgas tienen el GAN más alto. No porque amen la vida — porque su cuerpo les EXIGE movimiento. Es supervivencia compulsiva.</li>
+                </ul>
+            </div>
+            <div class="info-box lore">
+                <h4>NPCs y eventos originados en esta novela</h4>
+                <ul>
+                    <li><strong>Chispa</strong> — NPC errante. Aparece en zonas aleatorias. Siempre moviéndose. Ofrece misiones de mensajería con pagos absurdos y riesgos peores.</li>
+                    <li><strong>El Gordo</strong> — NPC fijo en el Pasillo. Corredor de apuestas. El jugador puede apostar fichas en eventos del mundo.</li>
+                    <li><strong>Resorte</strong> — NPC joven en la Azotea. Cojea de una pata. Ofrece misiones de propósito (contrapartida de Chispa).</li>
+                    <li><strong>El Huevo de Ámbar</strong> — Item legendario mencionado en rumores. Nadie sabe dónde está ahora. Don Corleone sonríe si le preguntas.</li>
+                    <li><strong>"La Gran Carrera"</strong> — Evento anual donde los jugadores pueden intentar cruzar las 5 zonas en una noche. Inspirado en la hazaña de Chispa. Las odds siguen siendo 47 a 1.</li>
+                </ul>
+            </div>
+
+            <blockquote>"530 millones de años mirando insectos y esta es la primera vez que uno me hizo <em>apostar</em>. Puse 10 fichas a favor. A 47 a 1. Gané 470. Las invertí en palomitas cósmicas. Fue una buena noche."<br>— Ramazzottius, apostador secreto</blockquote>
+        </article>
+    </main>
+</body>
+</html>
