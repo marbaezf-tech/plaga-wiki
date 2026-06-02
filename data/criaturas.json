@@ -232,10 +232,10 @@
       "tipo": "taxon",
       "zona": "jugable",
       "imagen": "img/2d_tipula.png",
-      "stats": { "tor": 3, "gan": 8, "qui": 2, "sen": 9, "cri": 7, "fer": 6 },
+      "stats": { "tor": 5, "gan": 3, "qui": 8, "sen": 9, "cri": 3, "fer": 7 },
       "faccion": "Los Parásitos Libres",
       "recurso": "Calor Robado",
-      "defecto": "Cristal Ambulante — extremadamente frágil",
+      "defecto": "Paso de Pilar — lentísima (siempre actúa última), pero sus patas son irrompibles",
       "atavismos": ["Ocelo Ancestral", "Exoesqueleto Ancestral", "Antenas Ancestrales"],
       "lore": ""
     },
