@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦂🦋 Quitina y Escamas — Novela del Escorpión y la Mariposa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent-gold); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent-gold); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent-gold); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-red); }
+        .parallel .plaga { border-left: 3px solid var(--accent-gold); }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html">🌙 La Luz al Final del Micelio</a></li>
+            <li><a href="novela-escorpion-mariposa.html" class="active">🦂🦋 Quitina y Escamas</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="zonas-lore.html">🗺️ Las Zonas</a></li>
+            <li><a href="npcs-directorio.html">👤 NPCs</a></li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🦂🦋 Quitina y Escamas</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Escorpión y la Mariposa</strong> — Romance prohibido + thriller de supervivencia. Un guerrero del Enjambre Negro y una artista de La Colmena tienen una cría mestiza — una aberración genética que ambas facciones quieren destruir. Deben esconderla, protegerla, y huir de un mundo que no acepta lo que no puede clasificar.</p>
+                <p><strong>Tono:</strong> Romance trágico + La Vida es Bella (proteger al hijo con ingenio y sacrificio).<br>
+                <strong>Inspiración:</strong> Romeo y Julieta + La Vida es Bella + Casablanca.<br>
+                <strong>Duración:</strong> 14 capítulos.<br>
+                <strong>Pregunta central:</strong> ¿Puede existir algo nuevo en un mundo que solo acepta lo que ya conoce?</p>
+            </div>
+
+            <blockquote>"La genética de un Taxón es su identidad. Su pureza es su derecho a existir. Mezclarla es... no, no es pecado. Es peor. Es absurdo. Es como mezclar fuego con papel y esperar que sobrevivan ambos."<br>— Cimex III, sobre los mestizos</blockquote>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🦂</div>
+                <div>
+                    <h4>Roque "Pinza Negra" — El Padre</h4>
+                    <p><strong>Taxón:</strong> Escorpión (Androctonus) | <strong>Facción:</strong> Enjambre Negro (desertor)<br>
+                    <strong>Edad:</strong> 3 años | <strong>Zona:</strong> Las Sombras (desertó al Pasillo)<br>
+                    <strong>Perfil:</strong> Guerrero de asalto. Pedipalpos enormes, veneno clase 4, fotofóbico severo (la luz le quema los ojos). Fue comandante del Enjambre hasta que desobedeció una orden de matar civiles. Ahora es desertor — buscado por ambos bandos.<br>
+                    <strong>Voz:</strong> "No soy bueno. Nunca lo fui. Pero hay una diferencia entre matar con propósito y matar por costumbre. Cuando la diferencia desapareció, yo me fui."</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦋</div>
+                <div>
+                    <h4>Violeta "Alas de Ámbar" — La Madre</h4>
+                    <p><strong>Taxón:</strong> Mariposa Monarca | <strong>Facción:</strong> La Colmena (artista oficial)<br>
+                    <strong>Edad:</strong> 1.5 años | <strong>Zona:</strong> La Sala de Máquinas (taller de pigmentos)<br>
+                    <strong>Perfil:</strong> Pintora de murales de propaganda para La Colmena. Sus alas son naranja-negro (monarca), cubiertas de escamas que ella arranca para hacer pintura. Cada mural le cuesta un fragmento de sí misma. La Colmena la valora por su arte — no por ella.<br>
+                    <strong>Voz:</strong> "Me arrancan las escamas para pintar sus mentiras en las paredes. Y yo sonrío porque si dejo de sonreír, dejan de alimentarme. ¿Eso cuenta como esclavitud voluntaria?"</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🌈</div>
+                <div>
+                    <h4>Quispe — La Cría Mestiza</h4>
+                    <p><strong>Taxón:</strong> ??? (no clasificable) | <strong>Edad:</strong> 3 semanas al inicio del Acto III<br>
+                    <strong>Apariencia:</strong> Cuerpo de escorpión en miniatura (quitina negra, cola con aguijón) PERO con dos alas vestigiales iridiscentes en el dorso. No puede volar (muy pesada) pero las alas brillan cuando siente emociones fuertes. También tiene los ojos compuestos de una mariposa en un cráneo de escorpión — ve en ultravioleta.<br>
+                    <strong>Nombre:</strong> "Quispe" — nombre quechua que significa "libre". Lo eligieron porque no pertenece a ningún Taxón, ninguna facción, ninguna tradición. Es libre de todo. Y de nada.<br>
+                    <strong>Problema:</strong> Ambas facciones la consideran una abominación. El Enjambre la quiere como arma (veneno + camuflaje). La Colmena la quiere destruida (amenaza la pureza genética). Nadie la quiere viva y libre.</p>
+                </div>
+            </div>
+
+            <!-- MAPEO -->
+            <h2>🔄 Mapeo: Inspiraciones → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>🎬 Romeo y Julieta</strong></div>
+                <div class="plaga"><strong>🦂🦋 Quitina y Escamas</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Montesco vs Capuleto</div>
+                <div class="plaga">Enjambre Negro vs La Colmena</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El balcón (se ven a escondidas)</div>
+                <div class="plaga">El conducto 12 (zona entre la Sala de Máquinas y el Pasillo — tierra de nadie)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Romeo mata a Tybalt → exilio</div>
+                <div class="plaga">Roque deserta del Enjambre → buscado para ejecución</div>
+            </div>
+            <div class="parallel">
+                <div class="original"><strong>🎬 La Vida es Bella</strong></div>
+                <div class="plaga"><strong>🦂🦋 Quitina y Escamas (Acto III)</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Guido protege a Giosué del horror con humor</div>
+                <div class="plaga">Roque convierte la huida en "un juego de aventura" para Quispe</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El campo de concentración</div>
+                <div class="plaga">La persecución por todo el Charco — cazados por todas las facciones</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Guido muere pero el hijo sobrevive</div>
+                <div class="plaga">Roque se entrega para que Violeta y Quispe escapen al exterior</div>
+            </div>
+
+            <!-- SINOPSIS -->
+            <h2>📖 Sinopsis por Acto</h2>
+
+            <div class="chapter">
+                <h3>ACTO I — El Conducto 12 (Cap. 1-4)</h3>
+                <p>Roque vive escondido en el Pasillo desde que desertó. Sobrevive vendiendo veneno (extraído de su propio aguijón — doloroso pero lucrativo). Violeta trabaja de noche en la Sala de Máquinas pintando murales que glorifican a la Reina. Se cruzan en el conducto 12 — un paso estrecho entre ambas zonas que nadie usa porque es demasiado caliente de un lado y demasiado frío del otro.</p>
+                <p>Él no puede estar en la luz. Ella no puede estar en la oscuridad. El conducto 12 es el único punto del Charco donde hay penumbra — ni luz ni sombra. Ahí se encuentran.</p>
+                <p class="prose">"Ella brillaba. Literalmente. Sus escamas reflejaban el calor residual del cable y producían un resplandor naranja que debería haberme quemado los ojos. Pero no miré sus alas. Miré sus ojos. Y sus ojos no brillaban. Estaban apagados. Como los míos."</p>
+                <p>Se enamoran en 6 encuentros. No es romántico — es práctico. Dos seres rotos que descubren que el otro está igual de roto. Él le cuenta por qué desertó (le ordenaron matar larvas de Grillo para silenciar testigos). Ella le cuenta por qué pinta (si se niega, la matan — sabe demasiado de los rituales de la Reina).</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO II — La Abominación (Cap. 5-9)</h3>
+                <p>Violeta queda embarazada. En el mundo de las Plagas, la reproducción entre taxones diferentes es posible pero rarísima — los huevos casi nunca eclosionan. Este eclosiona.</p>
+                <p>Quispe nace en secreto en el conducto 12. Es... imposible. Tiene el exoesqueleto negro de un escorpión pero con dos alas iridiscentes brotando del tercer segmento torácico. No puede volar. No puede picar correctamente (el aguijón es demasiado corto). Pero sus ojos ven en UV — algo que ningún escorpión puede hacer.</p>
+                <p>La Chismosa lo descubre. Porque La Chismosa siempre lo descubre.</p>
+                <p class="prose">"Oh, cariño. Un mestizo. Qué interesante. Qué... noticiable. ¿Sabes lo que vale esta información? Para La Colmena: prueba de traición de su artista favorita. Para el Enjambre: prueba de que su desertor más buscado sigue en el Charco. Para los Parásitos: un espécimen vendible al mejor postor. Tres clientes. Un producto. Mi día favorito."</p>
+                <p>La cacería comienza. La Colmena manda a Vespa "La Sargento" a capturar a Violeta (traición por mezcla genética — pena de muerte). El Enjambre manda a Scolopendra a capturar a Roque (deserción + crimen genético). Los Parásitos quieren a Quispe como mercancía rara.</p>
+                <p>Roque y Violeta huyen con la cría. Pero ¿a dónde? Cada zona tiene ojos. Cada grieta tiene espías. El único lugar seguro es el que nadie controla: la <strong>Azotea</strong>.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO III — El Juego (Cap. 10-14) — "La Vida es Bella"</h3>
+                <p>Quispe tiene 3 semanas. Es curiosa, torpe, y sus alas brillan de colores cuando está contenta. Roque decide que su hija <strong>no va a crecer con miedo</strong>. Aunque están huyendo, aunque los persiguen, aunque podrían morir mañana — para Quispe, esto es una aventura.</p>
+                <p class="prose">"Escucha, bichita. Este es un juego. Se llama 'Los Exploradores del Gran Arriba'. Mamá y papá son los capitanes y tú eres la navegante. Tu misión: llegar a la Tierra de Arriba donde hace frío pero hay estrellas. Si nos escondemos bien y no hacemos ruido, ganamos puntos. ¿Lista? Uno... dos..."</p>
+                <p>La huida hacia la Azotea es brutal. Pasan por el Laboratorio de noche (Dermestes "El Abuelo" los esconde una noche — por honor, no por amor). Cruzan la puerta norte mientras La Sargento duerme (Tomás "Fosforito" distrae con una alarma falsa — no por altruismo, sino porque le deben un favor).</p>
+                <p>En la Azotea, el frío es mortal. Pero Roque produce calor metabólico suficiente para los tres (los escorpiones conservan energía como reptiles). Violeta pierde escamas con el viento — se va volviendo transparente, invisible, fantasmal.</p>
+                <p><strong>El final:</strong> Scolopendra los encuentra. 30cm de ciempiés contra un escorpión de 4mm con una cría y una mariposa exhausta. Roque toma una decisión.</p>
+                <p class="prose">"Violeta. Lleva a Quispe al borde de la reja. Del otro lado hay un jardín. Hay plantas. Hay calor. Hay vida. No mires atrás. Dile a la bichita que papá ganó el juego. Que consiguió los puntos suficientes. Que el premio es... el cielo abierto."</p>
+                <p>Roque se lanza contra Scolopendra. No para ganar — para dar tiempo. El combate dura 90 segundos. Roque clava su aguijón una vez (veneno clase 4 — letal en 5 minutos). Scolopendra lo parte por la mitad con sus forcípulas. Ambos mueren.</p>
+                <p>Violeta cruza la reja con Quispe. Al otro lado: el jardín del edificio. Tierra húmeda. Plantas vivas. Temperatura 14°C (paraíso comparado con el Charco). Y ninguna facción que las persiga.</p>
+                <p>Quispe nunca sabrá que su padre murió. Violeta le dirá que "papá sigue jugando adentro y un día vendrá a buscarlas". Es mentira. Pero es la clase de mentira que te permite seguir respirando.</p>
+            </div>
+
+            <!-- EPÍLOGO -->
+            <div class="chapter">
+                <h3>EPÍLOGO — 6 meses después</h3>
+                <p>Quispe tiene 7 meses. Vive en una maceta de albahaca en el balcón del tercer piso. Sus alas ahora se abren completas — no vuela, pero las usa para regular temperatura (como paneles solares). Su veneno es más débil que el de un escorpión puro, pero sus ojos UV le permiten ver depredadores que nadie más ve.</p>
+                <p>Es un ser nuevo. No es escorpión. No es mariposa. Es algo que no tiene nombre. Y por primera vez en la historia del Gran Charco, una plaga vive arriba. No escondida. No huyendo. <em>Existiendo.</em></p>
+                <p>En el Gran Charco, abajo, corre un rumor. La Chismosa lo propaga sin saber que es verdad: "Dicen que hay una criatura en el jardín de arriba. Con pinzas y alas. Una abominación. O quizás... una evolución."</p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Centrales</h2>
+            <table>
+                <tr><th>Tema</th><th>Cómo se explora</th></tr>
+                <tr><td>🧬 Pureza genética vs Evolución</td><td>Las facciones insisten en la pureza de Taxón como identidad. Quispe demuestra que la mezcla crea algo nuevo y viable — pero el mundo no está listo.</td></tr>
+                <tr><td>❤️ Amor como acto político</td><td>Amar al enemigo no es romántico — es subversivo. Roque y Violeta no eligen amarse para rebelarse. Se rebelan porque se aman.</td></tr>
+                <tr><td>👶 Proteger la inocencia</td><td>Roque convierte la huida en juego. No porque sea ingenuo — porque entiende que el terror destruye más que el frío.</td></tr>
+                <tr><td>🏃 Sacrificio sin gloria</td><td>Roque muere en un combate de 90 segundos que nadie presencia. No hay monumento. No hay canción. Solo una cría que vivirá.</td></tr>
+                <tr><td>🌱 Lo nuevo vs Lo establecido</td><td>Quispe no encaja en ninguna categoría. El mundo la rechaza. Pero ella existe. Y la existencia no necesita permiso.</td></tr>
+            </table>
+
+            <!-- FRASES -->
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"Ella es luz. Yo soy sombra. El conducto 12 es penumbra. Es el único lugar donde ambos podemos ser reales al mismo tiempo."<br>— Roque, Capítulo 2</blockquote>
+
+            <blockquote>"Me dijeron que pintar para la Reina era un honor. También me dijeron que arrancarme las escamas era 'dar color al servicio'. La diferencia entre honor y tortura es solo una cuestión de vocabulario."<br>— Violeta, Capítulo 1</blockquote>
+
+            <blockquote>"Tiene mis pinzas y sus alas. Tiene mi veneno y sus ojos. No es de nadie. No es para nadie. Es. Y eso les aterroriza más que cualquier ejército."<br>— Roque, viendo a Quispe por primera vez, Capítulo 6</blockquote>
+
+            <blockquote>"Dile a la bichita que papá ganó el juego."<br>— Roque, últimas palabras, Capítulo 13</blockquote>
+
+            <blockquote>"Un mestizo. La prueba de que los Taxones no son muros — son puertas. Y La Colmena siempre tuvo miedo de las puertas abiertas."<br>— Dermestes "El Abuelo", al ayudarlos, Capítulo 11</blockquote>
+
+            <!-- CONEXIÓN JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>Impacto en el lore y gameplay</h4>
+                <ul>
+                    <li><strong>El Conducto 12:</strong> Zona explorable entre Sala de Máquinas y Pasillo. Si el jugador lo encuentra, hay marcas en la pared — dibujos de Violeta. Una mariposa y un escorpión juntos. Borrosos por el calor.</li>
+                    <li><strong>Mestizos como mecánica futura:</strong> Si algún DLC introduce reproducción entre taxones, Quispe es el precedente narrativo que lo justifica.</li>
+                    <li><strong>Rumor de La Chismosa:</strong> Si el jugador habla con Blatta en el Mercado, ella menciona "una abominación en el jardín de arriba". Es una quest secundaria que nunca se resuelve — solo confirma que Quispe existe.</li>
+                    <li><strong>Scolopendra:</strong> Si el jugador lo encuentra como enemigo, tiene una cicatriz de aguijón en el costado. Si lo derrotas, dropea "Pinza Negra Oxidada" — reliquia de Roque.</li>
+                    <li><strong>Easter egg:</strong> En la Azotea, junto a la reja, hay una mancha de hemolinfa seca. Si el jugador la examina con Sensilios ≥ 7, el texto dice: "Algo pasó aquí. Algo terminó. Y algo empezó."</li>
+                </ul>
+            </div>
+
+            <blockquote>"Ah, el amor inter-taxón. La única fuerza del universo capaz de hacer que un escorpión fotofóbico mire directamente a una mariposa luminosa y diga 'vale la pena quedarme ciego'. Los insectos son estúpidos. Por eso me caen bien."<br>— Ramazzottius, sobre la novela</blockquote>
+
+        </article>
+    </main>
+</body>
+</html>
