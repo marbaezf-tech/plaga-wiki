@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪲 El Caballero del Quitinoso — Novela del Escarabajo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid #8b7355; padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: #8b7355; }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid #2a2a1a; border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: #8b7355; }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-gold); }
+        .parallel .plaga { border-left: 3px solid #8b7355; }
+        .intro-box { border: 2px solid #2a2a1a; border-radius: 8px; padding: 1.2em; margin: 1em 0; background: rgba(139,115,85,0.05); }
+        blockquote { border-left: 4px solid #8b7355; }
+        h2 { color: #8b7355; }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html">🌙 La Luz al Final del Micelio</a></li>
+            <li><a href="novela-arana.html">🕸️ Los Crímenes del Hilo Rojo</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Quitina y Escamas</a></li>
+            <li><a href="novela-mosca.html">🪰 La Larva de Prometeo</a></li>
+            <li><a href="novela-chinche.html">🛏️ Quitina y Prejuicio</a></li>
+            <li><a href="novela-tipula.html">🦿 La Lista de Esperanza</a></li>
+            <li><a href="novela-vinchuca.html">🗡️ La Colmena Silenciosa</a></li>
+            <li><a href="novela-cucaracha.html">🪳 Novela Cucaracha</a></li>
+            <li><a href="novela-garrapata.html">🎰 Novela Garrapata</a></li>
+            <li><a href="novela-sanguijuela.html">🩸 Novela Sanguijuela</a></li>
+            <li><a href="novela-pulga.html">⚡ El Salto Final</a></li>
+            <li><a href="novela-escarabajo.html" class="active">🪲 El Caballero del Quitinoso</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🪲 El Caballero del Quitinoso</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Escarabajo</strong> — Honor y torneos. Un caballero errante demasiado grande y demasiado bueno entra al torneo más corrupto del Gran Charco y descubre que la sinceridad es el arma más desconcertante. Inspirada en <em>El Caballero de los Siete Reinos</em> (George R.R. Martin) — las historias de Dunk y Egg.</p>
+                <p><strong>Tono:</strong> Cálido, humilde, ocasionalmente cómico. Simple como su protagonista. La belleza está en la honestidad.<br>
+                <strong>Duración estimada:</strong> 8 capítulos.<br>
+                <strong>Conexión con el juego:</strong> Explica por qué el "Torneo de la Quitina" existe como mecánica PvP, por qué los escarabajos son la facción más leal a La Colmena, y el origen del NPC "Sir Mandíbula" (memorial en la Arena).</p>
+            </div>
+
+            <blockquote>"No soy listo. Lo sé. Mi maestro me lo decía siempre. Pero también decía que un hombre que dice la verdad no necesita ser listo. La verdad se recuerda sola."<br>— Coraza, antes de inscribirse en el Torneo</blockquote>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes Principales</h2>
+
+            <div class="character-card">
+                <div class="emoji">🪲</div>
+                <div>
+                    <h4>Coraza — Protagonista (El Caballero de Cuneta)</h4>
+                    <p><strong>Taxón:</strong> Escarabajo Rinoceronte | <strong>Rango:</strong> Caballero de Cuneta (sin señor, sin territorio)<br>
+                    <strong>Stats:</strong> TOR 9 · GAN 3 · QUI 10 · SEN 4 · CRI 2 · FER 5 — tanque puro<br>
+                    <strong>Descripción:</strong> Enorme. Lento. Honesto hasta la incomodidad. Fue escudero de Sir Élitro durante 3 años. Cuando su maestro murió, heredó solo dos cosas: una armadura vieja con grietas y una promesa. "Entra al Torneo. Gana con honor. Demuestra que todavía significa algo."<br>
+                    <strong>Defecto:</strong> No es inteligente. No entiende las intrigas. No capta los dobles sentidos. Dice lo que piensa y no entiende por qué eso molesta a la gente.<br>
+                    <strong>Equivalente:</strong> Ser Duncan el Alto (Dunk)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">💥</div>
+                <div>
+                    <h4>Pólvora — El Escudero</h4>
+                    <p><strong>Taxón:</strong> Escarabajo Bombardero (juvenil) | <strong>Edad:</strong> 4 meses (un crío)<br>
+                    <strong>Descripción:</strong> Pequeño, ruidoso, insistente. Aparece de la nada y se niega a irse. Dice que quiere ser escudero. No da explicaciones de dónde viene ni quién es su familia.<br>
+                    <strong>Secreto:</strong> Es nieto de Dynastes "El Campeón" — heredero de la jerarquía escarabajo. Se escapó de la corte porque odia la pompa y quiere ver el mundo "de verdad". Nadie lo sabe.<br>
+                    <strong>Equivalente:</strong> Egg (el príncipe disfrazado)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">✨</div>
+                <div>
+                    <h4>Lustro — El Antagonista</h4>
+                    <p><strong>Taxón:</strong> Escarabajo Joya (brillo metálico iridiscente) | <strong>Rango:</strong> Campeón del Tercer Anillo<br>
+                    <strong>Descripción:</strong> Hermoso. Cruel. Rápido para ser un escarabajo. Su exoesqueleto brilla como metal pulido — y lo sabe. Hijo de un Primogénito de La Colmena. Pelea sucio: mandíbulas untadas con toxina de contacto. Todos lo saben. Nadie dice nada.<br>
+                    <strong>Motivación:</strong> No pelea por honor. Pelea porque disfruta humillar. El torneo es su teatro personal.<br>
+                    <strong>Equivalente:</strong> Aerion Brightflame (Fuegoscuro)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">⚔️</div>
+                <div>
+                    <h4>Sir Mandíbula — El Viejo Campeón</h4>
+                    <p><strong>Taxón:</strong> Escarabajo Ciervo Volante | <strong>Rango:</strong> Campeón Emérito (retirado)<br>
+                    <strong>Descripción:</strong> El último caballero que cree genuinamente en el código. Viejo, mandíbulas desgastadas por mil combates, pero su presencia todavía impone respeto. Fue campeón hace 6 torneos. Se retiró cuando vio que los combates empezaban a amañarse. Ahora observa desde las gradas con tristeza.<br>
+                    <strong>Rol:</strong> Ve en Coraza algo que creía extinto: sinceridad. Es el único que lo defiende. Y paga el precio.<br>
+                    <strong>Equivalente:</strong> Baelor Rompelanzas</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">👑</div>
+                <div>
+                    <h4>Dynastes "El Campeón" — La Sombra</h4>
+                    <p><strong>Taxón:</strong> Escarabajo Hércules | <strong>Rango:</strong> Specimen Alpha, líder supremo de la Nobleza Acorazada<br>
+                    <strong>Descripción:</strong> 850 veces su propio peso. No aparece en persona — su presencia se siente en cada regla del torneo, en cada juez que mira para otro lado. El torneo es suyo. Los resultados son suyos. Coraza no lo sabe, pero está peleando en el tablero de alguien más.<br>
+                    <strong>Conexión:</strong> Abuelo de Pólvora. No sabe que su nieto está en el torneo como escudero de un don nadie.</p>
+                </div>
+            </div>
+
+            <!-- EQUIVALENCIAS -->
+            <h2>🔄 Mapeo: Dunk & Egg → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>📖 El Caballero de los 7 Reinos (GRRM)</strong></div>
+                <div class="plaga"><strong>🪲 El Caballero del Quitinoso</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Ser Duncan el Alto — caballero errante, enorme, noble, no muy listo</div>
+                <div class="plaga">Coraza — escarabajo rinoceronte, QUI 10, dice la verdad porque no sabe mentir</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Egg (Aegon Targaryen) — príncipe disfrazado de escudero calvo</div>
+                <div class="plaga">Pólvora — nieto de Dynastes disfrazado de bombardero callejero</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El Torneo de Ashford — combate por honor, juicio de los siete</div>
+                <div class="plaga">Torneo de la Quitina — gladiatorial por rango, territorio y derechos de apareamiento</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Baelor Rompelanzas — príncipe bueno que muere por defender al héroe</div>
+                <div class="plaga">Sir Mandíbula — viejo campeón que muere en juicio por combate defendiendo a Coraza</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Aerion Fuegoscuro — príncipe cruel, pelea sucio, abusa de su rango</div>
+                <div class="plaga">Lustro — escarabajo joya, veneno en mandíbulas, hijo de Primogénito</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Caballero errante (hedge knight) — sin señor, solo su espada y su palabra</div>
+                <div class="plaga">Caballero de Cuneta — sin territorio, solo su armadura agrietada y su honor</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El sistema feudal es corrupto pero Dunk no participa de la corrupción</div>
+                <div class="plaga">El Gran Charco es cínico pero Coraza no sabe ser cínico. Y eso lo hace impredecible.</div>
+            </div>
+
+            <!-- CAPÍTULOS -->
+            <h2>📖 Capítulos</h2>
+
+            <div class="chapter">
+                <h3>Capítulo 1 — El Caballero de Cuneta</h3>
+                <p>El suelo estaba frío cuando Coraza terminó de cavar. No era un hoyo profundo — Sir Élitro no hubiera querido profundidad. "Que me entierren donde caiga", decía siempre. "Los pomposos quieren mausoleos. Yo quiero descansar."</p>
+                <p class="prose">Le puse encima las piedras que encontré. No eran bonitas. Unas tenían musgo y otras estaban rotas. Pero eran pesadas y eso importaba más. Que nadie lo mueva. Que se quede donde elegí ponerlo.</p>
+                <p>Coraza se quedó de pie junto al montículo hasta que la humedad del techo empezó a gotear sobre su caparazón. Sonaba como lluvia. Sir Élitro le hubiera dicho que se moviera. "No seas tonto, muchacho. Los muertos no necesitan compañía. Los vivos sí."</p>
+                <p>Tenía la armadura de su maestro atada a la espalda. Pesaba más que él. Las grietas la hacían silbar cuando caminaba — un sonido agudo, molesto, que anunciaba su presencia a medio túnel de distancia. Una armadura de sigilo no era.</p>
+                <p class="prose">El Torneo de la Quitina empieza en tres días. Sir Élitro quería que fuera. "Entra por mí", me dijo la última noche. "No por ganar. Por demostrar que todavía hay alguien que pelea limpio." Le dije que sí. No sé si puedo. Pero le dije que sí.</p>
+                <p>Se puso en camino hacia el Tercer Anillo. La armadura silbaba. El túnel era largo. Coraza no pensaba en estrategia ni en rivales. Pensaba en que no había desayunado y en que su maestro se hubiera reído de eso.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 2 — El Escudero</h3>
+                <p>Apareció al segundo día de camino. Un escarabajo bombardero diminuto — la mitad del tamaño de la pata delantera de Coraza — que salió de detrás de un hongo seco y dijo: "Yo soy tu escudero."</p>
+                <p class="prose">Le dije que no necesitaba escudero. Me dijo que sí necesitaba. Le dije que no tenía comida para dos. Me dijo que él no comía mucho. Le dije que el camino era peligroso. Me dijo que por eso necesitaba un escudero. No supe qué responder a eso.</p>
+                <p>El crío se llamaba Pólvora. O eso decía. "¿Pólvora qué más?" — "Solo Pólvora." No tenía familia visible, no tenía marcas de casa noble, no tenía nada excepto una bolsa medio vacía y una actitud que sugería que estaba acostumbrado a que le obedecieran.</p>
+                <p>Coraza intentó dejarlo atrás tres veces. La primera, aceleró el paso. Pólvora corrió. La segunda, se escondió detrás de una columna de calcita. Pólvora lo encontró por el silbido de la armadura. La tercera, le dijo directamente: "Vete a casa."</p>
+                <p class="prose">"No tengo casa", me dijo. Y la forma en que lo dijo — no triste, sino como si fuera un hecho, como decir que el agua es húmeda — me hizo callar. Conozco esa frase. Yo tampoco tengo casa. Nadie que camine las cunetas tiene casa.</p>
+                <p>Al atardecer del segundo día, Pólvora caminaba dos pasos detrás de Coraza, cargando la correa de la armadura vieja sin que nadie se lo pidiera. Coraza no dijo "puedes quedarte". Simplemente dejó de decir "vete".</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 3 — El Registro</h3>
+                <p>La oficina de registro del Torneo estaba en una caverna lateral del Tercer Anillo, forrada de cera endurecida y llena de burócratas. Escarabajos escribanos con antenas cortas y mala vista que llevaban generaciones sin pelear pero decidían quién peleaba.</p>
+                <p>"Nombre." — "Coraza." — "¿Coraza qué?" — "Solo Coraza." — "Casa." — "Ninguna." — "Señor feudal." — "Ninguno." — "Sponsor." — "¿Qué es eso?" El escribano levantó la vista por primera vez.</p>
+                <p class="prose">Me explicó que necesitaba papeles. Linaje. Sponsor de una casa noble o de una facción. Algo que demostrara que tenía derecho a participar. Le dije que tenía la armadura de mi maestro y mi palabra. Me miró como si le hubiera dicho que pagaba con piedras.</p>
+                <p>"Mire," dijo el escribano con la paciencia agotada de alguien que ha tenido esta conversación antes, "sin papeles no hay inscripción. Sin inscripción no hay combate. Sin combate no hay honor. Así funciona."</p>
+                <p>Coraza no se movió. No porque fuera desafiante — simplemente no sabía qué hacer. Sir Élitro nunca le explicó esta parte. Le dijo "entra al torneo" como si fuera caminar por una puerta. Nadie le dijo que la puerta tenía cerradura.</p>
+                <p class="prose">Pólvora habló. No sé qué dijo exactamente porque lo dijo rápido y bajo, al oído del escribano. Pero el escribano se puso pálido, revisó algo debajo del mostrador, y me dio un número. "Arena 4. Ronda de los Débiles. Mañana al amanecer." No pregunté qué dijo Pólvora. Quizás debí preguntar.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 4 — La Ronda de los Débiles</h3>
+                <p>La Ronda de los Débiles. Así la llamaban. Donde peleaban los sin-casa, los sin-nombre, los que nadie esperaba que llegaran a la segunda ronda. El público ni siquiera se sentaba para verla.</p>
+                <p>Primer combate: un escarabajo pelotero con más ira que técnica. Coraza recibió tres golpes sin moverse. El pelotero se cansó. Coraza lo empujó. Se acabó.</p>
+                <p>Segundo combate: dos escarabajos longicornios que peleaban en equipo. Rápidos, con mandíbulas como tijeras. Le cortaron trozos de la armadura vieja. La armadura silbó más fuerte por las grietas nuevas. Coraza no atacó. Esperó. Se cansaron. Les cayó encima.</p>
+                <p class="prose">No sé pelear bonito. Sir Élitro me enseñó una cosa: "No caigas." Eso es todo. No caer. Puedes sangrar, puedes perder trozos, puedes ser lento y torpe y feo de ver. Pero si no caes, el otro se cansa antes. Siempre se cansan antes.</p>
+                <p>Tercer combate: un escarabajo titán — casi tan grande como Coraza. Este sí pegaba fuerte. Coraza sintió crujir cosas dentro de la armadura que no deberían crujir. Pero no cayó. El titán sí. Al noveno golpe, sus patas cedieron. No las de Coraza.</p>
+                <p>La Ronda de los Débiles terminó. Coraza avanzó. El público no aplaudió — no estaban prestando atención. Pero Pólvora sí. Gritaba desde la grada como si fuera una final. Coraza no sonrió porque los escarabajos rinoceronte no sonríen. Pero si pudiera, lo hubiera hecho.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 5 — Lustro</h3>
+                <p>Lo vio por primera vez en el descanso entre rondas. Un escarabajo joya — el caparazón como cobre líquido, reflejando las antorchas de resina. Caminaba como si el pasillo fuera suyo. Probablemente lo era.</p>
+                <p>"¿Eso es una armadura o un cadáver que te pusiste encima?" La voz de Lustro era musical. Agradable, incluso. Lo peor del insulto era lo bien que sonaba.</p>
+                <p class="prose">No contesté. Sir Élitro decía que los insultos son anzuelos. Si muerdes, el otro te arrastra. Si no muerdes, se queda con el anzuelo en la mano sintiéndose tonto. No sé si se sintió tonto. Pero yo no mordí.</p>
+                <p>"Tu maestro — Élitro, ¿verdad? El viejo de la cuneta que murió tosiendo." Lustro se acercó. Su séquito detrás, riéndose antes de que terminara la frase. "Murió sin casa, sin honor, sin ni siquiera un escudero que lo enterrara dignamente. Y tú vienes aquí con sus sobras. Qué conmovedor."</p>
+                <p>Coraza no dijo nada. Le costó. Le costó más que cualquier golpe de la Ronda de los Débiles. Pero no dijo nada. Pólvora, detrás, temblaba de rabia. El crío quería explotar — literalmente, los bombarderos disparan ácido cuando se enfurecen. Coraza le puso una pata encima del hombro. "No."</p>
+                <p class="prose">Lustro se fue riendo. Su séquito se fue riendo. El pasillo se quedó vacío y silencioso y yo me quedé parado pensando que Sir Élitro murió en mis brazos y que fue la persona más valiente que conocí y que si algún día peleo contra ese escarabajo brillante voy a hacerlo limpio aunque me mate. Porque si peleo sucio, Sir Élitro habrá muerto de verdad.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 6 — El Veneno</h3>
+                <p>Pólvora lo descubrió. No Coraza — Coraza no hubiera sabido qué buscar. Pero el crío tenía ojos de bombardero: veía las reacciones químicas antes de que ocurrieran.</p>
+                <p>"Sus mandíbulas. Están untadas. Mira el borde — ese brillo no es natural. Es toxina de contacto." Pólvora estaba seguro. Coraza fue al juez del torneo.</p>
+                <p class="prose">Le dije al juez que Lustro usaba veneno. El juez me miró. No con sorpresa. Sin sorpresa. Esa fue la parte que dolió. "Todo el mundo lo hace", me dijo. "Es parte del juego." Le dije que no. Que el código dice que las armas deben ser limpias. Me dijo que el código tiene muchos años y que las costumbres cambian. Le dije que entonces para qué tienen un código. No me respondió.</p>
+                <p>Fue a tres jueces más. Mismo resultado. El último ni siquiera fingió escucharlo. "Mira, cuneta. Lustro es hijo de un Primogénito. Tú eres... ¿qué eres? Vuelve a tu arena y agradece que te dejaron participar."</p>
+                <p>Sir Mandíbula fue el que lo encontró esa noche. El viejo ciervo volante, sentado solo en una grada vacía, mirando la arena donde había sido campeón seis veces. "Escuché lo que dijiste. Sobre el veneno." Coraza asintió. "¿Y nadie te creyó?" Coraza negó.</p>
+                <p class="prose">"Te creo", dijo el viejo. Y esas dos palabras valieron más que todo el torneo. Alguien me creyó. Una sola persona en todo este lugar de mentirosos me creyó. No porque pudiera probar nada. Sino porque el viejo también recordaba cómo debían ser las cosas.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 7 — El Juicio por Combate</h3>
+                <p>Sir Mandíbula hizo algo que nadie esperaba. Invocó el Derecho de la Quitina Noble — un mecanismo antiguo, casi olvidado. Un campeón emérito puede exigir juicio por combate si un participante ha sido deshonrado y los jueces no actúan.</p>
+                <p>"Pelearé por este Caballero de Cuneta," declaró ante la Arena llena. "Contra el que ha envenenado no solo sus mandíbulas, sino este torneo entero."</p>
+                <p class="prose">Le dije que no lo hiciera. Le dije que era viejo y que Lustro era rápido y que el veneno mataba. Me dijo: "Muchacho, llevo seis torneos viendo cómo esto se pudre. Seis torneos callándome. Si no peleo ahora, ¿para qué fui campeón?" No supe qué decir. A veces la gente buena no escucha.</p>
+                <p>El combate duró menos de lo que debería. Sir Mandíbula era viejo pero su técnica era perfecta — cada movimiento medido, cada posición heredada de generaciones de guerreros nobles. Pero la técnica no importa cuando tu rival te toca y el veneno entra.</p>
+                <p>Lustro lo rozó en el tercer intercambio. Solo un roce. Las mandíbulas de Mandíbula se aflojaron primero. Luego las patas. El viejo cayó de rodillas con una dignidad que Lustro nunca entendería. Miró a Coraza desde la arena. Sonrió.</p>
+                <p class="prose">Murió con los ojos abiertos. Mirándome. Como diciendo: "Ahora te toca." No aplaudieron. Por primera vez en el torneo, la Arena estuvo en silencio. Incluso los que sabían del veneno, incluso los que miraron para otro lado — por un momento, sintieron vergüenza. Solo un momento. Pero lo sentí.</p>
+                <p>El reglamento era claro. Si el campeón del juicio cae, el acusador debe pelear. Coraza estaba en la final. Contra Lustro. Sin opción.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Capítulo 8 — La Final</h3>
+                <p>La Arena estaba llena por primera vez desde que empezó la Ronda de los Débiles. No vinieron por Coraza. Vinieron por la sangre. Por ver si el veneno funcionaba dos veces. Por ver caer a otro idiota honesto.</p>
+                <p>Lustro entró brillando. Su caparazón pulido reflejaba mil antorchas. Sus mandíbulas goteaban — ni siquiera se molestó en esconder el veneno esta vez. ¿Para qué? El juez estaba comprado. La multitud era suya. El resultado era inevitable.</p>
+                <p class="prose">Me puse la armadura de Sir Élitro. La vieja. La agrietada. La que silba y pesa demasiado y no brilla. Me la puse porque es lo único que tengo y porque si voy a morir quiero morir con algo de él encima. Pólvora me ayudó con las correas. Le temblaban las manos. "Vas a ganar", me dijo. No me lo creí. Pero fue bonito que lo dijera.</p>
+                <p>El primer golpe de Lustro fue al rostro. Rápido. Certero. El veneno tocó la armadura. Coraza sintió el impacto pero no el ardor. Lustro golpeó otra vez. Y otra. Cada vez más rápido, cada vez más furioso. La armadura de Sir Élitro crujía, se astillaba, perdía trozos. Pero el veneno no llegaba a la piel.</p>
+                <p>Las grietas. Las malditas grietas de la armadura vieja. El veneno entraba por ellas — y se quedaba ahí. Atrapado entre capas de quitina muerta. La armadura de un maestro muerto absorbiendo el veneno como una esponja. Protegiéndolo una última vez.</p>
+                <p class="prose">Lustro me pegaba y yo no caía. Me pegaba y no caía. No sé cuántas veces. Perdí la cuenta. Me pegaba y el veneno no me tocaba y yo no caía. Sir Élitro me enseñó una sola cosa y esa cosa me estaba salvando la vida. No caigas. No caigas. No caigas.</p>
+                <p>Lustro se cansó primero. Siempre se cansan primero. Su técnica se volvió desesperada. Perdió la elegancia. Perdió el ritmo. Empezó a golpear como un animal asustado porque por primera vez en su vida algo no funcionaba. Su veneno no funcionaba. Y sin veneno, Lustro era solo un escarabajo bonito con poca resistencia.</p>
+                <p>Coraza avanzó. Un paso. Lento. Otro paso. Lustro retrocedió. La Arena entera contuvo el aliento. El escarabajo brillante retrocedía ante el escarabajo roto.</p>
+                <p>"Me rindo." Lo dijo Lustro. No Coraza. El cobarde debajo del brillo salió a la superficie como siempre sale. Cuando el veneno no funciona, cuando el truco falla, cuando tiene que pelear de verdad — se rinde. Porque nunca aprendió a no rendirse. Nunca necesitó aprender.</p>
+                <p class="prose">La Arena se quedó en silencio otra vez. Pero este silencio era diferente al de la muerte de Sir Mandíbula. Este era de confusión. No sabían qué acababa de pasar. Un nadie, un cuneta, un escarabajo con armadura rota acababa de ganar el Torneo de la Quitina sin lanzar un solo golpe ofensivo. Solo por no caer. Solo por no rendirse. Solo por ser demasiado tonto para saber que debía perder.</p>
+                <p>Le ofrecieron el premio. Territorio en el Segundo Anillo. Derechos de apareamiento. Un título. Coraza negó con la cabeza.</p>
+                <p>"Solo quiero eso." Señaló el pendón de Sir Mandíbula — el trapo viejo con el emblema de ciervo volante que colgaba de la grada donde murió. "Y que pongan su nombre en la piedra de campeones. Vino aquí a pelear limpio y murió limpio. Eso es ser campeón."</p>
+                <p>Nadie lo detuvo. Nadie sabía cómo responder a alguien que pedía menos de lo que le ofrecían.</p>
+                <p class="prose">Pólvora me esperaba en la salida. Llorando. Los bombarderos lloran ácido — le estaba carcomiendo la cara. Le dije que parara. Me dijo que era nieto de Dynastes. Me dijo su nombre verdadero. Me dijo que era el heredero de toda la Nobleza Acorazada. Le dije: "¿Y?" Me miró sin entender. "Eres mi escudero", le dije. "Lo demás no me importa." Se rió. El ácido dejó de caer. Nos fuimos por el túnel. La armadura seguía silbando. Tenía más grietas que antes. Pero aguantó. Siempre aguanta.</p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Centrales</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta que plantea</th></tr>
+                <tr><td>🪲 Honor vs Sistema</td><td>¿Tiene sentido ser honorable en un sistema diseñado para premiar la trampa? ¿O es precisamente ahí donde más falta hace?</td></tr>
+                <tr><td>⚔️ Fuerza vs Inteligencia</td><td>Coraza no es listo. Pero su simplicidad es una fortaleza: nadie puede manipular a alguien que no entiende la manipulación.</td></tr>
+                <tr><td>🛡️ La armadura como herencia</td><td>Llevamos las grietas de quienes nos formaron. A veces esas grietas son exactamente lo que nos salva.</td></tr>
+                <tr><td>👑 Nobleza real vs nominal</td><td>Lustro es noble de título. Coraza es noble de hecho. ¿Quién lleva la corona real?</td></tr>
+                <tr><td>🤝 Lealtad sin condiciones</td><td>"Eres mi escudero. Lo demás no me importa." La lealtad auténtica no necesita linaje.</td></tr>
+            </table>
+
+            <!-- FRASES CLAVE -->
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"Un hombre que dice la verdad no necesita ser listo. La verdad se recuerda sola."<br>— Sir Élitro (recordado por Coraza), Capítulo 1</blockquote>
+            <blockquote>"Todo el mundo lo hace." — "Entonces todo el mundo está mal." — "Así no funciona el mundo, cuneta." — "Quizás debería."<br>— Coraza al juez del torneo, Capítulo 6</blockquote>
+            <blockquote>"Si no peleo ahora, ¿para qué fui campeón?"<br>— Sir Mandíbula, Capítulo 7</blockquote>
+            <blockquote>"Me pegaba y yo no caía. No sé cuántas veces. Perdí la cuenta. Pero Sir Élitro me enseñó una sola cosa y esa cosa me estaba salvando la vida."<br>— Coraza, Capítulo 8</blockquote>
+            <blockquote>"Vine por honor. Lo conseguí. ¿Qué haría yo con tierra?"<br>— Coraza al rechazar el premio, Capítulo 8</blockquote>
+            <blockquote>"Eres mi escudero. Lo demás no me importa."<br>— Coraza a Pólvora, Capítulo 8</blockquote>
+
+            <!-- CONEXIÓN CON EL JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>Mecánicas del juego explicadas por esta novela</h4>
+                <ul>
+                    <li><strong>Torneo de la Quitina (PvP):</strong> La mecánica de combate ritualizado entre escarabajos. Ahora sabes que está amañado desde la raíz — y que cada vez que un jugador gana limpio, repite lo que hizo Coraza.</li>
+                    <li><strong>QUI 10 y absorción de veneno:</strong> La stat de Quitina del escarabajo no solo es defensa — a QUI 10, los venenos y efectos de estado tienen un porcentaje reducido de penetración. La armadura literalmente los absorbe.</li>
+                    <li><strong>"Quitina Noble" (recurso):</strong> Los escarabajos sacrifican su propia armadura para power moves. Coraza nunca lo hace — pelea solo con defensa pasiva. El jugador puede elegir la misma vía.</li>
+                    <li><strong>"Orgullo de Casta" (defecto):</strong> Coraza no lo sufre porque no tiene casta. Es un cuneta. Esto lo hace mecánicamente único: un escarabajo sin el debuff de clase.</li>
+                    <li><strong>La herencia de armadura:</strong> En el juego, los escarabajos pueden "heredar" armaduras de NPCs caídos. Las grietas dan penalización estética pero bonus de absorción a venenos. Ahora sabes por qué.</li>
+                </ul>
+            </div>
+            <div class="info-box lore">
+                <h4>NPCs y elementos originados en esta novela</h4>
+                <ul>
+                    <li><strong>Memorial de Sir Mandíbula:</strong> En la Arena del Tercer Anillo hay una piedra con su nombre. Los jugadores escarabajo pueden depositar Quitina Noble ahí para recibir un buff temporal de "Honor del Viejo Código".</li>
+                    <li><strong>Pólvora (NPC):</strong> Aparece como escudero errante en varios puntos del mapa. Si el jugador lo ayuda sin preguntar su linaje, desbloquea una quest secundaria sobre Dynastes.</li>
+                    <li><strong>La Armadura Silbante:</strong> Ítem legendario. Penalización a sigilo. Bonus masivo a resistencia a veneno. La descripción dice: "Silba cuando caminas. Pero nunca deja que caigas."</li>
+                    <li><strong>Lustro:</strong> NPC villano recurrente. Cobarde. Siempre huye cuando pierde la ventaja. Los jugadores pueden humillarlo sin matarlo — y cada vez vuelve con más rabia y menos dignidad.</li>
+                </ul>
+            </div>
+
+            <blockquote>"530 millones de años. He visto imperios de termitas, democracias de hormigas, teocracias de abejas. Pero nunca — nunca — me canso de ver a un imbécil honesto ganar un torneo amañado. Es estadísticamente improbable. Y sin embargo, cada pocas eras, ocurre. La sinceridad como glitch del sistema. Magnífico."<br>— Ramazzottius, sobre la novela</blockquote>
+        </article>
+    </main>
+</body>
+</html>
