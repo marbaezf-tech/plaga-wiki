@@ -1,0 +1,97 @@
+# PROMPT PARA GEMINI — Análisis de la Wiki como Manual de Juego (v2 — Junio 2026)
+
+## INSTRUCCIÓN
+
+Analiza la siguiente wiki como si fueras un **jugador nuevo** que acaba de descargar "Plaga: La Descarada" y abre el manual/wiki para entender cómo jugar. Luego analízala como un **editor de manuales de juego profesional** (tipo los manuales de White Wolf, Games Workshop, o Fantasy Flight Games).
+
+## URL DE LA WIKI
+https://marbaezf-tech.github.io/plaga-wiki/index.html
+
+Navega todas las páginas del sidebar. Son ~60 páginas HTML estáticas. Presta especial atención a las páginas nuevas que no existían antes.
+
+## EL JUEGO (ACTUALIZADO)
+- **Nombre:** Plaga: La Descarada
+- **Género:** RPG por turnos / Parodia de horror / 3D Low Poly overworld + 2D combate (estilo Cassette Beasts)
+- **Motor:** Godot 4.6 (PC Windows — futuro Switch)
+- **Ambientación:** Año 20.000. Era glacial. Insectos son la especie dominante. Los humanos viven en burbujas térmicas sobre las nubes. 17 "Taxones" (clanes de artrópodos) luchan por sobrevivir en "El Gran Charco" — una cuneta bajo Santiago de Chile.
+- **Inspiración:** Vampire: The Masquerade + Game of Thrones pero con insectos, humor negro y cinismo.
+- **Tono:** Descarado, arrogante, cínico. Las Plagas SABEN que la Tierra les pertenece.
+- **Estado:** v0.7.0 — 5 zonas isométricas funcionales, 17 taxones, 35 NPCs, sistema de combate completo, IA local (Ollama) integrada, 8 novelas de lore
+
+## LO NUEVO DESDE LA ÚLTIMA REVISIÓN
+- 17 taxones (antes 14) — agregados Escarabajo, Grillo, Mantis
+- 35 NPCs con fichas detalladas (antes ~20)
+- 8 novelas completas por taxón (Zancudo, Grillo, Polilla, Araña, Escorpión+Mariposa, Mosca, Chinche, Típula)
+- Página de zonas con lore (zonas-lore.html) — 5 zonas con historia, economía, conflictos
+- Típulas ahora tienen 2 sublinajes: Danzarinas (extintas) y Columnas (tanque, sobrevivieron)
+- Sistema de IA local: Chat con Ollama, generador de imágenes ComfyUI, entrenamiento fine-tuning
+- Dashboard actualizado al 92% con pendientes reales
+- Spec 3D aprobado (migración a Low Poly overworld)
+
+## LO QUE NECESITO QUE EVALÚES
+
+### 1. COMO MANUAL DE JUEGO (¿puedo aprender a jugar leyendo esto?)
+- ¿Un jugador nuevo entiende cómo funciona el combate solo leyendo la wiki?
+- ¿Las fórmulas están claras? (daño, evasión, velocidad, Danza de Antenas)
+- ¿Se entiende qué hace cada stat? (Tórax, Ganglios, Quitina, Sensilios, Cripsis, Feromonas)
+- ¿El sistema de Antenas Sociales (0-10) está bien explicado?
+- ¿Los 42 atavismos (3 por taxón) están documentados con suficiente detalle?
+- ¿La página Quick Start funciona como tutorial para nuevos?
+- ¿La navegación del sidebar es intuitiva? ¿Se encuentran las cosas?
+- ¿Las novelas aportan al entendimiento del juego o son solo lore decorativo?
+
+### 2. COMO DISEÑO DE JUEGO (¿es un buen juego?)
+- ¿El sistema dual (combate físico + Danza de Antenas social) tiene profundidad?
+- ¿17 taxones son demasiados o está bien para un RPG?
+- ¿El balance cruzado (guerreros malos en social, diplomáticos frágiles en combate) crea decisiones interesantes?
+- ¿El sistema de Antenas (violencia baja antenas → Cordyceps te come) genera tensión real?
+- ¿Los 4 arquetipos (Estratega/Ejecutor/Infiltrado/Diplomático) aportan rejugabilidad?
+- ¿Las 5 zonas con sus conflictos activos generan motivación para explorar?
+- ¿Los 35 NPCs tienen suficiente personalidad diferenciada?
+- ¿El sistema de 2 sublinajes (Típulas: Columnas vs Danzarinas) añade profundidad o confunde?
+- ¿La migración a 3D (spec) tiene sentido para el juego?
+
+### 3. COMO NARRATIVA (¿el lore engancha?)
+- ¿La mitología (Gran Éter, Progenitores, Semidioses) es coherente y atractiva?
+- ¿Ramazzottius como narrador omnisciente funciona?
+- ¿El tono "descarado" se mantiene consistente en TODAS las páginas?
+- ¿Los 17 Taxones tienen personalidades distintas o se confunden?
+- ¿El Silencio Verde (Cordyceps) funciona como amenaza existencial?
+- ¿El Sustrato (lore de la novela Polilla — entidad de 2.400M años bajo el Sótano) añade profundidad cósmica?
+- ¿Las 8 novelas son coherentes entre sí y con el mundo del juego?
+- ¿Las novelas cubren géneros variados? (horror, romance, policial, comedia, thriller)
+- ¿Los NPCs de las novelas se conectan bien con los del juego?
+- ¿La novela de los Zancudos (7 días antes del juego) funciona como prólogo?
+
+### 4. COMO PRODUCTO (¿se puede vender/publicar?)
+- ¿La wiki funciona como material de marketing? (¿da ganas de jugar?)
+- ¿Qué le falta para ser un manual de juego publicable?
+- ¿Las novelas podrían venderse como material complementario (tipo World of Darkness novels)?
+- ¿El sistema de IA local (Ollama para diálogos de NPCs) es un diferenciador de producto?
+- ¿El modelo multiplayer planificado (co-op 2-4) es realista para un indie?
+- ¿Qué plataformas deberían priorizarse? (PC, Switch)
+- ¿Podrían las novelas convertirse en un juego de mesa / RPG de mesa?
+
+### 5. COHERENCIA Y PROBLEMAS
+- ¿Hay contradicciones entre páginas? (stats que no coinciden, lore que se contradice)
+- ¿Hay páginas con encoding roto (caracteres como ñ, ó mostrándose mal)?
+- ¿Hay links rotos en el sidebar?
+- ¿Las Típulas están bien como "tanque soporte" o hay confusión con la versión anterior (evasión)?
+- ¿Los 35 NPCs tienen algún solapamiento o redundancia?
+- Lista los 5 problemas más graves que encontraste
+- Lista las 5 mejores cosas del proyecto
+- ¿Qué eliminarías por ser innecesario o confuso?
+- ¿Qué agregarías que falta?
+- Si tuvieras que resumir el juego en 1 tweet (280 chars), ¿qué dirías?
+
+## FORMATO DE RESPUESTA
+1. **Veredicto rápido** (3 líneas: bueno/malo/potencial)
+2. **Análisis por sección** (los 5 puntos de arriba)
+3. **Top 5 problemas**
+4. **Top 5 fortalezas**
+5. **Problemas de coherencia específicos** (página + línea + qué está mal)
+6. **El tweet** (280 chars)
+7. **Nota como Ramazzottius** (en personaje, opinando del manual)
+
+## TONO DE TU RESPUESTA
+Sé directo, crítico constructivo, y específico. Si algo es bueno dilo. Si algo es malo, di exactamente qué página y qué línea. No seas amable por cortesía — sé útil. Tengo la piel gruesa como quitina de Garrapata.

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 Cheat Sheet — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .formula { font-family: monospace; background: rgba(218,165,32,0.1); border: 1px solid rgba(218,165,32,0.3); padding: 4px 8px; border-radius: 3px; }
+        .section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .mini-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+        .mini-card h4 { margin: 0 0 8px; font-size: 0.9em; }
+        .mini-card p { margin: 0; font-size: 0.8em; color: var(--text-secondary); }
+        .postura-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
+        .postura { text-align: center; padding: 8px; border-radius: 4px; font-size: 0.8em; }
+        .postura-acecho { background: rgba(255,100,100,0.15); border: 1px solid rgba(255,100,100,0.3); }
+        .postura-expo { background: rgba(100,200,255,0.15); border: 1px solid rgba(100,200,255,0.3); }
+        .postura-vibra { background: rgba(100,255,150,0.15); border: 1px solid rgba(100,255,150,0.3); }
+        .postura-mime { background: rgba(200,150,255,0.15); border: 1px solid rgba(200,150,255,0.3); }
+        @media (max-width: 768px) { .section-grid { grid-template-columns: 1fr; } .postura-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="atavismos.html">🧬 Atavismos</a></li>
+            <li><a href="identidad-taxones.html">🎭 Identidad</a></li>
+            <li><a href="cheatsheet.html" class="active">📋 Cheat Sheet</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>📋 Cheat Sheet — Referencia Rápida</h1>
+            <p>Todo lo que necesitas en 1 página. Imprime esto o déjalo abierto en otra pestaña.</p>
+
+            <h2>🧬 Atributos Primordiales</h2>
+            <table>
+                <tr><th>Stat</th><th>Abrev</th><th>Controla</th><th>Fórmula derivada</th></tr>
+                <tr><td>Tórax</td><td>TOR</td><td>Daño físico base</td><td>Daño = (TOR + Arma) × 2 - DEF</td></tr>
+                <tr><td>Ganglios</td><td>GAN</td><td>Evasión, velocidad</td><td>Evasión = GAN×3.5% + CRI×2.5% (cap 55%)</td></tr>
+                <tr><td>Quitina</td><td>QUI</td><td>HP, absorción</td><td>Turgencia max = 80 + (QUI × 4)</td></tr>
+                <tr><td>Sensilios</td><td>SEN</td><td>Percepción, precisión</td><td>Precisión: SEN×2% reduce evasión enemiga</td></tr>
+                <tr><td>Cripsis</td><td>CRI</td><td>Sigilo, evasión extra</td><td>Contribuye a evasión (ver GAN)</td></tr>
+                <tr><td>Feromonas</td><td>FER</td><td>Social, manipulación</td><td>Danza de Antenas: stat de postura elegida</td></tr>
+            </table>
+
+            <h2>❤️ Recursos Vitales</h2>
+            <div class="section-grid">
+                <div class="mini-card">
+                    <h4>🛡️ Turgencia (HP)</h4>
+                    <p><span class="formula">80 + (QUI × 4)</span><br>Llega a 0 = Muerto</p>
+                </div>
+                <div class="mini-card">
+                    <h4>💧 Hemolinfa (MP)</h4>
+                    <p><span class="formula">30 + (SEN × 4)</span><br>Gasta en Atavismos</p>
+                </div>
+                <div class="mini-card">
+                    <h4>🍄 Esencia (Cordura)</h4>
+                    <p><span class="formula">Fija: 100%</span><br>0% = Marioneta (Game Over)</p>
+                </div>
+                <div class="mini-card">
+                    <h4>⚡ Instinto (Willpower)</h4>
+                    <p><span class="formula">Fijo: 5/5</span><br>Gasta: crítico forzado, resistir control</p>
+                </div>
+            </div>
+
+            <h2>⚔️ Fórmulas de Combate</h2>
+            <table>
+                <tr><th>Acción</th><th>Fórmula</th></tr>
+                <tr><td>Daño</td><td><span class="formula">(TOR + Arma) × 2.0 - DEF_enemigo × 0.5 (±15%)</span></td></tr>
+                <tr><td>Evasión</td><td><span class="formula">GAN × 3.5% + CRI × 2.5% (cap 55%)</span></td></tr>
+                <tr><td>Precisión vs Evasión</td><td><span class="formula">SEN × 2% reduce evasión enemiga</span></td></tr>
+                <tr><td>Velocidad (turno)</td><td><span class="formula">(GAN + SEN) / 2</span></td></tr>
+                <tr><td>Escape</td><td><span class="formula">(Vel propia / Vel enemiga) × 50%</span></td></tr>
+                <tr><td>Crítico (Mimetismo)</td><td><span class="formula">Daño × 2.0 (tras victoria social)</span></td></tr>
+            </table>
+
+            <h2>💃 Danza de Antenas (Social en Combate)</h2>
+            <p><strong>Ciclo:</strong> Acecho → mata → Exposición → mata → Vibración → mata → Mimetismo → mata → Acecho</p>
+            <div class="postura-grid">
+                <div class="postura postura-acecho"><strong>🗡️ Acecho</strong><br>Stat: TOR<br>Victoria: daño psíquico<br>Derrota: -DEF</div>
+                <div class="postura postura-expo"><strong>💃 Exposición</strong><br>Stat: FER<br>Victoria: enemigo pierde turno<br>Derrota: -evasión</div>
+                <div class="postura postura-vibra"><strong>🎵 Vibración</strong><br>Stat: SEN<br>Victoria: heal propio<br>Derrota: -precisión</div>
+                <div class="postura postura-mime"><strong>🎭 Mimetismo</strong><br>Stat: CRI<br>Victoria: próximo ataque = crítico<br>Derrota: -velocidad</div>
+            </div>
+            <p><strong>Tirada:</strong> <span class="formula">Tu stat + bonus_ventaja(+3) + random(-2, +2) vs Stat enemigo + bonus + random</span></p>
+            <p><strong>Antenas:</strong> Victoria = +1 🐜 | Derrota = efecto enemigo. Cuesta 1 Instinto por intento.</p>
+
+            <h2>🐜 Sistema de Antenas (0-10)</h2>
+            <table>
+                <tr><th>Nivel</th><th>Efecto</th></tr>
+                <tr><td>0 🐜</td><td>☠️ -5% Esencia + daño Cordyceps. NPCs te rechazan.</td></tr>
+                <tr><td>1-3</td><td>Normal. Sin bonus ni penalty.</td></tr>
+                <tr><td>4-6</td><td>Acceso a quests sociales. Precios normales.</td></tr>
+                <tr><td>7-8</td><td>Precios bajan. NPCs revelan secretos menores.</td></tr>
+                <tr><td>9-10 🐜</td><td>✨ +3 bonus a Danza. NPCs revelan info secreta. Quests exclusivas.</td></tr>
+            </table>
+            <p><strong>Sube:</strong> Victoria en Danza (+1), Atavismo social (+1), exploración pacífica.<br>
+            <strong>Baja:</strong> 3 turnos sin socializar (-1), Atavismo melee (-1), matar sin razón (-2).</p>
+
+            <h2>🍄 Esencia de Taxón (Cordura)</h2>
+            <table>
+                <tr><th>Rango</th><th>Estado</th></tr>
+                <tr><td>100-76%</td><td>🟢 Normal. Control total.</td></tr>
+                <tr><td>75-51%</td><td>🟡 Susurros. Impulsos leves de enjambre.</td></tr>
+                <tr><td>50-26%</td><td>🟠 Parasitismo. Tics involuntarios. A veces tu cuerpo se mueve solo.</td></tr>
+                <tr><td>25-1%</td><td>🔴 Dominación. Casi perdido. Momentos de lucidez entre niebla verde.</td></tr>
+                <tr><td>0%</td><td>💀 MARIONETA. Game Over. Tu personaje es NPC hostil ahora.</td></tr>
+            </table>
+
+            <h2>🎮 Controles Rápidos</h2>
+            <table>
+                <tr><th>Tecla</th><th>Acción</th></tr>
+                <tr><td>WASD / Flechas</td><td>Mover</td></tr>
+                <tr><td>E / Enter</td><td>Interactuar con spot/NPC</td></tr>
+                <tr><td>I</td><td>Inventario</td></tr>
+                <tr><td>B</td><td>Bestiario</td></tr>
+                <tr><td>F5</td><td>Guardar rápido</td></tr>
+                <tr><td>F9</td><td>Cargar rápido</td></tr>
+                <tr><td>ESC</td><td>Menú / Salir</td></tr>
+            </table>
+
+            <blockquote>"Una hoja con todos los números. Qué práctico. Qué aburrido. En mis tiempos no había 'cheat sheets' — tenías que sobrevivir 530 millones de años para aprender todo esto por experiencia."<br>— Ramazzottius</blockquote>
+        </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐝 Los 38 Segundos de Cera — Novela de la Avispa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid #b8860b; padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: #daa520; }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: #daa520; }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .countdown { background: rgba(184,134,11,0.1); border: 1px solid rgba(218,165,32,0.3); border-radius: 8px; padding: 16px; margin: 16px 0; font-family: monospace; }
+        .countdown h4 { color: #daa520; margin: 0 0 8px; }
+        .second-mark { display: inline-block; background: rgba(218,165,32,0.2); border: 1px solid rgba(218,165,32,0.4); padding: 2px 8px; border-radius: 3px; font-weight: bold; color: #daa520; margin: 4px 2px; }
+        .engineer-note { background: rgba(100,100,100,0.15); border-left: 3px solid #888; padding: 12px; margin: 12px 0; font-size: 0.85em; }
+        @media (max-width: 768px) { .character-card { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista del Gran Charco</a></li>
+            <li><a href="novela-polilla.html">🌙 La Luz al Final del Micelio</a></li>
+            <li><a href="novela-arana.html">🕸️ Los Crímenes del Hilo Rojo</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Quitina y Escamas</a></li>
+            <li><a href="novela-mosca.html">🪰 La Larva de Prometeo</a></li>
+            <li><a href="novela-chinche.html">🛏️ Quitina y Prejuicio</a></li>
+            <li><a href="novela-tipula.html">🦿 La Lista de Esperanza</a></li>
+            <li><a href="novela-vinchuca.html">🗡️ La Colmena Silenciosa</a></li>
+            <li><a href="novela-avispa.html" class="active">🐝 Los 38 Segundos de Cera</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🐝 Los 38 Segundos de Cera</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Avispa</strong> — Tragedia estoica de un ingeniero militar. Sargento Cera sabe desde la primera noche que su misión termina en 38 segundos. La pregunta no es si morirá — es si el sello aguantará.</p>
+                <p><strong>Tono:</strong> Tragedia estoica, precisión obsesiva, aceptación sin autocompasión.<br>
+                <strong>Inspiración:</strong> Dunkirk (Nolan) + Jorah Mormont (GoT) + The Martian (Weir).<br>
+                <strong>Duración:</strong> 9 capítulos (simultánea a La Colmena Silenciosa).<br>
+                <strong>Línea temporal:</strong> 3 semanas antes del inicio del juego. POV en primera persona del Sargento Cera.<br>
+                <strong>Novela hermana:</strong> <a href="novela-vinchuca.html">La Colmena Silenciosa</a> — mismos eventos, POV del Baqueano.</p>
+            </div>
+
+            <blockquote>"38 segundos no es mucho tiempo para vivir. Pero es tiempo suficiente para un sello."<br>— Sargento Cera, la noche antes de la misión</blockquote>
+
+            <h2>🎭 Personajes (vistos por Cera)</h2>
+
+            <div class="character-card">
+                <div class="emoji">🐝</div>
+                <div>
+                    <h4>Sargento Cera — Narrador / El Ingeniero (Jorah / El Marciano)</h4>
+                    <p><strong>Taxón:</strong> Avispa obrera militar | <strong>Facción:</strong> La Colmena (ingeniería de sellado)<br>
+                    <strong>Perfil:</strong> 500 ciclos de carrera. Especialista en sellar grietas, construir barricadas, crear trampas con resina. Piensa en números, ángulos y tiempos de curado. No tiene familia, no tiene amigos — tiene un taller y una función. Calculó que moriría la primera noche que le asignaron la misión. Durmió bien.<br>
+                    <strong>Arco:</strong> De herramienta que acepta su destino a individuo que ELIGE su destino. La diferencia es sutil pero definitiva.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🗡️</div>
+                <div>
+                    <h4>El Baqueano — "El Viejo" (Jon Snow / el profesional)</h4>
+                    <p><strong>Vista de Cera:</strong> Lo respeta profundamente. Ve en él al soldado que dejó de serlo por elección. Cera nunca tuvo esa opción — las avispas no se retiran. Envidia su capacidad de decir "no". Le preocupa que el Viejo aceptó esta misión por las razones equivocadas.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦂</div>
+                <div>
+                    <h4>Aguja Negra — "El Cachorro" (Tormund / el impulsivo)</h4>
+                    <p><strong>Vista de Cera:</strong> Lo irrita y lo enternece. Un escorpión joven que cree que el valor es no tener miedo. Cera sabe que el valor es tener miedo y sellar igual. Quiere protegerlo pero sabe que no puede — el cachorro busca a su hermano muerto y nadie puede proteger a alguien de encontrar lo que busca.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">⚡</div>
+                <div>
+                    <h4>Fósforo — "La Vela" (Thoros de Myr / la antorcha)</h4>
+                    <p><strong>Vista de Cera:</strong> Siente una conexión instintiva. Ambos son herramientas. Fósforo es luz, Cera es estructura. Ambos saben que su función los matará. La luz atrae. La cera sella. Ninguna de las dos cosas se puede hacer a medias.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🪳</div>
+                <div>
+                    <h4>Cascabel — "La Correcta" (The Hound / la cínica)</h4>
+                    <p><strong>Vista de Cera:</strong> La única que tiene razón siempre. "Deberíamos irnos." Sí. Deberíamos. Pero las avispas no se van. Las avispas terminan el trabajo.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🌙</div>
+                <div>
+                    <h4>Lumen — "La Rota" (Melisandre / la vidente)</h4>
+                    <p><strong>Vista de Cera:</strong> Le da terror. Cada visión la vacía un poco más. Lumen es una obrera que trabaja con los ojos en vez de las mandíbulas. El resultado es el mismo: agotamiento terminal.</p>
+                </div>
+            </div>
+
+            <h2>📖 La Expedición — 9 Capítulos</h2>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 1 — La Resina Tiene Memoria</h3>
+                <p>Me asignaron la misión un martes. Los martes en el taller de sellado son días de inventario. Rutina. La rutina es lo que mantiene vivo un edificio. La rutina es lo que mantiene vivas a las avispas.</p>
+                <p>El Capitán Mandíbula — sí, se llama así, no es un apodo — entró sin golpear. Mal signo. Los oficiales que no golpean traen órdenes que no aceptan preguntas.</p>
+                <p>"Sargento Cera. Misión de reconocimiento. Sector 7. Sellador principal. Sales en tres días."</p>
+                <p>No pregunté por qué. No pregunté con quién. No pregunté si volvería. Las avispas no hacen esas preguntas. Las avispas hacen el trabajo.</p>
+                <p>Pero esa noche, en mi celda del barracón, calculé. El Sector 7 está detrás de la resina del Sótano. Esa resina tiene 500 años. La pusieron mis ancestras — generaciones de obreras trabajando capas sobre capas. Y me piden que lo abra.</p>
+                <p>No es la misión lo que me preocupa. Es la geometría. Si abro la resina para que el escuadrón entre, alguien tiene que cerrarla cuando salgamos. Y cerrar desde adentro es quedarse dentro.</p>
+                <p>Hice los cálculos tres veces. Las tres me dieron el mismo número: <strong>38 segundos</strong>. Es lo que tarda mi resina en endurecer lo suficiente para aguantar presión.</p>
+                <p class="prose">"38 segundos no es mucho tiempo para vivir. Pero es tiempo suficiente para un sello. Dormí bien esa noche. Los insectos que saben cuánto les queda siempre duermen mejor que los que no lo saben. La incertidumbre es peor que la muerte. La muerte al menos tiene un número. El mío es 38."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 2 — El Escuadrón que No Debería Funcionar</h3>
+                <p>Siete bichos que no deberían estar en la misma habitación. El Baqueano: vinchuca vieja con más cicatrices que quitina limpia. Aguja Negra: escorpión joven con el aguijón ya levantado. Lumen: polilla que aparece sin que recuerdes cuándo se movió. Cascabel: cucaracha que me dijo "tú decides si salimos o nos quedamos — me gusta tener a alguien a quien culpar." Fósforo: luciérnaga que no puede dejar de parpadear. Alfiler: espía de La Colmena que mira a las personas como quien cuenta inventario.</p>
+                <p>Siete. Un número primo. No se puede dividir equitativamente. Alguien siempre queda solo.</p>
+                <p>Empecé a abrir la resina a las 0600. Cuatro horas con ácido fórmico. Capa por capa. Cada capa tenía un olor distinto — las generaciones de obreras dejaron su firma química. La primera capa olía a miedo. La última olía a resignación.</p>
+                <p>Entré tercero. Mi trabajo empieza ahora: cada 200 pasos, marco la pared con un rasguño. Mi mapa de retorno. Si avanzamos más de 7,600 pasos... no llegaré a tiempo para sellar antes de que lo que nos persiga nos alcance.</p>
+                <p class="prose">"7,600 pasos. Ese es mi otro número. Empecé a contar."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 3 — Arquitectura de los Muertos</h3>
+                <p>El hormiguero del Sector 7 es la estructura más perfecta que he visto en mi vida. Túneles hexagonales. Ángulos de 120 grados exactos. Paredes lisas como pulidas. Y las marcas de mordida — miles de mordidas superpuestas. Mandíbulas que mordieron la misma pared terminada una y otra vez. Un circuito roto repitiendo la última instrucción.</p>
+                <p>"Construir. Construir. Construir." Pero ya no hay nada que construir.</p>
+                <p>Conozco ese patrón. Cuando una obrera pierde contacto con la feromona de la Reina, entra en loop. Repite su última tarea hasta morir. El cuerpo trabaja. La mente ya no está.</p>
+                <div class="engineer-note">
+                    <strong>📐 Nota de ingeniero:</strong> 3,400 pasos. Aún dentro del margen. Pero cada metro me acerca al punto sin retorno.
+                </div>
+                <p>Lumen toca las marcas y se paraliza treinta segundos. Cuando vuelve, dice una sola palabra: "Hambre." No hambre de comida. Hambre de propósito.</p>
+                <p class="prose">"Antes de la misión, pasé dos ciclos sin una sola orden de trabajo. Después de 400 días sin una emergencia que sellar, empecé a entender a estas hormigas. Cuando tu propósito es resolver crisis y no hay crisis... ¿qué eres? Una mandíbula mordiendo pared terminada. Por eso acepté esta misión."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 4 — La Primera que Vi</h3>
+                <p>Hormiga soldado. Tres veces mi tamaño. Inmóvil contra la pared. Ojos blancos. Mandíbulas dislocadas. Tallo de Cordyceps brotando del exoesqueleto como una chimenea obscena.</p>
+                <p>Mi cerebro de ingeniero se activó antes que mi miedo. Articulación del fémur: oxidada en posición. Patas ancladas al suelo por filamentos de micelio. No es un cadáver. Es un <em>nodo</em>.</p>
+                <p>Toqué un filamento. Vibró. Frecuencia baja, constante. Un cable de comunicaciones. Conté los que salían de ella: catorce. Si cada nodo tiene catorce conexiones y cada conexión lleva a otro nodo... la escala es exponencial.</p>
+                <p>Miles de cadáveres convertidos en infraestructura de comunicación. No un ejército. Una red telefónica hecha de muertos. Y nosotros estamos caminando por encima de los cables.</p>
+                <div class="engineer-note">
+                    <strong>📐 Nota de ingeniero:</strong> 5,100 pasos. Si esto es una red de comunicaciones, la red sabe que estamos aquí desde que cruzamos la resina. Los golpes pararon porque ya no necesitaban golpear. La puerta estaba abierta. Los ratones habían entrado solos a la trampa.
+                </div>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 5 — El Nodo Central</h3>
+                <p>6,800 pasos. Dentro del margen. Apenas.</p>
+                <p>La cámara de la Reina. Todos ven un monstruo. Yo veo arquitectura. Su cuerpo es el hub central — miles de hilos de micelio salen en todas direcciones. Un router. Un centro de distribución. Toda la información de la red converge aquí.</p>
+                <p>Los filamentos no solo conectan nodos entre sí. Se extienden HACIA AFUERA del hormiguero. Los hilos troncales apuntan directamente hacia la resina que yo abrí. La red crece un milímetro por ciclo. En 500 años, creció medio metro hacia el sello. Estaba a centímetros de romperlo cuando yo lo abrí por el otro lado.</p>
+                <p>Le ahorré el trabajo.</p>
+                <p>La Reina no fue infectada. La Reina NEGOCIÓ con el Cordyceps. Ofreció su cuerpo como nodo central a cambio de que la red mantuviera operativas a sus obreras. Un pacto. Las avispas también sacrifican todo por la colonia. La diferencia es que nosotras morimos. La Reina encontró una forma de servir para siempre.</p>
+                <p>Admiro su solución. Y eso me aterra.</p>
+                <p>Entonces los filamentos se tensan. Todos al mismo tiempo. Miles de patas desde cada túnel.</p>
+                <p class="prose">"6,800 pasos de vuelta a la grieta. 90 segundos corriendo + 38 de sellado = 128 segundos entre aquí y la seguridad. Si las hormigas caminan, tengo 45 segundos de margen. Si corren, no tengo margen. Empiezo a masticar cera mientras corro. Los 8 segundos de preparación que gano en carrera podrían ser la diferencia."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 6 — Correr en la Oscuridad</h3>
+                <p>Cada filamento que pisamos es un grito: "AQUÍ. VAN HACIA ALLÁ." La red redirige sus unidades para interceptarnos. Las hormigas no necesitan correr — solo llenar los espacios por delante. La red no caza. La red rodea. Como un músculo que se cierra.</p>
+                <p>Aguja Negra se queda atrás. Lo escucho matar. Una. Tres. Siete. Entonces grita un nombre — el de su hermano. Lo encontró caminando entre las silenciosas. Con ojos blancos.</p>
+                <p>Fósforo brilla al máximo. Las hormigas convergen hacia la luz — el virus de fotones en un sistema diseñado para la noche. El crujido de quitina de luciérnaga. Un solo pulso verde, ahogado. Después: nada.</p>
+                <p><strong>Oscuridad total.</strong></p>
+                <p>Corro en negro absoluto. Mis patas buscan los rasguños por tacto. Mis sensores siguen el rastro de ácido fórmico como un hilo de Ariadna. Mi mandíbula no para de masticar. La cera casi está lista.</p>
+                <div class="engineer-note">
+                    <strong>📐 Conteo:</strong> 6,600... 5,800... 5,200... 4,600... 4,100... 3,200...
+                </div>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 7 — Los que Corren Conmigo</h3>
+                <p>El Baqueano me alcanza. Lo reconozco por el sonido — las vinchucas tienen un paso adhesivo, como ventosas. Me pone una pata en el dorso sin hablar. "Estoy aquí." Cascabel adelante, maldiciendo como metrónomo. Lumen susurrando coordenadas imposibles que funcionan.</p>
+                <p>La cera está lista. Calidad 7/10. No perfecta. Pero sellará.</p>
+                <p>Huelo la grieta a 400 pasos. Ácido fórmico residual. Hogar. Cascabel cruza primera. Lumen pasa en silencio. El Baqueano se detiene en el umbral.</p>
+                <p>"Cera."</p>
+                <p>"Lo sé."</p>
+                <p>"¿Cuánto?"</p>
+                <p>"40 segundos. Desde adentro."</p>
+                <p class="prose">Miento. Son 38. Pero un profesional siempre redondea hacia arriba cuando le da un número a alguien que no puede verificarlo. "40" suena a certeza. "40" suena a "lo tengo controlado, cruza y no mires atrás."</p>
+                <p>"¿Hay otra forma?"</p>
+                <p>"No."</p>
+                <p>La física no negocia. La química no perdona. Si sello desde afuera, la resina tarda 90 segundos sin presión. Desde adentro, con las hormigas empujando contra el sello fresco, 38 bastan.</p>
+                <p>Cruza. Me posiciono del lado de adentro. Del lado equivocado. Y empiezo a sellar.</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 8 — Los 38 Segundos</h3>
+                <div class="countdown">
+                    <h4>⏱️ CONTEO FINAL</h4>
+                    <p><span class="second-mark">01</span> Primer arco de cera. Base del sello. Si la base falla, todo falla.</p>
+                    <p><span class="second-mark">05</span> Tercer arco. El patrón es automático — 500 ciclos de entrenamiento. No necesito pensar.</p>
+                    <p><span class="second-mark">10</span> Del otro lado escucho al Baqueano respirar. Solo está ahí. Contando mis segundos.</p>
+                    <p><span class="second-mark">12</span> Quinto arco. Mi cera nueva soldándose a los 500 años de trabajo de mis ancestras. Una conversación entre generaciones.</p>
+                    <p><span class="second-mark">15</span> Las siento. Los filamentos bajo mis patas cantan. Aceleración. La red redirigió unidades.</p>
+                    <p><span class="second-mark">17</span> Sexto arco. Mitad sellada.</p>
+                    <p><span class="second-mark">21</span> Las escucho. Esto ya no es trote. Es carrera.</p>
+                    <p><span class="second-mark">25</span> Las veo. Tallos de Cordyceps emitiendo brillo verde tenue. Estrellas cayendo en la oscuridad.</p>
+                    <p><span class="second-mark">27</span> Primera hormiga a 50 pasos. 4 segundos.</p>
+                    <p><span class="second-mark">28</span> Undécimo arco. Mi último bloque de cera sale raspado de las glándulas. Duele.</p>
+                    <p><span class="second-mark">31</span> Último arco. El duodécimo. El sello está completo. 6/10 en acabado. Pero completo.</p>
+                    <p><span class="second-mark">32</span> Presiono con el cuerpo entero. Mi frente contra la cera fresca. La cera necesita presión para curar.</p>
+                    <p><span class="second-mark">35</span> Esporas en mi dorso. La ignoro. Presiono.</p>
+                    <p><span class="second-mark">36</span> Mandíbula en mi pata trasera derecha. La pierdo. Irrelevante. Cinco patas más.</p>
+                    <p><span class="second-mark">37</span> Más mandíbulas. Abdomen. Ala. Tiran. Arrancan. No suelto.</p>
+                    <p><span class="second-mark">38</span> <strong>La cera cura.</strong></p>
+                </div>
+                <p class="prose">"Pueden comerme entero pero mis mandíbulas no se van a separar de este sello hasta que cure. Mi cuerpo es la prensa. Mi muerte es la presión."</p>
+                <p>Lo siento bajo mis mandíbulas — el cambio de textura. De blanda a definitiva. El punto de no retorno molecular. Mi sello es sólido. Funcional.</p>
+                <p>Suelto. No porque quiera. Porque ya no tengo mandíbulas — me las arrancaron en el segundo 37.5. Pero el trabajo está hecho.</p>
+                <p class="prose">"7/10 de calidad. Pero suficiente. Siempre supe que 38 bastaban. El Baqueano dijo que di 'los últimos 2 segundos como propina'. Se equivoca. Trabajé los 38 completos. Los últimos 2 sin herramientas — solo presión corporal. Un 10/10 en determinación. Un 7/10 en acabado. En el taller habrían aceptado el trabajo."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 9 — Lo que Queda del Otro Lado (Epílogo)</h3>
+                <p><em>[Tercera persona — Cera ya no puede narrar.]</em></p>
+                <p>Los ingenieros de La Colmena inspeccionaron el sello tres horas después. "Trabajo competente bajo condiciones extremas." 7.5/10 en el informe técnico. Tres capas de refuerzo encima. Rutina. Ninguno preguntó dónde estaba el sellador.</p>
+                <p>El Baqueano completó el campo "Estado del operario" a mano: <strong>"KIA — del lado equivocado. Trabajo completado."</strong></p>
+                <p>En la celda del Sargento Cera encontraron: 3 bloques de cera de práctica (9/10), 1 manual de sellado con 47 anotaciones, y 1 hoja de cálculo con un solo número escrito 14 veces en columna: <strong>38</strong>.</p>
+                <p>Su reemplazo preguntó qué significaba. Nadie supo decirle.</p>
+                <p>Del otro lado del sello, la red aprendió. Aprendió que la cera de avispa cura bajo presión. La próxima vez no empujará. Dejará el sello blando. Sin curar. Y después pasará.</p>
+                <p>Toc. Toc. Toc. Pero ahora los golpes son más suaves. Más calculados. Más pacientes.</p>
+                <p class="prose">"En 500 años, otro ingeniero encontrará una anomalía en la capa 501: restos orgánicos de avispa. Pensará que es un defecto. No sabrá que es la parte más fuerte del sello entero. Porque no está hecho solo de cera. Está hecho de decisión."</p>
+            </div>
+
+            <h2>🎯 Temas</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta</th></tr>
+                <tr><td>⏱️ El tiempo como destino</td><td>Si sabes exactamente cuándo mueres, ¿eso te hace más libre o menos?</td></tr>
+                <tr><td>🔨 El trabajo como identidad</td><td>¿Eres más que tu función? ¿Importa si no lo eres?</td></tr>
+                <tr><td>🐝 El sacrificio programado</td><td>Las obreras mueren por la colonia por instinto. Cera muere por elección. ¿Es lo mismo?</td></tr>
+                <tr><td>📐 La belleza del cálculo</td><td>En un mundo de caos, ¿hay paz en la certeza de los números?</td></tr>
+                <tr><td>🧱 El cuerpo como material</td><td>Si tu cadáver protege a tu gente, ¿moriste o te transformaste?</td></tr>
+                <tr><td>🔇 Morir sin testigos</td><td>Nadie verá el trabajo terminado. ¿Importa?</td></tr>
+            </table>
+
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"38 segundos no es mucho tiempo para vivir. Pero es tiempo suficiente para un sello."<br>— Cera, Capítulo 1</blockquote>
+            <blockquote>"Las avispas no se retiran. Las avispas terminan el trabajo."<br>— Cera, Capítulo 2</blockquote>
+            <blockquote>"Un hormiguero sin hormigas es un monumento al loop."<br>— Cera, Capítulo 3</blockquote>
+            <blockquote>"La red no caza. La red rodea. Como un músculo que se cierra."<br>— Cera, Capítulo 6</blockquote>
+            <blockquote>"Mi cuerpo es la prensa. Mi muerte es la presión."<br>— Cera, Capítulo 8</blockquote>
+            <blockquote>"7/10 de calidad. Pero suficiente."<br>— Últimos pensamientos del Sargento Cera</blockquote>
+            <blockquote>"Estado del operario: KIA — del lado equivocado. Trabajo completado."<br>— El Baqueano, informe final</blockquote>
+
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <ul>
+                    <li><strong>El sello de Cera (Sótano):</strong> Visible e inspeccionable. Tooltip: "Cera de avispa reciente sobre resina antigua. Alguien selló esto hace poco. Desde adentro."</li>
+                    <li><strong>Diálogo extra (jugador Avispa):</strong> "Reconoces la técnica. Arcos concéntricos, presión interna. Trabajo de taller. 7/10 de calidad. Quien hizo esto estaba cansado. O moribundo."</li>
+                    <li><strong>NPC en el taller:</strong> La reemplazante de Cera pregunta: "¿Tú sabes qué significa 38? Lo encontré escrito 14 veces en una hoja."</li>
+                    <li><strong>Item coleccionable:</strong> "Hoja con el número 38 — Notas de un ingeniero. No hay contexto. Solo el número. Repetido como una oración."</li>
+                    <li><strong>Novela hermana:</strong> Los mismos eventos vistos desde el POV del Baqueano en <a href="novela-vinchuca.html">La Colmena Silenciosa</a>.</li>
+                </ul>
+            </div>
+
+            <blockquote>"He visto obreras dar su vida por la colonia durante 530 millones de años. Es su biología. Es su código. Es lo que hacen. Pero este — este insecto calculó la muerte con tres decimales de precisión, la aceptó sin drama, y la usó como material de construcción. Eso no es instinto. Eso es ingeniería. Y la ingeniería, queridos míos, es el único arte que me impresiona."<br>— Ramazzottius, el que todo lo observa</blockquote>
+        </article>
+    </main>
+</body>
+</html>

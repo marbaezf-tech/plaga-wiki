@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identidad de Taxones — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .taxon-id { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2em; margin: 1em 0; }
+        .taxon-id h4 { margin: 0 0 0.3em; }
+        .taxon-id .frase { font-style: italic; color: var(--accent-gold); margin: 0.3em 0; }
+        .taxon-id .monopolio { color: #66ff99; font-weight: 600; }
+        .taxon-id .nicho { color: #66ccff; }
+        .shared-disc { background: rgba(100,100,200,0.1); border: 1px solid rgba(100,100,200,0.3); border-radius: 4px; padding: 8px 12px; margin: 4px 0; display: inline-block; font-size: 0.85em; }
+        .unique-disc { background: rgba(218,165,32,0.15); border: 1px solid rgba(218,165,32,0.4); border-radius: 4px; padding: 8px 12px; margin: 4px 0; display: inline-block; font-size: 0.85em; font-weight: bold; color: #daa520; }
+        .disc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        @media (max-width: 768px) { .disc-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="atavismos.html">🧬 Atavismos</a></li>
+            <li><a href="identidad-taxones.html" class="active">🎭 Identidad</a></li>
+            <li><a href="cheatsheet.html">📋 Cheat Sheet</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🎭 Identidad de los 10 Taxones Jugables</h1>
+            <div class="intro-box">
+                <p>Cada taxón tiene: 1 frase que lo define, 1 nicho narrativo, 1 monopolio mecánico que nadie más tiene, y su combinación de atavismos (1 único + 2 compartidos). Como en Vampiro: La Mascarada, las "disciplinas" se comparten entre clanes pero cada uno tiene una exclusiva.</p>
+            </div>
+
+            <h2>📐 Sistema de Atavismos (Disciplinas)</h2>
+            <p>Cada taxón accede a <strong>3 Atavismos</strong>: 1 exclusivo (Signature, solo ese taxón lo tiene) + 2 compartidos (otros taxones también pueden tenerlos). Los compartidos se repiten entre taxones afines — como Potencia aparece en Brujah Y en Lasombra.</p>
+
+            <h3>🔒 Atavismos Exclusivos (1 por taxón, nadie más los tiene)</h3>
+            <table>
+                <tr><th>Taxón</th><th>Atavismo Exclusivo</th><th>Qué hace</th></tr>
+                <tr><td>🗡️ Vinchuca</td><td>Veneno Silencioso</td><td>Daño agravado invisible + reduce Esencia. Nadie sabe que te atacó.</td></tr>
+                <tr><td>🦂 Escorpión</td><td>Sombra de Pinza</td><td>Oscuridad sólida + golpe a distancia. Ceguera en área.</td></tr>
+                <tr><td>🐝 Avispa</td><td>Mandíbula de Acero</td><td>Construcción/destrucción: sella, rompe, ignora armadura. Ingeniero de combate.</td></tr>
+                <tr><td>🌙 Polilla</td><td>Profecía del Foco</td><td>Ve el futuro fragmentado: revela stats, debilidades, y el siguiente ataque enemigo.</td></tr>
+                <tr><td>🦋 Mariposa</td><td>Mirada Morpho</td><td>Fascinación masiva: todos en rango tiran Instinto o pierden 1-2 turnos hipnotizados.</td></tr>
+                <tr><td>⚡ Pulga</td><td>Espejismo Cinético</td><td>Afterimages: 50% fallo en ataques enemigos + reposicionamiento gratuito.</td></tr>
+                <tr><td>🕸️ Araña</td><td>Tejeduría de Éter</td><td>Trampas invisibles de seda: inmoviliza, daño pasivo, controla el campo.</td></tr>
+                <tr><td>🕷️ Garrapata</td><td>Búnker de Sangre</td><td>Anclaje total: inamovible, regenera, drena. El tanque definitivo.</td></tr>
+                <tr><td>🪰 Mosca</td><td>Necro-Larva</td><td>Nigromancia: anima cadáveres como aliados temporales. Invocar.</td></tr>
+                <tr><td>🦟 Típula</td><td>Ocelo Ancestral</td><td>Tercer ojo: lee mentes, detecta mentiras, revela motivaciones ocultas. Diplomacia suprema.</td></tr>
+            </table>
+
+            <h3>🔓 Atavismos Compartidos (aparecen en 2-5 taxones)</h3>
+            <table>
+                <tr><th>Atavismo</th><th>Qué hace</th><th>Quién lo tiene</th></tr>
+                <tr><td>Antenas Ancestrales</td><td>Percepción expandida: detecta emboscadas, lee feromonas, +SEN</td><td>Polilla, Mariposa, Típula, Araña, Mosca</td></tr>
+                <tr><td>Exoesqueleto Ancestral</td><td>Armadura viviente: +QUI, absorbe daño, regenera lento</td><td>Garrapata, Escorpión, Avispa, Típula</td></tr>
+                <tr><td>Feromona Dominante</td><td>Manipulación social: órdenes, seducción, miedo químico</td><td>Mariposa, Chinche*, Avispa, Polilla</td></tr>
+                <tr><td>Camuflaje Adaptativo</td><td>Invisibilidad biológica: mimetismo, sigilo perfecto</td><td>Vinchuca, Pulga, Araña, Mosca</td></tr>
+                <tr><td>Aleteo Frenético</td><td>Velocidad explosiva: multi-ataque, esquiva, ráfagas</td><td>Avispa, Pulga, Escorpión, Vinchuca</td></tr>
+                <tr><td>Parásito Neural</td><td>Control mental parcial: sugestión, confusión, desorientación</td><td>Araña, Polilla, Garrapata, Mosca</td></tr>
+            </table>
+            <p><em>*Chinche es DLC pero comparte Feromona Dominante como su disciplina principal.</em></p>
+
+            <h2>🎭 Las 10 Identidades</h2>
+
+            <div class="taxon-id">
+                <h4>🗡️ VINCHUCA — La Asesina Invisible</h4>
+                <p class="frase">"Nunca sabrás que estuve aquí. Pero lo sabrá tu cadáver."</p>
+                <p class="nicho"><strong>Nicho:</strong> Stealth puro. Daño silencioso. Control de información.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA que puede matar sin que nadie sepa quién fue. Veneno Silencioso no deja rastro.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Veneno Silencioso</span> <span class="shared-disc">Camuflaje Adaptativo</span> <span class="shared-disc">Aleteo Frenético</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🦂 ESCORPIÓN — El Guerrero Burst</h4>
+                <p class="frase">"La diplomacia es para los que no pueden matar con un golpe."</p>
+                <p class="nicho"><strong>Nicho:</strong> Daño explosivo. Un golpe = un muerto. Arena y duelos.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es el ÚNICO con daño que ignora toda defensa. Sombra de Pinza golpea a distancia en oscuridad.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Sombra de Pinza</span> <span class="shared-disc">Exoesqueleto Ancestral</span> <span class="shared-disc">Aleteo Frenético</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🐝 AVISPA — La Berserker Ingeniera</h4>
+                <p class="frase">"Las avispas no se retiran. Las avispas terminan el trabajo."</p>
+                <p class="nicho"><strong>Nicho:</strong> Multi-hit agresivo + construcción/destrucción de estructuras.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA que puede crear y destruir estructuras en combate. Sella, barrica, atrapa.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Mandíbula de Acero</span> <span class="shared-disc">Aleteo Frenético</span> <span class="shared-disc">Exoesqueleto Ancestral</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🌙 POLILLA — La Vidente Cósmica</h4>
+                <p class="frase">"Vi tu muerte antes de que nacieras. No te preocupes — fue rápida."</p>
+                <p class="nicho"><strong>Nicho:</strong> Información perfecta. Sabe todo antes que todos. Control indirecto.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA que ve el futuro y detecta lo oculto. Información = poder absoluto.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Profecía del Foco</span> <span class="shared-disc">Antenas Ancestrales</span> <span class="shared-disc">Feromona Dominante</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🦋 MARIPOSA — La Diplomática Irresistible</h4>
+                <p class="frase">"¿Por qué pelear si puedo hacer que peleen por mí?"</p>
+                <p class="nicho"><strong>Nicho:</strong> Social pura. Manipulación masiva. La más poderosa fuera de combate.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA con fascinación masiva AoE. Controla multitudes sin tocarlas.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Mirada Morpho</span> <span class="shared-disc">Feromona Dominante</span> <span class="shared-disc">Antenas Ancestrales</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>⚡ PULGA — La Evasión Maestra</h4>
+                <p class="frase">"No me tocas. No me ves. No me alcanzas. Pero yo ya te robé."</p>
+                <p class="nicho"><strong>Nicho:</strong> Evasión extrema. Hit-and-run. Apuestas y caos.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA que puede esquivar CUALQUIER cosa de forma pasiva. Intocable.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Espejismo Cinético</span> <span class="shared-disc">Aleteo Frenético</span> <span class="shared-disc">Camuflaje Adaptativo</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🕸️ ARAÑA — La Emboscadora Territorial</h4>
+                <p class="frase">"Mi territorio. Mis reglas. Mi cena."</p>
+                <p class="nicho"><strong>Nicho:</strong> Control del campo. Trampas. Paciencia letal.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA que pone trampas persistentes en el mapa. Nadie más controla el terreno.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Tejeduría de Éter</span> <span class="shared-disc">Camuflaje Adaptativo</span> <span class="shared-disc">Parásito Neural</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🕷️ GARRAPATA — El Tanque Inmortal</h4>
+                <p class="frase">"No muero. No me muevo. No te suelto. Tú decides cuánto dura esto."</p>
+                <p class="nicho"><strong>Nicho:</strong> Tanque absoluto. Regeneración. Inmovible. Drenar hasta ganar.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA con regeneración pasiva constante. No se puede matar por desgaste.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Búnker de Sangre</span> <span class="shared-disc">Exoesqueleto Ancestral</span> <span class="shared-disc">Parásito Neural</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🪰 MOSCA — La Nigromante</h4>
+                <p class="frase">"La muerte no es el final. Es el reclutamiento."</p>
+                <p class="nicho"><strong>Nicho:</strong> Invocador/nigromante. Pelea con aliados muertos. Acción de economía.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA que invoca aliados en combate. Pelea en superioridad numérica.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Necro-Larva</span> <span class="shared-disc">Camuflaje Adaptativo</span> <span class="shared-disc">Parásito Neural</span></p>
+            </div>
+
+            <div class="taxon-id">
+                <h4>🦟 TÍPULA — La Diplomática Suprema</h4>
+                <p class="frase">"Sé lo que piensas. Sé lo que temes. Y sé exactamente qué decirte."</p>
+                <p class="nicho"><strong>Nicho:</strong> Diplomacia total. Lee mentes. Curación. El soporte perfecto.</p>
+                <p class="monopolio"><strong>Monopolio:</strong> Es la ÚNICA que cura aliados y lee pensamientos. Nadie más sana ni detecta mentiras.</p>
+                <p><strong>Atavismos:</strong> <span class="unique-disc">Ocelo Ancestral</span> <span class="shared-disc">Antenas Ancestrales</span> <span class="shared-disc">Exoesqueleto Ancestral</span></p>
+            </div>
+
+            <h2>⚖️ Balance por Rol</h2>
+            <table>
+                <tr><th>Rol</th><th>Taxones</th><th>Qué hacen mejor</th></tr>
+                <tr><td>DPS Burst</td><td>Escorpión, Avispa</td><td>Matar rápido en 1-2 turnos</td></tr>
+                <tr><td>DPS Sostenido</td><td>Vinchuca, Araña</td><td>Daño silencioso acumulativo</td></tr>
+                <tr><td>Tank</td><td>Garrapata</td><td>Sobrevivir todo, drenar hasta ganar</td></tr>
+                <tr><td>Evasión</td><td>Pulga</td><td>No la tocan nunca, hit-and-run</td></tr>
+                <tr><td>Control</td><td>Mariposa, Polilla</td><td>Manipular enemigos, crowd control</td></tr>
+                <tr><td>Invocador</td><td>Mosca</td><td>Superioridad numérica con muertos</td></tr>
+                <tr><td>Soporte</td><td>Típula</td><td>Curar, leer, diplomacia</td></tr>
+            </table>
+
+            <blockquote>"Diez taxones. Diez formas de sobrevivir en la misma cuneta. Unos muerden, otros engañan, otros simplemente se niegan a morir. ¿Cuál eres tú? No importa — al final todos terminan siendo comida del Cordyceps. Pero el camino hasta ahí... el camino es lo que me entretiene."<br>— Ramazzottius</blockquote>
+        </article>
+    </main>
+</body>
+</html>
