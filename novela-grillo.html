@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦗 El Exorcista del Gran Charco — Novela del Grillo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid var(--accent-green); padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: var(--accent-green); }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: var(--accent); }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid var(--accent-gold); }
+        .parallel .plaga { border-left: 3px solid var(--accent-green); }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="quickstart.html">🚀 Quick Start</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-grillo.html" class="active">🦗 El Exorcista del Gran Charco</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="zonas-lore.html">🗺️ Las Zonas</a></li>
+            <li><a href="npcs-directorio.html">👤 NPCs</a></li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="lore-fundacional.html">📜 Lore Fundacional</a></li>
+            <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🦗 El Exorcista del Gran Charco</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Grillo</strong> — Horror teológico. Un exorcista de sonido se enfrenta al Cordyceps en un caso que desafía todo lo que creía saber sobre el Silencio Verde. Inspirada en <em>El Exorcista</em> (William Peter Blatty, 1971).</p>
+                <p><strong>Tono:</strong> Horror lento, atmósfero, con dilemas morales imposibles.<br>
+                <strong>Duración estimada:</strong> 12 capítulos.<br>
+                <strong>Conexión con el juego:</strong> Explica el origen de "El Cantor Ciego" (NPC del juego) y cómo perdió la vista.</p>
+            </div>
+
+            <blockquote>"El Cordyceps no posee. El Cordyceps convence. Y eso es infinitamente peor."<br>— Crisófono, antes de perder la fe</blockquote>
+
+            <!-- PERSONAJES -->
+            <h2>🎭 Personajes Principales</h2>
+
+            <div class="character-card">
+                <div class="emoji">🦗</div>
+                <div>
+                    <h4>Crisófono "El Cantor" — Protagonista</h4>
+                    <p><strong>Taxón:</strong> Grillo Mayor | <strong>Cargo:</strong> Exorcista acústico del Segundo Orden<br>
+                    <strong>Edad:</strong> 4 años (viejo para un grillo) | <strong>Facción:</strong> La Colmena (rama teológica)<br>
+                    <strong>Don:</strong> Su cri-cri resuena en frecuencias que "limpian" las esporas del Cordyceps. Es el último de su linaje que puede hacerlo.<br>
+                    <strong>Defecto:</strong> Duda. Cada exorcismo que realiza le deja más preguntas que respuestas. ¿Realmente está salvando almas, o solo prolongando el sufrimiento?<br>
+                    <strong>Equivalente:</strong> Padre Lankester Merrin + Padre Damien Karras</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🐝</div>
+                <div>
+                    <h4>Amparo — La Paciente</h4>
+                    <p><strong>Taxón:</strong> Avispa Papelera (juvenil) | <strong>Edad:</strong> 6 meses (adolescente)<br>
+                    <strong>Familia:</strong> Hija de Vespa "La Sargento" (NPC del juego)<br>
+                    <strong>Estado:</strong> Infectada por Cordyceps — Fase 3 (Parasitismo). Pero algo es diferente: no pierde la voluntad. El hongo le <em>habla</em>. Y ella le responde.<br>
+                    <strong>Equivalente:</strong> Regan MacNeil</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🍄</div>
+                <div>
+                    <h4>"La Voz Verde" — El Antagonista</h4>
+                    <p><strong>No es un NPC.</strong> Es la conciencia colectiva del Cordyceps manifestándose a través de Amparo.<br>
+                    <strong>Naturaleza:</strong> No es un demonio. No es malvado. Es un organismo que genuinamente cree que la absorción es amor. Que la unidad es paz. Que la individualidad es sufrimiento.<br>
+                    <strong>Horror:</strong> Tiene argumentos convincentes. Y Crisófono no puede refutarlos todos.<br>
+                    <strong>Equivalente:</strong> Pazuzu (pero con filosofía)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🌸</div>
+                <div>
+                    <h4>Padre Ignacio — El que Sabe Demasiado</h4>
+                    <p><strong>Taxón:</strong> Sanguijuela | <strong>Cargo:</strong> Obispo de Los Sembradores<br>
+                    <strong>Rol en la novela:</strong> Le ofrece a Crisófono "otra perspectiva" sobre el Cordyceps. No es un villano — es un creyente sincero de que el Silencio Verde es la evolución, no la muerte.<br>
+                    <strong>Equivalente:</strong> El psiquiatra que sugiere que quizás no es posesión</p>
+                </div>
+            </div>
+
+            <!-- EQUIVALENCIAS -->
+            <h2>🔄 Mapeo: El Exorcista → Plaga</h2>
+            <div class="parallel">
+                <div class="original"><strong>🎬 El Exorcista (1973)</strong></div>
+                <div class="plaga"><strong>🦗 El Exorcista del Gran Charco</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Regan poseída por Pazuzu</div>
+                <div class="plaga">Amparo infectada por Cordyceps Fase 3 — pero consciente</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Padre Merrin (viejo, con fe)</div>
+                <div class="plaga">Crisófono (viejo grillo, con duda creciente)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Padre Karras (joven, pierde la fe)</div>
+                <div class="plaga">Tomás "Fosforito" (grillo joven, asistente obligado)</div>
+            </div>
+            <div class="parallel">
+                <div class="original">La madre desesperada (Chris MacNeil)</div>
+                <div class="plaga">Vespa "La Sargento" — madre guerrera que no puede pelear contra esto</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El demonio habla con la voz de los muertos</div>
+                <div class="plaga">El Cordyceps habla con las voces de todos los que absorbió</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Agua bendita, crucifijo, ritual latino</div>
+                <div class="plaga">Frecuencias acústicas, vibración de élitros, canto del Gran Éter</div>
+            </div>
+            <div class="parallel">
+                <div class="original">"The power of Christ compels you!"</div>
+                <div class="plaga">"¡El Éter resuena en ti! ¡La frecuencia del Primero te reclama!"</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Merrin muere. Karras se sacrifica.</div>
+                <div class="plaga">Crisófono pierde la vista (quemada por las esporas). Sobrevive. Se convierte en "El Cantor Ciego".</div>
+            </div>
+
+            <!-- SINOPSIS -->
+            <h2>📖 Sinopsis por Acto</h2>
+
+            <div class="chapter">
+                <h3>ACTO I — La Duda (Cap. 1-4)</h3>
+                <p>Crisófono lleva 3 años como exorcista acústico. Ha "limpiado" a 14 plagas del Cordyceps usando sus frecuencias. Pero últimamente, los exorcismos no funcionan como antes. Las esporas regresan. Los "curados" recaen. Se pregunta si realmente está curando o solo retrasando lo inevitable.</p>
+                <p>Vespa "La Sargento" lo busca desesperada. Su hija Amparo — que entrenaba para guardia — bajó al Sótano por una apuesta y volvió <em>diferente</em>. No está perdiendo la voluntad como los demás infectados. Está ganando algo. Habla con voz doble. Sabe cosas que no debería saber. Y sonríe.</p>
+                <p class="prose">"Mamá, el Verde no duele. El Verde recuerda. Recuerda todo. ¿Sabías que la abuela murió gritando tu nombre? Yo no lo sabía. Pero ahora sí. El Verde me lo contó."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO II — El Ritual (Cap. 5-8)</h3>
+                <p>Crisófono acepta el caso. Lleva a Tomás "Fosforito" como asistente (es obligado por La Colmena — necesitan un testigo leal). El exorcismo comienza en el Laboratorio, en una cámara sellada con cera.</p>
+                <p>Primer intento: Crisófono canta la Frecuencia del Primero. Amparo grita. Las esporas retroceden. Pero luego... la Voz Verde habla directamente a Crisófono.</p>
+                <p class="prose">"Cantor. Crees que tu sonido me hiere. Pero yo no soy una infección. Soy una invitación. Tus 14 'curados'... pregúntales cómo se sienten ahora. Pregúntales si extrañan la conexión. Pregúntales si duermen sin pesadillas. No lo hacen, ¿verdad?"</p>
+                <p>Segundo intento: Crisófono sube la frecuencia. Amparo convulsiona. Las esporas explotan... pero se reagrupan. Esta vez, la Voz Verde usa la voz de la madre muerta de Crisófono. Él se quiebra. El ritual falla.</p>
+                <p>Padre Ignacio aparece. Le ofrece a Crisófono otra perspectiva: "¿Y si el Cordyceps no es el demonio? ¿Y si es la evolución? ¿Y si tu 'cura' es la verdadera crueldad — arrancar a alguien de la paz para devolverlo al sufrimiento individual?"</p>
+            </div>
+
+            <div class="chapter">
+                <h3>ACTO III — La Elección (Cap. 9-12)</h3>
+                <p>Crisófono descubre la verdad: de sus 14 exorcismos anteriores, 9 de los "curados" se suicidaron en los meses siguientes. No podían vivir sin la conexión del Verde. El exorcismo les devolvió la soledad — y la soledad los mató.</p>
+                <p>Dilema imposible: ¿Salvar a Amparo del Cordyceps sabiendo que la "cura" podría destruirla? ¿O dejarla conectada sabiendo que eventualmente perderá toda individualidad?</p>
+                <p>La Sargento le da un ultimátum: "Sálvala o te mato. No me importa cómo. Devuélveme a mi hija."</p>
+                <p>El tercer ritual. Crisófono no intenta expulsar al Cordyceps. Intenta algo nunca hecho: <strong>negociar</strong>. Usa su frecuencia no como arma sino como puente. Habla CON la Voz Verde. Le ofrece un trato.</p>
+                <p class="prose">"No te pido que te vayas. Te pido que compartas. Que la dejes ser ella Y ser parte de ti. Que no la borres. Que coexistan. ¿Puedes hacer eso? ¿O solo sabes consumir?"</p>
+                <p>La Voz Verde... se queda en silencio. Nadie le había pedido eso antes.</p>
+                <p>El resultado es ambiguo. Amparo despierta. Es ella misma. Pero sus ojos tienen un brillo verde permanente. Puede escuchar al Cordyceps — como un susurro lejano. No la controla. Pero está ahí. Para siempre.</p>
+                <p>Crisófono paga el precio: las esporas que liberó durante la negociación le quemaron los ojos compuestos. Queda ciego. Pero puede "ver" con el sonido — su cri-cri ahora funciona como ecolocación. Se retira a las Ruinas Congeladas. Se convierte en <strong>"El Cantor Ciego"</strong>.</p>
+            </div>
+
+            <!-- TEMAS -->
+            <h2>🎯 Temas Centrales</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta que plantea</th></tr>
+                <tr><td>🍄 Consentimiento</td><td>¿Se puede "curar" a alguien que no pidió ser curado? ¿La conexión forzada es peor que la soledad forzada?</td></tr>
+                <tr><td>🦗 Fe vs Evidencia</td><td>¿Qué haces cuando tu método funciona mecánicamente pero destruye a las personas que salvas?</td></tr>
+                <tr><td>🧬 Identidad</td><td>Si el Cordyceps te da paz, comunidad y propósito — ¿es realmente una enfermedad? ¿Quién decide?</td></tr>
+                <tr><td>⚖️ El precio de la cura</td><td>9 de 14 curados se suicidaron. ¿El exorcismo es cura o tortura?</td></tr>
+                <tr><td>🤝 Coexistencia</td><td>¿Pueden el individuo y el parásito vivir juntos sin que uno borre al otro?</td></tr>
+            </table>
+
+            <!-- FRASES CLAVE -->
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"No estoy poseída, mamá. Estoy acompañada. Por primera vez en mi vida, no estoy sola."<br>— Amparo, Capítulo 3</blockquote>
+            <blockquote>"Catorce veces canté la frecuencia. Catorce veces el Verde retrocedió. Y nueve veces, los que salvé eligieron volver a él. Quizás el monstruo no soy yo. Quizás soy peor."<br>— Crisófono, Capítulo 9</blockquote>
+            <blockquote>"La individualidad es una enfermedad que los insectos inventaron para justificar la soledad. Antes del yo, había el nosotros. Y el nosotros no sufría."<br>— La Voz Verde, Capítulo 7</blockquote>
+            <blockquote>"Tu madre murió sola. Tu padre murió solo. Tú morirás solo. Yo ofrezco lo contrario. ¿Y soy el demonio?"<br>— La Voz Verde a Crisófono, Capítulo 6</blockquote>
+            <blockquote>"Perdí los ojos. Pero por primera vez, puedo ver lo que el sonido siempre supo: que la frontera entre uno y otro es más delgada que una membrana de ala."<br>— El Cantor Ciego (epílogo)</blockquote>
+
+            <!-- CONEXIÓN CON EL JUEGO -->
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <h4>NPCs originados en esta novela</h4>
+                <ul>
+                    <li><strong>"El Cantor Ciego"</strong> — NPC neutral en las Ruinas Congeladas. Ahora sabes por qué es ciego y por qué vive solo.</li>
+                    <li><strong>Tomás "Fosforito"</strong> — El grillo joven del Laboratorio con el tendón cortado. Fue el asistente de Crisófono. La Colmena lo atrapó como castigo por lo que vio.</li>
+                    <li><strong>Vespa "La Sargento"</strong> — Su paranoia y dureza vienen de casi perder a Amparo. Su secreto (hermana en el Sótano) es Amparo misma — que vive con el Verde dentro.</li>
+                    <li><strong>Amparo</strong> — No aparece como NPC visible. Pero si el jugador tiene Esencia menor a 30%, puede escuchar su voz susurrando: "No tengas miedo. El Verde recuerda."</li>
+                </ul>
+            </div>
+            <div class="info-box lore">
+                <h4>Mecánicas del juego explicadas por esta novela</h4>
+                <ul>
+                    <li><strong>¿Por qué el exorcismo (frecuencia de Grillo) baja Esencia?</strong> Porque "curar" al infectado le quita la conexión y lo deja solo. Es mecánicamente útil pero narrativamente cruel.</li>
+                    <li><strong>¿Por qué los Iluminados sonríen?</strong> Porque genuinamente son felices. El horror no es que sufran — es que no sufren.</li>
+                    <li><strong>¿Por qué Amparo no es un Game Over al llegar a Fase 3?</strong> Porque Crisófono demostró que la coexistencia es posible. El jugador podría intentar lo mismo.</li>
+                </ul>
+            </div>
+
+            <blockquote>"530 millones de años mirando a estas criaturas intentar decidir si la unidad es paraíso o infierno. Todavía no tienen respuesta. Probablemente nunca la tengan. Y honestamente, es lo más entretenido que he visto desde la extinción del Pérmico."<br>— Ramazzottius, sobre la novela</blockquote>
+        </article>
+    </main>
+</body>
+</html>
