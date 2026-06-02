@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗡️ La Colmena Silenciosa — Novela de la Vinchuca</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter { background: var(--bg-card); border-left: 4px solid #5c1a1a; padding: 1.5em; margin: 1.5em 0; border-radius: 4px; }
+        .chapter h3 { margin: 0 0 0.8em; color: #8b3a3a; }
+        .prose { font-style: italic; color: var(--text-secondary); line-height: 1.8; margin: 1em 0; }
+        .character-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .character-card .emoji { font-size: 2.5em; }
+        .character-card h4 { margin: 0 0 4px; color: #8b3a3a; }
+        .character-card p { margin: 0; font-size: 0.85em; color: var(--text-secondary); }
+        .parallel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .parallel > div { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 4px; font-size: 0.85em; }
+        .parallel .original { border-left: 3px solid #4a90d9; }
+        .parallel .plaga { border-left: 3px solid #5c1a1a; }
+        .horror-box { background: rgba(0, 40, 0, 0.15); border: 1px solid rgba(0, 100, 0, 0.3); border-radius: 8px; padding: 16px; margin: 16px 0; }
+        .horror-box h4 { color: #4a8b4a; margin: 0 0 8px; }
+        @media (max-width: 768px) { .parallel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Novelas</li>
+            <li><a href="novelas.html">📚 Todas las Novelas</a></li>
+            <li><a href="novela-zancudo.html">🦟 El Decreto de la Aguja</a></li>
+            <li><a href="novela-grillo.html">🦗 El Exorcista</a></li>
+            <li><a href="novela-polilla.html">🌙 Lovecraft</a></li>
+            <li><a href="novela-escorpion-mariposa.html">🦂🦋 Romeo y Julieta</a></li>
+            <li><a href="novela-mosca.html">🪰 Frankenstein</a></li>
+            <li><a href="novela-chinche.html">🛏️ Orgullo y Prejuicio</a></li>
+            <li><a href="novela-vinchuca.html" class="active">🗡️ La Colmena Silenciosa</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🗡️ La Colmena Silenciosa</h1>
+            <div class="intro-box">
+                <p><strong>Novela del Taxón Vinchuca</strong> — Horror militar y supervivencia extrema. Un escuadrón cruza la resina sellada del Sector 7 para obtener inteligencia sobre la Hormiga Reina. Lo que encuentran no es un hormiguero. Es un cementerio que respira.</p>
+                <p><strong>Tono:</strong> Horror lento, tensión militar, desesperanza creciente. Narrado desde la perspectiva del Baqueano.<br>
+                <strong>Inspiración:</strong> Beyond the Wall (GoT S7E6) + Aliens + La Cosa (Carpenter) + Aniquilación (VanderMeer).<br>
+                <strong>Duración:</strong> 9 capítulos (descenso + regreso + epílogo).<br>
+                <strong>Línea temporal:</strong> 3 semanas antes del inicio del juego. Esto es lo que selló el destino del Sector 7.</p>
+            </div>
+
+            <blockquote>"Más allá de la resina no hay mapa. No hay camino. No hay retorno garantizado. Solo el silencio. Y lo que vive dentro del silencio."<br>— El Baqueano, antes de cruzar</blockquote>
+
+            <h2>🎭 Personajes</h2>
+
+            <div class="character-card">
+                <div class="emoji">🗡️</div>
+                <div>
+                    <h4>"El Baqueano" — Líder de expedición / Narrador (Jon Snow / Willard)</h4>
+                    <p><strong>Taxón:</strong> Vinchuca vieja y masiva | <strong>Facción:</strong> Ninguna (mercenario exiliado)<br>
+                    <strong>Apariencia:</strong> Exoesqueleto oscuro con cicatrices de cien contratos. Patas delanteras afiladas como navajas. Ojos que no parpadean.<br>
+                    <strong>Perfil:</strong> Conoce cada túnel del Gran Charco. Después de guiar la operación de Don Mosin, se retiró del juego — demasiada culpa acumulada. Ahora La Colmena lo recluta otra vez: necesitan un guía para un territorio que no aparece en ningún mapa. El Sector 7. El Baqueano acepta por una razón que no admite: necesita saber qué hay del otro lado de la resina. Siempre necesitó saberlo.<br>
+                    <strong>Arco:</strong> De observador impasible a líder que sacrifica todo por traer a su gente de vuelta. La primera vez que elige un bando.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🐜</div>
+                <div>
+                    <h4>La Colmena Silenciosa — El Enemigo (Los Caminantes Blancos)</h4>
+                    <p><strong>Especie:</strong> Hormigas infectadas con Cordyceps mutado | <strong>Estado:</strong> Muertas pero operativas<br>
+                    <strong>Descripción:</strong> Un hormiguero entero colonizado por el Silencio Verde. Las hormigas no están vivas ni muertas — están <em>ocupadas</em>. Se mueven en formación perfecta, sin sonido, sin feromona, sin voluntad. Sus ojos son blancos. Sus mandíbulas se abren y cierran con un ritmo que no es natural. Son soldados sin general visible, ejecutando una orden que nadie dio. O que alguien dio hace 500 años.<br>
+                    <strong>Horror:</strong> No atacan individualmente. No persiguen. Simplemente... avanzan. En silencio. Como una marea.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🦂</div>
+                <div>
+                    <h4>"Aguja Negra" — La Escolta (Tormund / soldado leal)</h4>
+                    <p><strong>Taxón:</strong> Escorpión joven, impulsivo | <strong>Facción:</strong> La Colmena (guardia de élite)<br>
+                    <strong>Perfil:</strong> Músculo puro. Acepta la misión porque su hermano desapareció en el Sector 7 hace dos ciclos. Busca un cadáver o una respuesta. Encuentra algo peor: lo encuentra caminando.<br>
+                    <strong>Voz:</strong> "Si se mueve y no debería, le clavo el aguijón. Es simple." (No es simple.)</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🌙</div>
+                <div>
+                    <h4>"Lumen" — La Vidente (Beric / Melisandre)</h4>
+                    <p><strong>Taxón:</strong> Polilla | <strong>Facción:</strong> Culto de Meganeura<br>
+                    <strong>Perfil:</strong> La Colmena la envía como "sensora de esporas" — puede detectar concentración de Cordyceps en el aire con sus antenas hipersensibles. Pero Lumen tiene visiones. Ve el futuro del Sector 7 en fragmentos. Cada vez que lo hace, pierde un poco de sí misma. A mitad de la expedición deja de hablar con frases completas. Al final, solo dice coordenadas y colores.<br>
+                    <strong>Horror personal:</strong> Ve la Colmena Silenciosa completa antes de llegar. Sabe cuántos mueren. No puede decir cuáles.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🪳</div>
+                <div>
+                    <h4>"Cascabel" — El Superviviente (The Hound / cínico)</h4>
+                    <p><strong>Taxón:</strong> Cucaracha veterana | <strong>Facción:</strong> Los Parásitos Libres<br>
+                    <strong>Perfil:</strong> Exmilitar que vende información. La Colmena lo recluta porque es el único que ha estado <em>cerca</em> del Sector 7 y ha vuelto. Cínica, brutal, cobarde cuando conviene. Carga un frasco de hemolinfa que dice que es "para emergencias" pero en realidad es su última dosis de valor.<br>
+                    <strong>Función narrativa:</strong> El que quiere irse. Siempre quiere irse. Tiene razón cada vez que dice "deberíamos irnos". Nadie le hace caso hasta que es demasiado tarde.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">🐝</div>
+                <div>
+                    <h4>"Sargento Cera" — El Sellador (Jorah / el leal que no vuelve)</h4>
+                    <p><strong>Taxón:</strong> Avispa obrera | <strong>Facción:</strong> La Colmena (ingeniería militar)<br>
+                    <strong>Perfil:</strong> Especialista en sellar grietas, construir barricadas, crear trampas con resina. Su trabajo es cerrar el camino detrás del escuadrón para que nada los siga. Problema: también tiene que abrir el camino de vuelta. Y cada vez que sella algo detrás, reduce las opciones de escape.<br>
+                    <strong>Sacrificio:</strong> Al final se queda atrás sellando la última grieta. El escuadrón escucha su mandíbula trabajando la cera durante 40 segundos. Después, silencio.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="emoji">⚡</div>
+                <div>
+                    <h4>"Fósforo" — El Iluminador (Thoros de Myr / la antorcha)</h4>
+                    <p><strong>Taxón:</strong> Luciérnaga (no jugable, NPC de apoyo) | <strong>Facción:</strong> Neutral (contratado)<br>
+                    <strong>Perfil:</strong> La única fuente de luz del escuadrón. Su bioluminiscencia es todo lo que separa al grupo de la oscuridad total del Sector 7. Cada vez que usa su luz, las hormigas del silencio giran la cabeza hacia él. No atacan. Solo miran. Con ojos blancos. Hasta que dejan de solo mirar.<br>
+                    <strong>Horror:</strong> Cuando Fósforo muere, el escuadrón queda en oscuridad absoluta por primera vez. Ese capítulo no tiene descripciones visuales — solo sonidos.</p>
+                </div>
+            </div>
+
+            <h2>🔄 Mapeo: Beyond the Wall → La Colmena Silenciosa</h2>
+            <div class="parallel">
+                <div class="original"><strong>❄️ Game of Thrones — Beyond the Wall (S7E6)</strong></div>
+                <div class="plaga"><strong>🗡️ La Colmena Silenciosa</strong></div>
+            </div>
+            <div class="parallel">
+                <div class="original">Jon Snow lidera un escuadrón suicida más allá del Muro</div>
+                <div class="plaga">El Baqueano lidera un escuadrón más allá de la resina sellada</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Objetivo: capturar un wight para probar que la amenaza es real</div>
+                <div class="plaga">Objetivo: obtener una muestra de hormiga silenciosa para probar la amenaza al Consejo</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Los Caminantes Blancos — ejército de muertos en silencio</div>
+                <div class="plaga">La Colmena Silenciosa — ejército de hormigas-zombi Cordyceps</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El Night King resucita muertos con un gesto</div>
+                <div class="plaga">El Cordyceps reani ma cadáveres con esporas. No hay un "rey" — hay una red miceliar</div>
+            </div>
+            <div class="parallel">
+                <div class="original">Thoros de Myr muere — la espada de fuego se apaga</div>
+                <div class="plaga">Fósforo muere — la luz se apaga. El capítulo queda en negro</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El Muro protege a los vivos del ejército de muertos</div>
+                <div class="plaga">La resina de abeja protege al Gran Charco de la Colmena Silenciosa</div>
+            </div>
+            <div class="parallel">
+                <div class="original">El ejército de muertos no negocia, no habla, no se detiene</div>
+                <div class="plaga">Las hormigas silenciosas no emiten feromona, no hacen ruido, no paran</div>
+            </div>
+
+            <h2>📖 La Expedición — 9 Capítulos</h2>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 1 — La Grieta que Golpea</h3>
+                <p>El Baqueano recibe la visita de un emisario de La Colmena en su refugio — una grieta seca en el borde del Charco donde lleva dos ciclos sin hablar con nadie. El mensaje: los golpes rítmicos detrás de la resina del Sótano se han intensificado. Ya no son cada hora. Son cada minuto. Algo empuja desde el otro lado.</p>
+                <p>La Colmena necesita inteligencia. Necesita que alguien cruce, observe, y vuelva. Necesita al único mercenario que conoce los túneles profundos mejor que las propias lombrices que los cavaron. El pago: hemolinfa vitalicia y borrado de su historial con Don Mosin.</p>
+                <p>El Baqueano acepta. No por el pago.</p>
+                <p class="prose">"Llevo dos ciclos soñando con esos golpes. Los escucho desde aquí, a 200 cuerpos de distancia de la resina. Los escucho en mis patas cuando duermo. Toc. Toc. Toc. Rítmicos. Pacientes. Como alguien que sabe que tiene toda la eternidad para entrar. Acepté la misión porque necesitaba saber qué hay detrás de ese sonido. Necesitaba que dejara de ser un misterio y empezara a ser un problema con solución. Los misterios no te dejan dormir. Los problemas sí — porque al menos puedes planificar."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 2 — El Escuadrón de los Siete</h3>
+                <p>Siete expedicionarios se reúnen en El Sótano. El Baqueano evalúa al grupo: un escorpión joven con sed de venganza personal, una polilla que mira al vacío más de lo saludable, una cucaracha que ya está calculando el precio de la información que obtenga, una avispa con más resina que sentido común, una luciérnaga que no deja de parpadear nerviosamente, y un segundo vinchuca — "Alfiler" — joven, silencioso, asignado como "apoyo táctico" pero que El Baqueano reconoce inmediatamente como un espía de La Colmena enviado para vigilar al grupo.</p>
+                <p>Sargento Cera abre la resina con ácido fórmico concentrado. Tarda 4 horas. Cuando la última capa cede, no hay sonido del otro lado. Los golpes pararon. Hace exactamente 4 horas que pararon.</p>
+                <p class="prose">"La resina tenía 500 años de grosor. Capas sobre capas, generaciones de abejas obreras sellando la misma grieta. Cuando Cera la abrió, el aire del otro lado salió frío. No helado — frío de una manera que no es temperatura. Frío como una habitación donde alguien murió hace poco. Cascabel dijo 'deberíamos irnos'. Era la primera vez que lo decía. No sería la última."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 3 — El Hormiguero Vacío</h3>
+                <p>El grupo avanza por lo que claramente fue un hormiguero masivo. Túneles perfectamente hexagonales, cámaras de almacenamiento del tamaño de nidos enteros, autopistas de tres carriles talladas en la tierra compacta. Todo vacío. Todo silencioso. Todo intacto — como si las habitantes hubieran salido a trabajar y simplemente no hubieran vuelto.</p>
+                <p>Fósforo ilumina las paredes. Hay marcas de mandíbula. Miles. Superpuestas. Como si las hormigas hubieran mordido la misma pared una y otra vez y otra vez sin razón aparente. Lumen toca las marcas y se queda paralizada 30 segundos. Cuando vuelve, dice solo una palabra: "Hambre."</p>
+                <p>Aguja Negra encuentra una cámara lateral llena de pupas. Intactas. Perfectas. Muertas hace siglos. Nunca eclosionaron. Nadie las alimentó.</p>
+                <p class="prose">"Un hormiguero sin hormigas es como un charco sin agua — la forma está, pero el sentido desapareció. Las paredes todavía olían a ácido fórmico rancio. Viejo. No de meses. De generaciones. Estas hormigas dejaron de ser hormigas hace tanto tiempo que solo queda la arquitectura de lo que fueron. Y sin embargo... los golpes venían de algún lado."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 4 — La Primera Silenciosa</h3>
+                <p>Cascabel la ve primero. En un túnel lateral, inmóvil contra la pared. Una hormiga soldado. Grande — del tamaño de tres vinchucas juntas. Perfectamente quieta. Ojos blancos. Mandíbulas abiertas en ángulo antinatural. Y sobre su cabeza, brotando del exoesqueleto como una corona obscena: un tallo de Cordyceps. Verde pálido. Pulsando levemente.</p>
+                <p>No respira. No se mueve. No reacciona cuando Fósforo la ilumina.</p>
+                <p>Aguja Negra se acerca con el aguijón listo. Cascabel dice "deberíamos irnos". Lumen dice "no está muerta". El Baqueano dice "no te acerques". Alfiler, el espía, ya tiene su informe mental preparado.</p>
+                <p>Aguja Negra toca la hormiga con la punta del aguijón. Nada. La empuja. Se desploma como una cáscara vacía. Dentro no hay órganos. Solo una red de filamentos blancos — micelio — que conectaba cada articulación como un sistema de hilos de marioneta.</p>
+                <p class="prose">"Vacía. Hueca por dentro. El hongo la había vaciado como un fruto y usaba la cáscara como... ¿vehículo? ¿Disfraz? No. Era peor. La usaba como la usaría una mano a un guante. Y la pregunta que nadie hizo en voz alta fue: si ESTA estaba parada aquí sola, quieta, ¿dónde están las demás? ¿Todas las demás?"</p>
+                <div class="horror-box">
+                    <h4>🍄 Dato Biológico Real</h4>
+                    <p>El Cordyceps (Ophiocordyceps unilateralis) efectivamente convierte a las hormigas en "zombis" controlando su sistema nervioso mediante redes de hifas que penetran los músculos. La hormiga deja de tomar decisiones propias — el hongo "pilotea" su cuerpo hacia puntos elevados para dispersar esporas. En La Colmena Silenciosa, esta mecánica opera a escala de colonia entera: miles de cáscaras piloteadas por una red subterránea de micelio compartido.</p>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 5 — La Cámara de la Reina</h3>
+                <p>El grupo penetra al corazón del hormiguero buscando a la Hormiga Reina — la amenaza que La Colmena teme. Lo que encuentran destruye toda expectativa.</p>
+                <p>La cámara real es enorme. En el centro, la Reina. Muerta hace cientos de ciclos. Su cuerpo masivo — veinte veces el tamaño de una soldado — está completamente cubierto de Cordyceps. Pero no como parásito. Como <em>infraestructura</em>. El hongo la ha convertido en un nodo central: de su cuerpo salen miles de hilos de micelio que se pierden en las paredes, el suelo, el techo. Se extienden en todas direcciones como raíces de un árbol invertido.</p>
+                <p>Lumen colapsa. Convulsiona. Cuando la levantan, tiene los ojos en blanco y dice con una voz que no es la suya: "Ella no está muerta. Ella ES la red. La red ES ella. No hay reina. No hay hongo. Son lo mismo. Desde hace 500 años son lo mismo."</p>
+                <p>Entonces el suelo vibra. Los hilos de micelio que salen de la Reina se tensan. Todos al mismo tiempo. Y desde cada túnel que desemboca en la cámara, se escucha algo que nunca se había escuchado en el Sector 7: movimiento. Miles de patas. En formación. Acercándose.</p>
+                <p class="prose">"No fue un rugido. No fue un grito de guerra. No fue nada que un ser vivo haría. Fue el sonido de diez mil patas moviéndose al mismo ritmo exacto. Sin una fracción de segundo de desfase. Como un solo organismo del tamaño de una ciudad. Y venían de todas las direcciones al mismo tiempo. No nos estaban rodeando. Ya estábamos rodeados desde que cruzamos la resina. Solo nos estaban dejando llegar hasta el centro para que viéramos. Para que supiéramos."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 6 — La Noche sin Luz</h3>
+                <p>Huida. El grupo corre. Las hormigas silenciosas emergen de cada túnel lateral — no corren, no persiguen. Caminan. Al mismo paso. En la misma dirección. Como agua llenando un espacio. El horror no es la velocidad — es la inevitabilidad.</p>
+                <p>Fósforo ilumina el camino de regreso. Cada vez que pulsa su luz, las hormigas giran la cabeza. Todas. Al mismo tiempo. Miles de ojos blancos reflejando el verde de su bioluminiscencia. No aceleran. Solo miran. Y siguen caminando.</p>
+                <p>En un estrechamiento del túnel, la marea silenciosa los alcanza. Aguja Negra se queda atrás cubriedo la retaguardia. Mata a siete. A doce. A veinte. No importa. Las que caen son pisadas por las que vienen. El escorpión grita que reconoce a una — tiene la marca de su hermano en el exoesqueleto. Una cicatriz de aguijón que él mismo le hizo entrenando de crías. Su hermano está ahí. Caminando. Con ojos blancos y un tallo verde brotando de la nuca.</p>
+                <p>Fósforo intenta iluminar el camino más fuerte. Brilla al máximo. Las hormigas se detienen un instante — y entonces todas cargan hacia la luz. El instinto de la red: eliminar la anomalía. Fósforo no puede apagar su propia luz. Es lo que es. Brilla. Y por eso muere.</p>
+                <p>Oscuridad total.</p>
+                <p class="prose">"No voy a describir lo que pasó en los siguientes 60 segundos porque no vi nada. Solo escuché. El crujido húmedo de mandíbulas cerrándose. El último pulso de luz de Fósforo — verde, débil, como una vela que se ahoga. El grito de Aguja Negra llamando a su hermano por su nombre real. Cascabel empujándome hacia adelante, hacia arriba, hacia cualquier lugar que no fuera aquí. Y después — después el silencio volvió. Peor que el ruido. Porque el silencio significaba que habían dejado de comer."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 7 — Los que Quedan</h3>
+                <p>Cuatro sobrevivientes en la oscuridad: El Baqueano, Cascabel, Lumen y Sargento Cera. Alfiler desapareció — se separó del grupo "por accidente" pero El Baqueano sabe que el espía tiene su propia ruta de escape. Aguja Negra no volvió. Fósforo no volverá.</p>
+                <p>Sin luz, El Baqueano guía por memoria táctil. Sus patas de vinchuca leen las paredes como un ciego lee Braille. Temperatura, humedad, corriente de aire. Cada decisión es ciega. Cada paso puede ser el último.</p>
+                <p>Lumen ya no habla idioma. Susurra coordenadas: "tres-izquierda-frío-no-arriba-SÍ". Pero funciona. Cada indicación absurda los acerca a la resina. La polilla está viendo el camino con algo que no son ojos.</p>
+                <p>Cascabel, por primera vez, no dice "deberíamos irnos". Dice "vamos a salir de esta". Es lo más aterrador que ha dicho en toda la expedición — porque significa que incluso ella sabe que necesitan esperanza artificial para seguir moviéndose.</p>
+                <p class="prose">"En la oscuridad total descubrí algo sobre mí mismo: no tengo miedo de morir. Tengo miedo de quedarme. De que el silencio verde me llene por dentro y me convierta en una cáscara que camina. En 400 ciclos de mercenario, mi peor pesadilla siempre fue morir solo en un túnel. Ahora mi peor pesadilla es no morir. Seguir caminando. Con ojos blancos. Para siempre."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 8 — El Sello</h3>
+                <p>Llegan a la grieta. La resina abierta. Detrás, el Sótano del Gran Charco. Seguridad. Calor. Vida. Pero las hormigas silenciosas los siguen. No rápido — nunca rápido. Pero constantes. El sonido de miles de patas es un rumor creciente detrás de ellos. No se detienen. Nunca se detuvieron en 500 años de golpear la resina. ¿Por qué se detendrían ahora?</p>
+                <p>Sargento Cera lo sabe antes que nadie. Se detiene frente a la grieta. Empieza a masticar la resina que carga en sus reservas abdominales — la misma resina de abeja que selló este pasaje durante 500 años. Puede reproducirla. Puede sellarlo de nuevo. Pero tarda 40 segundos en endurecer.</p>
+                <p>Los otros cruzan. El Baqueano último. Se da vuelta. Mira a Cera.</p>
+                <p>"Necesito 40 segundos", dice la avispa. "Del otro lado. Si me quedo aquí, la resina no cura antes de que lleguen. Tengo que sellar DESDE ADENTRO."</p>
+                <p>Cascabel dice una grosería. Lumen dice un número. El Baqueano no dice nada. Solo asiente. Porque sabe que es verdad.</p>
+                <p>Cera empieza a sellar. Su mandíbula trabaja la cera con la eficiencia de mil generaciones de obreras. El sonido húmedo de la construcción. Rítmico. Casi musical. Desde el otro lado, El Baqueano escucha el trabajo por 40 segundos exactos. Después, silencio. No el silencio de alguien que terminó su trabajo. El silencio de alguien que fue interrumpido.</p>
+                <p>Pero la resina aguanta. Fresca. Húmeda todavía. Pero sólida. Suficiente.</p>
+                <p class="prose">"Escuché sus mandíbulas trabajar durante 38 segundos. Conté. En el segundo 39 dejó de sonar. En el segundo 40, algo golpeó la resina desde adentro. Un solo golpe. Y después... nada. El sello aguantó. Cera aguantó. 38 segundos de los 40 que necesitaba. Las hormigas se comieron los últimos dos. Pero la resina secó igual. Ese maldito insecto sabía exactamente cuánta resina era suficiente. Sabía que no necesitaba los 40 completos. Sabía que 38 bastaban. Dio los últimos 2 segundos de su vida como propina."</p>
+            </div>
+
+            <div class="chapter">
+                <h3>CAPÍTULO 9 — El Informe (Epílogo)</h3>
+                <p>Tres sobrevivientes se presentan ante el Consejo de Antenas. El Baqueano, Cascabel y Lumen — aunque Lumen ya no es Lumen del todo. Habla en esporas. Ve en micelio. La expedición le costó algo que no volverá.</p>
+                <p>El informe del Baqueano es breve: el Sector 7 no es un hormiguero colapsado. Es una <strong>colonia Cordyceps del tamaño de una ciudad</strong>. La Hormiga Reina está muerta pero su cuerpo es el nodo central de una red de micelio que controla a miles de cáscaras. No hay inteligencia individual — hay una inteligencia distribuida. La red. Y la red está creciendo. Los golpes en la resina no son hormigas intentando salir. Son la red <em>probando</em> los límites. Midiendo el grosor. Calculando cuándo.</p>
+                <p>La Colmena responde como siempre: clasifica el informe. Nivel 7 de secreto. Nadie fuera del Consejo puede saber. "Si el Charco se entera de lo que hay detrás de esa resina, el pánico destruiría el orden antes que las hormigas." Sellan el nuevo parche de Cera con tres capas adicionales. Ponen un guardia permanente. Prohíben mencionar el Sector 7.</p>
+                <p>Cascabel se va. Vende la información al Enjambre Negro por un precio obsceno. "El Consejo quiere silencio — yo quiero jubilación. Alguien tiene que saber la verdad. Que la compre el que pueda pagarla."</p>
+                <p>Lumen es internada en el refugio de las Polillas. Sus visiones son cada vez más frecuentes y menos humanas. Dice que la red la <em>vio</em>. Dice que ahora ella es un nodo periférico. Nadie sabe si es locura o Cordyceps.</p>
+                <p>El Baqueano vuelve a su grieta seca en el borde del Charco. Se sienta en la oscuridad. Y escucha.</p>
+                <p>Los golpes no han parado.</p>
+                <p>Toc. Toc. Toc.</p>
+                <p>Más fuerte ahora.</p>
+                <p class="prose">"Perdí a cuatro. Traje a dos. Y un informe que el Consejo enterró como si enterrarlo cambiara lo que dice. Detrás de esa resina hay un ejército que no duerme, no come, no negocia, no para. No es una amenaza futura. Es una amenaza presente que todavía no ha decidido empujar con toda su fuerza. Cuando lo haga — y va a hacerlo — toda la política del Gran Charco, todas las facciones, todos los conflictos entre taxones... van a parecer lo que siempre fueron: niños peleando por juguetes mientras la casa se incendia. Pero nadie quiere escuchar eso. Nadie quiere creer que el verdadero enemigo no tiene opinión, no tiene precio, y no tiene prisa. Tiene paciencia. Y la paciencia, en un túnel, siempre gana."</p>
+            </div>
+
+            <h2>🎯 Temas</h2>
+            <table>
+                <tr><th>Tema</th><th>Pregunta</th></tr>
+                <tr><td>🍄 La pérdida de individualidad</td><td>¿Qué queda de ti si el hongo te vacía? ¿Eres tu cáscara o tu voluntad?</td></tr>
+                <tr><td>🤫 El secreto como arma política</td><td>La Colmena clasifica la amenaza existencial. ¿Protege o condena?</td></tr>
+                <tr><td>🗡️ El observador que elige</td><td>El Baqueano siempre fue testigo neutral. Esta vez pierde gente. ¿Cambia eso algo?</td></tr>
+                <tr><td>🐜 La naturaleza como horror</td><td>Las hormigas no son malvadas. El Cordyceps no es malvado. No hay villano. Solo biología.</td></tr>
+                <tr><td>⏳ La inevitabilidad</td><td>La resina se romperá. ¿Cuándo? ¿Importa? ¿Prepararse cambia algo contra algo que no negocia?</td></tr>
+                <tr><td>💀 Sacrificio sin audiencia</td><td>Cera muere solo, en silencio, del lado equivocado. Nadie lo verá. ¿Eso lo hace menos heroico?</td></tr>
+            </table>
+
+            <h2>💬 Frases Clave</h2>
+            <blockquote>"Más allá de la resina no hay mapa. Solo el silencio. Y lo que vive dentro del silencio."<br>— El Baqueano, Capítulo 1</blockquote>
+            <blockquote>"Deberíamos irnos."<br>— Cascabel (repetida 14 veces a lo largo de la novela)</blockquote>
+            <blockquote>"Ella no está muerta. Ella ES la red. La red ES ella."<br>— Lumen, Capítulo 5</blockquote>
+            <blockquote>"Necesito 40 segundos. Del otro lado."<br>— Sargento Cera, últimas palabras funcionales</blockquote>
+            <blockquote>"No tengo miedo de morir. Tengo miedo de no morir. De seguir caminando con ojos blancos. Para siempre."<br>— El Baqueano, Capítulo 7</blockquote>
+            <blockquote>"Toc. Toc. Toc."<br>— El Sector 7. Siempre.</blockquote>
+
+            <h2>🎮 Conexión con el Juego</h2>
+            <div class="info-box mechanic">
+                <ul>
+                    <li><strong>Línea temporal:</strong> 3 semanas antes del inicio del juego. El jugador despierta en un Charco que NO sabe lo que hay detrás de la resina — pero los golpes son audibles si vas al Sótano.</li>
+                    <li><strong>El Sector 7 (zona bloqueada):</strong> El sello de Cera es visible en el juego. La puerta está ahí. Los golpes se escuchan. Desbloqueable en act final del juego como zona de endgame.</li>
+                    <li><strong>El Baqueano (NPC):</strong> Disponible como guía mercenario si el jugador es Vinchuca o tiene reputación con Los Parásitos Libres. Conoce TODO el mapa subterráneo. No habla del Sector 7 a menos que el jugador insista.</li>
+                    <li><strong>Lumen (NPC):</strong> En el refugio de las Polillas. Da visiones fragmentarias sobre el futuro si el jugador la visita. Cada visita reduce su Esencia de Taxón visiblemente. ¿La sigues consultando sabiendo lo que le cuesta?</li>
+                    <li><strong>La Colmena Silenciosa (facción enemiga endgame):</strong> Las hormigas Cordyceps son el enemigo final alternativo a la Díada Verde. No tienen HP individual — tienen HP de RED. Matas una y la red se redistribuye. Para ganar, tienes que llegar al nodo central (la Reina muerta) y quemarlo.</li>
+                    <li><strong>Cascabel (NPC):</strong> Vende información sobre el Sector 7 al jugador. Cara. Muy cara. Pero imprescindible para el endgame.</li>
+                    <li><strong>Decisión moral:</strong> ¿Alertas al Charco sobre la amenaza (rompe el secreto de La Colmena, ganas aliados pero pierdes su facción) o respetas la clasificación (mantienes el status quo pero la amenaza crece)?</li>
+                </ul>
+            </div>
+
+            <h2>🍄 La Colmena Silenciosa — Bestiario</h2>
+            <div class="horror-box">
+                <h4>Tipos de Unidades</h4>
+                <table>
+                    <tr><th>Unidad</th><th>Descripción</th><th>Amenaza</th></tr>
+                    <tr><td>Obrera Silenciosa</td><td>Hormiga vaciada. Camina en formación. No ataca sola — empuja. Aplasta por masa.</td><td>★★☆☆☆ (individual) / ★★★★★ (en grupo)</td></tr>
+                    <tr><td>Soldado Silenciosa</td><td>Cáscara grande con mandíbulas trabadas en posición abierta. Cierra al contacto. No suelta.</td><td>★★★★☆</td></tr>
+                    <tr><td>Esporadora</td><td>Hormiga inmóvil con tallos de Cordyceps maduros. No se mueve — explota en nube de esporas cuando algo se acerca.</td><td>★★★☆☆ (daño) + riesgo de infección</td></tr>
+                    <tr><td>La Red (jefe)</td><td>No es un enemigo. Es el suelo. Es las paredes. Es el micelio que conecta todo. Matar unidades no la daña. Hay que cortar conexiones.</td><td>★★★★★</td></tr>
+                </table>
+            </div>
+
+            <blockquote>"530 millones de años he observado imperios nacer y morir. Hormigas, termitas, abejas — todas construyen ciudades y las pierden. Pero esta es la primera vez que veo una ciudad de muertos que sigue funcionando. No como un fantasma. Como una máquina. Una máquina de esporas y hambre y paciencia infinita. Y está a 200 cuerpos de distancia del Charco donde todos duermen tranquilos. Toc. Toc. Toc."<br>— Ramazzottius, el que todo lo observa</blockquote>
+        </article>
+    </main>
+</body>
+</html>
