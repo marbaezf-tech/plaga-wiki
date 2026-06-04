@@ -1560,3 +1560,42 @@ Escape = (Velocidad propia / Velocidad enemiga) × 50%
 - [ ] Alternativa: convertir a GGUF con llama.cpp CLI cuando long paths funcione
 - [ ] Probar MoE Router con modelos reales (`MOE_PLAGA.bat`)
 - [ ] Entrenar Qwen3-8B nocturno en 1 GPU (`ENTRENAR_QWEN3.bat` opción 1)
+
+
+### Troubleshooting IA (Soluciones encontradas)
+
+#### Problema: `use_libuv was requested but PyTorch was build without libuv support`
+- **Causa**: PyTorch 2.5.1 en Windows no tiene soporte libuv para distributed training
+- **Solución**: Parchear `C:\Users\HardwareX\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\distributed\elastic\rendezvous\static_tcp_rendezvous.py` — agregar `use_libuv=False` al constructor de `TCPStore`
+
+#### Problema: `_amp_foreach_non_finite_check_and_unscale_cuda not implemented for BFloat16`
+- **Causa**: bitsandbytes en 4-bit con fp16/bf16 AMP crashea en PyTorch 2.5.1
+- **Solución**: Usar `fp16=False, bf16=False` (fp32 puro) cuando se usa bitsandbytes
+
+#### Problema: Multi-GPU training con bitsandbytes — gradientes en device incorrecto
+- **Causa**: `device_map="auto"` reparte capas entre GPUs pero LoRA gradientes cruzan dispositivos
+- **Solución**: NO usar bitsandbytes para multi-GPU. Usar fp16 sin quantización con `max_memory={0:"4GiB", 1:"4GiB"}`
+
+#### Problema: Ollama no soporta `Qwen3ForCausalLM`
+- **Causa**: Ollama 0.30.4 no implementa la arquitectura Qwen3 para importar safetensors
+- **Solución**: Convertir a GGUF con `llama.cpp/convert_hf_to_gguf.py` (clonar repo en path corto) y luego `ollama create` con `FROM ./model.gguf`
+
+#### Problema: `transformers 5.x` requiere `torch >= 2.6` (float8_e8m0fnu)
+- **Causa**: La versión más nueva de transformers usa tipos de dato que solo existen en torch 2.6+
+- **Solución**: Usar `transformers>=4.45,<5` con `torch==2.5.1+cu121`. Versiones compatibles: transformers 4.x + peft 0.13+ + trl 0.11+
+
+#### Problema: `llama-cpp-python` no instala en Windows (long paths)
+- **Causa**: El source tiene paths de archivos Svelte de >260 caracteres
+- **Solución**: Usar wheel precompilado desde `--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cu121` o clonar `llama.cpp` repo y usar script de conversión directamente
+
+#### Versiones compatibles confirmadas (3 Junio 2026)
+```
+torch==2.5.1+cu121
+transformers>=4.45,<5  
+peft>=0.13,<1
+trl>=0.11,<1
+bitsandbytes (última)
+accelerate (última)
+gguf (última)
+sentencepiece
+```
