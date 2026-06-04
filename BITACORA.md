@@ -698,6 +698,22 @@
 
 
 
+### 🤖 IA Local (Ollama + MoE)
+
+- [x] Pipeline QLoRA nocturno (Llama 3B) — `ENTRENAR_NOCHE.bat` funcional
+- [x] Qwen2.5-7B descargado + script de entrenamiento (`train_qwen.py`)
+- [x] Gemma 2 9B descargado + script de entrenamiento (`train_gemma.py`)
+- [x] MoE Router implementado (`moe_router.py` + `MOE_PLAGA.bat`)
+- [ ] Verificar primer ciclo de entrenamiento Qwen (revisar métricas)
+- [ ] Aceptar licencia Gemma en HuggingFace + hacer login + entrenar
+- [ ] Crear `export_qwen_to_ollama.py` (merge LoRA → GGUF → ollama create plaga-qwen)
+- [ ] Crear `export_gemma_to_ollama.py` (merge LoRA → GGUF → ollama create plaga-gemma)
+- [ ] Crear Modelfiles para plaga-qwen y plaga-gemma
+- [ ] Actualizar MoE con modelos fine-tuneados (reemplazar base por entrenados)
+- [ ] Comparar calidad: 10 preguntas iguales a Llama/Qwen/Gemma → elegir campeón
+- [ ] Integrar MoE con el juego (generar diálogos/lore desde Godot via HTTP a Ollama)
+
+
 ### 🤖 Observaciones Gemini (Diagnóstico)
 
 #### Sugerencias priorizadas
@@ -1458,3 +1474,89 @@ Escape = (Velocidad propia / Velocidad enemiga) × 50%
 - [ ] Subir mejores sprites a la wiki como portada de taxones
 - [ ] Implementar armas exclusivas por taxón en el sistema de combate
 - [ ] Lanzar v5 de generación de sprites con restricciones comic/ink
+- [ ] **Verificar entrenamiento Qwen2.5** — revisar `train_qwen_metrics.log` cuando termine el primer ciclo
+- [ ] **Entrenar Gemma2** — aceptar licencia en HuggingFace + `huggingface-cli login` + lanzar `ENTRENAR_GEMMA.bat`
+- [ ] **Testear MoE Router** — lanzar `MOE_PLAGA.bat --test` y verificar clasificación, luego probar con modelos reales
+- [ ] **Crear export_qwen_to_ollama.py** — merge LoRA + crear `plaga-qwen` en Ollama
+- [ ] **Crear export_gemma_to_ollama.py** — merge LoRA + crear `plaga-gemma` en Ollama
+- [ ] **Actualizar MoE** — cuando plaga-qwen y plaga-gemma estén listos, reemplazar modelos base por fine-tuneados
+- [ ] **Crear Modelfile.plaga-qwen** — system prompt de Plaga sobre Qwen fine-tuneado
+- [ ] **Crear Modelfile.plaga-gemma** — system prompt narrativo sobre Gemma fine-tuneado
+- [ ] **Comparar calidad** — mismas 10 preguntas a Llama, Qwen y Gemma fine-tuneados (elegir campeón)
+
+
+---
+
+## 📅 Sesión 8 — 3 Junio 2026
+
+### Modelos descargados en Ollama
+- [x] `qwen2.5:7b` descargado (~4.7 GB) — lógica/código
+- [x] `gemma2:9b` descargado (~5.4 GB) — narrativa/lore
+
+### Scripts de entrenamiento QLoRA (nuevos modelos)
+- [x] `train_qwen.py` — entrenamiento QLoRA sobre Qwen2.5-7B-Instruct
+  - Template ChatML (`<|im_start|>`)
+  - MAX_SEQ_LENGTH 2048 (Qwen soporta contextos largos)
+  - Callback visual: barra de progreso %, loss, tiempo, ETA
+  - Try/except: protección contra caídas (Ctrl+C, OOM, errores)
+  - Checkpoints cada 50 steps + reanudación automática
+  - Estado independiente: `train_qwen_state.json`, `train_qwen_metrics.log`
+- [x] `ENTRENAR_QWEN.bat` — lanzador con info de tiempos (~2-3h RTX 3060 Ti)
+- [x] `train_gemma.py` — entrenamiento QLoRA sobre Gemma 2 9B-it
+  - Template Gemma turns (`<start_of_turn>`)
+  - `attn_implementation="eager"` (requerido por Gemma 2 para training)
+  - Mismas protecciones anti-caída que Qwen
+  - Estado independiente: `train_gemma_state.json`, `train_gemma_metrics.log`
+- [x] `ENTRENAR_GEMMA.bat` — lanzador con info de tiempos (~3-4h RTX 3060 Ti)
+
+### Mixture of Experts (MoE Router)
+- [x] `moe_router.py` — router inteligente "Senior → Junior"
+  - Clasificador de intención: keywords + regex + heurísticas
+  - 3 expertos: qwen2.5:7b (código), gemma2:9b (narrativa), plaga-trained (lore)
+  - Detección de tareas compuestas (encadena expertos automáticamente)
+  - Modo interactivo (chat), modo test, modo pregunta directa
+  - Comandos: /modelos, /stats, /forzar, /salir
+  - Log de routing en `moe_router.log` (para análisis y mejora)
+- [x] `MOE_PLAGA.bat` — lanzador del MoE
+
+### Decisiones técnicas
+- [x] Cada modelo entrenado es independiente (no heredan pesos entre sí)
+- [x] El dataset `dataset_completo.jsonl` (534 pares) se reutiliza en los 3 modelos
+- [x] Estrategia: entrenar Qwen como modelo principal (mejor que Llama 3B para instrucciones)
+- [x] Gemma2 como modelo narrativo auxiliar (mejor prosa)
+- [x] plaga-trained se mantiene como experto de lore específico
+
+
+### Sesión 8 (continuación) — IA Multi-GPU
+
+#### Logros técnicos
+- [x] Segunda RTX 3060 Ti instalada y detectada (16GB VRAM total)
+- [x] PyTorch parcheado: `USE_LIBUV=0` + `use_libuv=False` en `static_tcp_rendezvous.py`
+- [x] FSDP funciona (libuv arreglado) pero bitsandbytes no soporta multi-GPU en Windows
+- [x] **SOLUCIÓN DUAL GPU**: `max_memory={0:"4GiB", 1:"4GiB"}` + fp16 sin bitsandbytes
+- [x] Qwen3-4B entrenado en DUAL GPU: Loss 1.01, 201 steps en 11 minutos (vs 31 min single GPU)
+- [x] HuggingFace login configurado (token Read)
+- [x] PyTorch parcheado para distribuido en Windows
+- [x] `train_qwen3_dual_gpu.py` — entrenamiento dual GPU Qwen3-4B
+- [x] `ENTRENAR_DUAL_4B.bat` — lanzador dual GPU
+- [x] Export a Ollama: merge LoRA OK pero Ollama 0.30.4 no soporta Qwen3ForCausalLM aún
+- [x] `plaga-qwen3-base` creado en Ollama (base + system prompt, funcional)
+- [x] `arquitectura-ia.html` — página wiki con diagramas de toda la infra IA
+- [x] MoE Router testeado: 10/10 clasificación correcta
+- [x] Qwen2.5-7B eliminado del caché HuggingFace (ahorro 13.4GB)
+
+#### Hardware verificado
+- Motherboard: ASUS PRIME X570-P (slot PCIe x16 libre)
+- CPU: AMD Ryzen 7 3700X (8 cores/16 threads)
+- RAM: 32 GB
+- GPU 0: RTX 3060 Ti 8GB (bus 04:00) — sin display
+- GPU 1: RTX 3060 Ti 8GB (bus 09:00) — con display
+- Fuente: verificar wattaje (necesita 650W+ para dual GPU)
+
+#### Pendientes inmediatos
+- [ ] Cuando Ollama soporte Qwen3: re-ejecutar `ollama create plaga-qwen3` con el merge existente
+- [ ] Hacer entrenamiento incremental (ciclo 2+ carga LoRA del ciclo anterior)
+- [ ] Habilitar Windows Long Paths (reiniciar PC) para poder instalar `llama-cpp-python`
+- [ ] Alternativa: convertir a GGUF con llama.cpp CLI cuando long paths funcione
+- [ ] Probar MoE Router con modelos reales (`MOE_PLAGA.bat`)
+- [ ] Entrenar Qwen3-8B nocturno en 1 GPU (`ENTRENAR_QWEN3.bat` opción 1)

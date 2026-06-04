@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura IA — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true, theme:'dark'});</script>
+    <style>
+        .mermaid { background: rgba(20,25,30,0.8); padding: 1em; border-radius: 8px; margin: 1em 0; overflow-x: auto; }
+        .diagram-section { margin-top: 2em; }
+        .tech-card { background: rgba(30,35,45,0.9); border: 1px solid var(--accent); border-radius: 8px; padding: 1em; margin: 0.5em 0; }
+        .tech-card h4 { margin-top: 0; color: var(--accent-green); }
+        .specs-table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+        .specs-table th, .specs-table td { padding: 0.5em; border: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        .specs-table th { background: rgba(255,255,255,0.05); color: var(--accent); }
+        .pipeline-step { display: inline-block; background: rgba(50,60,80,0.8); padding: 0.3em 0.8em; border-radius: 4px; margin: 0.2em; border: 1px solid rgba(255,255,255,0.2); }
+        .pipeline-arrow { color: var(--accent-green); font-weight: bold; margin: 0 0.3em; }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li><a href="trazabilidad.html">🔗 Trazabilidad</a></li>
+            <li><a href="qa.html">🧪 QA</a></li>
+            <li class="section-title">Referencia</li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="arquitectura.html">📐 Arquitectura UML</a></li>
+            <li><a href="arquitectura-ia.html" class="active">🤖 Arquitectura IA</a></li>
+            <li><a href="glosario.html">📖 Glosario</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🤖 Arquitectura IA — Infraestructura de Modelos Locales</h1>
+            <div class="intro-box">
+                <p>Documentación técnica de toda la infraestructura de IA local de Plaga: La Descarada. Modelos, pipelines de entrenamiento, generación de imágenes, y el sistema MoE (Mixture of Experts).</p>
+                <p><strong>Hardware:</strong> RTX 3060 Ti (8GB VRAM) | 32GB RAM | Python 3.11 | Ollama | CUDA</p>
+            </div>
+
+            <!-- DIAGRAMA GENERAL -->
+            <h2 class="diagram-section">🗺️ Visión General del Sistema</h2>
+            <div class="mermaid">
+graph TB
+    subgraph USUARIO["👤 Usuario"]
+        Q[Pregunta/Tarea]
+    end
+
+    subgraph MOE["🧠 MoE Router (Senior)"]
+        CL[Clasificador de Intención]
+        CL -->|código| QWEN
+        CL -->|narrativa| GEMMA
+        CL -->|lore| PLAGA
+    end
+
+    subgraph MODELOS["🤖 Modelos Ollama (Juniors)"]
+        QWEN["💻 qwen3:8b<br/>Código/GDScript"]
+        GEMMA["📖 gemma2:9b<br/>Narrativa/Diálogos"]
+        PLAGA["🪲 plaga-trained<br/>Lore específico"]
+    end
+
+    subgraph GENERACION["🎨 Generación Visual"]
+        SD["Stable Diffusion XL<br/>Sprites/Ilustraciones"]
+        PROMPT_GEN["Generador de Prompts<br/>(Ollama → inglés)"]
+    end
+
+    subgraph TRAINING["🏋️ Pipeline de Entrenamiento"]
+        DS["dataset_completo.jsonl<br/>534 pares"]
+        QLORA["QLoRA Training<br/>4-bit + gradient checkpoint"]
+        EXPORT["Export → Ollama<br/>merge LoRA + GGUF"]
+    end
+
+    Q --> MOE
+    MOE --> MODELOS
+    MODELOS -->|respuesta| USUARIO
+
+    PROMPT_GEN --> SD
+    QWEN -.->|genera prompts| PROMPT_GEN
+    
+    DS --> QLORA
+    QLORA --> EXPORT
+    EXPORT --> MODELOS
+            </div>
+
+            <!-- MODELOS DISPONIBLES -->
+            <h2 class="diagram-section">📦 Modelos Instalados</h2>
+            <table class="specs-table">
+                <tr>
+                    <th>Modelo</th>
+                    <th>Tamaño</th>
+                    <th>Rol</th>
+                    <th>Template</th>
+                    <th>Estado</th>
+                </tr>
+                <tr>
+                    <td>🪲 plaga-trained</td>
+                    <td>3B (Llama 3.2)</td>
+                    <td>Lore canónico de Plaga</td>
+                    <td>Llama &lt;|begin_of_text|&gt;</td>
+                    <td>✅ Entrenado (534 pares)</td>
+                </tr>
+                <tr>
+                    <td>💻 qwen3:8b</td>
+                    <td>8B</td>
+                    <td>Código, lógica, GDScript</td>
+                    <td>ChatML &lt;|im_start|&gt;</td>
+                    <td>🔄 Entrenando (Qwen3-8B)</td>
+                </tr>
+                <tr>
+                    <td>💻 qwen2.5:7b</td>
+                    <td>7B</td>
+                    <td>Código (backup)</td>
+                    <td>ChatML &lt;|im_start|&gt;</td>
+                    <td>✅ Base (sin fine-tune)</td>
+                </tr>
+                <tr>
+                    <td>📖 gemma2:9b</td>
+                    <td>9B</td>
+                    <td>Narrativa, prosa, diálogos</td>
+                    <td>Gemma &lt;start_of_turn&gt;</td>
+                    <td>⏳ Pendiente entrenamiento</td>
+                </tr>
+                <tr>
+                    <td>🪲 plaga-narrator</td>
+                    <td>3B (Llama 3.2)</td>
+                    <td>System prompt + image prompts</td>
+                    <td>Llama</td>
+                    <td>✅ Activo</td>
+                </tr>
+            </table>
+
+            <!-- PIPELINE ENTRENAMIENTO -->
+            <h2 class="diagram-section">🏋️ Pipeline de Entrenamiento QLoRA</h2>
+            <div class="mermaid">
+flowchart LR
+    subgraph DATOS["📂 Datasets (13 archivos)"]
+        D1["dataset_lore.jsonl"]
+        D2["dataset_novelas.jsonl"]
+        D3["dataset_code.jsonl"]
+        D4["dataset_image_prompts.jsonl"]
+        D5["... (9 más)"]
+    end
+
+    UNIR["unir_datasets.js<br/>→ dataset_completo.jsonl<br/>(534 pares)"]
+
+    subgraph TRAIN["🧠 Training (GPU)"]
+        LOAD["Cargar modelo base<br/>4-bit quantization"]
+        LORA["Aplicar LoRA<br/>r=16, alpha=32"]
+        FIT["Entrenar 3-5 épocas<br/>gradient checkpointing"]
+        SAVE["Guardar LoRA<br/>(33M parámetros)"]
+    end
+
+    subgraph EXPORT_BLOCK["📦 Export"]
+        MERGE["Merge LoRA + Base<br/>(CPU, 8GB RAM)"]
+        GGUF["ollama create<br/>→ modelo final"]
+    end
+
+    D1 --> UNIR
+    D2 --> UNIR
+    D3 --> UNIR
+    D4 --> UNIR
+    D5 --> UNIR
+    UNIR --> LOAD
+    LOAD --> LORA
+    LORA --> FIT
+    FIT --> SAVE
+    SAVE --> MERGE
+    MERGE --> GGUF
+            </div>
+
+            <div class="tech-card">
+                <h4>⚙️ Configuración de Entrenamiento (Qwen3-8B)</h4>
+                <table class="specs-table">
+                    <tr><th>Parámetro</th><th>Valor</th><th>Razón</th></tr>
+                    <tr><td>Quantización</td><td>4-bit NF4</td><td>Modelo cabe en 8GB VRAM</td></tr>
+                    <tr><td>LoRA rank</td><td>r=16</td><td>Balance calidad/VRAM</td></tr>
+                    <tr><td>LoRA alpha</td><td>32</td><td>Ratio 2:1 estándar</td></tr>
+                    <tr><td>Target modules</td><td>q,k,v,o,gate,up,down</td><td>Attention + MLP completo</td></tr>
+                    <tr><td>MAX_SEQ_LENGTH</td><td>2048</td><td>Contextos largos (novelas)</td></tr>
+                    <tr><td>Gradient checkpointing</td><td>✅</td><td>Ahorra ~40% VRAM</td></tr>
+                    <tr><td>Mixed precision</td><td>fp32 (sin AMP)</td><td>Evita bug BFloat16</td></tr>
+                    <tr><td>Optimizer</td><td>AdamW</td><td>Estable sin AMP</td></tr>
+                    <tr><td>LR progresivo</td><td>1.5e-4 → 2e-5</td><td>Baja cada ciclo</td></tr>
+                    <tr><td>Batch size</td><td>1 (accum 8)</td><td>Simula batch=8</td></tr>
+                </table>
+            </div>
+
+            <!-- MOE ROUTER -->
+            <h2 class="diagram-section">🧠 MoE Router — Clasificación de Intenciones</h2>
+            <div class="mermaid">
+flowchart TD
+    INPUT["👤 Pregunta del usuario"]
+    
+    subgraph CLASIFICADOR["🧠 Clasificador (moe_router.py)"]
+        KW["1. Keywords<br/>(listas por categoría)"]
+        RX["2. Regex patterns<br/>(detección precisa)"]
+        HE["3. Heurísticas<br/>(implementa→código, quién→lore)"]
+        SCORE["Calcular scores"]
+    end
+    
+    INPUT --> KW
+    INPUT --> RX
+    INPUT --> HE
+    KW --> SCORE
+    RX --> SCORE
+    HE --> SCORE
+    
+    SCORE -->|"código > 40%"| COD["💻 qwen3:8b"]
+    SCORE -->|"narrativa > 40%"| NAR["📖 gemma2:9b"]
+    SCORE -->|"lore > 40% o empate"| LOR["🪲 plaga-trained"]
+    
+    subgraph COMPUESTO["🔗 Tarea Compuesta (detectada)"]
+        TC1["Paso 1: Consultar LORE<br/>(contexto canónico)"]
+        TC2["Paso 2: Con ese contexto →<br/>CÓDIGO o NARRATIVA"]
+    end
+    
+    SCORE -->|"código + lore"| COMPUESTO
+            </div>
+
+            <div class="tech-card">
+                <h4>📊 Categorías del Clasificador</h4>
+                <table class="specs-table">
+                    <tr><th>Categoría</th><th>Keywords ejemplo</th><th>Modelo destino</th></tr>
+                    <tr><td>💻 Código</td><td>gdscript, func, implements, shader, node, bug, fix</td><td>qwen3:8b</td></tr>
+                    <tr><td>📖 Narrativa</td><td>escribe, describe, diálogo, narrativa, prompt imagen</td><td>gemma2:9b</td></tr>
+                    <tr><td>🪲 Lore</td><td>quién es, qué es, facción, taxón, NPC, mecánica</td><td>plaga-trained</td></tr>
+                </table>
+            </div>
+
+            <!-- PIPELINE IMÁGENES -->
+            <h2 class="diagram-section">🎨 Pipeline de Generación de Imágenes</h2>
+            <div class="mermaid">
+flowchart LR
+    subgraph INPUT_IMG["📝 Input"]
+        ESP["Descripción en español<br/>'Escarabajo noble dorado'"]
+    end
+
+    subgraph TRANSLATE["🔄 Traducción de Prompt"]
+        OLL["Ollama (plaga-narrator)<br/>español → prompt inglés"]
+        STYLE["+ Estilo fijo:<br/>Mike Mignola, ink, 2D"]
+        NEG["+ Negative prompt<br/>(anti-3D, anti-realismo)"]
+    end
+
+    subgraph GENERATE["🎨 Stable Diffusion XL"]
+        PIPE["diffusers pipeline<br/>GPU RTX 3060 Ti"]
+        IMG["Imagen 1024x1024<br/>PNG transparente"]
+    end
+
+    ESP --> OLL
+    OLL --> STYLE
+    STYLE --> NEG
+    NEG --> PIPE
+    PIPE --> IMG
+            </div>
+
+            <div class="tech-card">
+                <h4>🖌️ Estilo Visual Definido</h4>
+                <p><strong>Referentes:</strong> Mike Mignola (Hellboy) + Darkest Dungeon + Hollow Knight</p>
+                <p><strong>Técnica:</strong> 2D comic ink, thick outlines, flat cel-shading, muted earthy palette</p>
+                <p><strong>Negative:</strong> 3D, realistic, CGI, smooth shading, photorealistic, anime, cute</p>
+                <p><strong>Scripts:</strong> generar_sprite.py (directo) | generar_con_ollama.py (con traducción)</p>
+            </div>
+
+            <!-- HARDWARE -->
+            <h2 class="diagram-section">🖥️ Hardware y Recursos</h2>
+            <div class="mermaid">
+pie title Uso de VRAM (8GB) durante entrenamiento Qwen3-8B
+    "Modelo 4-bit" : 5.2
+    "LoRA adapters" : 0.3
+    "Gradientes + activaciones" : 1.5
+    "Libre" : 1.0
+            </div>
+
+            <table class="specs-table">
+                <tr><th>Recurso</th><th>Total</th><th>Uso típico</th><th>Función</th></tr>
+                <tr><td>GPU VRAM</td><td>8 GB</td><td>~7 GB (training)</td><td>Forward/backward pass, modelo</td></tr>
+                <tr><td>RAM</td><td>32 GB</td><td>~8 GB (training)</td><td>Dataset, optimizer states, offload</td></tr>
+                <tr><td>CPU</td><td>16 threads</td><td>~13%</td><td>Data loading, gradient accumulation</td></tr>
+                <tr><td>Disco</td><td>SSD</td><td>~25 GB</td><td>Modelos HF cache + LoRA outputs</td></tr>
+            </table>
+
+            <!-- ARCHIVOS -->
+            <h2 class="diagram-section">📁 Mapa de Archivos (descarada/ollama/)</h2>
+            <div class="mermaid">
+graph TD
+    subgraph ENTRENAMIENTO["🏋️ Entrenamiento"]
+        TN["train_nocturno.py<br/>(Llama 3B)"]
+        TQ["train_qwen.py<br/>(Qwen2.5 7B)"]
+        TQ3["train_qwen3.py<br/>(Qwen3 8B) ⭐"]
+        TG["train_gemma.py<br/>(Gemma2 9B)"]
+        UDS["unir_datasets.js"]
+        DS["dataset_completo.jsonl"]
+    end
+
+    subgraph EXPORT_FILES["📦 Export"]
+        EX1["export_to_ollama.py"]
+        EX3["export_qwen3_to_ollama.py"]
+        MF1["Modelfile.plaga-trained"]
+        MF3["Modelfile.plaga-qwen3"]
+    end
+
+    subgraph GENERACION_FILES["🎨 Generación"]
+        GS["generar_sprite.py"]
+        GO["generar_con_ollama.py"]
+        BATS["GENERAR_*.bat<br/>(14 taxones)"]
+    end
+
+    subgraph ROUTER["🧠 MoE"]
+        MOE["moe_router.py"]
+        MOEB["MOE_PLAGA.bat"]
+    end
+
+    subgraph LANZADORES["🚀 Lanzadores .bat"]
+        B1["ENTRENAR_NOCHE.bat"]
+        B2["ENTRENAR_QWEN.bat"]
+        B3["ENTRENAR_QWEN3.bat ⭐"]
+        B4["ENTRENAR_GEMMA.bat"]
+        B5["EXPORTAR_QWEN3.bat"]
+        B6["VIGILANTE.bat"]
+    end
+
+    UDS --> DS
+    DS --> TN
+    DS --> TQ
+    DS --> TQ3
+    DS --> TG
+    TQ3 --> EX3
+    EX3 --> MF3
+            </div>
+
+            <!-- FLUJO NOCTURNO -->
+            <h2 class="diagram-section">🌙 Flujo de Entrenamiento Nocturno</h2>
+            <div class="mermaid">
+stateDiagram-v2
+    [*] --> IDLE
+    IDLE --> LOADING: Lanzar .bat
+    LOADING --> TOKENIZING: Modelo cargado (4-bit)
+    TOKENIZING --> TRAINING: Dataset formateado
+    TRAINING --> TRAINING: Step N/402 (loss bajando)
+    TRAINING --> SAVING: Timer alcanzado / Completado
+    TRAINING --> EMERGENCY: Error / OOM / Ctrl+C
+    SAVING --> DONE: LoRA guardado
+    EMERGENCY --> SAVED: Checkpoint de emergencia
+    SAVED --> IDLE: Relanzar retoma
+    DONE --> EXPORT: export_qwen3_to_ollama.py
+    EXPORT --> OLLAMA: ollama create plaga-qwen3
+    OLLAMA --> [*]: Modelo listo para chat
+            </div>
+
+            <!-- CONCEPTOS CLAVE -->
+            <h2 class="diagram-section">📚 Conceptos Clave (para estudiar)</h2>
+            
+            <div class="tech-card">
+                <h4>🧬 LoRA (Low-Rank Adaptation)</h4>
+                <p>En vez de entrenar los 8,000 millones de parámetros del modelo, LoRA "pega" adaptadores pequeños (33 millones) en puntos clave de la red neuronal. Es como ponerle lentes al cerebro — no cambias el cerebro, solo filtras lo que ve.</p>
+                <p><strong>r=16</strong> significa que cada adaptador tiene 16 dimensiones de "memoria nueva". Más r = más capacidad = más VRAM.</p>
+            </div>
+
+            <div class="tech-card">
+                <h4>📊 Loss (Función de pérdida)</h4>
+                <p>Mide "cuánto se equivoca" el modelo al predecir la siguiente palabra. <strong>Loss 2.0</strong> = se equivoca mucho. <strong>Loss 0.5</strong> = casi perfecto. El entrenamiento busca bajar este número.</p>
+                <p><strong>Buen loss final:</strong> 0.3-0.8 (depende del dataset). Si baja de 0.1 → está memorizando en vez de aprender (overfitting).</p>
+            </div>
+
+            <div class="tech-card">
+                <h4>🔢 Quantización (4-bit)</h4>
+                <p>Un número float32 usa 4 bytes. En 4-bit usa solo 0.5 bytes. El modelo se comprime 8x con mínima pérdida de calidad. Por eso Qwen3-8B (que normalmente pide 32GB) cabe en 8GB de VRAM.</p>
+                <p><strong>NF4</strong> (Normal Float 4-bit) es el formato más eficiente para redes neuronales — optimizado para la distribución estadística de los pesos.</p>
+            </div>
+
+            <div class="tech-card">
+                <h4>🔄 Gradient Checkpointing</h4>
+                <p>Normalmente el entrenamiento guarda todas las "activaciones" (resultados intermedios) en VRAM para calcular gradientes. Con checkpointing, borra la mayoría y las <strong>recalcula</strong> cuando las necesita. Ahorra ~40% VRAM pero tarda ~30% más.</p>
+            </div>
+
+            <div class="tech-card">
+                <h4>🧠 MoE (Mixture of Experts)</h4>
+                <p>En vez de un solo modelo que sepa todo (malo en todo), varios modelos especializados coordinados por un router. Cada pregunta va al "experto" correcto. Como un equipo donde cada uno tiene su rol.</p>
+            </div>
+
+            <div class="tech-card">
+                <h4>📏 SEQ_LENGTH (Longitud de secuencia)</h4>
+                <p>Cuántos tokens (palabras) puede procesar de una vez durante el entrenamiento. 2048 tokens ≈ ~1500 palabras. Si tu dataset tiene respuestas más largas que esto, se truncan. Más largo = más VRAM pero aprende contextos extensos.</p>
+            </div>
+
+            <div class="tech-card">
+                <h4>🌡️ Épocas y Learning Rate</h4>
+                <p><strong>Época</strong> = una pasada completa por todo el dataset (534 pares). 3 épocas = el modelo ve cada ejemplo 3 veces.</p>
+                <p><strong>Learning Rate</strong> = qué tanto ajusta los pesos por cada ejemplo. Muy alto → oscila y no aprende. Muy bajo → aprende lentísimo. Se va bajando progresivamente (cosine schedule).</p>
+            </div>
+
+        </article>
+    </main>
+</body>
+</html>
