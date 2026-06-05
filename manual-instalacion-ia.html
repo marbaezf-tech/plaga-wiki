@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Instalación IA Local — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🪲 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="dashboard.html">📊 Dashboard</a></li>
+            <li class="section-title">Lore</li>
+            <li><a href="gran-eter.html">⚡ El Gran Éter</a></li>
+            <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+            <li><a href="semidioses.html">⭐ Los 17 Semidioses</a></li>
+            <li class="section-title">Taxones</li>
+            <li><a href="taxones.html">🧬 Los 17 Taxones</a></li>
+            <li class="section-title">Mundo</li>
+            <li><a href="facciones.html">⚔️ Facciones</a></li>
+            <li><a href="npcs.html">🎭 NPCs</a></li>
+            <li class="section-title">Desarrollo</li>
+            <li><a href="sistemas.html">⚙️ Sistemas de Juego</a></li>
+            <li><a href="ollama-guia.html">🤖 Ollama (IA Local)</a></li>
+            <li><a href="manual-instalacion-ia.html" class="active">🛠️ Manual Instalación</a></li>
+            <li><a href="comfyui-guia.html">🎨 ComfyUI (Arte IA)</a></li>
+            <li><a href="entrenamiento-ia.html">🧠 Entrenamiento IA</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🛠️ Manual de Instalación — IA Local (ZeratnaPC)</h1>
+            <div class="intro-box">
+                <p>Guía paso a paso para instalar <strong>todo el stack de IA local</strong> en el PC de Aaron: Ollama + VS Code + modelos de código + modelos de video + MCP Lore Server + Agente Orquestador. Sin créditos, sin nubes, sin límites.</p>
+                <p><strong>Hardware target:</strong> RTX 3060 12GB | Ryzen 5 5600X | 16GB RAM DDR4 3200</p>
+                <p><strong>Tiempo estimado:</strong> 30-45 minutos (+ tiempo de descarga de modelos)</p>
+            </div>
+
+            <!-- REQUISITOS -->
+            <h2>📋 Hardware de ZeratnaPC</h2>
+            <div class="info-box mechanic">
+                <table>
+                    <tr><th>Componente</th><th>Spec</th><th>Impacto IA</th></tr>
+                    <tr><td>CPU</td><td>Ryzen 5 5600X (6C/12T)</td><td>Excelente para offload a CPU</td></tr>
+                    <tr><td>GPU</td><td><strong>RTX 3060 12GB</strong></td><td>12GB VRAM = modelos MoE grandes</td></tr>
+                    <tr><td>RAM</td><td>16 GB DDR4 3200 (2×8GB)</td><td>Suficiente para modelos + OS</td></tr>
+                    <tr><td>Mobo</td><td>ASRock B550M Pro4</td><td>Expandible a 128GB si quiere</td></tr>
+                </table>
+                <p><strong>Ventaja clave:</strong> Los 12GB de VRAM permiten correr modelos MoE como <code>qwen3-coder:30b</code> que solo activa 3.3B parámetros por consulta — calidad de modelo grande, velocidad de modelo chico.</p>
+            </div>
+
+            <!-- PASO 1: OLLAMA -->
+            <h2>🔧 Paso 1 — Instalar Ollama</h2>
+            <div class="info-box">
+                <p>Ollama es el runtime que corre los modelos de IA localmente. Piensa en él como un "Docker para LLMs".</p>
+                <ol>
+                    <li>Descarga desde <a href="https://ollama.com/download" target="_blank">ollama.com/download</a></li>
+                    <li>Ejecuta el instalador (siguiente, siguiente, listo)</li>
+                    <li>Verifica en terminal: <code>ollama --version</code></li>
+                    <li>El servicio se inicia automáticamente en <code>http://localhost:11434</code></li>
+                </ol>
+                <p><strong>O usa el script automático:</strong> <code>SETUP_COMPLETO.ps1</code> (incluido abajo)</p>
+            </div>
+
+            <!-- PASO 2: MODELOS -->
+            <h2>🤖 Paso 2 — Descargar Modelos</h2>
+            
+            <h3>💻 Modelo para Programar</h3>
+            <div class="info-box mechanic">
+                <table>
+                    <tr><th>Modelo</th><th>Tamaño</th><th>Para qué</th><th>VRAM real</th></tr>
+                    <tr><td><code>qwen3-coder:30b</code> ⭐</td><td>19 GB disco</td><td>Código (MoE: solo 3.3B activos por consulta)</td><td>~4-6 GB</td></tr>
+                    <tr><td><code>qwen2.5-coder:7b</code></td><td>4.7 GB</td><td>Alternativa si algo falla</td><td>~6 GB</td></tr>
+                </table>
+                <p><strong>¿Por qué qwen3-coder:30b en una 3060?</strong> Es MoE (Mixture of Experts) — tiene 30B parámetros totales pero solo activa 3.3B por consulta. Eso significa que en VRAM solo carga lo que necesita. 92.7% en HumanEval, mejor que muchos modelos de 70B. Pesa 19GB en disco pero en VRAM usa ~4-6GB activos.</p>
+                <pre><code>ollama pull qwen3-coder:30b</code></pre>
+            </div>
+
+            <h3>📖 Modelo para Escribir/Narrativa</h3>
+            <div class="info-box mechanic">
+                <table>
+                    <tr><th>Modelo</th><th>Tamaño</th><th>Para qué</th><th>VRAM</th></tr>
+                    <tr><td><code>gemma3:4b</code> ⭐</td><td>3 GB</td><td>Narrativa rápida, deja VRAM libre</td><td>~4 GB</td></tr>
+                    <tr><td><code>gemma3:12b</code></td><td>8.1 GB</td><td>Mejor calidad (pero usa casi toda la VRAM)</td><td>~10 GB</td></tr>
+                </table>
+                <p><strong>Recomendado para tu setup:</strong> <code>gemma3:4b</code> — suficiente para prosa y diálogos, y te deja VRAM libre para tener otros modelos cargados. Si quieres máxima calidad narrativa, usa <code>gemma3:12b</code> pero cierra otros modelos primero.</p>
+                <pre><code>ollama pull gemma3:4b
+REM Para calidad superior (opcional):
+ollama pull gemma3:12b</code></pre>
+            </div>
+
+            <h3>🎬 Modelo para Video</h3>
+            <div class="info-box mechanic">
+                <p>Para video local usamos <strong>Wan 2.1</strong> (Alibaba) via <strong>ComfyUI</strong>. No se corre con Ollama sino con ComfyUI + Python.</p>
+                <table>
+                    <tr><th>Variante</th><th>Tamaño</th><th>VRAM</th><th>Calidad</th></tr>
+                    <tr><td><code>Wan2.1-T2V-1.3B</code> ⭐ recomendado</td><td>~3 GB</td><td>8-10 GB</td><td>480p, videos de 5s en ~2 min</td></tr>
+                    <tr><td><code>Wan2.1-T2V-14B GGUF Q4</code> (nerfeado)</td><td>~7 GB</td><td>11-12 GB</td><td>480p mejor calidad, ~5 min</td></tr>
+                    <tr><td><code>Wan2.1-T2V-14B fp8</code> (NO cabe)</td><td>~13 GB</td><td>20-24 GB</td><td>❌ No para RTX 3060</td></tr>
+                </table>
+                <p><strong>Para tu RTX 3060 12GB:</strong></p>
+                <ul>
+                    <li><strong>Opción A (recomendada):</strong> Wan2.1 1.3B — cabe perfecto, buena calidad 480p</li>
+                    <li><strong>Opción B (nerfeada):</strong> El 14B en formato GGUF Q4_K_M (~7GB) — calidad superior al 1.3B pero más lento. Configura: 480p, 24 frames, <code>--lowvram</code></li>
+                </ul>
+                <p><strong>IMPORTANTE:</strong> Cuando uses ComfyUI para video, cierra Ollama primero (<code>taskkill /f /im ollama.exe</code>) para liberar toda la VRAM.</p>
+            </div>
+
+            <!-- PASO 3: VS CODE -->
+            <h2>💻 Paso 3 — Configurar VS Code</h2>
+            <div class="info-box">
+                <ol>
+                    <li>Instala <a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
+                    <li>Instala la extensión <strong>Continue</strong> (sidebar: IA local con Ollama)</li>
+                    <li>Configura Continue para usar tu modelo local:</li>
+                </ol>
+                <p>Archivo <code>~/.continue/config.json</code>:</p>
+                <pre><code>{
+  "models": [
+    {
+      "title": "Qwen3 Coder (Local)",
+      "provider": "ollama",
+      "model": "qwen3-coder:30b",
+      "systemMessage": "You are an expert Godot/GDScript developer assistant. All internal reasoning must be in English. Your final direct communication with the user MUST ALWAYS be strictly in Spanish. NUNCA me respondas en inglés. EXCEPTIONS: Technical names, file names, functions, nodes, APIs, paths, code blocks, and error logs remain in their original language. Be direct and concise. Skip filler phrases. Assume Godot Engine 4.6 + GDScript unless specified otherwise."
+    },
+    {
+      "title": "Gemma3 Escritor (Local)",
+      "provider": "ollama",
+      "model": "gemma3:12b"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Qwen3 Autocomplete",
+    "provider": "ollama",
+    "model": "qwen3-coder:30b"
+  }
+}</code></pre>
+            </div>
+
+            <!-- PASO 4: MCP LORE SERVER -->
+            <h2>🪲 Paso 4 — MCP Lore Server</h2>
+            <div class="info-box">
+                <p>El Lore Server expone los datos canónicos del juego (NPCs, taxones, facciones) como una API REST que los modelos pueden consultar.</p>
+                <ol>
+                    <li>Clonar el repo: <code>git clone https://github.com/marbaezf-tech/la-descarada.git</code></li>
+                    <li>Instalar dependencias: <code>pip install fastapi uvicorn</code></li>
+                    <li>Ejecutar: <code>python mcp-lore/http_bridge.py</code></li>
+                    <li>Verificar: abrir <code>http://localhost:8420/docs</code></li>
+                </ol>
+                <p>El servidor expone endpoints como:</p>
+                <ul>
+                    <li><code>/npc/{nombre}</code> — ficha completa de un NPC</li>
+                    <li><code>/taxon/{query}</code> — stats de un taxón</li>
+                    <li><code>/lore?tema=...</code> — búsqueda en lore fundacional</li>
+                    <li><code>/contexto/{categoria}?query=...</code> — texto formateado para inyectar en prompts</li>
+                </ul>
+            </div>
+
+            <!-- PASO 5: ORQUESTADOR -->
+            <h2>🧠 Paso 5 — Agente Orquestador</h2>
+            <div class="info-box">
+                <p>El orquestador es tu "Kiro local" — clasifica la tarea, elige el modelo correcto, genera, valida, y te entrega resultado limpio.</p>
+                <pre><code># Ejecutar
+cd descarada/orquestador
+python orquestador.py
+
+# O con el BAT
+INICIAR_ORQUESTADOR.bat</code></pre>
+                <p><strong>Personalización:</strong> Edita <code>config.py</code> para:</p>
+                <ul>
+                    <li>Cambiar modelos por rol (clasificador, código, narrativa, lore, validador)</li>
+                    <li>Ajustar umbrales de complejidad</li>
+                    <li>Modificar la regla de idioma</li>
+                    <li>Configurar el MCP Lore Server URL</li>
+                </ul>
+                <p><strong>Ejemplo de config.py personalizable:</strong></p>
+                <pre><code>MODELOS = {
+    "clasificador": "qwen3:4b",        # Rápido, clasifica complejidad
+    "codigo": "qwen3-coder:30b",       # Tu modelo de código preferido
+    "narrativa": "gemma3:12b",         # Prosa y diálogos
+    "lore": "qwen3:8b",               # Lore del juego
+    "validador": "qwen3:4b",          # Valida output (rápido)
+    "fallback": "qwen2.5:7b",         # Si falla algo
+}
+
+# Cambia esto según tu proyecto:
+LORE_SERVER_URL = "http://localhost:8420"</code></pre>
+            </div>
+
+            <!-- PASO 6: COMFYUI -->
+            <h2>🎬 Paso 6 — ComfyUI para Video (Wan 2.1)</h2>
+            <div class="info-box">
+                <ol>
+                    <li>Descarga <a href="https://github.com/comfyanonymous/ComfyUI/releases" target="_blank">ComfyUI portable</a> (Windows)</li>
+                    <li>Extrae en <code>C:\ComfyUI\</code></li>
+                    <li>Descarga los modelos de Wan 2.1:
+                        <ul>
+                            <li><strong>Ligero:</strong> <a href="https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B" target="_blank">Wan2.1-T2V-1.3B</a> → <code>ComfyUI\models\diffusion_models\</code></li>
+                            <li><strong>Superior:</strong> <a href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged" target="_blank">Wan2.1-T2V-14B-fp8</a> → misma carpeta</li>
+                        </ul>
+                    </li>
+                    <li>Descarga el VAE y text encoder (links en HuggingFace)</li>
+                    <li>Ejecuta <code>run_nvidia_gpu.bat</code></li>
+                    <li>Abre <code>http://127.0.0.1:8188</code></li>
+                </ol>
+                <p><strong>Para "nerfear" el modelo 14B (correr en 12GB VRAM):</strong></p>
+                <ul>
+                    <li>Usar la versión GGUF Q4_K_M (~7GB en lugar de 13GB)</li>
+                    <li>Bajar resolución a 480p en lugar de 720p</li>
+                    <li>Reducir frames (24 en lugar de 48)</li>
+                    <li>Usar <code>--lowvram</code> en ComfyUI</li>
+                </ul>
+            </div>
+
+            <!-- SCRIPT AUTOMÁTICO -->
+            <h2>⚡ Script de Instalación Automática</h2>
+            <div class="info-box mechanic">
+                <p>El script <strong>SETUP_ZERATNA.ps1</strong> instala y configura todo automáticamente. Ejecutar como Administrador en PowerShell.</p>
+                
+                <p style="text-align:center; margin: 1.5em 0;">
+                    <a href="SETUP_ZERATNA.ps1" download="SETUP_ZERATNA.ps1" style="display:inline-block; padding: 12px 24px; background: #4CAF50; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 1.1em;">⬇️ Descargar SETUP_ZERATNA.ps1</a>
+                </p>
+
+                <p><strong>Cómo usarlo:</strong></p>
+                <pre><code>REM 1. Click derecho en PowerShell → "Ejecutar como administrador"
+REM 2. Navegar a donde descargaste el archivo:
+cd C:\Users\TU_USUARIO\Downloads
+
+REM 3. Permitir ejecución y correr:
+Set-ExecutionPolicy Bypass -Scope Process -Force
+.\SETUP_ZERATNA.ps1</code></pre>
+                <p>El script hace:</p>
+                <ol>
+                    <li>✅ Verifica tu GPU/RAM/disco</li>
+                    <li>✅ Instala Ollama (si no está)</li>
+                    <li>✅ Descarga 4 modelos optimizados para RTX 3060 12GB</li>
+                    <li>✅ Instala Python + dependencias</li>
+                    <li>✅ Configura VS Code con Continue (3 modelos + autocomplete)</li>
+                    <li>✅ Crea el Agente Orquestador con config personalizable</li>
+                    <li>📋 Te da instrucciones para ComfyUI + Wan 2.1</li>
+                </ol>
+                <p><strong>Después del script, prueba que funciona:</strong></p>
+                <pre><code>python C:\IA-Local\orquestador\test_rapido.py</code></pre>
+            </div>
+
+            <!-- TABLA RESUMEN -->
+            <h2>📊 Resumen de Modelos para RTX 3060 12GB</h2>
+            <div class="info-box">
+                <table>
+                    <tr><th>Uso</th><th>Modelo</th><th>Comando</th><th>VRAM real</th><th>Disco</th></tr>
+                    <tr><td>💻 Código</td><td>qwen3-coder:30b</td><td><code>ollama pull qwen3-coder:30b</code></td><td>~5 GB (MoE)</td><td>19 GB</td></tr>
+                    <tr><td>📖 Escritura</td><td>gemma3:4b</td><td><code>ollama pull gemma3:4b</code></td><td>~4 GB</td><td>3 GB</td></tr>
+                    <tr><td>🧠 Clasificador</td><td>qwen3:4b</td><td><code>ollama pull qwen3:4b</code></td><td>~3 GB</td><td>2.5 GB</td></tr>
+                    <tr><td>🔧 Fallback</td><td>qwen2.5:7b</td><td><code>ollama pull qwen2.5:7b</code></td><td>~6 GB</td><td>4.7 GB</td></tr>
+                    <tr><td>🎬 Video</td><td>Wan2.1 1.3B</td><td>ComfyUI (manual)</td><td>~10 GB</td><td>3 GB</td></tr>
+                    <tr><td>🎬 Video+</td><td>Wan2.1 14B Q4</td><td>ComfyUI (manual)</td><td>~12 GB</td><td>7 GB</td></tr>
+                </table>
+                <p><strong>Total en disco:</strong> ~40 GB (todos los modelos). Caben en un SSD de 500GB sin problema.</p>
+                <p><strong>Tip:</strong> Ollama carga/descarga modelos de VRAM automáticamente. Si consultas código y luego escritura, descarga uno y carga el otro. No tenés que hacer nada manual.</p>
+            </div>
+
+            <!-- TROUBLESHOOTING -->
+            <h2>🔥 Problemas Comunes</h2>
+            <div class="info-box">
+                <table>
+                    <tr><th>Problema</th><th>Solución</th></tr>
+                    <tr><td>Ollama no responde</td><td><code>ollama serve</code> en terminal</td></tr>
+                    <tr><td>Modelo responde en inglés</td><td>Verificar system prompt en config. La regla de idioma fuerza español</td></tr>
+                    <tr><td>Out of memory (VRAM)</td><td>Cierra Chrome/juegos. O usa <code>ollama run modelo --num-gpu 0</code> (CPU, más lento)</td></tr>
+                    <tr><td>Modelo lento</td><td>Normal con 16GB RAM + offload. Cierra apps que usen RAM</td></tr>
+                    <tr><td>ComfyUI crash en video</td><td>Cierra Ollama primero: <code>taskkill /f /im ollama.exe</code>. Usa 480p + 24 frames</td></tr>
+                    <tr><td>qwen3-coder no descarga</td><td>Verificar espacio en disco. Necesita 19GB libres para descargar</td></tr>
+                    <tr><td>Continue no conecta</td><td>Verificar Ollama corriendo en localhost:11434. Reiniciar VS Code</td></tr>
+                </table>
+            </div>
+
+            <!-- TIPS RTX 3060 -->
+            <h2>💡 Tips para RTX 3060 12GB</h2>
+            <div class="info-box">
+                <ul>
+                    <li><strong>No corras 2 modelos grandes al mismo tiempo.</strong> Ollama maneja la cola automáticamente pero si cargas código + video = 💥</li>
+                    <li><strong>Cierra Chrome antes de generar video.</strong> Chrome come VRAM para hardware acceleration</li>
+                    <li><strong>qwen3-coder:30b es tu mejor amigo.</strong> Es MoE — calidad de modelo de 30B, velocidad de modelo de 4B</li>
+                    <li><strong>Para video: cierra todo.</strong> ComfyUI + Wan 2.1 quiere los 12GB para él solo</li>
+                    <li><strong>El autocomplete (qwen3:4b) es instantáneo.</strong> Solo usa 3GB, puede correr de fondo sin problema</li>
+                    <li><strong>Si un modelo va lento:</strong> Ollama está haciendo offload a CPU (16GB RAM). Es normal — el Ryzen 5600X es bueno en esto</li>
+                </ul>
+            </div>
+
+        </article>
+    </main>
+    <script>
+        document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
