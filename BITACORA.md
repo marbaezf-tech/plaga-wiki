@@ -1658,3 +1658,35 @@ sentencepiece
 
 ### peft actualizado
 - [x] peft 0.14.0 → 0.19.1 (requerido por diffusers)
+
+---
+
+## 📅 Sesión 10 — 5 Junio 2026
+
+### Agente Orquestador Standalone
+- [x] `descarada/orquestador/config.py` — configuración central (modelos, regla idioma, maker-checker)
+- [x] `descarada/orquestador/ollama_client.py` — cliente HTTP para Ollama (sin subprocess)
+- [x] `descarada/orquestador/sesion.py` — gestión de sesión persistente (historial, pendientes, stats)
+- [x] `descarada/orquestador/validador.py` — maker-checker (validación estática + LLM)
+- [x] `descarada/orquestador/orquestador.py` — core con clasificador complejidad, routing, CLI interactivo
+- [x] `descarada/orquestador/INICIAR_ORQUESTADOR.bat` — lanzador Windows
+- [x] `descarada/orquestador/README.md` — documentación del orquestador
+
+### Regla de Idioma (anti-inglés para Ollama)
+- [x] REGLA_IDIOMA implementada: modelo piensa en inglés (<think> tags), responde en español
+- [x] Excepciones: nombres técnicos, archivos, APIs, errores no se traducen
+- [x] Validador detecta respuestas en inglés (limpia código/paths antes de evaluar)
+- [x] Strip automático de `<think>` tags en output al usuario
+- [x] Tono directo: sin disculpas ni frases de relleno
+
+### Manual de Instalación para ZeratnaPC (Aaron)
+- [x] `wiki/manual-instalacion-ia.html` — página completa paso a paso
+- [x] `wiki/SETUP_ZERATNA.ps1` — script PowerShell descargable (instala todo automáticamente)
+- [x] Optimizado para RTX 3060 12GB + Ryzen 5 5600X + 16GB RAM
+- [x] Modelos elegidos: qwen3-coder:30b (MoE), gemma3:4b, qwen3:4b, qwen2.5:7b
+- [x] Video: Wan 2.1 1.3B (cabe en 12GB) + 14B GGUF Q4 nerfeado (opcional)
+- [x] VS Code + Continue configurado automáticamente
+- [x] Orquestador con config.py personalizable (Aaron edita según su uso)
+- [x] Botón de descarga directo en la wiki (GitHub Pages)
+- [x] Indexada en nav de la wiki + push a GitHub
+
