@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCustomVS — Guía de Setup</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.7; padding: 2rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: #58a6ff; font-size: 2rem; margin-bottom: 0.5rem; }
+        h2 { color: #f0883e; font-size: 1.5rem; margin-top: 2rem; border-bottom: 1px solid #30363d; padding-bottom: 0.3rem; }
+        h3 { color: #7ee787; margin-top: 1.5rem; }
+        p, li { margin: 0.5rem 0; }
+        ul, ol { padding-left: 1.5rem; }
+        code { background: #161b22; padding: 2px 6px; border-radius: 4px; font-family: 'Cascadia Code', monospace; color: #79c0ff; }
+        pre { background: #161b22; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; border: 1px solid #30363d; }
+        pre code { background: none; padding: 0; color: #c9d1d9; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid #30363d; padding: 8px 12px; text-align: left; }
+        th { background: #161b22; color: #58a6ff; }
+        .nav { background: #161b22; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
+        .nav a { color: #58a6ff; text-decoration: none; margin-right: 1rem; }
+        .nav a:hover { text-decoration: underline; }
+        .section { background: #161b22; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #f0883e; }
+        .tip { border-left-color: #7ee787; }
+        .warn { border-left-color: #d29922; }
+        a { color: #58a6ff; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h1>🛠️ MyCustomVS — Setup Completo</h1>
+<p>Guía paso a paso: VS Code + Ollama + MCP Server + Continue</p>
+
+<nav class="nav">
+    <a href="#ollama">1. Ollama</a>
+    <a href="#finetuning">2. Fine-tuning</a>
+    <a href="#mcp">3. MCP Server</a>
+    <a href="#continue">4. Continue</a>
+    <a href="#integracion">5. Integración</a>
+    <a href="#vscode">6. VS Code</a>
+    <a href="#gpu">7. Dual GPU</a>
+    <a href="#moe">8. MoE Router</a>
+</nav>
+
+<!-- ═══ SECCIÓN 1: OLLAMA ═══ -->
+<h2 id="ollama">1. Ollama — Modelos Locales</h2>
+
+<h3>Instalación</h3>
+<ol>
+    <li>Descargar de <a href="https://ollama.com/download">ollama.com/download</a></li>
+    <li>Instalar (ejecutar .exe)</li>
+    <li>Verificar: <code>ollama --version</code></li>
+</ol>
+
+<h3>Comandos Básicos</h3>
+<pre><code>ollama serve          # Iniciar servidor
+ollama list           # Ver modelos instalados
+ollama pull qwen2.5:7b  # Descargar modelo
+ollama run qwen2.5:7b   # Chat interactivo
+ollama ps             # Ver modelos cargados en GPU
+ollama rm nombre      # Borrar modelo</code></pre>
+
+<h3>Crear Modelo Personalizado (Modelfile)</h3>
+<pre><code>FROM qwen2.5:7b
+
+PARAMETER temperature 0.7
+PARAMETER num_ctx 16384
+PARAMETER num_predict 2000
+PARAMETER stop "&lt;|im_end|&gt;"
+
+SYSTEM """Eres un asistente experto en GDScript.
+Responde en español. Da código completo."""</code></pre>
+<p>Crear: <code>ollama create mi-modelo -f Modelfile.mi-modelo</code></p>
+
+<h3>Parámetros Importantes</h3>
+<table>
+<tr><th>Parámetro</th><th>Qué hace</th><th>Valor típico</th></tr>
+<tr><td>temperature</td><td>Creatividad (0=exacto, 1=random)</td><td>0.3 código, 0.85 narrativa</td></tr>
+<tr><td>num_ctx</td><td>Ventana de contexto (tokens)</td><td>16384 o 32768</td></tr>
+<tr><td>num_predict</td><td>Máx tokens a generar</td><td>400-4096</td></tr>
+<tr><td>num_gpu</td><td>Capas en GPU (99=todas)</td><td>99</td></tr>
+<tr><td>repeat_penalty</td><td>Penaliza repetición</td><td>1.1-1.2</td></tr>
+</table>
+
+<h3>Variables de Entorno</h3>
+<pre><code>set CUDA_VISIBLE_DEVICES=0,1     # Usar ambas GPUs
+set OLLAMA_NUM_GPU=99            # Todo a GPU
+set OLLAMA_MAX_LOADED_MODELS=2   # 2 modelos simultáneos
+set OLLAMA_FLASH_ATTENTION=1     # Menos VRAM
+ollama serve</code></pre>
+
+<!-- ═══ SECCIÓN 2: FINE-TUNING ═══ -->
+<h2 id="finetuning">2. Fine-tuning con LoRA</h2>
+
+<h3>Dataset (formato JSONL)</h3>
+<pre><code>{"instruction":"¿Quién es X?","input":"","output":"X es un NPC que..."}
+{"instruction":"Escribe código para Y","input":"","output":"func _ready():\n\tpass"}</code></pre>
+
+<h3>Proceso</h3>
+<ol>
+    <li>Preparar dataset JSONL (100-500 ejemplos mínimo)</li>
+    <li>Entrenar con LoRA: <code>python train_qwen3.py</code></li>
+    <li>Mergear LoRA con modelo base</li>
+    <li>Convertir a GGUF: <code>python convert_hf_to_gguf.py ./merged --outfile modelo.gguf --outtype q4_k_m</code></li>
+    <li>Crear en Ollama: <code>ollama create mi-modelo -f Modelfile</code></li>
+</ol>
+
+<div class="section tip">
+    <strong>Tips:</strong> 3-5 épocas es suficiente. Más no siempre es mejor. Entrenar "no sé" es tan importante como entrenar datos reales.
+</div>
+
+<!-- ═══ SECCIÓN 3: MCP SERVER ═══ -->
+<h2 id="mcp">3. MCP Server — Tu propio servidor de datos</h2>
+
+<h3>Concepto</h3>
+<p>MCP = Model Context Protocol. El LLM llama a "herramientas" de tu server para obtener datos reales en vez de inventar.</p>
+
+<pre><code>Usuario pregunta → LLM decide usar tool → MCP Server busca datos → Devuelve resultado → LLM responde con datos reales</code></pre>
+
+<h3>Ejemplo Mínimo (server.py)</h3>
+<pre><code>from mcp.server import Server
+from mcp.server.stdio import stdio_server
+from mcp.types import Tool, TextContent
+
+app = Server("mi-server")
+
+@app.list_tools()
+async def list_tools():
+    return [Tool(
+        name="buscar_dato",
+        description="Busca un dato por nombre",
+        inputSchema={"type":"object","properties":{"nombre":{"type":"string"}},"required":["nombre"]}
+    )]
+
+@app.call_tool()
+async def call_tool(name, arguments):
+    # Aquí tu lógica de búsqueda
+    resultado = buscar_en_json(arguments["nombre"])
+    return [TextContent(type="text", text=resultado)]</code></pre>
+
+<h3>Instalar dependencias</h3>
+<pre><code>pip install mcp fastapi uvicorn</code></pre>
+
+<!-- ═══ SECCIÓN 4: CONTINUE ═══ -->
+<h2 id="continue">4. Continue — IA en VS Code</h2>
+
+<h3>Instalación</h3>
+<ol>
+    <li>VS Code → Extensions → buscar "Continue"</li>
+    <li>Instalar "Continue - open source AI code agent"</li>
+</ol>
+
+<h3>Config: ~/.continue/config.yaml</h3>
+<pre><code>name: Mi Config
+version: 1.0.0
+schema: v1
+models:
+  - name: Mi Modelo
+    provider: ollama
+    model: nombre-en-ollama
+    apiBase: http://localhost:11434
+    capabilities:
+      - tool_use
+    roles: [chat, edit, apply]
+
+rules:
+  - Regla 1 que siempre se inyecta
+  - Regla 2
+
+mcpServers:
+  - name: Mi MCP
+    command: python
+    args: [C:\ruta\server.py]
+    autoApprove: [herramienta1, herramienta2]</code></pre>
+
+<h3>Atajos</h3>
+<table>
+<tr><th>Atajo</th><th>Acción</th></tr>
+<tr><td>Ctrl+L</td><td>Abrir chat Continue</td></tr>
+<tr><td>Ctrl+I</td><td>Editar código con IA</td></tr>
+<tr><td>Ctrl+'</td><td>Cambiar modelo</td></tr>
+</table>
+
+<h3>Modos</h3>
+<table>
+<tr><th>Modo</th><th>Cuándo usar</th></tr>
+<tr><td>Chat</td><td>Preguntas simples, consultas</td></tr>
+<tr><td>Agent</td><td>Tareas complejas (3+ archivos)</td></tr>
+<tr><td>Plan</td><td>Planificar antes de actuar</td></tr>
+</table>
+
+<!-- ═══ SECCIÓN 5: INTEGRACIÓN ═══ -->
+<h2 id="integracion">5. Integración Completa</h2>
+
+<h3>Flujo</h3>
+<pre><code>VS Code + Continue
+       ↓
+Ollama (modelo local)
+       ↓ tool_call
+MCP Server (datos reales)
+       ↓ resultado
+Ollama responde con datos canónicos</code></pre>
+
+<h3>Checklist</h3>
+<ul>
+    <li>☐ Ollama corriendo (<code>ollama serve</code>)</li>
+    <li>☐ Modelos creados (<code>ollama list</code>)</li>
+    <li>☐ MCP Server sin errores (<code>python server.py</code>)</li>
+    <li>☐ config.yaml apuntando al server</li>
+    <li>☐ autoApprove configurado</li>
+    <li>☐ Rules instruyendo al modelo a usar tools</li>
+    <li>☐ capabilities: [tool_use] en el modelo</li>
+</ul>
+
+<!-- ═══ SECCIÓN 6: VS CODE ═══ -->
+<h2 id="vscode">6. VS Code — Setup</h2>
+
+<h3>Extensiones Esenciales</h3>
+<pre><code>code --install-extension geequlim.godot-tools
+code --install-extension usernamehw.errorlens
+code --install-extension eamodio.gitlens
+code --install-extension gruntfuggly.todo-tree
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension pkief.material-icon-theme
+code --install-extension continue.continue</code></pre>
+
+<h3>Settings clave</h3>
+<pre><code>{
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "workbench.iconTheme": "material-icon-theme",
+  "git.autofetch": true,
+  "continue.enableTabAutocomplete": false
+}</code></pre>
+
+<!-- ═══ SECCIÓN 7: DUAL GPU ═══ -->
+<h2 id="gpu">7. Dual GPU</h2>
+
+<div class="section warn">
+    <strong>Problema:</strong> Si ves "42%/58% CPU/GPU" en <code>ollama ps</code>, el modelo no cabe completo en GPU → lento.
+</div>
+
+<h3>Solución</h3>
+<pre><code>set CUDA_VISIBLE_DEVICES=0,1
+set OLLAMA_NUM_GPU=99
+set OLLAMA_FLASH_ATTENTION=1
+ollama serve</code></pre>
+
+<p>Reducir contexto si no cabe: <code>PARAMETER num_ctx 16384</code> (en vez de 32768)</p>
+
+<h3>Verificar</h3>
+<pre><code>ollama ps          # Debe decir "100% GPU"
+nvidia-smi -l 2    # Monitorear VRAM en tiempo real</code></pre>
+
+<!-- ═══ SECCIÓN 8: MOE ROUTER ═══ -->
+<h2 id="moe">8. MoE Router</h2>
+
+<h3>Concepto</h3>
+<p>Varios modelos especializados + un clasificador que decide cuál usar:</p>
+<pre><code>Pregunta → Clasificador (keywords) → Modelo correcto
+  código  → plaga-coder (7B)
+  lore    → plaga-qwen3 (4B fine-tuned)
+  narrat  → plaga-narrator (9B)</code></pre>
+
+<h3>Cuándo usar MoE vs un solo modelo</h3>
+<table>
+<tr><th>Escenario</th><th>Recomendación</th></tr>
+<tr><td>Dominio único</td><td>Un modelo grande</td></tr>
+<tr><td>Múltiples dominios</td><td>MoE con especializados</td></tr>
+<tr><td>VRAM limitada</td><td>MoE con modelos chicos</td></tr>
+<tr><td>Fine-tuning por dominio</td><td>MoE obligatorio</td></tr>
+</table>
+
+<hr style="margin-top:3rem; border-color:#30363d;">
+<p style="text-align:center; color:#8b949e; margin-top:1rem;">MyCustomVS — Plaga: La Descarada © 2026</p>
+
+</div>
+</body>
+</html>
