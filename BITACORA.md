@@ -709,7 +709,7 @@
 - [ ] Crear `export_qwen_to_ollama.py` (merge LoRA → GGUF → ollama create plaga-qwen)
 - [ ] Crear `export_gemma_to_ollama.py` (merge LoRA → GGUF → ollama create plaga-gemma)
 - [ ] Crear Modelfiles para plaga-qwen y plaga-gemma
-- [ ] Actualizar MoE con modelos fine-tuneados (reemplazar base por entrenados)
+- [x] Actualizar MoE con modelos fine-tuneados (reemplazar base por entrenados)
 - [ ] Comparar calidad: 10 preguntas iguales a Llama/Qwen/Gemma → elegir campeón
 - [ ] Integrar MoE con el juego (generar diálogos/lore desde Godot via HTTP a Ollama)
 
@@ -824,21 +824,21 @@
 
 | Lore/Diseño | 48 | 48 | 100% |
 
-| Wiki | 57 | 57 | 100% |
+| Wiki | 62 | 62 | 100% |
 
 | Requirements | 14 | 14 | 100% |
 
 | Código Godot | 38 | 40 | 95% |
 
-| IA Local | 18 | 18 | 100% |
+| IA Local | 28 | 28 | 100% |
 
-| Assets Gráficos | 16 | 20 | 80% |
+| Assets Gráficos | 18 | 20 | 90% |
 
 | Audio/Video | 5 | 5 | 100% |
 
 | Exportación | 3 | 3 | 100% |
 
-| **TOTAL** | **199** | **205** | **97%** |
+| **TOTAL** | **216** | **220** | **98%** |
 
 
 
@@ -1599,3 +1599,62 @@ accelerate (última)
 gguf (última)
 sentencepiece
 ```
+
+
+---
+
+## 📅 Sesión 9 — 4 Junio 2026
+
+### Generación de Sprites Dual GPU
+- [x] `generar_sprite_dual.py` — generación paralela (2 imágenes simultáneas, 1 por GPU)
+- [x] Fix OOM: VAE decode movido a CPU (fp32) para evitar out-of-memory en GPUs de 8GB
+- [x] `GENERAR_SPRITES_DUAL.bat` — launcher interactivo
+- [x] `GENERAR_NOVELAS_ART.bat` — 30 prompts de arte para novelas (batch paralelo)
+- [x] `prompts_novelas.txt` — 30 prompts con estilo V6 (Mignola/Darkest Dungeon)
+- [x] `generar_sprite_distrifusion.py` — DistriFusion casero (2 GPUs en 1 imagen, patch parallel)
+- [x] `GENERAR_DISTRIFUSION.bat` — launcher con benchmark
+- [x] Fix prompt del Grillo (ahora tipo Jax del LoL, no monje shaolin)
+- [x] Fix prompt Escorpión+Mariposa (generados por separado + `unir_portraits.py`)
+- [x] `unir_portraits.py` — une 2 imágenes lado a lado
+
+### Wiki to Dataset
+- [x] `wiki_to_dataset.js` — extrae lore de 57+ HTMLs de la wiki → JSONL
+- [x] `WIKI_TO_DATASET.bat` — launcher
+- [x] `dataset_wiki_completo.jsonl` — 536 pares únicos generados
+
+### MoE Router Mejorado
+- [x] `plaga-coder` creado (Qwen3-Coder 30B + Modelfile con arquitectura del proyecto)
+- [x] `plaga-narrator` creado (Gemma2 9B + Modelfile con todo el lore)
+- [x] MoE actualizado: plaga-coder (código), plaga-narrator (narrativa), plaga-qwen3 (lore)
+- [x] Inyección automática de contexto: 48K chars de scripts del proyecto se pasan a plaga-coder
+- [x] Timeout subido a 600s para modelos grandes
+- [x] Fallback automático: si plaga-qwen3 no está, usa plaga-trained
+- [x] `qwen3-coder` instalado en Ollama (19GB, usa dual GPU automáticamente)
+- [x] Modelfile.plaga-coder iterado 3 veces (APIs exactas, olores por taxón, DialogueTrigger)
+- [x] Modelfile.plaga-narrator iterado 2 veces (olores corregidos, Don Corleone = MOSCA no escarabajo)
+- [x] quest_system.gd generado por plaga-coder con 9/10 de calidad (usa GameManager real)
+
+### Novelas Generadas por IA Local
+- [x] "La Lista del Fumigador" — novela de las 4 facciones (4 caps, generada con plaga-narrator)
+- [x] `GENERAR_NOVELAS_FACCIONES.bat` — genera 16 capítulos (4 facciones × 4 caps) automáticamente
+- [x] 16 capítulos generados y guardados en `ollama/novelas/*.txt`
+- [x] 4 novelas corregidas y publicadas en wiki HTML:
+  - novela-colmena.html — "El Trono de Poliéster"
+  - novela-enjambre.html — "El Primer Mártir"
+  - novela-sueltos.html — "Chispa y Ceniza"
+  - novela-parasitos.html — "El Último Trato"
+
+### Wiki — Nuevas páginas
+- [x] `moe-guia.html` — documentación completa del MoE Router
+- [x] `novela-colmena.html` — novela La Colmena (4 caps)
+- [x] `novela-enjambre.html` — novela Enjambre Negro (4 caps)
+- [x] `novela-sueltos.html` — novela Los Sueltos (4 caps)
+- [x] `novela-parasitos.html` — novela Parásitos Libres (4 caps)
+
+### Continue (VS Code) configurado
+- [x] Extension Continue instalada y conectada a Ollama
+- [x] config.yaml con 3 modelos: Plaga Coder, Plaga Narrator, Plaga Lore
+- [x] Modelos accesibles directo desde VS Code
+
+### peft actualizado
+- [x] peft 0.14.0 → 0.19.1 (requerido por diffusers)
