@@ -113,16 +113,24 @@ def _buscar_en_fuentes(query: str, max_resultados: int = 5) -> list:
     resultados = []
     for nombre, data in _fuentes.items():
         texto = data["texto"]
-        # Dividir en párrafos
-        parrafos = [p.strip() for p in texto.split("\n\n") if len(p.strip()) > 50]
         
-        for parrafo in parrafos:
-            parrafo_lower = parrafo.lower()
-            score = sum(1 for t in query_terms if t in parrafo_lower)
+        # Partir por artículos legales (Art. X, Artículo X) además de párrafos
+        # Esto asegura que cada artículo sea un fragmento buscable
+        fragmentos = re.split(r'(?=\bArt(?:ículo|\.)\s*\d+)', texto)
+        
+        # Si no hay artículos, partir por párrafos dobles
+        if len(fragmentos) <= 1:
+            fragmentos = [p.strip() for p in texto.split("\n\n") if len(p.strip()) > 50]
+        
+        for fragmento in fragmentos:
+            if len(fragmento.strip()) < 30:
+                continue
+            fragmento_lower = fragmento.lower()
+            score = sum(1 for t in query_terms if t in fragmento_lower)
             if score > 0:
                 resultados.append({
                     "fuente": nombre,
-                    "fragmento": parrafo[:500],
+                    "fragmento": fragmento.strip()[:800],
                     "relevancia": score,
                 })
 
