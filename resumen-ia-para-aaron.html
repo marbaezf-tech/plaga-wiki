@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen: Lo que hice con IA Local — Para Aaron</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f0f0f; color: #e0e0e0; line-height: 1.7; padding: 2em; max-width: 900px; margin: 0 auto; }
+        h1 { color: #4fc3f7; font-size: 2em; margin-bottom: 0.5em; border-bottom: 2px solid #333; padding-bottom: 0.5em; }
+        h2 { color: #81c784; margin: 1.5em 0 0.5em; font-size: 1.4em; }
+        h3 { color: #ffb74d; margin: 1em 0 0.3em; font-size: 1.1em; }
+        p { margin: 0.5em 0; }
+        .hero { background: linear-gradient(135deg, #1a237e, #0d47a1); padding: 2em; border-radius: 12px; margin-bottom: 2em; }
+        .hero h1 { border: none; color: white; }
+        .hero p { color: #bbdefb; font-size: 1.1em; }
+        .card { background: #1e1e1e; border: 1px solid #333; border-radius: 8px; padding: 1.5em; margin: 1em 0; }
+        .card.highlight { border-color: #4fc3f7; }
+        .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin: 1em 0; }
+        .vs > div { background: #1e1e1e; padding: 1em; border-radius: 8px; }
+        .vs .cloud { border-left: 4px solid #ef5350; }
+        .vs .local { border-left: 4px solid #66bb6a; }
+        table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #333; }
+        th { background: #263238; color: #4fc3f7; }
+        code { background: #263238; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; color: #4fc3f7; }
+        .emoji { font-size: 1.3em; }
+        ul { padding-left: 1.5em; margin: 0.5em 0; }
+        li { margin: 0.3em 0; }
+        .stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0; }
+        .stack-item { background: #263238; padding: 1em; border-radius: 8px; text-align: center; }
+        .stack-item .emoji { font-size: 2em; display: block; margin-bottom: 0.5em; }
+        .timeline { border-left: 3px solid #4fc3f7; padding-left: 1.5em; margin: 1em 0; }
+        .timeline .entry { margin: 1em 0; position: relative; }
+        .timeline .entry::before { content: '●'; position: absolute; left: -1.85em; color: #4fc3f7; }
+        .note { background: #1b5e20; border-radius: 8px; padding: 1em; margin: 1em 0; }
+        .warning { background: #4e342e; border-radius: 8px; padding: 1em; margin: 1em 0; }
+        @media (max-width: 600px) { .vs { grid-template-columns: 1fr; } body { padding: 1em; } }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>🤖 Lo que armé con IA Local + VS Code</h1>
+    <p>Resumen para Aaron — De colega a colega. Lo que Odysseus hace en la nube, esto lo hace en tu PC sin pagar un peso. Y con más control.</p>
+</div>
+
+<!-- QUÉ ES -->
+<h2>🧠 La idea en 30 segundos</h2>
+<div class="card">
+    <p>Armé un sistema donde <strong>modelos de IA corren en mi PC</strong> (sin internet, sin suscripción, sin límites) y me ayudan a:</p>
+    <ul>
+        <li>📝 <strong>Escribir</strong> — novelas, diálogos, textos largos con estilo consistente</li>
+        <li>💻 <strong>Programar</strong> — genera código, lo revisa, lo corrige</li>
+        <li>🎬 <strong>Hacer videos</strong> — genera clips de 5 segundos desde texto</li>
+        <li>🎨 <strong>Generar arte</strong> — sprites, ilustraciones, portraits</li>
+        <li>🔍 <strong>Investigar</strong> — le paso PDFs y busca/sintetiza información</li>
+    </ul>
+    <p><strong>Todo corre localmente.</strong> Mis datos no salen de mi PC. No hay cuota mensual. No hay "se me acabaron los créditos".</p>
+</div>
+
+<!-- VS ODYSSEUS -->
+<h2>⚖️ Comparación: Odysseus (nube) vs Mi Setup (local)</h2>
+<div class="vs">
+    <div class="cloud">
+        <h3>☁️ Odysseus / ChatGPT / Claude</h3>
+        <ul>
+            <li>Pago mensual ($20-200/mes)</li>
+            <li>Límite de uso diario</li>
+            <li>Tus datos van a servidores externos</li>
+            <li>Si se cae el servicio, no tenés nada</li>
+            <li>No podés personalizar el modelo</li>
+            <li>Funciona sin GPU (corre en su nube)</li>
+            <li>✅ Más fácil de empezar</li>
+        </ul>
+    </div>
+    <div class="local">
+        <h3>🖥️ Mi Setup Local (Ollama + VS Code)</h3>
+        <ul>
+            <li>$0/mes — solo electricidad</li>
+            <li>Sin límites — usá lo que quieras</li>
+            <li>Tus datos quedan en tu disco</li>
+            <li>Funciona sin internet</li>
+            <li>Modelo entrenado con TU estilo</li>
+            <li>Necesita GPU (RTX 3060+ recomendado)</li>
+            <li>✅ Más poderoso a largo plazo</li>
+        </ul>
+    </div>
+</div>
+
+<!-- STACK -->
+<h2>🏗️ Las piezas del sistema</h2>
+<div class="stack">
+    <div class="stack-item">
+        <span class="emoji">🦙</span>
+        <strong>Ollama</strong>
+        <p>El "motor" que corre los modelos de IA en tu GPU</p>
+    </div>
+    <div class="stack-item">
+        <span class="emoji">💻</span>
+        <strong>VS Code + Continue</strong>
+        <p>Editor de texto con IA integrada (como GitHub Copilot pero gratis)</p>
+    </div>
+    <div class="stack-item">
+        <span class="emoji">📚</span>
+        <strong>Book Server</strong>
+        <p>Servidor que maneja tus fuentes y estructura del libro</p>
+    </div>
+    <div class="stack-item">
+        <span class="emoji">🧠</span>
+        <strong>Orquestador</strong>
+        <p>Agente que decide qué modelo usar para cada tarea</p>
+    </div>
+    <div class="stack-item">
+        <span class="emoji">🎬</span>
+        <strong>ComfyUI + Wan 2.1</strong>
+        <p>Generador de video desde texto (5s clips)</p>
+    </div>
+    <div class="stack-item">
+        <span class="emoji">🎨</span>
+        <strong>Stable Diffusion</strong>
+        <p>Generador de imágenes/arte desde texto</p>
+    </div>
+</div>
+
+<!-- PARA QUÉ TE SIRVE -->
+<h2>⚖️ ¿Para qué le sirve esto a un abogado?</h2>
+<div class="card highlight">
+    <h3>Casos de uso reales:</h3>
+    <table>
+        <tr><th>Tarea</th><th>Cómo lo hace el sistema</th></tr>
+        <tr><td>Redactar un contrato</td><td>Le pasás contratos anteriores como fuente → genera uno nuevo basado en tu estilo</td></tr>
+        <tr><td>Investigar jurisprudencia</td><td>Subís PDFs de sentencias → buscás por keywords → te sintetiza los puntos relevantes</td></tr>
+        <tr><td>Escribir un libro/tesis</td><td>Definís estructura → subís fuentes → genera capítulo por capítulo con citas</td></tr>
+        <tr><td>Resumir documentos largos</td><td>Le pasás el PDF → te da resumen en 5 puntos</td></tr>
+        <tr><td>Preparar alegatos</td><td>Le das el contexto del caso → genera borrador con argumentos estructurados</td></tr>
+        <tr><td>Traducir documentos</td><td>Le pasás el texto → traduce manteniendo terminología legal</td></tr>
+    </table>
+    <p><strong>La diferencia con Odysseus:</strong> Tus documentos legales NUNCA salen de tu PC. Confidencialidad total.</p>
+</div>
+
+<!-- LO QUE HICE EN 10 DÍAS -->
+<h2>📅 Lo que construí en 10 días</h2>
+<div class="timeline">
+    <div class="entry"><strong>Wiki completa</strong> — 60+ páginas HTML documentando un mundo de ficción (17 especies, 37 personajes, 4 facciones, mecánicas de juego)</div>
+    <div class="entry"><strong>4 modelos entrenados</strong> — IA que escribe con el estilo exacto de mi proyecto (cínico, literario, en español)</div>
+    <div class="entry"><strong>16 capítulos de novelas</strong> — generados automáticamente por IA, corregidos y publicados</div>
+    <div class="entry"><strong>17 sprites de arte</strong> — personajes generados con Stable Diffusion en estilo cómic oscuro</div>
+    <div class="entry"><strong>MCP Server</strong> — API que expone datos para que la IA los consulte en tiempo real</div>
+    <div class="entry"><strong>Orquestador</strong> — agente que clasifica qué necesitás y elige el modelo correcto automáticamente</div>
+    <div class="entry"><strong>Sistema maker-checker</strong> — la IA genera → otra IA verifica → si hay error, corrige sola</div>
+    <div class="entry"><strong>Videojuego funcional</strong> — 5 zonas jugables con transiciones, combate por turnos, 42 habilidades</div>
+</div>
+
+<!-- COSTO -->
+<h2>💰 Costo real</h2>
+<div class="card">
+    <table>
+        <tr><th>Concepto</th><th>Costo</th></tr>
+        <tr><td>Software (Ollama, VS Code, ComfyUI, Python)</td><td><strong>$0</strong> — todo open source</td></tr>
+        <tr><td>Modelos (Gemma3, Qwen3, Wan 2.1)</td><td><strong>$0</strong> — descarga libre</td></tr>
+        <tr><td>Suscripciones mensuales</td><td><strong>$0</strong></td></tr>
+        <tr><td>Hardware (ya lo tenías)</td><td>RTX 3060 12GB (~$300 USD usada)</td></tr>
+        <tr><td>Electricidad extra estimada</td><td>~$5-10 USD/mes si la usás bastante</td></tr>
+    </table>
+    <p><strong>Total:</strong> $0/mes si ya tenés la GPU. Vs $20-200/mes de servicios en nube.</p>
+</div>
+
+<!-- QUÉ NECESITÁS -->
+<h2>🔧 Lo mínimo que necesitás para empezar</h2>
+<div class="card">
+    <ol>
+        <li><strong>Una GPU NVIDIA</strong> con 8GB+ de VRAM (tu RTX 3060 12GB es perfecta)</li>
+        <li><strong>16GB RAM</strong> (ya tenés)</li>
+        <li><strong>50GB libres en disco SSD</strong></li>
+        <li><strong>Correr un script</strong> que instala todo automáticamente (~30 min)</li>
+    </ol>
+    <p>Después de eso, abrís una terminal y le decís <code>escribe cap 1</code> y la IA escribe.</p>
+</div>
+
+<!-- ODYSSEUS vs ESTO -->
+<h2>🆚 Odysseus específicamente</h2>
+<div class="card">
+    <p>Odysseus (de PewDiePie) es básicamente un wrapper bonito sobre ChatGPT/Claude con prompts pre-armados para productividad. Lo que hace:</p>
+    <ul>
+        <li>Te da templates de prompts para escribir</li>
+        <li>Organiza tus conversaciones por proyecto</li>
+        <li>Corre en la nube (tus datos van a OpenAI/Anthropic)</li>
+    </ul>
+    <p><strong>Lo que mi sistema hace que Odysseus no puede:</strong></p>
+    <ul>
+        <li>🔒 Privacidad total — nada sale de tu PC</li>
+        <li>🎯 Modelo entrenado con TU estilo de escritura</li>
+        <li>📚 RAG real — busca en TUS PDFs/documentos como contexto</li>
+        <li>♾️ Sin límites de uso — generá 1000 páginas si querés</li>
+        <li>🎬 Genera video e imágenes (Odysseus solo texto)</li>
+        <li>🤖 Orquestador inteligente que automatiza el flujo completo</li>
+    </ul>
+    <p><strong>Lo que Odysseus hace mejor:</strong></p>
+    <ul>
+        <li>✅ Más fácil de usar (no hay que instalar nada)</li>
+        <li>✅ Modelos más grandes (GPT-4, Claude) que son más inteligentes</li>
+        <li>✅ Funciona en cualquier dispositivo (celular, tablet)</li>
+    </ul>
+</div>
+
+<!-- CONCLUSIÓN -->
+<div class="note">
+    <h2>✅ Conclusión</h2>
+    <p>Si tu uso principal es <strong>escribir un libro con fuentes de investigación</strong>, el setup local te da:</p>
+    <ul>
+        <li>Confidencialidad total (documentos legales seguros)</li>
+        <li>Sin costo mensual</li>
+        <li>IA que aprende tu estilo</li>
+        <li>Búsqueda inteligente en tus PDFs</li>
+        <li>Generación capítulo por capítulo con estructura</li>
+    </ul>
+    <p><strong>Empezá con Odysseus para familiarizarte → cuando quieras más control y privacidad, migra al setup local.</strong> Yo te configuro todo.</p>
+</div>
+
+<div class="warning">
+    <h3>⚠️ Honestidad</h3>
+    <p>La IA local es <em>menos inteligente</em> que GPT-4 o Claude. Los modelos que corren en una 3060 son buenos (~80% de la calidad de GPT-4) pero no perfectos. Para textos legales siempre revisá el output. La IA es un asistente, no un reemplazo.</p>
+</div>
+
+<br>
+<p style="text-align: center; color: #666;">Hecho con IA local — Junio 2026</p>
+
+</body>
+</html>
