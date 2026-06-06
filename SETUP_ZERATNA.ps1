@@ -196,8 +196,8 @@ if ($pythonExiste) {
 # Instalar dependencias
 Write-Host "    Instalando dependencias..." -ForegroundColor Gray
 & python -m pip install --upgrade pip --quiet 2>$null
-& python -m pip install fastapi uvicorn requests --quiet 2>$null
-Write-Host "    ✅ Dependencias: fastapi, uvicorn, requests" -ForegroundColor Green
+& python -m pip install fastapi uvicorn requests python-docx PyPDF2 --quiet 2>$null
+Write-Host "    ✅ Dependencias: fastapi, uvicorn, requests, python-docx, PyPDF2" -ForegroundColor Green
 Write-Host ""
 
 # ═══════════════════════════════════════════════

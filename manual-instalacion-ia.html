@@ -139,22 +139,91 @@ ollama pull gemma3:12b</code></pre>
 }</code></pre>
             </div>
 
-            <!-- PASO 4: MCP LORE SERVER -->
-            <h2>🪲 Paso 4 — MCP Lore Server</h2>
+            <!-- PASO 4: MCP ESCRITOR -->
+            <h2>📚 Paso 4 — MCP Book Server (Asistente de Escritura)</h2>
             <div class="info-box">
-                <p>El Lore Server expone los datos canónicos del juego (NPCs, taxones, facciones) como una API REST que los modelos pueden consultar.</p>
+                <p>El Book Server es tu asistente para escribir libros. Le pasás fuentes (PDFs, textos, notas) y te ayuda a estructurar, investigar y redactar.</p>
+                <h4>Instalación:</h4>
                 <ol>
-                    <li>Clonar el repo: <code>git clone https://github.com/marbaezf-tech/la-descarada.git</code></li>
-                    <li>Instalar dependencias: <code>pip install fastapi uvicorn</code></li>
-                    <li>Ejecutar: <code>python mcp-lore/http_bridge.py</code></li>
-                    <li>Verificar: abrir <code>http://localhost:8420/docs</code></li>
+                    <li>Crear carpeta: <code>mkdir C:\IA-Local\book-server</code></li>
+                    <li>Instalar dependencias: <code>pip install fastapi uvicorn python-docx PyPDF2 sentence-transformers</code></li>
+                    <li>Copiar el script <code>book_server.py</code> (incluido abajo)</li>
+                    <li>Ejecutar: <code>python book_server.py</code></li>
+                    <li>Verificar: abrir <code>http://localhost:8430/docs</code></li>
                 </ol>
-                <p>El servidor expone endpoints como:</p>
+                <h4>Qué hace:</h4>
                 <ul>
-                    <li><code>/npc/{nombre}</code> — ficha completa de un NPC</li>
-                    <li><code>/taxon/{query}</code> — stats de un taxón</li>
-                    <li><code>/lore?tema=...</code> — búsqueda en lore fundacional</li>
-                    <li><code>/contexto/{categoria}?query=...</code> — texto formateado para inyectar en prompts</li>
+                    <li><code>POST /fuentes/subir</code> — sube un archivo (PDF, TXT, DOCX) como fuente de investigación</li>
+                    <li><code>GET /fuentes</code> — lista todas las fuentes cargadas</li>
+                    <li><code>GET /fuentes/buscar?query=...</code> — busca en las fuentes por keywords</li>
+                    <li><code>GET /estructura</code> — devuelve la estructura actual del libro (índice)</li>
+                    <li><code>POST /estructura</code> — define/actualiza la estructura (capítulos, secciones)</li>
+                    <li><code>GET /capitulo/{num}</code> — obtiene un capítulo escrito</li>
+                    <li><code>POST /capitulo/{num}</code> — guarda un capítulo generado/editado</li>
+                    <li><code>GET /contexto/{capitulo}</code> — genera contexto RAG de las fuentes relevantes para un capítulo</li>
+                    <li><code>GET /resumen</code> — resumen del estado del libro (caps escritos, pendientes, palabras totales)</li>
+                </ul>
+                <h4>Flujo de uso:</h4>
+                <ol>
+                    <li>Subís tus fuentes (PDFs de investigación, notas, artículos)</li>
+                    <li>Definís la estructura del libro (título, capítulos, temas por capítulo)</li>
+                    <li>Pedís al modelo que escriba un capítulo — el server inyecta automáticamente las fuentes relevantes como contexto</li>
+                    <li>Revisás, editás, guardás</li>
+                </ol>
+            </div>
+
+            <!-- PASO 4b: ENTRENAR MODELO ESCRITOR -->
+            <h2>🧠 Paso 4b — Entrenar tu IA para tu estilo</h2>
+            <div class="info-box">
+                <p>Podés entrenar (fine-tune) un modelo para que escriba con tu estilo personal. Necesitás ejemplos de tu escritura.</p>
+                <h4>Preparar dataset:</h4>
+                <pre><code>REM 1. Crear archivo de entrenamiento (JSONL)
+REM Formato: {"prompt": "instrucción", "completion": "tu texto escrito"}
+REM Ejemplo:
+
+{"prompt": "Escribe un párrafo introductorio sobre la revolución industrial", "completion": "Tu párrafo aquí con tu estilo..."}
+{"prompt": "Describe el impacto social de la tecnología", "completion": "Tu descripción con tu tono..."}
+
+REM Mínimo 50-100 pares para buenos resultados
+REM Guardar como: C:\IA-Local\training\mi_estilo.jsonl</code></pre>
+                <h4>Comandos de entrenamiento:</h4>
+                <pre><code>REM === OPCION A: Crear Modelfile personalizado (rápido, sin GPU training) ===
+REM Esto NO entrena de verdad, pero le inyecta tu estilo como system prompt
+
+REM 1. Crear Modelfile
+echo FROM gemma3:12b > C:\IA-Local\Modelfile.mi-escritor
+echo PARAMETER temperature 0.8 >> C:\IA-Local\Modelfile.mi-escritor
+echo PARAMETER num_ctx 32768 >> C:\IA-Local\Modelfile.mi-escritor
+echo SYSTEM "Eres un escritor con este estilo: [PEGA AQUÍ 3-4 PÁRRAFOS DE EJEMPLO DE TU ESCRITURA]. Imita este tono, vocabulario y estructura en todo lo que escribas." >> C:\IA-Local\Modelfile.mi-escritor
+
+REM 2. Crear modelo
+ollama create mi-escritor -f C:\IA-Local\Modelfile.mi-escritor
+
+REM 3. Probar
+ollama run mi-escritor "Escribe un párrafo sobre [tu tema]"</code></pre>
+
+                <pre><code>REM === OPCION B: Fine-tune real con LoRA (necesita Python + GPU) ===
+REM Más lento pero resultados mucho mejores
+
+REM 1. Instalar dependencias de training
+pip install transformers peft datasets accelerate bitsandbytes
+
+REM 2. Crear script de entrenamiento (ver train_escritor.py abajo)
+python train_escritor.py --dataset mi_estilo.jsonl --epochs 3 --model gemma-3-4b
+
+REM 3. Exportar a Ollama
+python export_to_ollama.py --output mi-escritor-trained
+
+REM 4. Probar
+ollama run mi-escritor-trained "Escribe sobre [tu tema]"</code></pre>
+
+                <h4>Tips de entrenamiento:</h4>
+                <ul>
+                    <li><strong>Opción A</strong> (Modelfile con system prompt): Instantáneo, sin training. Funciona sorprendentemente bien si le pasás buenos ejemplos de tu estilo. Empieza por aquí.</li>
+                    <li><strong>Opción B</strong> (LoRA fine-tune): Requiere 30-60 min de GPU. Resultados superiores pero necesitás 50+ ejemplos de tu escritura.</li>
+                    <li><strong>Dataset mínimo:</strong> 50 pares prompt/completion. Más es mejor.</li>
+                    <li><strong>Modelo base:</strong> <code>gemma3:4b</code> para fine-tune rápido, <code>gemma3:12b</code> para Modelfile con system prompt.</li>
+                    <li><strong>Tu RTX 3060 12GB</strong> puede fine-tunear modelos de hasta 4B parámetros con LoRA 4-bit.</li>
                 </ul>
             </div>
 
