@@ -111,49 +111,67 @@ def _buscar_en_fuentes(query: str, max_resultados: int = 5) -> list:
         return []
 
     resultados = []
-    for nombre, data in _fuentes.items():
-        texto = data["texto"]
-        
-        # Partir por artículos legales con regex más flexible
-        # Detecta: "Artículo 1°", "Art. 1°", "Art. 1.", "Artículo 1."
-        # Incluye variaciones con/sin espacio, con/sin °
-        fragmentos = re.split(r'(?=(?:Art(?:ículo)?\.?\s*\d+[°º.]?))', texto)
-        
-        # Filtrar fragmentos vacíos y muy cortos
-        fragmentos = [f.strip() for f in fragmentos if len(f.strip()) > 30]
-        
-        # Si no se partió bien (PDF sin artículos claros), usar saltos de línea
-        if len(fragmentos) <= 3:
-            # Partir por líneas simples para PDFs donde \n\n no existe
-            lineas = texto.split("\n")
-            fragmentos = []
-            bloque = []
-            for linea in lineas:
-                # Si empieza con Art/Artículo → nuevo fragmento
-                if re.match(r'\s*Art(?:ículo)?\.?\s*\d+', linea):
-                    if bloque:
-                        fragmentos.append("\n".join(bloque))
-                    bloque = [linea]
-                else:
-                    bloque.append(linea)
-            if bloque:
-                fragmentos.append("\n".join(bloque))
-            # Filtrar cortos
+    
+    # PRIMERO: buscar en el índice legal (si existe)
+    indice_path = os.path.join(DATA_DIR, "indice_legal.json")
+    if os.path.exists(indice_path):
+        try:
+            with open(indice_path, "r", encoding="utf-8") as f:
+                indice = json.load(f)
+            for clave, art in indice.items():
+                texto_lower = art.get("texto", "").lower()
+                score = sum(1 for t in query_terms if t in texto_lower)
+                # Bonus: si busca artículo X y este ES artículo X → score alto
+                art_match = re.search(r'(\d+)', query)
+                if art_match and art.get("numero") == int(art_match.group(1)):
+                    score += 5
+                if score > 0:
+                    resultados.append({
+                        "fuente": art.get("fuente", "indice_legal.json"),
+                        "fragmento": art["texto"][:800],
+                        "relevancia": score,
+                    })
+        except Exception:
+            pass
+    
+    # SEGUNDO: si no hay índice o no encontró nada, buscar en texto crudo
+    if not resultados:
+        for nombre, data in _fuentes.items():
+            texto = data["texto"]
+            
+            # Partir por artículos legales con regex flexible
+            fragmentos = re.split(r'(?=(?:Art(?:ículo)?\.?\s*\d+[°º.]?))', texto)
             fragmentos = [f.strip() for f in fragmentos if len(f.strip()) > 30]
-        
-        # Si aún no hay fragmentos, partir por párrafos dobles (fallback)
-        if len(fragmentos) <= 1:
-            fragmentos = [p.strip() for p in texto.split("\n\n") if len(p.strip()) > 50]
+            
+            # Fallback: partir línea por línea buscando artículos
+            if len(fragmentos) <= 3:
+                lineas = texto.split("\n")
+                fragmentos = []
+                bloque = []
+                for linea in lineas:
+                    if re.match(r'\s*Art(?:ículo)?\.?\s*\d+', linea):
+                        if bloque:
+                            fragmentos.append("\n".join(bloque))
+                        bloque = [linea]
+                    else:
+                        bloque.append(linea)
+                if bloque:
+                    fragmentos.append("\n".join(bloque))
+                fragmentos = [f.strip() for f in fragmentos if len(f.strip()) > 30]
+            
+            # Fallback final: párrafos dobles
+            if len(fragmentos) <= 1:
+                fragmentos = [p.strip() for p in texto.split("\n\n") if len(p.strip()) > 50]
 
-        for fragmento in fragmentos:
-            fragmento_lower = fragmento.lower()
-            score = sum(1 for t in query_terms if t in fragmento_lower)
-            if score > 0:
-                resultados.append({
-                    "fuente": nombre,
-                    "fragmento": fragmento[:800],
-                    "relevancia": score,
-                })
+            for fragmento in fragmentos:
+                fragmento_lower = fragmento.lower()
+                score = sum(1 for t in query_terms if t in fragmento_lower)
+                if score > 0:
+                    resultados.append({
+                        "fuente": nombre,
+                        "fragmento": fragmento[:800],
+                        "relevancia": score,
+                    })
 
     resultados.sort(key=lambda x: x["relevancia"], reverse=True)
     return resultados[:max_resultados]
