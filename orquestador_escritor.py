@@ -45,10 +45,10 @@ OLLAMA_TIMEOUT = 300
 
 # Modelos — cambia según lo que tengas instalado
 MODELOS = {
-    "escritura": "gemma3:12b",        # Para escribir prosa (o gemma3:4b si poca VRAM)
-    "clasificador": "qwen3:4b",       # Para clasificar tareas (rápido)
-    "investigacion": "qwen2.5:7b",    # Para analizar/resumir fuentes
-    "edicion": "gemma3:12b",          # Para editar/mejorar texto
+    "escritura": "gemma3:4b",         # Para escribir prosa
+    "clasificador": "gemma3:4b",      # Para clasificar tareas (rápido)
+    "investigacion": "gemma3:4b",     # Para analizar/resumir fuentes
+    "edicion": "gemma3:4b",           # Para editar/mejorar texto
 }
 
 # Regla de idioma — el modelo piensa en inglés, responde en español
