@@ -228,34 +228,48 @@ ollama run mi-escritor-trained "Escribe sobre [tu tema]"</code></pre>
             </div>
 
             <!-- PASO 5: ORQUESTADOR -->
-            <h2>🧠 Paso 5 — Agente Orquestador</h2>
+            <h2>🧠 Paso 5 — Agente Orquestador de Escritura</h2>
             <div class="info-box">
-                <p>El orquestador es tu "Kiro local" — clasifica la tarea, elige el modelo correcto, genera, valida, y te entrega resultado limpio.</p>
-                <pre><code># Ejecutar
-cd descarada/orquestador
-python orquestador.py
+                <p>El orquestador es tu asistente inteligente desde terminal. Le decís en lenguaje natural qué necesitás y él clasifica, busca en tus fuentes, genera texto, y te lo entrega.</p>
+                
+                <h4>Descargar:</h4>
+                <pre><code>cd /d C:\Users\juaro\OneDrive\Documents\Zeratna\book-server
+curl -o orquestador_escritor.py https://raw.githubusercontent.com/marbaezf-tech/plaga-wiki/main/orquestador_escritor.py</code></pre>
 
-# O con el BAT
-INICIAR_ORQUESTADOR.bat</code></pre>
-                <p><strong>Personalización:</strong> Edita <code>config.py</code> para:</p>
-                <ul>
-                    <li>Cambiar modelos por rol (clasificador, código, narrativa, lore, validador)</li>
-                    <li>Ajustar umbrales de complejidad</li>
-                    <li>Modificar la regla de idioma</li>
-                    <li>Configurar el MCP Lore Server URL</li>
-                </ul>
-                <p><strong>Ejemplo de config.py personalizable:</strong></p>
-                <pre><code>MODELOS = {
-    "clasificador": "qwen3:4b",        # Rápido, clasifica complejidad
-    "codigo": "qwen3-coder:30b",       # Tu modelo de código preferido
-    "narrativa": "gemma3:12b",         # Prosa y diálogos
-    "lore": "qwen3:8b",               # Lore del juego
-    "validador": "qwen3:4b",          # Valida output (rápido)
-    "fallback": "qwen2.5:7b",         # Si falla algo
+                <h4>Ejecutar:</h4>
+                <pre><code>python orquestador_escritor.py</code></pre>
+
+                <h4>Comandos que entiende:</h4>
+                <table>
+                    <tr><th>Decís</th><th>Hace</th></tr>
+                    <tr><td><code>escribe cap 1</code></td><td>Genera el capítulo 1 usando tus fuentes como contexto</td></tr>
+                    <tr><td><code>edita cap 2</code></td><td>Mejora/reescribe un capítulo ya escrito</td></tr>
+                    <tr><td><code>busca revolución industrial</code></td><td>Busca en tus PDFs/fuentes cargadas</td></tr>
+                    <tr><td><code>estructura</code></td><td>Define el índice del libro (interactivo)</td></tr>
+                    <tr><td><code>estado</code></td><td>Muestra progreso (capítulos escritos, pendientes, palabras)</td></tr>
+                    <tr><td>(cualquier pregunta)</td><td>Se la pasa al modelo directo</td></tr>
+                </table>
+
+                <h4>Personalización — edita la sección MODELOS en el script:</h4>
+                <pre><code># Modelos — cambia según lo que tengas instalado
+MODELOS = {
+    "escritura": "gemma3:12b",        # Para escribir prosa (o gemma3:4b si poca VRAM)
+    "clasificador": "qwen3:4b",       # Para clasificar tareas (rápido)
+    "investigacion": "qwen2.5:7b",    # Para analizar/resumir fuentes
+    "edicion": "gemma3:12b",          # Para editar/mejorar texto
 }
 
-# Cambia esto según tu proyecto:
-LORE_SERVER_URL = "http://localhost:8420"</code></pre>
+# Si tu RTX 3060 se queda sin VRAM, cambia gemma3:12b por gemma3:4b</code></pre>
+
+                <h4>Flujo completo de trabajo:</h4>
+                <ol>
+                    <li>Levantá el Book Server: <code>python book_server.py</code></li>
+                    <li>Subí tus fuentes (PDFs, textos) via <code>http://localhost:8430/docs</code></li>
+                    <li>Ejecutá el orquestador: <code>python orquestador_escritor.py</code></li>
+                    <li>Definí estructura: <code>estructura</code></li>
+                    <li>Escribí capítulos: <code>escribe cap 1</code>, <code>escribe cap 2</code>...</li>
+                    <li>Revisá y editá: <code>edita cap 1</code></li>
+                </ol>
             </div>
 
             <!-- PASO 6: COMFYUI -->
