@@ -224,6 +224,13 @@ def procesar(pregunta):
             print(f"     ⚠️ No hay fuentes cargadas. Copia PDFs a book_data/fuentes/")
         return "No encontré esa información en mis fuentes. Verifica que el PDF correspondiente esté en la carpeta book_data/fuentes/"
 
+    # Mostrar fragmentos encontrados al usuario
+    print(f"  ✅ Encontré {len(resultados)} fragmentos relevantes:")
+    for i, r in enumerate(resultados, 1):
+        preview = r['fragmento'][:120].replace('\n', ' ')
+        print(f"     [{i}] {r['fuente'][:30]}: \"{preview}...\"")
+    print()
+
     # Armar contexto con los fragmentos encontrados
     print(f"  ✅ Encontré {len(resultados)} fragmentos relevantes")
     contexto = ""
