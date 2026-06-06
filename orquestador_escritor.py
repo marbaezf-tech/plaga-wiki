@@ -223,6 +223,8 @@ def accion_escribir(capitulo_num, verbose=True):
 
     # Obtener contexto RAG del Book Server
     contexto = ""
+    cap_info = None
+
     if book_disponible():
         contexto = obtener_contexto_capitulo(capitulo_num)
         if contexto and verbose:
@@ -230,7 +232,6 @@ def accion_escribir(capitulo_num, verbose=True):
 
         # Obtener info del capítulo de la estructura
         estructura = obtener_estructura()
-        cap_info = None
         if estructura:
             for cap in estructura.get("capitulos", []):
                 if cap.get("num") == capitulo_num:
