@@ -84,14 +84,45 @@ def ollama_ok():
 
 def buscar_en_fuentes(query, max_resultados=8):
     """Busca en los PDFs cargados via Book Server."""
+    resultados = []
+    
+    # Búsqueda normal
     try:
         url = f"{BOOK_SERVER_URL}/fuentes/buscar?query={urllib.parse.quote(query)}&max={max_resultados}"
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req, timeout=5) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-            return data.get("resultados", [])
+            resultados = data.get("resultados", [])
     except Exception:
-        return []
+        pass
+
+    # Si la pregunta menciona un artículo específico, buscar con variaciones
+    art_match = re.search(r'art[ií]culo\s*(\d+)|art\.?\s*(\d+)', query.lower())
+    if art_match:
+        num = art_match.group(1) or art_match.group(2)
+        variaciones = [
+            f"Art. {num}",
+            f"Artículo {num}",
+            f"Art {num}",
+            f"artículo {num}",
+        ]
+        for var in variaciones:
+            try:
+                url = f"{BOOK_SERVER_URL}/fuentes/buscar?query={urllib.parse.quote(var)}&max=3"
+                req = urllib.request.Request(url)
+                with urllib.request.urlopen(req, timeout=5) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    extras = data.get("resultados", [])
+                    for e in extras:
+                        # No agregar duplicados
+                        if not any(e["fragmento"][:50] == r["fragmento"][:50] for r in resultados):
+                            resultados.append(e)
+            except Exception:
+                pass
+
+    # Ordenar por relevancia y limitar
+    resultados.sort(key=lambda x: x.get("relevancia", 0), reverse=True)
+    return resultados[:max_resultados]
 
 
 def listar_fuentes():
