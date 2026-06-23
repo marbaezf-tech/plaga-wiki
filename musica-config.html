@@ -214,13 +214,24 @@
 
             <h3>Cadena de señal (Single Path — serie)</h3>
             <div class="signal-flow">
-                Gate → Screamer → Amp (Line 6 Doom) + Cab (4x12 XXL V30) → EQ → Delay → Reverb
+                Wah (EXP1) → Gate → Screamer → Amp (Line 6 Doom) + Cab (4x12 XXL V30) → EQ → Delay → Reverb
             </div>
 
             <h3>Paso a paso para configurar</h3>
 
             <div class="step">
-                <span class="step-num">SLOT 1 — Noise Gate</span><br>
+                <span class="step-num">SLOT 1 — Wah (controlado por EXP 1)</span><br>
+                FX TYPE: <code>Wah</code> → FX MODEL: <code>Fassel</code>
+                <div class="param-grid">
+                    <span class="param">Position: EXP 1 (pedal)</span>
+                    <span class="param">Min: 0%</span>
+                    <span class="param">Max: 100%</span>
+                </div>
+                <em>Controlado por el pedal EXP 1. Para sonido Ministry "Just One Fix": dejá el pedal fijo a 60% (mid-boost nasal agresivo). Para wah activo: mové el pedal. Para bypassear: apagalo con el toe-switch o FS asignado.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 2 — Noise Gate</span><br>
                 FX TYPE: <code>Dynamics</code> → FX MODEL: <code>Noise Gate</code>
                 <div class="param-grid">
                     <span class="param">Threshold: 50%</span>
@@ -229,7 +240,7 @@
             </div>
 
             <div class="step">
-                <span class="step-num">SLOT 2 — Screamer (boost)</span><br>
+                <span class="step-num">SLOT 3 — Screamer (boost)</span><br>
                 FX TYPE: <code>Distortion</code> → FX MODEL: <code>Screamer</code>
                 <div class="param-grid">
                     <span class="param">Drive: 15%</span>
@@ -241,7 +252,7 @@
             </div>
 
             <div class="step">
-                <span class="step-num">SLOT 3 — Amplificador</span><br>
+                <span class="step-num">SLOT 4 — Amplificador</span><br>
                 Tab: <code>AMPS</code> → Modelo: <code>Line 6 Doom</code> (basado en Sunn Model T)
                 <div class="param-grid">
                     <span class="param">Drive: 78%</span>
@@ -259,18 +270,19 @@
             </div>
 
             <div class="step">
-                <span class="step-num">SLOT 4 — Cabina</span><br>
+                <span class="step-num">SLOT 5 — Cabina</span><br>
                 (Se asigna junto al amp en la pestaña AMPS)
                 <div class="param-grid">
                     <span class="param">Cab: 4x12 XXL V30</span>
                     <span class="param">Mic: 421 Dynamic</span>
                     <span class="param">Distance: 35%</span>
+                    <span class="param">E.R.: 0%</span>
                 </div>
-                <em>421 Dynamic da más cuerpo. Distance 35% = un poco de "room", menos directo.</em>
+                <em>421 Dynamic da más cuerpo. Distance 35% = un poco de "room". E.R. a 0% = directo a DAW sin room mic.</em>
             </div>
 
             <div class="step">
-                <span class="step-num">SLOT 5 — EQ Paramétrico</span><br>
+                <span class="step-num">SLOT 6 — EQ Paramétrico</span><br>
                 FX TYPE: <code>EQ</code> → FX MODEL: <code>Parametric EQ</code>
                 <div class="param-grid">
                     <span class="param">LOWS: 38%</span>
@@ -283,20 +295,21 @@
             </div>
 
             <div class="step">
-                <span class="step-num">SLOT 6 — Delay</span><br>
-                FX TYPE: <code>Delay</code> → FX MODEL: <code>Analog w/Mod</code>
+                <span class="step-num">SLOT 7 — Delay</span><br>
+                FX TYPE: <code>Delay</code> → FX MODEL: <code>Analog Dly w/Mod</code>
                 <div class="param-grid">
-                    <span class="param">Time: 375ms</span>
-                    <span class="param">Feedback: 25%</span>
-                    <span class="param">Mod Speed: 40%</span>
-                    <span class="param">Mod Depth: 30%</span>
-                    <span class="param">Mix: 20%</span>
+                    <span class="param">TEMPO SYNC: Off</span>
+                    <span class="param">TIME: 375 ms</span>
+                    <span class="param">FDBACK: 25%</span>
+                    <span class="param">DEPTH: 30%</span>
+                    <span class="param">MODSPD: 40%</span>
+                    <span class="param">MIX: 20%</span>
                 </div>
                 <em>Delay analógico degradado y sucio. La modulación le da inestabilidad industrial.</em>
             </div>
 
             <div class="step">
-                <span class="step-num">SLOT 7 — Reverb</span><br>
+                <span class="step-num">SLOT 8 — Reverb</span><br>
                 FX TYPE: <code>Reverb</code> → FX MODEL: <code>Cave</code>
                 <div class="param-grid">
                     <span class="param">Decay: 45%</span>
@@ -305,6 +318,16 @@
                     <span class="param">Tone: 40%</span>
                 </div>
                 <em>Espacio cavernoso tipo fábrica abandonada. Tone bajo = reverb oscura.</em>
+            </div>
+
+            <h3>Asignación de pedales de expresión</h3>
+            <table>
+                <tr><th>Pedal</th><th>Controla</th><th>En este preset</th></tr>
+                <tr><td><strong>EXP 1</strong></td><td>Wah (Fassel) — posición del filtro</td><td>Mover para wah activo. Fijar a 60% para sonido Ministry. Apagar para bypass.</td></tr>
+                <tr><td><strong>EXP 2</strong></td><td>Volume Pedal (reservado para CORDYCEPS AMB)</td><td>No se usa en este preset. Dejarlo al máximo.</td></tr>
+            </table>
+            <div class="tip-box">
+                <strong>💡 Tip Wah fijo:</strong> Para el sonido "Just One Fix" de Ministry, pisá el pedal EXP 1 hasta ~60% y dejalo ahí. Ese mid-boost nasal constante es la textura industrial. No necesitás moverlo — es un filtro estático.
             </div>
 
             <h3>Variantes por canción/estilo</h3>
@@ -455,13 +478,14 @@
             <h3>Paso a paso</h3>
 
             <div class="step">
-                <span class="step-num">SLOT 1 — Volume Pedal</span><br>
+                <span class="step-num">SLOT 1 — Volume Pedal (controlado por EXP 2)</span><br>
                 FX TYPE: <code>Volume/Pan</code> → FX MODEL: <code>Volume Pedal</code>
                 <div class="param-grid">
-                    <span class="param">Position: Expression Pedal</span>
-                    <span class="param">Min: 0%, Max: 100%</span>
+                    <span class="param">Position: EXP 2</span>
+                    <span class="param">Min: 0%</span>
+                    <span class="param">Max: 100%</span>
                 </div>
-                <em>Volume swells: las notas aparecen sin ataque de púa. Como esporas brotando.</em>
+                <em>Controlado por pedal EXP 2. Subí lento para volume swells — las notas aparecen sin ataque de púa. Como esporas brotando del micelio.</em>
             </div>
 
             <div class="step">
