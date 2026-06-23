@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎸 Audio &amp; Música — Plaga: La Descarada</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .signal-flow { font-family: monospace; background: rgba(218,165,32,0.08); border: 1px solid rgba(218,165,32,0.3); padding: 16px; border-radius: 8px; margin: 12px 0; line-height: 1.8; }
+        .preset-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 16px 0; }
+        .preset-card h3 { margin: 0 0 12px; color: goldenrod; }
+        .param-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+        .param { font-family: monospace; font-size: 0.85em; padding: 4px 8px; background: rgba(0,0,0,0.2); border-radius: 4px; }
+        .gear-badge { display: inline-block; background: rgba(100,200,255,0.15); border: 1px solid rgba(100,200,255,0.3); padding: 4px 10px; border-radius: 12px; font-size: 0.8em; margin: 2px; }
+        .warning-box { background: rgba(255,100,100,0.1); border: 1px solid rgba(255,100,100,0.3); padding: 12px; border-radius: 8px; margin: 12px 0; }
+        .tip-box { background: rgba(100,255,150,0.1); border: 1px solid rgba(100,255,150,0.3); padding: 12px; border-radius: 8px; margin: 12px 0; }
+        .step { background: var(--bg-card); border-left: 3px solid goldenrod; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+        .step-num { color: goldenrod; font-weight: bold; font-size: 1.1em; }
+        @media (max-width: 768px) { .param-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Inicio</a></li>
+            <li><a href="sistemas.html">⚙️ Sistemas</a></li>
+            <li><a href="musica-config.html" class="active">🎸 Música &amp; Audio</a></li>
+            <li><a href="cheatsheet.html">📋 Cheat Sheet</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <article>
+            <h1>🎸 Configuración de Audio — Line 6 POD HD500X</h1>
+            <p>Guía completa de configuración de la pedalera para grabación y monitoreo del soundtrack/efectos de Plaga. Setup orientado a metal industrial (Ministry, Godflesh) directo a DAW.</p>
+
+            <h2>🎛️ Equipamiento</h2>
+            <p>
+                <span class="gear-badge">Line 6 POD HD500X</span>
+                <span class="gear-badge">Ibanez Prestige RGR652AHBF WK (2025)</span>
+                <span class="gear-badge">ESP LTD TE-407 (7 cuerdas, activas)</span>
+                <span class="gear-badge">KZ ZS10 Pro X (in-ears)</span>
+                <span class="gear-badge">Interfaz de audio USB</span>
+            </p>
+
+            <h2>⚡ Configuración Global de la POD HD500X</h2>
+            <p>Estos ajustes se configuran UNA VEZ en el menú global de la pedalera (mantener presionado el botón <strong>VIEW</strong>) y aplican a TODOS los presets:</p>
+            <table>
+                <tr><th>Parámetro</th><th>Valor</th><th>Por qué</th></tr>
+                <tr><td>1/4" Output</td><td><strong>LINE</strong></td><td>Señal a nivel de línea para la interfaz de audio</td></tr>
+                <tr><td>XLR Output</td><td><strong>LINE</strong></td><td>Mismo nivel si se usa XLR directo a consola</td></tr>
+                <tr><td>Output Mode</td><td><strong>Studio/Direct</strong></td><td>Incluye simulación completa de cabina + micrófono</td></tr>
+            </table>
+
+            <div class="warning-box">
+                <strong>⚠️ IMPORTANTE:</strong> En tu interfaz de audio, el input donde conectás la POD debe estar en modo <strong>LINE</strong> (no INST). Si lo dejás en INST, amplifica una señal que ya viene a nivel de línea y clipea digitalmente.
+            </div>
+
+            <h3>Cuándo cambiar estos valores</h3>
+            <table>
+                <tr><th>Configuración</th><th>Cuándo usarla</th></tr>
+                <tr><td>1/4" = LINE</td><td>Interfaz de audio, mesa de mezcla, monitores activos</td></tr>
+                <tr><td>1/4" = AMP</td><td>Return del effects loop de un amplificador real</td></tr>
+                <tr><td>XLR = LINE</td><td>Directo a consola/PA en vivo (nivel línea)</td></tr>
+                <tr><td>XLR = MIC</td><td>Preamp de mic o canal de consola que espera nivel mic</td></tr>
+                <tr><td>Studio/Direct</td><td>Grabación / in-ears / quiero simulación completa</td></tr>
+                <tr><td>Combo Front</td><td>Input frontal de un combo</td></tr>
+                <tr><td>Stack Pwr Amp</td><td>Power amp (return del loop de un cabezal)</td></tr>
+            </table>
+
+            <h3>Flujo de Señal Completo</h3>
+            <div class="signal-flow">
+                Guitarra → POD HD500X [Input] → [Procesamiento] → 1/4" Out (LINE)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interfaz de audio (input LINE)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DAW en la PC<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output interfaz → KZ ZS10 Pro X
+            </div>
+
+            <h2>🎛️ Cómo usar el HD500X Edit (Software de PC)</h2>
+            <p>El software HD500X Edit es el editor visual para configurar presets desde la computadora. Aquí un resumen de la interfaz:</p>
+
+            <h3>Zonas de la interfaz</h3>
+            <table>
+                <tr><th>Zona</th><th>Ubicación</th><th>Función</th></tr>
+                <tr><td>Signal Flow</td><td>Centro superior (fondo madera)</td><td>Vista gráfica de la cadena de señal. Los cubos representan bloques de efecto/amp/cab</td></tr>
+                <tr><td>Inputs</td><td>Esquina superior izquierda</td><td>Configurar Input 1/2 Source, Guitar In-Z, Inputs Setup</td></tr>
+                <tr><td>Send/Receive</td><td>Superior izquierda</td><td>Enviar/recibir presets entre PC ↔ pedalera</td></tr>
+                <tr><td>Tabs (FX/AMPS/MIXER/CONTROLLERS/SET LISTS)</td><td>Centro, debajo del signal flow</td><td>Paneles para editar distintos aspectos del preset</td></tr>
+                <tr><td>FX Slots</td><td>Panel derecho (con dropdowns)</td><td>8 filas con FX TYPE y FX MODEL para asignar efectos</td></tr>
+                <tr><td>Preset List</td><td>Panel izquierdo inferior</td><td>Lista de todos los presets del setlist actual</td></tr>
+            </table>
+
+            <h3>Configurar Input (primera vez)</h3>
+            <div class="step">
+                <span class="step-num">1.</span> En la esquina superior izquierda, cambiar <strong>Input 1 Source</strong> a <code>Guitar</code>
+            </div>
+            <div class="step">
+                <span class="step-num">2.</span> <strong>Input 2 Source</strong>: dejar en <code>Same</code>
+            </div>
+            <div class="step">
+                <span class="step-num">3.</span> <strong>Guitar In-Z</strong>: dejar en <code>Auto</code>
+            </div>
+            <div class="step">
+                <span class="step-num">4.</span> <strong>Inputs Setup</strong>: dejar en <code>Preset</code>
+            </div>
+
+            <h3>Agregar efectos a la cadena</h3>
+            <p>Los efectos se asignan desde el <strong>panel derecho</strong> usando los dropdowns FX TYPE / FX MODEL. Cada fila corresponde a una posición en la cadena de señal:</p>
+            <div class="step">
+                <span class="step-num">1.</span> Hacer click en el dropdown <strong>"FX TYPE"</strong> de una fila vacía → se despliegan categorías (Dynamics, Distortion, Modulation, Filter, EQ, Delay, Reverb, etc.)
+            </div>
+            <div class="step">
+                <span class="step-num">2.</span> Seleccionar la categoría deseada
+            </div>
+            <div class="step">
+                <span class="step-num">3.</span> Hacer click en <strong>"FX MODEL"</strong> de esa misma fila → se muestran los modelos disponibles
+            </div>
+            <div class="step">
+                <span class="step-num">4.</span> Seleccionar el modelo → aparece el bloque en el Signal Flow arriba
+            </div>
+            <div class="step">
+                <span class="step-num">5.</span> Hacer click en el bloque del Signal Flow para ver/editar sus parámetros
+            </div>
+
+            <h3>Agregar Amp + Cabina</h3>
+            <div class="step">
+                <span class="step-num">1.</span> Hacer click en la pestaña <strong>"AMPS"</strong> (arriba, al lado de FX)
+            </div>
+            <div class="step">
+                <span class="step-num">2.</span> Seleccionar el modelo de amplificador deseado de la lista
+            </div>
+            <div class="step">
+                <span class="step-num">3.</span> La cabina se asigna automáticamente junto al amp. Cambiar el modelo de cab y mic desde el mismo panel AMPS
+            </div>
+
+            <h3>Configurar el Mixer (Dual Path)</h3>
+            <div class="step">
+                <span class="step-num">1.</span> Hacer click en la pestaña <strong>"MIXER"</strong>
+            </div>
+            <div class="step">
+                <span class="step-num">2.</span> Ajustar volumen, paneo y mute de Path A y Path B
+            </div>
+
+            <h3>Crear Dual Path (Path A / Path B)</h3>
+            <p>Para tener dos cadenas paralelas de señal (necesario para el preset industrial con Ring Mod):</p>
+            <div class="step">
+                <span class="step-num">1.</span> En la <strong>pedalera física</strong>: presionar <strong>VIEW</strong> hasta llegar al Signal Flow View
+            </div>
+            <div class="step">
+                <span class="step-num">2.</span> Usar el <strong>D-pad</strong> para seleccionar un bloque de efecto
+            </div>
+            <div class="step">
+                <span class="step-num">3.</span> Presionar <strong>MOVE</strong> (doble press) y usar D-pad <strong>↓</strong> para mover al Path B
+            </div>
+            <div class="tip-box">
+                <strong>💡 TIP:</strong> El dual path es opcional. Los presets de esta guía funcionan perfectamente en single path (serie). El Path B solo agrega una capa sutil de textura industrial.
+            </div>
+
+            <h3>Guardar y Enviar a la Pedalera</h3>
+            <div class="step">
+                <span class="step-num">1.</span> <strong>Doble click</strong> en el nombre del preset en la lista izquierda → renombrar con el nombre de la tabla (ej: <code>PLAGA INDUSTRL</code>)
+            </div>
+            <div class="step">
+                <span class="step-num">2.</span> <strong>Ctrl+S</strong> o File → Save para guardar en el software
+            </div>
+            <div class="step">
+                <span class="step-num">3.</span> Click en <strong>"SEND → SELECTED"</strong> (arriba izquierda) para enviar el preset actual a la HD500X
+            </div>
+            <div class="step">
+                <span class="step-num">4.</span> Para enviar todo: <strong>"SEND → SET LIST"</strong> o <strong>"SEND → ALL"</strong>
+            </div>
+
+            <hr>
+
+            <h2>� Nomenclatura de Presets y Archivos</h2>
+            <p>Nombres estandarizados para la pedalera (≤16 caracteres) y para la DAW:</p>
+
+            <h3>Presets en la HD500X</h3>
+            <table>
+                <tr><th>#</th><th>Nombre en pedalera</th><th>Función</th><th>Leitmotivs</th></tr>
+                <tr><td>1</td><td><code>PLAGA INDUSTRL</code></td><td>Riffs, combate, exploración</td><td>#1 #4 #5</td></tr>
+                <tr><td>2</td><td><code>PLAGA 7STRING</code></td><td>Capas graves ESP (después)</td><td>Todos</td></tr>
+                <tr><td>3</td><td><code>AMBAR CLEAN</code></td><td>Narrador, menú, transiciones</td><td>#6 #7</td></tr>
+                <tr><td>4</td><td><code>CORDYCEPS AMB</code></td><td>Horror, texturas, Game Over</td><td>#2 #8</td></tr>
+                <tr><td>5</td><td><code>DANZA TRIBAL</code></td><td>Staccato percusivo, social</td><td>#3</td></tr>
+            </table>
+
+            <h3>Archivos de audio (DAW)</h3>
+            <table>
+                <tr><th>Tipo</th><th>Nombre archivo</th><th>Modo</th></tr>
+                <tr><td>Leitmotiv 1</td><td><code>LM01_GranCharco</code></td><td>D Frigio</td></tr>
+                <tr><td>Leitmotiv 2</td><td><code>LM02_Cordyceps</code></td><td>D Locrio</td></tr>
+                <tr><td>Leitmotiv 3</td><td><code>LM03_Danza</code></td><td>D Dórico</td></tr>
+                <tr><td>Leitmotiv 4</td><td><code>LM04_Victoria</code></td><td>D Menor Armónica</td></tr>
+                <tr><td>Leitmotiv 5</td><td><code>LM05_Peligro</code></td><td>D Frigio Dominante</td></tr>
+                <tr><td>Leitmotiv 6</td><td><code>LM06_Ambar</code></td><td>D Mixolidio</td></tr>
+                <tr><td>Leitmotiv 7</td><td><code>LM07_Faccion</code></td><td>Varía por facción</td></tr>
+                <tr><td>Leitmotiv 8</td><td><code>LM08_GameOver</code></td><td>Tritono + cromática</td></tr>
+                <tr><td>Track 1</td><td><code>TRK01_Laboratorio</code></td><td>2-3 min loop</td></tr>
+                <tr><td>Track 2</td><td><code>TRK02_ZonaHostil</code></td><td>2 min loop</td></tr>
+                <tr><td>Track 3</td><td><code>TRK03_Combate</code></td><td>1.5-2 min loop</td></tr>
+                <tr><td>Track 4</td><td><code>TRK04_Danza</code></td><td>1-1.5 min loop</td></tr>
+                <tr><td>Track 5</td><td><code>TRK05_Menu</code></td><td>1.5 min</td></tr>
+            </table>
+
+            <hr>
+
+            <h2>🔊 PRESET 1: "PLAGA INDUSTRL" — Ibanez Prestige (Ministry/Godflesh)</h2>
+            <p>Tono high-gain masivo con saturación abrasiva. Graves controlados pero pesados. Textura mecánica. Referencia: Ministry "N.W.O.", Godflesh "Streetcleaner".</p>
+            <p><span class="gear-badge">Guitarra: Ibanez RGR652AHBF WK</span> <span class="gear-badge">Humbuckers pasivas DiMarzio Fusion Edge</span></p>
+
+            <h3>Cadena de señal (Single Path — serie)</h3>
+            <div class="signal-flow">
+                Gate → Screamer → Amp (Line 6 Doom) + Cab (4x12 XXL V30) → EQ → Delay → Reverb
+            </div>
+
+            <h3>Paso a paso para configurar</h3>
+
+            <div class="step">
+                <span class="step-num">SLOT 1 — Noise Gate</span><br>
+                FX TYPE: <code>Dynamics</code> → FX MODEL: <code>Hard Gate</code>
+                <div class="param-grid">
+                    <span class="param">Threshold: 50%</span>
+                    <span class="param">Decay: 0%</span>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 2 — Screamer (boost)</span><br>
+                FX TYPE: <code>Distortion</code> → FX MODEL: <code>Screamer</code>
+                <div class="param-grid">
+                    <span class="param">Drive: 15%</span>
+                    <span class="param">Bass: 35%</span>
+                    <span class="param">Tone: 70%</span>
+                    <span class="param">Level: 65%</span>
+                </div>
+                <em>Función: empuja el frente del amp con clip extra sucio. No es overdrive, es boost de ataque.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 3 — Amplificador</span><br>
+                Tab: <code>AMPS</code> → Modelo: <code>Line 6 Doom</code> (basado en Sunn Model T)
+                <div class="param-grid">
+                    <span class="param">Drive: 78%</span>
+                    <span class="param">Bass: 50%</span>
+                    <span class="param">Mid: 55%</span>
+                    <span class="param">Treble: 52%</span>
+                    <span class="param">Presence: 48%</span>
+                    <span class="param">Ch. Vol: 55%</span>
+                    <span class="param">Master: 85%</span>
+                    <span class="param">Sag: 55%</span>
+                    <span class="param">Bias: 60%</span>
+                    <span class="param">Bias X: 55%</span>
+                </div>
+                <em>Master alto = compresión del power amp. Sag alto = respuesta lenta, spongey, pesada estilo doom.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 4 — Cabina</span><br>
+                (Se asigna junto al amp en la pestaña AMPS)
+                <div class="param-grid">
+                    <span class="param">Cab: 4x12 XXL V30</span>
+                    <span class="param">Mic: 421 Dynamic</span>
+                    <span class="param">Distance: 35%</span>
+                </div>
+                <em>421 Dynamic da más cuerpo. Distance 35% = un poco de "room", menos directo.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 5 — EQ Paramétrico</span><br>
+                FX TYPE: <code>EQ</code> → FX MODEL: <code>Parametric EQ</code>
+                <div class="param-grid">
+                    <span class="param">Low: 100 Hz, -2 dB</span>
+                    <span class="param">Mid: 1200 Hz, +3 dB</span>
+                    <span class="param">High: 3500 Hz, +1.5 dB</span>
+                </div>
+                <em>El boost en 1.2kHz es el "clang" metálico industrial. Limpia graves innecesarios.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 6 — Delay</span><br>
+                FX TYPE: <code>Delay</code> → FX MODEL: <code>Analog w/Mod</code>
+                <div class="param-grid">
+                    <span class="param">Time: 375ms</span>
+                    <span class="param">Feedback: 25%</span>
+                    <span class="param">Mod Speed: 40%</span>
+                    <span class="param">Mod Depth: 30%</span>
+                    <span class="param">Mix: 20%</span>
+                </div>
+                <em>Delay analógico degradado y sucio. La modulación le da inestabilidad industrial.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 7 — Reverb</span><br>
+                FX TYPE: <code>Reverb</code> → FX MODEL: <code>Cave</code>
+                <div class="param-grid">
+                    <span class="param">Decay: 45%</span>
+                    <span class="param">Mix: 15%</span>
+                    <span class="param">Pre-delay: 60ms</span>
+                    <span class="param">Tone: 40%</span>
+                </div>
+                <em>Espacio cavernoso tipo fábrica abandonada. Tone bajo = reverb oscura.</em>
+            </div>
+
+            <h3>Variantes por canción/estilo</h3>
+            <table>
+                <tr><th>Referencia</th><th>Ajuste</th></tr>
+                <tr><td>Ministry — "N.W.O."</td><td>Drive: 82%, cambiar a Fireball, Treble: 65%</td></tr>
+                <tr><td>Ministry — "Just One Fix"</td><td>Agregar Wah fijo al 60% antes del Screamer</td></tr>
+                <tr><td>Godflesh — "Streetcleaner"</td><td>Dejar Doom, delay feedback: 35%</td></tr>
+                <tr><td>Godflesh — "Crush My Soul"</td><td>Delay time: 500ms, reverb decay: 55%</td></tr>
+                <tr><td>Ministry — "Thieves"</td><td>Screamer drive: 25%, EQ mid boost 1.5kHz +4dB</td></tr>
+            </table>
+
+            <hr>
+
+            <h2>🔊 PRESET 2: "PLAGA 7STRING" — ESP LTD TE-407 (7 cuerdas)</h2>
+            <p>Optimizado para cápsulas activas y la séptima cuerda. Menos ganancia (las activas saturan antes), graves más controlados para evitar embarrar en drop tunings.</p>
+            <p><span class="gear-badge">Guitarra: ESP LTD TE-407</span> <span class="gear-badge">7 cuerdas — Activas</span></p>
+
+            <h3>Cadena de señal (Single Path)</h3>
+            <div class="signal-flow">
+                Gate → Amp (Line 6 Doom) + Cab (4x12 Tread V30) → EQ → Delay → Reverb
+            </div>
+            <div class="tip-box">
+                <strong>💡 Sin Screamer:</strong> Las pastillas activas ya pegan fuerte al preamp, no necesitan boost. Si querés más "tight", opcionalmente poné Screamer con Drive 0%, Level 50%.
+            </div>
+
+            <h3>Paso a paso</h3>
+
+            <div class="step">
+                <span class="step-num">SLOT 1 — Noise Gate</span><br>
+                FX TYPE: <code>Dynamics</code> → FX MODEL: <code>Hard Gate</code>
+                <div class="param-grid">
+                    <span class="param">Threshold: 55%</span>
+                    <span class="param">Decay: 0%</span>
+                </div>
+                <em>Threshold más alto que la Ibanez porque las activas tienen más output → más ruido residual.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 2 — Amplificador</span><br>
+                Tab: <code>AMPS</code> → Modelo: <code>Line 6 Doom</code>
+                <div class="param-grid">
+                    <span class="param">Drive: 55%</span>
+                    <span class="param">Bass: 38%</span>
+                    <span class="param">Mid: 65%</span>
+                    <span class="param">Treble: 55%</span>
+                    <span class="param">Presence: 60%</span>
+                    <span class="param">Ch. Vol: 48%</span>
+                    <span class="param">Master: 70%</span>
+                    <span class="param">Sag: 20%</span>
+                    <span class="param">Bias: 45%</span>
+                    <span class="param">Bias X: 40%</span>
+                </div>
+                <em>MENOS drive (activas saturan antes). MENOS bass (la 7ma no embarre). MÁS mids (definición en drop). MENOS sag (respuesta rápida, tight).</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 3 — Cabina</span><br>
+                <div class="param-grid">
+                    <span class="param">Cab: 4x12 Tread V30</span>
+                    <span class="param">Mic: 421 Dynamic</span>
+                    <span class="param">Distance: 20%</span>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 4 — EQ Paramétrico (CRÍTICO para 7 cuerdas)</span><br>
+                FX TYPE: <code>EQ</code> → FX MODEL: <code>Parametric EQ</code>
+                <div class="param-grid">
+                    <span class="param">Low: 80 Hz, -4 dB</span>
+                    <span class="param">Mid: 500 Hz, -1.5 dB</span>
+                    <span class="param">High: 2500 Hz, +2.5 dB</span>
+                </div>
+                <em>Corta sub-graves inútiles. Reduce "boxy" en 500Hz. Boost en 2.5kHz = articulación del pick attack.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 5 — Delay</span><br>
+                FX TYPE: <code>Delay</code> → FX MODEL: <code>Digital Delay</code>
+                <div class="param-grid">
+                    <span class="param">Time: 280ms</span>
+                    <span class="param">Feedback: 12%</span>
+                    <span class="param">Mix: 15%</span>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 6 — Reverb</span><br>
+                FX TYPE: <code>Reverb</code> → FX MODEL: <code>Plate</code>
+                <div class="param-grid">
+                    <span class="param">Decay: 25%</span>
+                    <span class="param">Mix: 10%</span>
+                    <span class="param">Pre-delay: 40ms</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2>💡 Tips por Guitarra</h2>
+
+            <div class="preset-card">
+                <h3>Ibanez Prestige RGR652AHBF WK</h3>
+                <ul>
+                    <li>Pastillas DiMarzio Fusion Edge — output medio-alto, pasivas</li>
+                    <li>Puente Gibraltar Standard III (2025)</li>
+                    <li>Input Pad de la HD500X: <strong>OFF</strong></li>
+                    <li>El Screamer funciona bien como boost por el output moderado de las pasivas</li>
+                    <li>Si falta pegada en palm mutes: subir Level del Screamer a 75%</li>
+                </ul>
+            </div>
+
+            <div class="preset-card">
+                <h3>ESP LTD TE-407 (7 cuerdas)</h3>
+                <ul>
+                    <li>Cápsulas activas — output alto</li>
+                    <li>Input Pad de la HD500X: <strong>ON</strong> (evita clipear el input)</li>
+                    <li>NO necesita Screamer (las activas ya pegan duro al preamp)</li>
+                    <li>Siempre bajar Bass y subir Mids vs. la config de 6 cuerdas</li>
+                    <li>EQ post-amp: SIEMPRE cortar debajo de 80Hz para la 7ma cuerda</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Al alternar entre guitarras:</strong> Cambiar el Input Pad. ON para la ESP (activas), OFF para la Ibanez (pasivas). Si no, la Ibanez suena débil o la ESP clipea el input.
+            </div>
+
+            <h2>🎧 Tips para KZ ZS10 Pro X</h2>
+            <p>Los KZ tienen un perfil de sonido con bump en graves y agudos (V-shape). Esto afecta cómo percibís el tono:</p>
+            <ul>
+                <li>Si suena muy brillante por los in-ears: bajar Treble 3-5% en el amp. El tono "real" es lo que va a la DAW.</li>
+                <li>Si hay demasiado low-end: bajar Bass 3-5%. Es el bump de los KZ, no del preset.</li>
+                <li>Siempre mezclar/masterizar con monitores o referencias planas, NO con los KZ.</li>
+            </ul>
+
+            <hr>
+
+            <h2>🔊 PRESET 4: "CORDYCEPS AMB" — Ibanez Prestige (Horror / Texturas enfermas)</h2>
+            <p>Estilo Akira Yamaoka (Silent Hill 2: "White Noiz", "Null Moon", "Overdose Delusion"). Notas que aparecen como esporas, sin ataque. Disonancia constante, nada resuelve. Para cuando la Esencia baja o algo horrible pasa.</p>
+            <p><span class="gear-badge">Guitarra: Ibanez RGR652AHBF WK</span> <span class="gear-badge">D Locrio / Cromática</span></p>
+
+            <h3>Cadena de señal</h3>
+            <div class="signal-flow">
+                Volume Pedal → Amp (Park 75) + Cab (4x12 Greenback) → Tremolo → Delay → Reverb
+            </div>
+
+            <h3>Paso a paso</h3>
+
+            <div class="step">
+                <span class="step-num">SLOT 1 — Volume Pedal</span><br>
+                FX TYPE: <code>Volume/Pan</code> → FX MODEL: <code>Volume Pedal</code>
+                <div class="param-grid">
+                    <span class="param">Position: Expression Pedal</span>
+                    <span class="param">Min: 0%, Max: 100%</span>
+                </div>
+                <em>Volume swells: las notas aparecen sin ataque de púa. Como esporas brotando.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 2 — Amplificador</span><br>
+                Tab: <code>AMPS</code> → Modelo: <code>Park 75</code> (basado en Marshall JMP)
+                <div class="param-grid">
+                    <span class="param">Drive: 45%</span>
+                    <span class="param">Bass: 55%</span>
+                    <span class="param">Mid: 40%</span>
+                    <span class="param">Treble: 50%</span>
+                    <span class="param">Presence: 35%</span>
+                    <span class="param">Ch. Vol: 45%</span>
+                    <span class="param">Master: 60%</span>
+                    <span class="param">Sag: 70%</span>
+                    <span class="param">Bias: 65%</span>
+                    <span class="param">Bias X: 60%</span>
+                </div>
+                <em>No full distortion — crudo. Mids bajos = hueco, enfermo. Sag MUY alto = lento, decae como algo muriéndose.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 3 — Cabina</span><br>
+                <div class="param-grid">
+                    <span class="param">Cab: 4x12 Greenback 25</span>
+                    <span class="param">Mic: 67 Condenser</span>
+                    <span class="param">Distance: 60%</span>
+                </div>
+                <em>Condensador + lejos = difuso, no definido. Como escuchar a través de una pared de micelio.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 4 — Tremolo</span><br>
+                FX TYPE: <code>Modulation</code> → FX MODEL: <code>Opto Tremolo</code>
+                <div class="param-grid">
+                    <span class="param">Speed: 25%</span>
+                    <span class="param">Depth: 45%</span>
+                    <span class="param">Mix: 50%</span>
+                </div>
+                <em>Lento, pulsante, como respiración de algo vivo. El hongo respira.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 5 — Delay</span><br>
+                FX TYPE: <code>Delay</code> → FX MODEL: <code>Analog w/Mod</code>
+                <div class="param-grid">
+                    <span class="param">Time: 600ms</span>
+                    <span class="param">Feedback: 45%</span>
+                    <span class="param">Mod Speed: 55%</span>
+                    <span class="param">Mod Depth: 50%</span>
+                    <span class="param">Mix: 40%</span>
+                </div>
+                <em>Repeticiones largas que se acumulan y degradan. Desorientación total.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 6 — Reverb</span><br>
+                FX TYPE: <code>Reverb</code> → FX MODEL: <code>Particle Verb</code>
+                <div class="param-grid">
+                    <span class="param">Decay: 80%</span>
+                    <span class="param">Mix: 50%</span>
+                    <span class="param">Dwell: 60%</span>
+                </div>
+                <em>Reverb granular/experimental. Si no te gusta, usa Cave con Decay 85%, Mix 45%.</em>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Técnica:</strong> No tocar riffs. Notas sueltas, lentas, con volume swell. Dejar que el delay se acumule. Intervalos disonantes (tritono D→Ab, semitono D→Eb). Largos silencios entre notas. La guitarra no es instrumento melódico aquí — es generador de texturas.
+            </div>
+
+            <hr>
+
+            <h2>🔊 PRESET 5: "DANZA TRIBAL" — Ibanez Prestige (Staccato tribal / mecánico)</h2>
+            <p>La guitarra como instrumento de percusión. Todo mute, corto, mecánico. Para la Danza de Antenas (conflicto social) y ritmos tribales industriales. Sin melodía, puro ritmo.</p>
+            <p><span class="gear-badge">Guitarra: Ibanez RGR652AHBF WK</span> <span class="gear-badge">D Dórico — ritmos 5/4 o 7/8</span></p>
+
+            <h3>Cadena de señal</h3>
+            <div class="signal-flow">
+                Gate (tight) → Screamer → Amp (Elektrik) + Cab (4x12 XXL) → EQ → Delay (slap)
+            </div>
+
+            <h3>Paso a paso</h3>
+
+            <div class="step">
+                <span class="step-num">SLOT 1 — Noise Gate (ultra tight)</span><br>
+                FX TYPE: <code>Dynamics</code> → FX MODEL: <code>Hard Gate</code>
+                <div class="param-grid">
+                    <span class="param">Threshold: 60%</span>
+                    <span class="param">Decay: 0%</span>
+                </div>
+                <em>Gate ALTO. Las notas mueren instantáneamente. Percusivo puro.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 2 — Screamer (tighten)</span><br>
+                FX TYPE: <code>Distortion</code> → FX MODEL: <code>Screamer</code>
+                <div class="param-grid">
+                    <span class="param">Drive: 5%</span>
+                    <span class="param">Bass: 25%</span>
+                    <span class="param">Tone: 80%</span>
+                    <span class="param">Level: 70%</span>
+                </div>
+                <em>Casi sin drive. Corta graves, todo "click" y ataque. Brillante, percusivo.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 3 — Amplificador</span><br>
+                Tab: <code>AMPS</code> → Modelo: <code>Line 6 Elektrik</code> (Engl Powerball)
+                <div class="param-grid">
+                    <span class="param">Drive: 55%</span>
+                    <span class="param">Bass: 35%</span>
+                    <span class="param">Mid: 70%</span>
+                    <span class="param">Treble: 65%</span>
+                    <span class="param">Presence: 60%</span>
+                    <span class="param">Ch. Vol: 50%</span>
+                    <span class="param">Master: 55%</span>
+                    <span class="param">Sag: 10%</span>
+                    <span class="param">Bias: 40%</span>
+                    <span class="param">Bias X: 35%</span>
+                </div>
+                <em>Mids ALTOS = todo ataque. Sag casi CERO = respuesta inmediata. Bass bajo = sin "boom", percusivo.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 4 — Cabina</span><br>
+                <div class="param-grid">
+                    <span class="param">Cab: 4x12 XXL V30</span>
+                    <span class="param">Mic: 57 On Axis</span>
+                    <span class="param">Distance: 10%</span>
+                </div>
+                <em>Pegado al cono. Máxima definición. Cada mute se escucha como golpe.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 5 — EQ Paramétrico</span><br>
+                FX TYPE: <code>EQ</code> → FX MODEL: <code>Parametric EQ</code>
+                <div class="param-grid">
+                    <span class="param">Low: 120 Hz, -4 dB</span>
+                    <span class="param">Mid: 2000 Hz, +3 dB</span>
+                    <span class="param">High: 6000 Hz, +2 dB</span>
+                </div>
+                <em>Sin graves. Puro ataque de púa en 2kHz. Brillo y "click" de cuerdas en 6kHz.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 6 — Delay (slap corto)</span><br>
+                FX TYPE: <code>Delay</code> → FX MODEL: <code>Digital Delay</code>
+                <div class="param-grid">
+                    <span class="param">Time: 80ms</span>
+                    <span class="param">Feedback: 0%</span>
+                    <span class="param">Mix: 20%</span>
+                </div>
+                <em>No es eco — es engrosamiento del ataque. 1 repetición. Suena a máquina duplicada.</em>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Técnica:</strong> Todo palm mute agresivo. Notas cortas. Patrones rítmicos en 5/4 o 7/8 (no 4/4 humano). Pensar en la guitarra como un instrumento de percusión. Chugs staccato. La mano derecha manda, la izquierda solo cambia nota cuando el patrón lo pide.
+            </div>
+
+            <hr>
+
+            <h2>🗺️ Mapa de Presets — Cuándo usar cada uno</h2>
+            <table>
+                <tr><th>Momento en el juego</th><th>Preset</th><th>Leitmotivs asociados</th></tr>
+                <tr><td>Riff de combate / exploración activa</td><td><strong>Plague Industrial</strong></td><td>#1 Gran Charco, #4 Victoria, #5 Peligro</td></tr>
+                <tr><td>Texturas horror / Esencia baja / Game Over</td><td><strong>Cordyceps Ambient</strong></td><td>#2 Cordyceps, #8 Game Over</td></tr>
+                <tr><td>Narrador Ámbar / menú / transiciones</td><td><strong>Clean Ámbar</strong></td><td>#6 Ámbar, #7 Facción (parcial)</td></tr>
+                <tr><td>Danza de Antenas / ritmos mecánicos</td><td><strong>Danza Percusivo</strong></td><td>#3 La Danza</td></tr>
+                <tr><td>Capas graves + peso (ESP después)</td><td><strong>Industrial 7-String</strong></td><td>Todos (duplicación)</td></tr>
+            </table>
+
+            <hr>
+
+            <h2>🧪 Expansión: Capa Industrial (Dual Path — Opcional)</h2>
+            <p>Para agregar textura sintética/robótica estilo Godflesh "Streetcleaner" o Ministry, se puede crear un Path B paralelo mezclado muy bajo:</p>
+
+            <h3>Path B (capa subliminal a -12dB)</h3>
+            <div class="step">
+                <span class="step-num">B1 — Ring Modulator</span><br>
+                FX TYPE: <code>Modulation</code> → FX MODEL: <code>Ring Modulator</code>
+                <div class="param-grid">
+                    <span class="param">Frequency: 180 Hz</span>
+                    <span class="param">Mix: 100%</span>
+                    <span class="param">Mode: 4-Voice</span>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-num">B2 — Synth</span><br>
+                FX TYPE: <code>Filter</code> → FX MODEL: <code>Synth-O-Matic</code>
+                <div class="param-grid">
+                    <span class="param">Mix: 100%</span>
+                    <span class="param">Attack: 40%</span>
+                    <span class="param">Release: 55%</span>
+                    <span class="param">Filter: 60%</span>
+                    <span class="param">Freq: 45%</span>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-num">B3 — EQ (limpiar Path B)</span><br>
+                FX TYPE: <code>EQ</code> → FX MODEL: <code>Parametric EQ</code>
+                <div class="param-grid">
+                    <span class="param">Low: 200 Hz, -3 dB</span>
+                    <span class="param">Mid: 900 Hz, +2 dB</span>
+                    <span class="param">High: 5000 Hz, -2 dB</span>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-num">MIXER</span><br>
+                <div class="param-grid">
+                    <span class="param">Path A Vol: 0 dB</span>
+                    <span class="param">Path B Vol: -12 dB</span>
+                    <span class="param">Pan A: Center</span>
+                    <span class="param">Pan B: Center</span>
+                </div>
+                <em>Path B muy abajo = textura subliminal. Subir a -8dB para efecto más obvio.</em>
+            </div>
+
+            <hr>
+
+            <h2>📚 Referencias</h2>
+            <table>
+                <tr><th>Recurso</th><th>Link</th></tr>
+                <tr><td>Manuales oficiales HD500X</td><td><a href="https://line6.com/support/manuals/podhd500x" target="_blank">line6.com/support/manuals/podhd500x</a></td></tr>
+                <tr><td>HD500X CustomTone (presets comunitarios)</td><td><a href="https://line6.com/customtone/" target="_blank">line6.com/customtone</a></td></tr>
+                <tr><td>Foro Line6 — POD HD</td><td><a href="https://line6.com/support/" target="_blank">line6.com/support (forums)</a></td></tr>
+                <tr><td>Routing Schematics HD500X</td><td><a href="https://line6.com/support/topic/2033-pod-hd-500-500x-routing-schematics/" target="_blank">line6.com (routing thread)</a></td></tr>
+            </table>
+
+            <hr>
+
+            <h2>🔊 PRESET 3: "AMBAR CLEAN" — Ibanez Prestige (Narrador / Atmósfera)</h2>
+            <p>Tono limpio, etéreo, con mucho espacio. Para las partes del narrador Ámbar (el Tardígrado de 530 millones de años), transiciones entre zonas, y contraste con los riffs industriales.</p>
+            <p><span class="gear-badge">Guitarra: Ibanez RGR652AHBF WK</span> <span class="gear-badge">Modo Mixolidio en D</span></p>
+
+            <h3>Cadena de señal</h3>
+            <div class="signal-flow">
+                Comp → Amp (Blackface Dbl Nrm) + Cab (1x12 Blackface) → Chorus → Delay → Reverb
+            </div>
+
+            <h3>Paso a paso</h3>
+
+            <div class="step">
+                <span class="step-num">SLOT 1 — Compressor</span><br>
+                FX TYPE: <code>Dynamics</code> → FX MODEL: <code>Blue Comp</code>
+                <div class="param-grid">
+                    <span class="param">Sustain: 55%</span>
+                    <span class="param">Level: 60%</span>
+                </div>
+                <em>Sostiene las notas largas sin agregar ruido. El narrador habla despacio.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 2 — Amplificador</span><br>
+                Tab: <code>AMPS</code> → Modelo: <code>Blackface Dbl Nrm</code> (basado en Fender Twin)
+                <div class="param-grid">
+                    <span class="param">Drive: 25%</span>
+                    <span class="param">Bass: 45%</span>
+                    <span class="param">Mid: 50%</span>
+                    <span class="param">Treble: 58%</span>
+                    <span class="param">Presence: 55%</span>
+                    <span class="param">Ch. Vol: 50%</span>
+                    <span class="param">Master: 50%</span>
+                    <span class="param">Sag: 20%</span>
+                    <span class="param">Bias: 50%</span>
+                    <span class="param">Bias X: 50%</span>
+                </div>
+                <em>Clean headroom alto. Sin distorsión. Sabiduría milenaria, no agresión.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 3 — Cabina</span><br>
+                <div class="param-grid">
+                    <span class="param">Cab: 1x12 Blackface Lux</span>
+                    <span class="param">Mic: 67 Condenser</span>
+                    <span class="param">Distance: 50%</span>
+                </div>
+                <em>Condensador + distancia = abierto, aireado, natural.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 4 — Chorus (sutil)</span><br>
+                FX TYPE: <code>Modulation</code> → FX MODEL: <code>Analog Chorus</code>
+                <div class="param-grid">
+                    <span class="param">Speed: 30%</span>
+                    <span class="param">Depth: 35%</span>
+                    <span class="param">Mix: 25%</span>
+                </div>
+                <em>Movimiento sutil, como agua profunda. No debe notarse como "efecto".</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 5 — Delay</span><br>
+                FX TYPE: <code>Delay</code> → FX MODEL: <code>Analog Echo</code>
+                <div class="param-grid">
+                    <span class="param">Time: 480ms</span>
+                    <span class="param">Feedback: 35%</span>
+                    <span class="param">Mix: 30%</span>
+                </div>
+                <em>Eco largo, que las notas se repitan y desvanezcan. Sensación de inmensidad temporal.</em>
+            </div>
+
+            <div class="step">
+                <span class="step-num">SLOT 6 — Reverb</span><br>
+                FX TYPE: <code>Reverb</code> → FX MODEL: <code>Cave</code>
+                <div class="param-grid">
+                    <span class="param">Decay: 70%</span>
+                    <span class="param">Mix: 40%</span>
+                    <span class="param">Pre-delay: 80ms</span>
+                    <span class="param">Tone: 35%</span>
+                </div>
+                <em>Reverb ENORME. Tone oscuro. Como tocar dentro de una caverna de ámbar de 530 millones de años.</em>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Técnica:</strong> Para este preset, tocar con volumen de guitarra al 60-70% (no full). Usar volume swells con el knob para que las notas aparezcan sin ataque de púa — como recuerdos que emergen de la niebla.
+            </div>
+
+            <hr>
+
+            <h2>🎵 Plan de Soundtrack — Demo</h2>
+            <p>Estructura musical para la demo del juego. Centro tonal: <strong>D</strong>. Guitarra principal: Ibanez Prestige (6 cuerdas). La ESP 7-cuerdas se agrega después para duplicar con graves y cuerpo.</p>
+
+            <h3>Afinación</h3>
+            <table>
+                <tr><th>Guitarra</th><th>Afinación</th><th>Rol</th></tr>
+                <tr><td>Ibanez RGR652AHBF</td><td>Drop D (D A D G B E)</td><td>Riff principal, melodía, estructura</td></tr>
+                <tr><td>ESP LTD TE-407 (después)</td><td>Estándar 7 (B E A D G B E) o Drop A</td><td>Duplicar octava abajo, peso, graves</td></tr>
+            </table>
+
+            <h3>8 Leitmotivs</h3>
+            <table>
+                <tr><th>#</th><th>Nombre</th><th>Escala / Modo</th><th>Notas</th><th>Uso en el juego</th></tr>
+                <tr><td>1</td><td>El Gran Charco</td><td><strong>D Frigio</strong> — D Eb F G A Bb C</td><td>Semitono Eb→D = firma sonora del juego. Riff pesado, identidad.</td><td>Tema principal / menú</td></tr>
+                <tr><td>2</td><td>Cordyceps</td><td><strong>D Locrio</strong> — D Eb F G Ab Bb C</td><td>Sin quinta justa = enfermo, inestable. Vol swells sin ataque.</td><td>Esencia baja / horror fúngico</td></tr>
+                <tr><td>3</td><td>La Danza</td><td><strong>D Dórico</strong> — D E F G A B C</td><td>Ambiguo, ni mayor ni menor. Ritmos en 5/4 o 7/8.</td><td>Danza de Antenas (social)</td></tr>
+                <tr><td>4</td><td>Victoria</td><td><strong>D Menor Armónica</strong> — D E F G A Bb C#</td><td>C#→D = resolución dramática. Riff ascendente corto, staccato.</td><td>Ganar combate / objetivo</td></tr>
+                <tr><td>5</td><td>Peligro</td><td><strong>D Frigio Dominante</strong> — D Eb F# G A Bb C</td><td>Tritono Eb↔F# = sirena desafinada. Notas cortas, mecánicas.</td><td>Alarma / zona hostil</td></tr>
+                <tr><td>6</td><td>Ámbar</td><td><strong>D Mixolidio</strong> — D E F# G A B C</td><td>Antiguo, sabio. Clean + reverb. Notas largas, espaciadas.</td><td>Narración del Tardígrado</td></tr>
+                <tr><td>7</td><td>Facción</td><td><strong>Varía por facción</strong> (ver tabla abajo)</td><td>Mismo motivo rítmico, distinto modo. Color = facción.</td><td>Encuentro con NPC clave</td></tr>
+                <tr><td>8</td><td>Game Over</td><td><strong>Tritono D→Ab + cromática descendente</strong></td><td>Tema #1 invertido, decelerando. Ring mod sube. Feedback muere.</td><td>Muerte / Asimilación</td></tr>
+            </table>
+
+            <h4>Variaciones del Leitmotiv #7 por facción</h4>
+            <table>
+                <tr><th>Facción</th><th>Modo</th><th>Color emocional</th></tr>
+                <tr><td>La Colmena</td><td>D Frigio</td><td>Autoritaria, grandiosa</td></tr>
+                <tr><td>Enjambre Negro</td><td>D Locrio</td><td>Enferma, conspirativa</td></tr>
+                <tr><td>Los Sueltos</td><td>D Dórico</td><td>Ambigua, libre</td></tr>
+                <tr><td>Parásitos Libres</td><td>D Menor Armónica</td><td>Dramática, desesperada</td></tr>
+            </table>
+
+            <h3>5 Tracks Completos (loops)</h3>
+            <table>
+                <tr><th>#</th><th>Track</th><th>Duración</th><th>Momento</th><th>Concepto</th><th>Preset POD</th></tr>
+                <tr><td>1</td><td>Exploración: Laboratorio</td><td>2-3 min</td><td>Hub principal</td><td>Mid-tempo industrial, groove mecánico. Usa leitmotiv #1.</td><td>Plague Industrial (delay 0%)</td></tr>
+                <tr><td>2</td><td>Exploración: Zona hostil</td><td>2 min</td><td>Azotea/Sótano/Pasillo/Máquinas</td><td>Más tenso. Synths disonantes, bajo pulsante. EQ varía por zona.</td><td>Plague Industrial</td></tr>
+                <tr><td>3</td><td>Combate</td><td>1.5-2 min</td><td>Pelea por turnos</td><td>Full industrial, riff agresivo, blast beat. Ministry energy.</td><td>Plague Industrial (full)</td></tr>
+                <tr><td>4</td><td>Danza de Antenas</td><td>1-1.5 min</td><td>Conflicto social</td><td>Percusión mecánica, guitarra staccato, tribal.</td><td>Plague Industrial (delay bajo)</td></tr>
+                <tr><td>5</td><td>Menú / Créditos</td><td>1.5 min</td><td>Título + fin demo</td><td>Leitmotiv #1 completo. Doom, atmosférica.</td><td>Plague Industrial + Clean Ámbar (capas)</td></tr>
+            </table>
+
+            <h3>Capas de grabación (workflow Ibanez → ESP)</h3>
+            <table>
+                <tr><th>Capa</th><th>Guitarra</th><th>Función</th><th>Preset</th></tr>
+                <tr><td>1. Riff principal</td><td>Ibanez</td><td>Melodía / identidad del leitmotiv</td><td>Plague Industrial</td></tr>
+                <tr><td>2. Riff rítmico</td><td>Ibanez</td><td>Palm mutes, groove mecánico</td><td>Plague Industrial (delay 0%)</td></tr>
+                <tr><td>3. Clean / textura</td><td>Ibanez</td><td>Ámbar, transiciones, swells</td><td>Clean Ámbar</td></tr>
+                <tr><td>4. Lead / melodía</td><td>Ibanez</td><td>Líneas melódicas puntuales</td><td>Plague Industrial (delay 30%)</td></tr>
+                <tr><td>5. Duplicación grave</td><td>ESP (después)</td><td>Octava abajo, pared de sonido</td><td>Industrial 7-String</td></tr>
+                <tr><td>6. Pedal / cimiento</td><td>ESP (después)</td><td>Notas sostenidas en B o D grave</td><td>Industrial 7-String</td></tr>
+                <tr><td>7. Textura industrial</td><td>ESP (después)</td><td>Ring mod, synth (Path B)</td><td>Industrial 7-String + Dual Path</td></tr>
+            </table>
+
+            <h3>Orden de composición (prioridad)</h3>
+            <ol>
+                <li><strong>Leitmotiv #1 "El Gran Charco"</strong> — D Frigio. Semilla de todo. Riff simple, memorable.</li>
+                <li><strong>Track de Combate</strong> — lo más escuchado. Agresivo, tempo alto.</li>
+                <li><strong>Exploración Laboratorio</strong> — variación lenta del tema principal.</li>
+                <li><strong>Leitmotiv #6 "Ámbar"</strong> — Clean. Contraste total. Refresca el oído.</li>
+                <li>Los demás en cualquier orden.</li>
+            </ol>
+
+            <hr>
+
+            <h2>📚 Referencias</h2>
+            <table>
+                <tr><th>Recurso</th><th>Link</th></tr>
+                <tr><td>Manuales oficiales HD500X</td><td><a href="https://line6.com/support/manuals/podhd500x" target="_blank">line6.com/support/manuals/podhd500x</a></td></tr>
+                <tr><td>HD500X CustomTone (presets comunitarios)</td><td><a href="https://line6.com/customtone/" target="_blank">line6.com/customtone</a></td></tr>
+                <tr><td>Foro Line6 — POD HD</td><td><a href="https://line6.com/support/" target="_blank">line6.com/support (forums)</a></td></tr>
+                <tr><td>Routing Schematics HD500X</td><td><a href="https://line6.com/support/topic/2033-pod-hd-500-500x-routing-schematics/" target="_blank">line6.com (routing thread)</a></td></tr>
+            </table>
+
+            <blockquote>"El ruido industrial es la banda sonora del Gran Charco. Máquinas oxidadas, tuberías goteando ácido, el zumbido constante de un mundo que se pudre. Así suena la civilización de los insectos."<br>— Nota de producción, Plaga: La Descarada</blockquote>
+        </article>
+    </main>
+</body>
+</html>
