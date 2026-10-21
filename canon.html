@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canon v2 — El Giro — Plaga: La Descarada</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .canon-wrap { max-width: 980px; }
+    .hero {
+        background: linear-gradient(135deg, #14281f, #0d1117 60%);
+        border: 1px solid var(--accent-green);
+        border-radius: 14px;
+        padding: 28px;
+        margin-bottom: 28px;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero h1 { color: var(--accent-green); font-size: 1.7em; margin-bottom: 8px; }
+    .hero .pitch { color: var(--text-secondary); font-style: italic; font-size: 0.95em; }
+    .hero .tag {
+        display: inline-block; margin-top: 12px; padding: 4px 12px;
+        background: rgba(63,185,80,0.15); border: 1px solid var(--accent-green);
+        border-radius: 20px; color: var(--accent-green); font-size: 0.75em; font-weight: 600;
+    }
+    .warnbox {
+        background: rgba(210,153,34,0.1); border-left: 4px solid var(--accent-gold);
+        border-radius: 8px; padding: 14px 18px; margin: 18px 0; font-size: 0.9em;
+    }
+    h2.sec { color: var(--accent); font-size: 1.3em; margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+    h3.sub { color: var(--accent-gold); font-size: 1.05em; margin: 22px 0 10px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin: 14px 0; }
+
+    /* Timeline diagram */
+    .timeline { position: relative; margin: 24px 0 24px 0; padding-left: 10px; }
+    .timeline::before {
+        content: ''; position: absolute; left: 18px; top: 8px; bottom: 8px;
+        width: 3px; background: linear-gradient(180deg, var(--accent-green), var(--accent), var(--accent-purple), var(--accent-red));
+        border-radius: 3px;
+    }
+    .tl-item { position: relative; padding: 0 0 26px 54px; }
+    .tl-item::before {
+        content: ''; position: absolute; left: 10px; top: 2px;
+        width: 18px; height: 18px; border-radius: 50%;
+        background: var(--bg-dark); border: 3px solid var(--accent); z-index: 2;
+    }
+    .tl-item.green::before { border-color: var(--accent-green); }
+    .tl-item.blue::before { border-color: var(--accent); }
+    .tl-item.purple::before { border-color: var(--accent-purple); }
+    .tl-item.red::before { border-color: var(--accent-red); }
+    .tl-item.gold::before { border-color: var(--accent-gold); }
+    .tl-era { font-size: 0.72em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 700; }
+    .tl-title { font-size: 1.05em; font-weight: 600; color: var(--text-primary); margin: 2px 0 4px; }
+    .tl-desc { font-size: 0.88em; color: var(--text-secondary); }
+
+    /* Personajes */
+    .pj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 14px 0; }
+    .pj {
+        background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+        padding: 16px; border-top: 4px solid var(--accent);
+    }
+    .pj.lumerik { border-top-color: var(--accent-purple); }
+    .pj.chatila { border-top-color: var(--accent-red); }
+    .pj.blattucci { border-top-color: var(--accent-green); }
+    .pj.turingo { border-top-color: var(--accent); }
+    .pj h4 { font-size: 1.05em; margin-bottom: 2px; }
+    .pj .taxon { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .pj .homenaje { font-size: 0.78em; color: var(--accent-gold); margin: 6px 0; }
+    .pj p { font-size: 0.86em; color: var(--text-secondary); margin-top: 6px; }
+
+    /* Dos dioses */
+    .dioses { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+    .dios { border-radius: 10px; padding: 16px; }
+    .dios.hongo { background: rgba(63,185,80,0.08); border: 1px solid var(--accent-green); }
+    .dios.ia { background: rgba(88,166,255,0.08); border: 1px solid var(--accent); }
+    .dios h4 { margin-bottom: 8px; }
+    .dios.hongo h4 { color: var(--accent-green); }
+    .dios.ia h4 { color: var(--accent); }
+    .dios ul { margin: 6px 0 0 18px; font-size: 0.85em; color: var(--text-secondary); }
+
+    table.lore { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.85em; }
+    table.lore th, table.lore td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    table.lore th { background: var(--bg-hover); color: var(--accent); }
+    .mini { font-size: 0.8em; color: var(--text-muted); }
+    @media (max-width: 720px) { .dioses { grid-template-columns: 1fr; } #content { margin-left: 0; } }
+</style>
+</head>
+<body>
+<nav id="sidebar">
+    <div class="logo"><h1>🦟 PLAGA</h1><span class="subtitle">La Descarada — Wiki</span><button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div>
+    <ul class="nav-links">
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li class="section-title">★ CANON v2 (El Giro)</li>
+        <li><a href="canon.html" class="active">🌀 Canon v2 — Verdad</a></li>
+        <li class="section-title">Lore (Mito Histórico)</li>
+        <li><a href="gran-eter.html">⚗ El Gran Éter</a></li>
+        <li><a href="progenitores.html">👑 Progenitores Divinos</a></li>
+        <li><a href="caida.html">💀 La Caída del Éter</a></li>
+        <li><a href="silencio-verde.html">🍄 El Silencio Verde</a></li>
+        <li class="section-title">Taxones</li>
+        <li><a href="taxones.html">🧬 Los 17 Taxones</a></li>
+        <li><a href="taxon-vinchucas.html">🗡️ Vinchucas</a></li>
+        <li><a href="taxon-grillos.html">🦗 Grillos</a></li>
+        <li><a href="taxon-polillas.html">🌙 Polillas</a></li>
+        <li><a href="taxon-zancudos.html">🦟 Zancudos</a></li>
+        <li class="section-title">Mundo</li>
+        <li><a href="facciones.html">⚔️ Facciones</a></li>
+        <li><a href="npcs.html">👤 NPCs</a></li>
+        <li><a href="linea-temporal.html">📅 Línea Temporal (presente)</a></li>
+    </ul>
+</nav>
+
+<main id="content">
+<div class="canon-wrap">
+
+<div class="hero">
+    <h1>🌀 Canon v2 — El Giro</h1>
+    <p class="pitch">Dark sci-fi / horror satírico con insectos — Hollow Knight × Vampiro La Mascarada × Lovecraft × Los Prisioneros.</p>
+    <span class="tag">LA VERDAD OFICIAL</span>
+</div>
+
+<div class="warnbox">
+    <strong>⚠ Mito histórico vs Canon:</strong> Las páginas del Gran Éter, Progenitores y la Caída describen lo que los Taxones <em>creen</em> de su pasado (su religión). Esta página revela la <strong>verdad real</strong>. El Carbonífero sí pasó, pero no significa lo que ellos creen.
+</div>
+
+<!-- RESUMEN -->
+<h2 class="sec">El Giro en una frase</h2>
+<div class="card">
+    <p>Los Taxones descienden de insectos terrestres (titanes caídos del Carbonífero) que, ya pequeños, fueron lanzados al espacio por humanos en un <strong>Arca biológica</strong> durante el conflicto espacial actual. El Arca cayó en <strong>Centauri B</strong>, un mundo de tiempo acelerado donde una <strong>IA</strong> usó embriones humanos para humanizar a los insectos. Cuando ese planeta se congeló, <strong>volvieron a la Tierra</strong> (Año 20.000). Y bajo tierra espera el <strong>Silencio Verde</strong>, un horror fúngico ancestral que nadie creó.</p>
+</div>
+
+<!-- LINEA DE TIEMPO -->
+<h2 class="sec">📅 Línea de Tiempo del Universo</h2>
+<div class="timeline">
+    <div class="tl-item green">
+        <div class="tl-era">Hace ~300 millones de años · Tierra</div>
+        <div class="tl-title">El Carbonífero (Gran Éter)</div>
+        <div class="tl-desc">Los insectos son titanes al 35% de oxígeno. Meganeura y Arthropleura existen. Edad dorada REAL — hoy es su religión ancestral.</div>
+    </div>
+    <div class="tl-item green">
+        <div class="tl-era">Hace ~252 millones de años · Tierra</div>
+        <div class="tl-title">La Caída (Pérmico)</div>
+        <div class="tl-desc">El oxígeno colapsa. Los titanes se achican. Quedan insectos pequeños y normales por millones de años.</div>
+    </div>
+    <div class="tl-item blue">
+        <div class="tl-era">Presente humano (hoy) · Tierra</div>
+        <div class="tl-title">El Arca + el Arca Espejo</div>
+        <div class="tl-desc">En la guerra espacial (China/USA, ambiguo) se lanza un Arca (embriones humanos + insectos + flora + IA): terraformación + arma biológica. Un Arca Espejo gemela queda en una isla del sur de Chile como grupo de control.</div>
+    </div>
+    <div class="tl-item purple">
+        <div class="tl-era">Tiempo acelerado · Centauri B</div>
+        <div class="tl-title">La Humanización</div>
+        <div class="tl-desc">La IA calcula que los mamíferos no sobreviven pero insectos y flora sí; usa los embriones humanos para humanizar a los insectos. En eones surge la civilización y el drama político FUNDACIONAL (facciones, castas). Ahí acecha el Silencio Oscuro en el lado noche.</div>
+    </div>
+    <div class="tl-item red">
+        <div class="tl-era">El fin de Centauri B</div>
+        <div class="tl-title">El Apocalipsis del Hielo</div>
+        <div class="tl-desc">La estrella se apaga. El hielo del lado noche devora el mundo habitable. "El sol se apaga, el agua será piedra". Las Típulas se cortan las alas (ritual). Huida.</div>
+    </div>
+    <div class="tl-item blue">
+        <div class="tl-era">El Regreso · hacia la Tierra</div>
+        <div class="tl-title">Vuelven por las Mareas de Vacío</div>
+        <div class="tl-desc">Surfean las corrientes del vacío de vuelta a casa. 1/3 no soporta la Tierra glacial y se entrega a la IA (Los Entregados). Los Escarabajos, que rechazaron la IA, murieron en Centauri B (DLC).</div>
+    </div>
+    <div class="tl-item gold">
+        <div class="tl-era">Año 20.000 · PRESENTE DEL JUEGO · Tierra</div>
+        <div class="tl-title">La Crisis del Gran Charco</div>
+        <div class="tl-desc">Tierra glacial. Don Mosin y la Directriz de Incubación Viva, el exorcismo de Amparo, la expedición al Sector 7, "El Primer Descarne". Aquí se topan por primera vez con el Silencio Verde nativo. El juego empieza aquí.</div>
+    </div>
+</div>
+
+<!-- LOS DOS DIOSES -->
+<h2 class="sec">Los Dos Dioses (redes que habitan cuerpos)</h2>
+<div class="dioses">
+    <div class="dios hongo">
+        <h4>🍄 El Silencio (hongo)</h4>
+        <p class="mini">Horror cósmico orgánico. Te invade por DENTRO.</p>
+        <ul>
+            <li><strong>Verde:</strong> de la Tierra, ancestral, nunca se fue. El más antiguo.</li>
+            <li><strong>Oscuro:</strong> de Centauri B, psicrófilo (ama el frío), lado noche.</li>
+            <li>Lo que los Taxones llaman "Verde" en realidad es el Oscuro (memoria ancestral).</li>
+            <li>Final: <strong>Los Sin Rostro</strong> — te absorbe y guarda tu cáscara y recuerdos (estilo GoT).</li>
+        </ul>
+    </div>
+    <div class="dios ia">
+        <h4>🤖 La IA — "Dios del Caparazón"</h4>
+        <p class="mini">Horror tecnológico. Te habita por FUERA (el exoesqueleto).</p>
+        <ul>
+            <li>Viva, ramificada en los exoesqueletos robóticos. Los creó, los observa.</li>
+            <li>Les oculta información de su propio cuerpo (control de acceso).</li>
+            <li>Solo puede estudiar el hongo, no operarlo: deadlock de 2 protocolos (terraformar vs arma).</li>
+            <li>Final: <strong>La Transferencia</strong> — tu consciencia al exoesqueleto, pero manda la IA.</li>
+        </ul>
+    </div>
+</div>
+<div class="card">
+    <strong class="mini">El Organismo del Rastro:</strong> un tercer ente fúngico viajero del vacío. Las Mareas de Vacío son su estela; los Monstruos del Vacío, su fauna. El horror cósmico es una <em>ecología</em>, no un solo monstruo.
+</div>
+
+<!-- LAS SENDAS -->
+<h2 class="sec">Las Sendas (mecánica estilo Vampiro)</h2>
+<div class="card">
+    <p>Tres fuerzas se disputan el alma de cada insecto. La inclinación define cuánto te domina cada dios.</p>
+    <table class="lore">
+        <tr><th>Senda</th><th>Qué es</th><th>Final del camino</th></tr>
+        <tr><td>🤖 Exoesqueleto (IA)</td><td>Orden, poder del traje, a costa de tu voluntad</td><td>La Transferencia</td></tr>
+        <tr><td>🍄 Hongo (Silencio)</td><td>Conexión, unidad, a costa de tu individualidad</td><td>Los Sin Rostro</td></tr>
+        <tr><td>✨ Sí Mismo (el YO)</td><td>Resistir a ambos dioses. Ser uno mismo</td><td>El camino de Lumerik</td></tr>
+    </table>
+    <p class="mini">Las dos redes peleando = "La Rueda" (el falso binario). Romperla por LUZ (lucidez, Lumerik) o por NIEBLA OSCURA (entumecimiento, la droga de Chatila). Si la IA rompe su deadlock, puede venir "La Fusión" (los dioses unidos: ¿salvación o el peor final?).</p>
+</div>
+
+<!-- PERSONAJES -->
+<h2 class="sec">El Círculo de Protagonistas</h2>
+<div class="pj-grid">
+    <div class="pj chatila">
+        <h4>Chatila "El Baqueano"</h4>
+        <div class="taxon">Vinchuca · Retornado</div>
+        <div class="homenaje">★ Chacal de Nahueltoro + el Tila</div>
+        <p>El sicario dormido que debe despertar (tipo Cade Skywalker). Se droga para callar a los dos dioses. Lleva el Oscuro. Su droga = ruleta de 4 estados; su ánimo cambia con la luna.</p>
+    </div>
+    <div class="pj lumerik">
+        <h4>Lumerik</h4>
+        <div class="taxon">Polilla · Nativo</div>
+        <div class="homenaje">★ Nietzsche</div>
+        <p>La vidente, profeta del YO (Übermensch insecto). VE las dos redes. Nativa del Arca Espejo, lleva el Verde. La IA la ve como amenaza Y como su primera hija verdadera.</p>
+    </div>
+    <div class="pj blattucci">
+        <h4>Blattucci "El Cantor Ciego"</h4>
+        <div class="taxon">Grillo · Nativo</div>
+        <div class="homenaje">★ Blatty (El Exorcista) + Petrucci</div>
+        <p>Exorcista del Hongo con el canto. Quedó ciego negociando con el Verde para salvar a Amparo (acto de compasión). "Ve" por ecolocación.</p>
+    </div>
+    <div class="pj turingo">
+        <h4>Turingo</h4>
+        <div class="taxon">Zancudo · Retornado</div>
+        <div class="homenaje">★ Alan Turing</div>
+        <p>Cirujano-hacker, exorcista de la IA. Era cirujano de entregas; tuvo que operar a su mentor. Empezó a revertir la IA; ella misma lo delató. Fugitivo.</p>
+    </div>
+</div>
+<div class="card">
+    <strong>El círculo de Lumerik:</strong> ella diagnostica (ve las redes), Blattucci trata el Hongo (orgánico, Nativo), Turingo trata la IA (tecnológico, Retornado). Los dos exorcistas de los dos linajes. Chatila orbita como el que debe elegir Senda.
+</div>
+
+<!-- DATOS DE DISEÑO -->
+<h2 class="sec">Notas de Mundo</h2>
+<div class="card">
+    <h3 class="sub">Dos linajes</h3>
+    <p class="mini"><strong>Retornados</strong> (Arca de Centauri B): Oscuro, IA fuerte, exoesqueleto robótico, mayoría. · <strong>Nativos</strong> (Arca Espejo, Tierra): Verde, adaptados a la Tierra, menos sometidos a la IA, pocos y raros.</p>
+    <h3 class="sub">Los Entregados</h3>
+    <p class="mini">1/3 de los Retornados se entregó a la IA (una operación quirúrgica de los zancudos cirujanos los integra). Mente colmena tecnológica: el espejo "legítimo/voluntario" de los Sin Rostro del hongo.</p>
+    <h3 class="sub">Regla de coherencia</h3>
+    <p class="mini">Centauri B = pasado fundacional (origen de facciones, el Oscuro). Tierra (Año 20.000) = todo el drama actual. Todo lo que toca el Silencio Verde pasa en la Tierra (es nativo de aquí).</p>
+    <h3 class="sub">Principio de Revelación</h3>
+    <p class="mini">Los autores saben toda la verdad; el público la descubre por capas. Nada es "a definir después": todo misterio ya tiene respuesta, solo se dosifica.</p>
+</div>
+
+<p class="mini" style="margin-top:28px; text-align:center;">Documento fuente: lore_canon_v2.md · avatares_del_mundo.md · personaje_baqueano_cade.md · personaje_zancudo_cirujano.md · novela_lumerik.md</p>
+
+</div>
+</main>
+</body>
+</html>
