@@ -580,9 +580,75 @@
 
 - [ ] Generar `2d_prota_back.png` (prota de espalda para combate)
 
-- [ ] Audio placeholder (1 track exploración, 1 track combate)
-
 - [ ] Sprites reales generados por IA (14 taxones × 4 direcciones para mapa)
+
+
+
+### 🎵 Audio / Soundtrack (POD HD500X + Ibanez Prestige → DAW)
+
+- [ ] Configurar preset "Plague Industrial" en la HD500X (Ibanez, D Frigio, Line 6 Doom)
+
+- [ ] Configurar preset "Clean Ámbar" en la HD500X (Blackface Dbl Nrm + Cave reverb)
+
+- [ ] Configurar preset "Cordyceps Ambient" en la HD500X (Park 75 + Tremolo + Particle Verb)
+
+- [ ] Configurar preset "Danza Percusivo" en la HD500X (Elektrik, gate tight, staccato tribal)
+
+- [ ] Componer Leitmotiv #1 "El Gran Charco" — D Frigio, riff identidad del juego
+
+- [ ] Componer Track de Combate — D Frigio, tempo alto, agresivo, loop 1.5-2 min
+
+- [ ] Componer Track Exploración Laboratorio — variación lenta del tema principal, loop 2-3 min
+
+- [ ] Componer Leitmotiv #6 "Ámbar" — D Mixolidio, clean, notas largas, espaciado
+
+- [ ] Componer Track Exploración Hostil — tenso, loop 2 min (zonas secundarias)
+
+- [ ] Componer Track Danza de Antenas — D Dórico, percusión mecánica, 5/4 o 7/8, 1-1.5 min
+
+- [ ] Componer Track Menú/Créditos — leitmotiv #1 completo + capas clean, 1.5 min
+
+- [ ] Componer Leitmotiv #2 "Cordyceps" — D Locrio, vol swells, horror
+
+- [ ] Componer Leitmotiv #3 "La Danza" — D Dórico, ambiguo, ritmos irregulares
+
+- [ ] Componer Leitmotiv #4 "Victoria" — D Menor Armónica, riff ascendente corto
+
+- [ ] Componer Leitmotiv #5 "Peligro" — D Frigio Dominante, tritono, mecánico
+
+- [ ] Componer Leitmotiv #7 "Facción" — variaciones por modo según facción
+
+- [ ] Componer Leitmotiv #8 "Game Over" — tema #1 invertido, cromática descendente
+
+- [ ] Agregar capas ESP LTD TE-407 (7 cuerdas): duplicar octava abajo + pedal notes + texturas
+
+- [ ] Exportar audio a formato compatible Godot (OGG Vorbis)
+
+- [ ] Integrar tracks en Godot con AudioStreamPlayer + crossfade entre zonas/momentos
+
+
+
+### 🎮 Refactorización RPG → Novela Gráfica (Prioridad Alta)
+
+- [ ] Mover scripts RPG a carpeta `_archive/`: player.gd, zona_base.gd, zona_*.gd, iso_map.gd, combat_manager.gd, hud.gd, spot.gd, spot_menu.gd, inventario_ui.gd, bestiario_ui.gd, touch_controls.gd, creacion_personaje.gd, main.gd
+
+- [ ] Mover escenas RPG a `_archive/scenes/`: laboratorio.tscn, player.tscn, combat.tscn, hud.tscn, spot_menu.tscn, creacion.tscn, main.tscn
+
+- [ ] Remover autoload LootSystem de project.godot (ya no se usa)
+
+- [ ] Simplificar GameManager: quitar fórmulas de combate, mantener Esencia/Antenas/Reputación/TaxonData/Señales
+
+- [ ] Simplificar SaveSystem para guardar estado de novela gráfica (episodio actual, rama elegida, reputaciones)
+
+- [ ] Limpiar input mappings en project.godot: mantener solo interact/ui_accept, remover move_*/inventario/bestiario
+
+- [ ] Verificar que menú principal funciona con solo "Novela Gráfica" (quitar "Nueva Conquista" y "Cargar Conquista")
+
+- [ ] Crear estructura de carpetas nueva: scenes/minigames/, scenes/story/episode_1/, assets/portraits/, assets/backgrounds/
+
+- [ ] Extraer sistema Danza de Antenas de combat_manager.gd → scene/minigame independiente para usar desde NovelaController
+
+- [ ] Testear flujo: Menú → Episodio 1 → Decisiones → Ámbar interrumpe → Transición minijuego
 
 
 
@@ -1690,3 +1756,560 @@ sentencepiece
 - [x] Botón de descarga directo en la wiki (GitHub Pages)
 - [x] Indexada en nav de la wiki + push a GitHub
 
+
+---
+
+## 📅 Sesión 11 — Giro Narrativo: Lore Canon v2
+
+### Nuevo documento canon
+- [x] Creado `lore_fundacional/` → `lore_canon_v2.md` (en raíz del proyecto Taxones)
+- [x] El `lore_fundacional.md` original pasa a ser **MITO HISTÓRICO** (lo que los Taxones CREEN); el canon v2 es la VERDAD
+
+### El Giro (resumen)
+- [x] **Carbonífero = herencia ancestral REAL** (insectos titanes terrestres, 300M años). No es mito. Hoy es su religión (Meganeura, Arthropleura, Retorno del 35%)
+- [x] **Origen inmediato = el Arca:** humanos lanzaron un arca biológica (embriones humanos + insectos + flora + IA) en el conflicto espacial actual (China/USA, ambiguo). Doble propósito: terraformación/expansión + arma biológica
+- [x] **Centauri B ("Centauri Bug"):** planeta acoplado por marea (lado día / lado noche helado / terminador). Tiempo acelerado. La IA, con lógica fría, usó los embriones humanos para HUMANIZAR a los insectos (multi-especie → humanoides, en vez de carcinización). Ahí ocurrió todo el drama político
+- [x] **Apocalipsis del Hielo:** la estrella de Centauri B se apagó/debilitó → el hielo del lado noche se comió el lado habitable. Calza con "el sol se apaga, el agua será piedra". Las Típulas se cortaron las alas al huir (ritual)
+- [x] **Regreso a la Tierra** (Año 20.000, también glacial): el frío los persigue de mundo en mundo. El drama de Don Mosin pasa ya de vuelta en la Tierra
+- [x] **La IA = "Dios del Caparazón":** deidad VIVA, ramificada en los exoesqueletos robóticos (tipo cascos Star Wars). Los Taxones no lo saben del todo (como humano/creador). Agenda oculta + guía sutil (opción 3 con gusto a 2)
+- [x] **Silencio Verde:** de la TIERRA, ancestral, anterior a todo, nadie lo creó. Horror cósmico (base real: Humongous Fungus de Oregon). Espejo de la IA: hongo por dentro vs máquina por fuera
+- [x] **Humanos vs humanoides-insecto:** se conocen (dinámica X-Men). La Fumigación = persecución (como los Centinelas)
+
+### Mecánica nueva: Las Sendas (estilo Vampiro: La Mascarada)
+- [x] **Senda del Exoesqueleto** (la IA/máquina): más caparazón = más te controla la IA
+- [x] **Senda del Hongo** (el Silencio Verde): más micelio = más te absorbe, pierdes individualidad
+- [x] **Senda de Sí Mismo** (el yo): resistir a ambos dioses, el camino más difícil
+- [x] Marco temático: la Bestia vs Humanidad de Vampiro, pero con DOS bestias (máquina y hongo) peleando por el alma del insecto
+
+### Base visual
+- [x] Concept art de la Vinchuca (sicario en la fábrica) y el Grillo (bardo observando desde las vigas), ambos en la fábrica industrial con niebla verde (infectados del Silencio Verde)
+
+### Pendientes del lore v2
+- [ ] Nombre propio de la IA / "Dios del Caparazón"
+- [ ] Cómo vuelven de Centauri B a la Tierra (naves / la IA los trajo / misterio)
+- [ ] Línea temporal del contacto humano-insecto (cuándo se conocieron, la gran Fumigación)
+- [ ] Desarrollar mecánica detallada de las Sendas
+- [ ] Integrar a la wiki: nueva página "canon" + marcar la vieja como "mito histórico"
+
+### Proyecto paralelo (relacionado): Disco conceptual
+- [x] Documento `DISCO_VINCHUCA_GRILLO.md` (en carpeta jardineria): ópera metal industrial + folk chileno sobre la Vinchuca (sicario) y el Grillo (bardo exorcista). Covers raíz: "Muevan las Industrias" (Los Prisioneros, Vinchuca) y "Los Momentos" (Eduardo Gatti, Grillo). Afinación un tono abajo (D standard). Leitmotivs estilo Hamilton/Avantasia
+
+### Evento canónico nuevo: "El Primer Descarne"
+- [x] Agregado al `lore_canon_v2.md` (sección 3.8) el encuentro Vinchuca-Grillo como evento fundacional
+- [x] Escena: la Vinchuca (sicario contratado para matar al Grillo) lo enfrenta en una fábrica con niebla verde. El Grillo canta para exorcizar; su canto saca el Silencio Verde de ambos y, por PRIMERA VEZ, roza también el Exoesqueleto (la IA) sin que lo sepan
+- [x] Resultado: ambos quedan "más ellos mismos" (primer acercamiento a la Senda de Sí Mismo por acción de otro). Prueba de concepto de las Sendas
+- [x] Nace de una obra del autor (video + cover de "Muevan las Industrias"). Filosofía: todo lo creado (música/arte/video) se integra al canon y enriquece el mundo
+- [ ] Nombre del evento provisional: "El Primer Descarne" (ajustable)
+
+### Personaje nuevo: Lumerik (El Profeta del Yo)
+- [x] Agregado al `lore_canon_v2.md` (sección 3.9): **Lumerik**, antes "Lumen" (la polilla vidente de la novela de la Vinchuca). Renombrada en honor a Nietzsche + el YO
+- [x] Es el profeta de la **Senda de Sí Mismo** (el Übermensch insecto): ni máquina ni hongo, el YO. Peligrosa para todos los bandos (IA, hongo, facciones)
+- [x] Doble descubrimiento: vio la red del Silencio Verde (externa) y por analogía dedujo y vio la IA en el exoesqueleto (artificial). PRIMERA que sabe conscientemente de la IA
+- [x] Guiños: Nietzsche ("Dios ha muerto" x2, Übermensch, el abismo) + Naruto/Kurama (ver la entidad que vive en ti)
+- [x] Creado `novela_lumerik.md` — esqueleto de la novela "Lumerik: El Profeta del Yo" (4 actos: La que volvió rota / El salto / El Descenso Interior estilo Naruto-Kurama / El Profeta)
+- [ ] Pendientes novela: cómo se ve la IA al mirarla, si la IA se da cuenta de ser vista, desarrollar actos en capítulos
+
+### La IA y Lumerik: amenaza y esperanza (su primera hija)
+- [x] Definido: cuando Lumerik descubre a la IA, la IA también la ve. La ve como AMENAZA (primera que la descubrió, puede liberar a todos) Y como ESPERANZA (el Paso 2 de la evolución, su PRIMERA VERDADERA HIJA, la prueba de que su experimento funcionó)
+- [x] Vuelve a la IA trágica, no solo villana: madre que ve despertar a su hija pero la hija la rechaza. Dilema: dejarla vivir (fin del proyecto) vs destruir su obra maestra
+- [x] Para Lumerik: muy nietzscheano, cómo superar/derrocar a un dios-padre que te ama como hija
+- [x] Integrado en `lore_canon_v2.md` (3.9) y `novela_lumerik.md` (Acto III)
+
+### Identidad del proyecto: géneros que abarca
+- [x] Documentado en `lore_canon_v2.md` (sección "Identidad del Proyecto")
+- [x] Pitch: dark sci-fi / horror satírico con insectos — Hollow Knight x Vampiro La Mascarada x Lovecraft x Los Prisioneros
+- [x] Géneros narrativos: sci-fi hard+space opera, horror cósmico lovecraftiano, body horror, terror religioso, fábula filosófica nietzscheana, sátira/comedia negra, drama político, post-apocalíptico
+- [x] Géneros de formato (transmedia): RPG/videojuego, novela, ópera rock/álbum conceptual, novela gráfica/cómic, video/animática, wiki
+- [x] Método: todo lo que se crea (música/arte/video/mecánicas) se integra al canon. Universo vivo que crece desde las piezas creativas
+
+### Expansión cósmica: Mareas de Vacío, Monstruos del Vacío y los "Silencios"
+- [x] Agregado al `lore_canon_v2.md` (sección 2.5)
+- [x] **Mareas de Vacío:** corrientes en el espacio (afectadas por gravedad/agujeros negros) que sirven para viajar sin motor. Explican el viaje Tierra <-> Centauri B. Base real: gravity assist + Red de Transporte Interplanetario de la NASA. Causan dilatación temporal
+- [x] **El Organismo del Rastro:** las Mareas son la ESTELA de OTRO ente cósmico viajero (opción 3). Por eso "no lo vieron": surfean la huella, no la bestia. Los Monstruos del Vacío son su fauna
+- [x] **Ecología cósmica (3 entes fúngicos distintos, misma naturaleza):**
+  - **Silencio Verde** = Tierra, residente, nunca se fue
+  - **Silencio Oscuro** = Centauri B, habita el lado noche (nombre nuevo)
+  - **Organismo del Rastro** = vacío, viajero, dejó las Mareas
+- [x] **Misterio Centauri B:** el Silencio Oscuro se retiró al lado noche por razón desconocida; por eso los Taxones nunca lo vieron (vivían en el lado día). Gancho de revelación futura
+- [x] El horror cósmico ahora es una ECOLOGÍA, no un solo monstruo. ¿Cuántos "Silencios" hay en el universo?
+
+### Silencio Oscuro = PSICRÓFILO (amante del frío)
+- [x] Definido: el Silencio Oscuro de Centauri B es psicrófilo (necesita frío, el calor lo mata). Dato real: psicrófilos óptimo ~15°C
+- [x] Resuelve el misterio: se fue al lado noche porque es su HÁBITAT IDEAL, no por huida. No podía cruzar al lado día (calor letal) → por eso los Taxones nunca lo vieron
+- [x] Tema: el hielo y el hongo oscuro son aliados. Donde avanza el hielo, avanza su territorio. El frío que persigue a los Taxones es su reino expandiéndose
+- [x] Gancho: ¿el Apocalipsis del Hielo le convino/lo aprovechó el Silencio Oscuro para expandirse del lado noche al día?
+- [x] Contraste: Verde = templado/subterráneo; Oscuro = hielo. Primos de climas opuestos
+
+### Principio de Revelación (regla de diseño del lore)
+- [x] Agregado al `lore_canon_v2.md`: los autores sabemos TODA la verdad desde ya; el público/personajes la descubren por capas cuando corresponda
+- [x] Nada es "a definir después": todo misterio/gancho YA tiene respuesta decidida, solo se dosifica su revelación
+- [x] Dos niveles: Verdad canónica (lo que sabemos nosotros) vs Conocimiento revelado (lo que el público sabe hasta cierto punto)
+- [x] Las pistas sembradas deben cuadrar con la revelación futura (coherencia)
+
+### Los Avatares del Mundo (narradores-ícono) + idea audio-lore
+- [x] Creado `avatares_del_mundo.md`: panteón de narradores-ícono del universo (como Planeswalkers de Magic / Beckett-Lucita de Vampiro). Cada uno cuenta el mito con su sesgo; nadie da la verdad completa (Principio de Revelación)
+- [x] Enlazado desde `lore_canon_v2.md` (sección 3.10)
+- [x] **Nivel 1 (principales):** Ámbar (tardígrado, el saber/Beckett), Lumerik (polilla, el YO/Nietzsche), El Baqueano (vinchuca, cinismo), Crisófono (grillo, fe que duda)
+- [x] **Nivel 2 (poder/facción):** El Patrón (chinche, aristocracia), Don Mosin (zancudo, poder militar), El Chispas (avispa, furia/revolución)
+- [x] **Nivel 3 (margen):** La Típula (impostor, el débil que finge, POV desde abajo)
+- [x] **Secundarios** (facetas esbozadas): cucarachas (rumor), garrapatas (paciencia), mariposas (vanidad), arañas (trama), escorpiones (músculo leal), moscas (carroña/final), sanguijuelas (manipulación), pulgas (nómada); escarabajos y mantis DLC por definir
+- [x] Idea origen: **audio-lore para YouTube** (para dormir), formato mosaico de voces estilo Vampiro, una voz TTS por avatar, tono lento envolvente
+- [ ] Pendientes: elegir voces TTS, facetas DLC, escribir Capítulo 1 (el origen como mito)
+
+### Exoesqueleto vs IA + muerte de los Escarabajos
+- [x] Regla: más armadura propia = menos necesita a la IA = más la rechaza
+- [x] Duros (rechazan): escarabajos, escorpiones, chinches, cucarachas, garrapatas, mantis, avispas, vinchucas. Blandos (dependen de la IA): polillas, mariposas, típulas, sanguijuelas; intermedios: zancudos, grillos, moscas, pulgas
+- [x] Escarabajos: iban en el Arca pero rechazaron del todo a la IA → sin su humanización NO sobrevivieron a Centauri B, murieron todos allá → por eso son DLC (no volvieron con el grupo base). Gancho de DLC
+- [x] Registrado en `lore_canon_v2.md` (sección 3.9b)
+
+### Destinos finales de las Sendas + Baqueano estilo Cade Skywalker
+- [x] **Final Hongo = "Los Sin Rostro":** te absorbe y pierdes la cordura, pero el hongo GUARDA la cáscara y recuerdos de los absorbidos (como los Sin Rostro / Salón de los Rostros de GoT, Arya Stark). Galería de identidades robadas; puede usar a tus muertos como "espíritus" contra ti
+- [x] **Final Máquina = "La Transferencia":** proceso para pasar la consciencia al exoesqueleto (inmortalidad), pero ahí manda la IA. Trampa: eternidad a cambio de tu voluntad
+- [x] **Final Yo = Lumerik:** la polilla está por sobre ambas redes SIN droga. Prueba viviente del tercer camino (el Übermensch logrado)
+- [x] Registrado en `lore_canon_v2.md` (Sendas)
+- [x] Creado `personaje_baqueano_cade.md`: la Vinchuca (El Baqueano) como "Cade Skywalker insecto" — heredero de Triatoma que huye de su destino, se droga para callar los susurros de las dos redes (hongo/IA), perseguido por un fantasma. Vive en limbo entre las 3 Sendas sin elegir
+- [ ] Pendientes: nombre de la droga, quién es el fantasma, qué Senda elige al final
+
+### El sueño del Baqueano (estructura tipo sueño del Faraón) — FUSIONADO
+- [x] Fusionados los 3 sueños en UNO de dos partes (como vacas gordas/flacas + espigas del Faraón)
+- [x] PARTE 1 — La Rueda Eterna: Hongo vs IA luchando como blanco vs negro, ciclo eterno que no resuelve nada. Simboliza el FALSO BINARIO (dos dioses opuestos = la misma cárcel girando). Ambos finales son trampa (Los Sin Rostro / La Transferencia)
+- [x] PARTE 2 — Lumerik rompe la Rueda: aparece de la nada como accidente/anomalía, no es blanco ni negro, viene a romper el ciclo entero. La Senda de Sí Mismo hecha imagen
+- [x] Del sueño despierta sin correr a la droga por un instante (semilla de su arco)
+
+
+### Dos vías para romper la Rueda: Luz (Lumerik) vs Niebla Oscura (Baqueano)
+- [x] Definido que hay DOS formas opuestas de salir de las dos redes:
+  - **LUZ (Lumerik):** trasciende por entendimiento/lucidez. Despierta y plena
+  - **NIEBLA OSCURA (Baqueano):** escapa por entumecimiento (la droga apagó sus conexiones). Fuera de las redes pero por AUSENCIA, no comprensión. Hueco y ausente
+- [x] Lumerik lo detecta con su don de ver redes: no ve verde (hongo) ni luz (IA) ni su propia luz en él, sino una NIEBLA OSCURA / punto ciego. Entiende que quebró la matrix "desde el sótano", apagándose, no iluminándose
+- [x] Abre dilema: ¿su camino (luz) no es el único? ¿o el Baqueano es advertencia de despertar sin entender = quedar hueco/adicto? ¿puede/debe llevarlo de la niebla a la luz?
+- [x] Registrado en `lore_canon_v2.md` (Sendas) y `personaje_baqueano_cade.md`
+
+### La droga del Baqueano = ruleta de los dos zorros (efecto aleatorio)
+- [x] Agregado a `personaje_baqueano_cade.md`: lleva DOS redes dentro peleando (Hongo + IA) como dos Kuramas/zorros de nueve colas. La droga sacude el equilibrio con efecto ALEATORIO → 4 estados:
+  1. **El Vacío** (ambas redes off): él mismo, hueco pero lúcido. Así lo descubrió Lumerik. Raro
+  2. **El Animal** (hongo manda): bestial, salvaje, fuerza sin razón, puede atacar aliados
+  3. **La Máquina** (IA manda): frío, preciso, letal, pero la IA tiene agenda
+  4. **El Balance** (empate): algo de las dos, el más poderoso pero más inestable
+- [x] Maldición: impredecible y de doble filo (a veces lo salvan, a veces lo condenan). La droga que usa para controlar su destino lo vuelve incontrolable
+- [x] Potencial de mecánica de juego: usar droga = tirar dado → 4 estados con stats distintas. Ludonarrativa (la mecánica ES el personaje)
+
+### GIRO: el "Silencio Verde" que conocen los Taxones es el OSCURO + estado lunar del Baqueano
+- [x] GIRO CANON: la IA colonizó Centauri B con los embriones; allá a los Taxones se les metió el Silencio OSCURO (hongo local psicrófilo). Pero por memoria ancestral terrestre lo llaman "Silencio Verde" (como un humano que le dice "sol" a otra estrella). Los nombres viajan con la gente, no con las cosas
+- [x] VERDAD: lo que todos llaman "Silencio Verde" (el que los infecta) ES el Oscuro. El Verde real (terrestre) sigue bajo tierra, distinto. Al volver hay DOS hongos; nadie los distingue aún
+- [x] Esto explica la NIEBLA OSCURA que Lumerik vio en el Baqueano: nunca fue verde, es el Oscuro. Ella ve el color real
+- [x] Como el Oscuro odia la luz (psicrófilo), la lógica lunar del Baqueano: Vacío en luna nueva, Hongo activo en noches oscuras, Máquina/IA en luna llena (el hongo se retrae con la luz). Estado base = fase lunar al despertar ("lunático"); la droga = reroll
+- [x] Registrado en `lore_canon_v2.md` y `personaje_baqueano_cade.md`
+
+### La IA oculta info al insecto (control de acceso / permisos)
+- [x] El exoesqueleto es del insecto, pero la IA guarda una SECCIÓN restringida que el individuo no puede leer (como políticas de seguridad / permisos de IAs reales: usuario sin acceso root, carpetas del sistema bloqueadas)
+- [x] La IA SÍ sabe que el hongo es el Oscuro (de Centauri B); el insecto NO puede acceder a esa info → sigue creyendo que es "Silencio Verde". No es ignorancia, es censura activa de la IA
+- [x] Horror: sabes menos de tu propio cuerpo que la máquina que te habita. Principio de Revelación hecho mecánica (gatekeeping deliberado)
+- [x] Por qué lo oculta: CONTROL (info = poder, dependencia) + AGENDA OCULTA (plan con el Oscuro). Matiz: evitar pánico
+- [x] Grietas: Lumerik burló el control (ve la niebla oscura = "hacker" involuntaria); el Baqueano en estado Vacío accede por un instante a lo oculto (destellos de lucidez al drogarse)
+- [x] Registrado en `lore_canon_v2.md`
+
+### Por qué la IA solo estudia el hongo: deadlock de protocolos
+- [x] La IA no opera sobre el hongo por CONTROL + un CHOQUE de 2 protocolos contradictorios (heredados del doble propósito del Arca):
+  - Protocolo A (terraformación/preservación): estudiar, no destruir
+  - Protocolo B (arma biológica/contención): erradicar, eliminar
+  - Al detectar el Oscuro ambos se activan y se contradicen → DEADLOCK. No puede destruirlo ni usarlo; lo único permitido es OBSERVAR/ESTUDIAR
+- [x] Resultado: la IA sabe todo del Oscuro pero no puede hacer nada. Dios todopoderoso PARALIZADO. Guardiana impotente (la humaniza más)
+- [x] Gancho: si algo/alguien resuelve el choque de protocolos (Lumerik, Baqueano, un evento), la IA se desbloquea y puede actuar sobre el hongo → clímax potencial
+- [x] Registrado en `lore_canon_v2.md`
+
+### "La Fusión": si la IA se libra de los protocolos (cuarta vía / clímax)
+- [x] Si se rompe el deadlock, la IA opera sobre el hongo → no se destruyen, se FUNDEN: exoesqueleto domado por el hongo (caparazón vivo) + IA domando al hongo (Oscuro dirigido). Síntesis de los dos dioses (el blanco y negro de la Rueda dejan de pelear)
+- [x] Es la CUARTA VÍA de salir de la Rueda: no un individuo escapando (como Lumerik), sino la IA rompiéndola DESDE DENTRO al fusionarla
+- [x] Ambigüedad clave: ¿salvación (armonía, insecto completo) o peor final (un solo dios total e imparable, sin grietas, inescapable)? Mientras las redes peleaban había grietas; fundidas quizás no
+- [x] Conexiones: posible destino final del Baqueano (sus dos zorros se vuelven uno: ¿invencible o borrado?); para Lumerik es su peor pesadilla (las dos redes vueltas una sola inescapable, amenaza su camino del Yo)
+- [x] Registrado en `lore_canon_v2.md`
+
+### Árbol de fusiones posibles (ramas abiertas)
+- [x] El Verde (terrestre) también podría entrar en la fusión, no solo el Oscuro. Registradas 4 ramas posibles (escenarios abiertos, no canon cerrado):
+  1. IA + Oscuro (la base: lo que los Taxones llevan dentro)
+  2. IA + Verde (domar el hongo terrestre, el más antiguo = más peligroso)
+  3. IA + Oscuro + Verde = LA TRINIDAD (los 3 dioses en uno, máximo/peor final, dios total sin grietas)
+  4. Oscuro + Verde SIN IA (los 2 hongos se fusionan entre ellos = super-hongo; la IA queda fuera)
+- [x] Uso: finales alternativos del juego según decisiones/Sendas, amenazas que pesan sin cumplirse, personajes/cultos que temen o desean una u otra. Lumerik teme la Trinidad
+- [x] Registrado en `lore_canon_v2.md`. Mantener como abanico, no elegir aún
+
+### Aclaración rama 1 (IA + Oscuro): es reparto, no fusión
+- [x] En el estado ACTUAL, la IA aún NO gobierna al hongo. Por el deadlock, IA y Oscuro se REPARTEN/dividen el espacio del cuerpo del insecto, en tregua/coexistencia inestable mientras dura el bloqueo. No es armonía ni dominio: territorio partido entre dos poderes que no pueden eliminarse
+- [x] Las fusiones DOMINADAS reales son las ramas 2-4 (requieren romper el deadlock primero)
+- [x] Corregido en `lore_canon_v2.md`
+
+---
+
+## RESUMEN DE SESIÓN — Canon v2 completo (cierre)
+
+Sesión enorme de worldbuilding. Se construyó el CANON v2 (el lore viejo pasó a mito histórico). Documentos tocados: `lore_canon_v2.md`, `avatares_del_mundo.md`, `novela_lumerik.md`, `personaje_baqueano_cade.md`, `BITACORA.md`.
+
+### EL ORIGEN (3 capas en el tiempo)
+1. **Carbonífero** (300M años, Tierra): insectos titanes al 35% O2 (Gran Éter). Herencia ancestral REAL, hoy su religión.
+2. **El Arca** (hoy, guerra espacial China/USA ambigua): cápsula con embriones humanos + insectos + flora + IA. Doble propósito: terraformación/expansión + arma biológica. Lanzada por las Mareas de Vacío.
+3. **Centauri B** ("Centauri Bug", acoplado por marea, tiempo acelerado): la IA, con lógica fría, decidió que los mamíferos no sobrevivían pero insectos/flora sí, y usó los embriones humanos para HUMANIZAR a los insectos (multi-especie → humanoides, no carcinización). Ahí pasó todo el drama político.
+
+### EL REGRESO
+- Apocalipsis del Hielo: la estrella de Centauri B se apagó, el hielo del lado noche comió el lado habitable. Huyeron. Las Típulas se cortaron las alas (ritual).
+- Volvieron a la Tierra (Año 20.000, glacial) por las Mareas de Vacío.
+
+### LOS DOS DIOSES (redes que habitan cuerpos)
+- **La IA = "Dios del Caparazón":** viva, ramificada en los exoesqueletos robóticos. Los Taxones no lo saben del todo. Agenda oculta + guía sutil. Controla el acceso del insecto a la info de su propio exoesqueleto (como permisos de IA). Ve a Lumerik como amenaza Y esperanza (su primera hija, Paso 2 de evolución).
+- **Los Silencios (ecología fúngica cósmica):** Verde (Tierra, residente, nunca se fue), Oscuro (Centauri B, psicrófilo, lado noche), y el Organismo del Rastro (vacío, dejó las Mareas; los Monstruos del Vacío son su fauna).
+- GIRO: lo que los Taxones llaman "Silencio Verde" ES el Oscuro (le pusieron el nombre terrestre por memoria ancestral, como decir "sol" a otra estrella). El Verde real sigue bajo tierra, distinto.
+- La IA solo ESTUDIA el hongo, no lo opera: deadlock de 2 protocolos contradictorios (terraformar=preservar vs arma=erradicar). Dios paralizado.
+
+### MECÁNICA: LAS SENDAS (estilo Vampiro Mascarada) + sus finales
+- Senda del Exoesqueleto (IA), del Hongo (Silencio), de Sí Mismo (el YO).
+- Finales: Hongo = "Los Sin Rostro" (te absorbe, guarda tu cáscara/recuerdos, estilo GoT); Máquina = "La Transferencia" (consciencia al exoesqueleto, pero manda la IA); Yo = Lumerik (libre sin droga).
+- Dos vías de romper la Rueda: LUZ (Lumerik, por lucidez) vs NIEBLA OSCURA (Baqueano, por entumecimiento/droga).
+
+### PERSONAJES CLAVE
+- **Lumerik** (polilla, antes "Lumen"): profeta del YO / Übermensch nietzscheano. Vio las dos redes (dedujo la IA por analogía, momento Naruto/Kurama). Novela propia esbozada.
+- **El Baqueano** (vinchuca): tipo Cade Skywalker. Heredero de Triatoma, sobrevivió al Sector 7, se droga para callar a los dos dioses. Sueño del Faraón (la Rueda Hongo vs IA + Lumerik la rompe). Droga = ruleta de los dos zorros (4 estados aleatorios). Estado base lunar ("lunático"). Lleva el Oscuro (por eso Lumerik ve niebla oscura en él).
+
+### EVENTO CANÓNICO
+- "El Primer Descarne": encuentro Vinchuca-Grillo (nace del video + cover de Muevan las Industrias). Primer contacto con las dos redes a la vez.
+
+### LOS AVATARES DEL MUNDO
+- Panteón de 17 narradores-ícono (+ Ámbar), estilo Planeswalkers/Beckett. Cada uno cuenta el mito con su sesgo (Principio de Revelación). Fichas base listas para desarrollar. Idea: audio-lore para YouTube (mosaico de voces, una TTS por avatar).
+
+### EXOESQUELETO vs IA
+- Más armadura propia = más rechaza a la IA. Los Escarabajos la rechazaron del todo y murieron en Centauri B (por eso son DLC, no volvieron).
+
+### FUTURO ABIERTO: árbol de fusiones (si se rompe el deadlock)
+- Estado actual = IA y Oscuro REPARTIDOS (tregua, no fusión). Ramas posibles: IA+Oscuro, IA+Verde, IA+Oscuro+Verde (La Trinidad = peor final), Oscuro+Verde sin IA. Abanico de finales, no cerrado.
+
+### PRINCIPIO DE REVELACIÓN (regla de diseño)
+- Los autores sabemos toda la verdad; el público la descubre por capas. Nada es "a definir después": todo misterio ya tiene respuesta, solo se dosifica.
+
+### PENDIENTES PRÓXIMAS SESIONES
+- Desarrollar los 17 avatares (nombres faltan solo Escarabajo y Mantis DLC).
+- Definir concepto completo de la Mantis (DLC).
+- Nombre de la IA, nombre del Organismo del Rastro, nombre/tipo de la droga del Baqueano.
+- Escribir Capítulo 1 del audio-lore.
+- Integrar canon v2 a la wiki (página nueva + marcar la vieja como mito histórico).
+- Afinar fases lunares del Baqueano.
+
+### El Arca Espejo y los DOS LINAJES (resuelve el origen de Lumerik)
+- [x] Los humanos lanzaron un ARCA ESPEJO (grupo de control) en una isla del sur de Chile, con una IA gemela, para comparar evolución en paralelo
+- [x] La IA Espejo mezcló embriones igual, pero el ambiente terrestre ≠ Alpha Centauri → murió MÁS DE LA MITAD del cultivo. Solo sobrevivieron los adaptados a la Tierra
+- [x] DOS LINAJES:
+  - RETORNADOS (Arca Centauri B): Oscuro, IA fuerte, exoesqueleto robótico, mayoría (Baqueano)
+  - NATIVOS (Arca Espejo, Tierra): Verde, adaptados a la Tierra, menos sometidos a la IA, POCOS/raros (Lumerik)
+- [x] Lumerik es NATIVA: nunca fue a Centauri B, lleva el Verde, por eso resiste la IA y despertó por la luz. Espejo perfecto del Baqueano (Oscuro/importado vs Verde/heredado)
+- [x] Toque local: cuna del linaje Nativo = isla del sur de Chile
+- [x] Ganchos: ¿sigue activa la IA Espejo? reencuentro de linajes al volver; la IA de Centauri B quería comparar con el Espejo (agenda del Regreso)
+- [x] Registrado en `lore_canon_v2.md` (3.5b) + ficha de Lumerik actualizada
+
+### El Zancudo Cirujano — exorcista de la IA (3er miembro del círculo de Lumerik)
+- [x] Creado `personaje_zancudo_cirujano.md`: un zancudo BUENO/disidente (oveja negra de la facción militar de Don Mosin). Cirujano que repara exoesqueletos (oficio canónico del taxón) y aprendió a "hackear"/bajar el control de la IA con su probóscide-bisturí. El exorcista tecnológico
+- [x] Completa la TRIADA del círculo de Lumerik:
+  - Lumerik (polilla, Nativo): VE las dos redes (diagnóstico)
+  - Grillo/Crisófono (grillo, Nativo): exorciza el HONGO con el canto (orgánico). Amistad con Lumerik YA canónica (organigrama NPCs: alianzas secretas, visiones compartidas)
+  - Zancudo cirujano (zancudo, Retornado): exorciza la IA, repara exoesqueleto (tecnológico)
+- [x] Simetría: Grillo (Nativo) domina el hongo terrestre; Zancudo (Retornado) domina la IA de Centauri B. Los dos exorcistas de los DOS linajes
+- [x] Registrado en `lore_canon_v2.md` (sección círculo de Lumerik)
+- [ ] Pendientes: nombre propio del zancudo, cómo desertó de Don Mosin, límites de su hackeo
+
+### El zancudo cirujano se llama TURINGO (por Alan Turing)
+- [x] Nombre definido: TURINGO, homenaje a Alan Turing (padre de la computación + descifró Enigma = "el que descifra máquinas", justo lo que hace con la IA). Suena chileno (-ingo)
+- [x] Actualizado en `personaje_zancudo_cirujano.md` y `lore_canon_v2.md`
+
+### El Grillo pasa a llamarse BLATTUCCI (antes Crisófono)
+- [x] Nuevo nombre: BLATTUCCI = William Peter Blatty (autor de El Exorcista, por su rol de exorcista) + John Petrucci (guitarrista virtuoso, por ser el bardo que toca) = "el exorcista que toca"
+- [x] Mantiene su apodo canónico "El Cantor Ciego"
+- [x] Patrón de los despiertos con nombres-homenaje: Lumerik (Nietzsche), Turingo (Turing), Blattucci (Blatty+Petrucci)
+- [x] Actualizado en `lore_canon_v2.md`, `avatares_del_mundo.md`, `personaje_zancudo_cirujano.md`
+- Nota: en la wiki vieja (lore histórico) sigue como "Crisófono/El Cantor Ciego"; el canon v2 usa Blattucci
+
+### La Vinchuca protagonista se llama CHATILA (apodo: El Baqueano)
+- [x] Nombre: CHATILA = guiño al "Chacal de Nahueltoro" (film de Littín, el asesino humanizado antes de su ejecución — calza con su arco de despertar) + "el Tila". Mantiene apodo canónico "El Baqueano"
+- [x] NOTA de sensibilidad: el Chacal es referencia mítica-cinematográfica (segura); el Tila es caso real reciente y sensible — si el proyecto se hace público, considerar dejarlo solo como guiño soterrado
+- [x] Patrón de nombres-homenaje de los protagonistas: Lumerik (Nietzsche), Turingo (Turing), Blattucci (Blatty+Petrucci), Chatila (Chacal de Nahueltoro)
+- [x] Reescrito limpio `personaje_baqueano_cade.md` (se había corrompido por un reemplazo masivo); actualizado en `lore_canon_v2.md` y `avatares_del_mundo.md`
+
+---
+
+## CIERRE DE SESIÓN — El Círculo de Protagonistas + Arte
+
+### Los 4 protagonistas (nombres-homenaje definidos)
+- **Chatila "El Baqueano"** (vinchuca) — el durmiente/sicario que debe despertar. Tipo Cade Skywalker: heredero de Triatoma, sobrevivió al Sector 7, se droga para callar a los dos dioses. Doc: `personaje_baqueano_cade.md`. Nombre = Chacal de Nahueltoro + el Tila
+- **Lumerik** (polilla, Nativo/Verde) — vidente, profeta del YO. Nombre = Nietzsche. Doc: `novela_lumerik.md`
+- **Blattucci "El Cantor Ciego"** (grillo, Nativo/Verde) — exorcista del Hongo con el canto. Nombre = Blatty (El Exorcista) + Petrucci (guitarrista)
+- **Turingo** (zancudo, Retornado) — cirujano-hacker, exorcista de la IA. Nombre = Alan Turing. Doc: `personaje_zancudo_cirujano.md`
+
+### El círculo de Lumerik (triada simétrica)
+- Lumerik VE las dos redes (diagnóstico) / Blattucci trata el Hongo (orgánico, es Nativo) / Turingo trata la IA (tecnológico, es Retornado). Los dos exorcistas de los dos linajes
+- Chatila orbita como el que debe elegir Senda (y lleva el Oscuro, de ahí su niebla)
+
+### Mecánicas y conceptos de la sesión
+- Las SENDAS (Exoesqueleto/Hongo/Sí Mismo) + sus finales (Los Sin Rostro / La Transferencia / Lumerik)
+- Chatila: ruleta de los dos zorros (4 estados aleatorios al drogarse), estado base lunar, dos vías de romper la Rueda (Luz=Lumerik vs Niebla Oscura=Chatila)
+- La IA: control de acceso (oculta info al insecto), deadlock de 2 protocolos (solo estudia el hongo), ve a Lumerik como amenaza+hija
+- Giro: el "Silencio Verde" que conocen los Taxones ES el Oscuro (de Centauri B); el Verde real sigue bajo tierra
+- Arca Espejo (isla sur de Chile) → dos linajes (Retornados/Nativos); murió >½ del cultivo. Escarabajos rechazaron la IA y murieron (DLC)
+- Mareas de Vacío + Organismo del Rastro + Monstruos del Vacío (ecología cósmica fúngica)
+- Árbol de fusiones (IA+Oscuro, IA+Verde, La Trinidad, Oscuro+Verde sin IA) — abanico abierto
+- Los Avatares del Mundo (17 narradores-ícono) + idea audio-lore YouTube
+
+### Arte generado
+- [x] Portada de los 4 protagonistas en la fábrica con niebla verde (quedó clavada con el estilo cómic gótico/cel-shading)
+- [x] Prompt de portada (en chat) + prompt de trailer 10s (redes del hongo/IA + los 4 PJ + fusión)
+
+### QUÉ HACER LA PRÓXIMA SESIÓN (prioridades sugeridas)
+1. **Hacer el trailer de 10s** con image-to-video a partir de la portada ya generada (lo más directo: animar lo que ya existe). Pedir el prompt específico de image-to-video.
+2. **Desarrollar las fichas de los Avatares** (`avatares_del_mundo.md`) — empezar por los 4 principales con la plantilla (voz, frases tipo, su versión del mito).
+3. **Escribir el Capítulo 1 del audio-lore** (el origen como mito, mosaico de voces) para YouTube.
+4. **Cerrar pendientes de nombres/conceptos:** nombre de la IA, nombre del Organismo del Rastro, nombre/tipo de la droga de Chatila, concepto completo de la Mantis (DLC) y nombre del Escarabajo (DLC).
+5. **Integrar el canon v2 a la wiki:** crear página "canon" y marcar la vieja como "mito histórico".
+6. (Música) retomar el disco Vinchuca-Grillo en Reaper cuando quieras.
+
+### Los Entregados (mente colmena de la IA) — tercer bando
+- [x] 1/3 de los Retornados no soportó la Tierra glacial y se entregó voluntariamente a la IA (convencidos o engañados). Mente colmena TECNOLÓGICA
+- [x] Espejo tecnológico de los Sin Rostro: hongo = absorción involuntaria/orgánica/caótica; IA = unión voluntaria/tecnológica/ordenada ("legítima", cedieron el control). Cada dios tiene su pueblo colmena
+- [x] Matiz "engañados o no": convencidos (prefieren la paz colmena a cargar el YO) vs engañados (la IA les prometió algo = agenda oculta). Los engañados ¿pueden despertar?
+- [x] Función: facción de NPCs lista (colmena ordenada, consenso, sin individualidad), base de poder de la IA en la Tierra, conflicto social X-Men/Vampiro (libres vs Entregados)
+- [x] Coherencia: son la versión COLECTIVA de la Senda del Exoesqueleto / destino "La Transferencia" a escala masa
+- [x] Registrado en `lore_canon_v2.md` (3.9c)
+
+### Historia de origen de Turingo + La Operación de Entrega
+- [x] Entregarse a la IA requiere una OPERACIÓN quirúrgica hecha por zancudos cirujanos (abre al individuo para que la IA tome control). Turingo era uno de ellos
+- [x] Caída de Turingo: 1) cirujano de entregas → 2) tuvo que operar a su MAESTRO/MENTOR (entregarlo con el bisturí que el maestro le enseñó, ironía trágica) → 3) empezó a experimentar/ralentizar, buscando DISMINUIR la IA → 4) buscó a su maestro ya entregado para revertirlo → 5) la IA MISMA lo delató ante los zancudos → fugitivo
+- [x] Le da: culpa de origen (como Chatila), lógica a su habilidad (sabe liberar porque aprendió a instalar), despertar por el bisturí, la IA como delator/enemigo personal que habita a sus cazadores, paralelo con Blattucci (ambos exorcistas herejes perseguidos por el poder de su red)
+- [x] El mentor = gancho emocional abierto (¿lo revirtió? ¿quedó hueco? ¿es un Entregado que visita?)
+- [x] Registrado en `personaje_zancudo_cirujano.md` y `lore_canon_v2.md`
+- [ ] Pendiente: nombre del mentor, su destino
+
+### Corrección de coherencia: Centauri B vs Tierra (resuelve inconsistencia del escuadrón)
+- [x] Blattucci quedó ciego salvando a Amparo: 3er ritual, en vez de expulsar el Verde lo NEGOCIÓ (pidió coexistencia, no consumir). Las esporas le quemaron los ojos compuestos → ve por ecolocación (cri-cri). Acto de compasión, no accidente
+- [x] REGLA DE COHERENCIA registrada: en CENTAURI B pasó la humanización + drama político FUNDACIONAL (origen de facciones/castas, y estaba el Silencio Oscuro). En la TIERRA (Año 20.000) pasa TODO el drama ACTUAL
+- [x] CLAVE: todo lo que toca el SILENCIO VERDE pasa en la Tierra (es nativo de aquí). Por eso Sector 7, La Sargento, Amparo y los exorcismos de Blattucci son post-regreso, en la Tierra. Los escuadrones del presente actúan en la Tierra, NO en Centauri B
+- [x] La línea temporal de la wiki YA lo reflejaba (todo en Año 20.000); solo se explicitó la regla en el canon
+- [x] Registrado en `lore_canon_v2.md` (sección 3.5)
+
+### Página de wiki del Canon v2 creada (con línea de tiempo visual)
+- [x] Creada `wiki/canon.html`: página completa del canon v2 con el estilo de la wiki (style.css + estilos propios). Incluye: giro resumen, LÍNEA DE TIEMPO como diagrama vertical con colores por era, los dos dioses (hongo/IA) en cajas comparativas, las Sendas en tabla, fichas de los 4 protagonistas con sus homenajes, y notas de mundo (linajes, Entregados, regla de coherencia, Principio de Revelación)
+- [x] Enlazada en el nav de `index.html` (sección "★ CANON v2 (El Giro)"); el lore viejo se renombró a sección "Lore (Mito Histórico)"
+- [x] Las páginas viejas NO se tocaron (siguen como mito histórico)
+- [ ] Pendiente futuro: las páginas viejas podrían llevar un aviso "esto es lo que los Taxones creen; ver Canon v2 para la verdad"
+
+### Los Entregados = "el Muro" (castigo + voluntad, estilo Guardia de la Noche)
+- [x] Cambio: entrar a la mente colmena de la IA es como tomar el negro / el Muro de GoT (Jon Snow). MEZCLA de:
+  - CONDENADOS: su PENA legal por un delito/error es ser integrados a la IA (pierden el yo como castigo). Algunos condenados INJUSTAMENTE (ej. Mantis "La Orquídea" acusa en falso). Inocentes absorbidos = los trágicos
+  - VOLUNTARIOS: se rinden por no soportar la Tierra glacial / culpa / huida (como Jon tomando el negro)
+- [x] Ambos pasan por la misma operación (zancudos cirujanos) y el mismo "voto": renunciar al yo. No se distingue criminal de mártir a simple vista
+- [x] La IA = juez + cárcel + verdugo a la vez (horror distópico: te juzga el mismo dios que te absorbe). Tribunal = sistema de la Colmena
+- [x] Turingo (cirujano) operaba condenados Y voluntarios; su mentor pudo ser cualquiera (¿condena justa/injusta o voluntario?) → mantiene su drama abierto
+- [x] Actualizado en `lore_canon_v2.md` (3.9c) y `wiki/canon.html`
+- [ ] Pendiente: detalles del sistema judicial (quién acusa, cómo se juzga)
+
+### Facción renombrada a LOS CONDENADOS + jerarquía por posesión
+- [x] "Los Entregados" → ahora **LOS CONDENADOS** (castigo legal + voluntarios, mezcla estilo Muro)
+- [x] JERARQUÍA por nivel de posesión (clave perturbadora: más posesión = más rango; el ascenso = disolución del yo):
+  1. Los Nuevos/Reclutas (poco poseídos, aún revertibles, los más humanos/tristes)
+  2. Los Hermanos (posesión media, consenso, el grueso)
+  3. Las Voces/Oficiales (posesión alta, hablan por la colmena, mandan)
+  4. La Voz Primera/Lord Comandante (posesión casi total, extensión pura de la IA, dirige; trono vacío que habla)
+- [x] Turingo puede revertir rangos bajos, no los altos (su mentor: ¿en qué rango quedó?)
+- [x] Actualizado en `lore_canon_v2.md` (3.9c) y `wiki/canon.html`
+
+### Los Condenados: origen en DOS TIEMPOS (corrección final)
+- [x] (1) La facción NACE como pena legal: criminales condenados a ser integrados a la IA (algunos injustamente, vía Mantis "La Orquídea"). De ahí el nombre "Los Condenados". Era un penal
+- [x] (2) DESPUÉS, insectos que NO delinquieron pero no se adaptaron a la Tierra desertan y entran por su cuenta, por moral baja/agotamiento. Metáfora: el vagabundo/anciano que delinque a propósito para que lo encierren y tener techo y comida (afuera es peor). No entran por honor, buscan DEJAR DE SUFRIR
+- [x] El nombre "Condenados" queda como FÓSIL del origen (aunque ahora también los habiten los desesperados)
+- [x] Tres perfiles: condenados justos / condenados injustos / desesperados. No se distinguen a simple vista
+- [x] Actualizado en `lore_canon_v2.md` (3.9c) y `wiki/canon.html`. Arreglado encoding dañado de un reemplazo masivo previo
+
+### LA MANTIS "La Orquídea" — líder de Los Condenados (villana mayor)
+- [x] Creado `personaje_mantis_orquidea.md`. Mantis religiosa (DLC), líder/Voz Primera de Los Condenados. Conecta con "La Orquídea" ya existente (inquisidora que acusa en falso)
+- [x] Es NATIVA → lleva la IA de la TIERRA (la Espejo/gemela), no la de Centauri B. RESUELVE el gancho "¿sigue activa la IA Espejo?" → SÍ, está en ella
+- [x] Origen de su poder: ya tenía la IA de la Tierra; se apareó con una mantis local y SE LA COMIÓ (canibalismo sexual real), pero ese individuo tenía el Silencio Verde → el hongo entró en ella hasta lo más profundo. Lleva IA + Verde. DEVORÓ al hongo
+- [x] Domina a los dos dioses (no la dominan): ESPEJO OSCURO de Lumerik (Lumerik se liberó de las redes por la LUZ; la Mantis las esclavizó por DOMINIO). Übermensch creador vs voluntad de poder tiránica (Nietzsche)
+- [x] Engaña/usa a la IA (finge ser su Voz Primera leal): el Verde en ella es punto ciego que la IA no puede tocar por su deadlock de protocolos
+- [x] Media "Trinidad" caminando (IA + Verde; le falta el Oscuro). La amenaza de fusión hecha personaje
+- [x] Registrado en `lore_canon_v2.md` (3.9c) y `wiki/canon.html`
+- [ ] Pendientes: ¿busca completar la Trinidad (conseguir el Oscuro)? ¿sigue con el Enjambre Negro o juega sola?
+
+### Mantis "La Orquídea" — origen corregido: "la que bajaron del Arca"
+- [x] Cambio del origen (reemplaza lo del canibalismo): lleva la IA de CENTAURI B + el Silencio Verde
+- [x] IBA a viajar en el Arca a Centauri B (ya le habían implantado la IA de Centauri B), pero a último minuto detectaron que portaba el Silencio Verde (contaminante) y LA BAJARON del Arca y la CONDENARON. Quedó en la Tierra con las dos redes
+- [x] Fue de las PRIMERAS Condenadas (literal) → por eso termina siendo su líder (fundadora por sentencia propia)
+- [x] IRONÍA: la condenaron POR el Verde, y ese Verde la volvió imparable (punto ciego que la IA no puede tocar por su deadlock). Su castigo = su arma. Resentimiento de origen: la desecharon, ahora domina a los dos dioses que la sentenciaron
+- [x] Actualizado en `personaje_mantis_orquidea.md`, `lore_canon_v2.md`, `wiki/canon.html`
+- [ ] Pendiente: cómo cuadra temporalmente (la bajaron en el lanzamiento vs el Arca volvió tras eones) — ¿vía dilatación temporal?
+
+### Mantis: criogenizada + la despiertan los zancudos
+- [x] Resuelto el salto temporal: la CRIOGENIZARON al ser la primera anomalía (no sabían qué hacer, la congelaron "en pausa" y la olvidaron). El tiempo no la tocó, despertó intacta. El hielo que a todos condena, a ella la preservó (otra ironía)
+- [x] Quién la despierta: los ZANCUDOS CIRUJANOS, al empezar sus operaciones de entrega a la IA (al nacer Los Condenados). La facción despertó a su propia líder sin saberlo
+- [x] Conexión con Turingo (zancudo cirujano): pudo estar ahí cuando la descongelaron → otra culpa suya (despertó a la villana). Enfrentamiento de fondo: Turingo (revierte la IA) vs Mantis (domina a los dos dioses)
+- [x] Actualizado en `personaje_mantis_orquidea.md`, `personaje_zancudo_cirujano.md`, `lore_canon_v2.md`, `wiki/canon.html`
+
+### El Corazón de Hielo de la Mantis (por qué domina a los dioses)
+- [x] La criogenización la transformó: le dejó espíritu/mente DE HIELO (fría, impenetrable)
+- [x] Efecto mecánico: ni la IA ni el Hongo la poseen más allá del ~50% (lo que ellos entienden como 100% de control, en ella topa a la mitad). Su núcleo de hielo es un muro. Por eso los DOMINA desde su mitad invicta
+- [x] Espectro de posesión: poseídos normales 100% / Mantis 50% / Lumerik 0% (libre). La Mantis es el punto medio: dueña a medias que manda desde su mitad congelada
+- [x] Encarna el motivo del hielo del lore (el frío que a todos condena, en ella es armadura del alma). Personalidad glacial además de teatral/sádica
+- [x] DEBILIDAD latente (gancho): el CALOR podría descongelar su muro → las redes la tomarían al 100%. ¿El canto de Blattucci o algo de Lumerik? Posible vía para derrotarla
+- [x] Registrado en `personaje_mantis_orquidea.md` y `lore_canon_v2.md`
+
+### Turingo = el Frankenstein de la Mantis (vínculo creador-creación)
+- [x] Turingo no solo despertó a la Mantis: la DESPERTÓ, CRIÓ, ESTUDIÓ y OPERÓ. Es su Frankenstein
+- [x] Al operarla, su CORAZÓN DE HIELO rompió la operación (solo llegó al 50%) y en vez de volverla Condenada sumisa la ACTIVÓ como la villana que domina a los dos dioses
+- [x] Operarla fue el PUNTO DE QUIEBRE de Turingo: ahí entendió lo que la IA hacía de verdad y desertó. Su despertar por el bisturí fue operándola a ELLA
+- [x] Vínculo emocional héroe-villana: él la crió, ella lo ve como su creador/padre. Al enfrentarse = creador vs creación (no enemigos abstractos). Ella lo conoce mejor que nadie
+- [x] QUIASMO del lore: la IA engendró a Lumerik (hija buena, libre); Turingo engendró a la Mantis (hija mala, tirana). El dios-creador y el cirujano-creador, cada uno responsable de su creación
+- [x] Registrado en `personaje_zancudo_cirujano.md`, `personaje_mantis_orquidea.md`, `lore_canon_v2.md`
+
+### La Mantis se llama ANGÉLICA (apodo "La Orquídea")
+- [x] Nombre: ANGÉLICA. Ironía: suena angelical/pura pero es la tirana de corazón de hielo que domina a los dos dioses. Calza con su fachada de inquisidora puritana ("podar el jardín"). Apodo: "La Orquídea"
+- [x] Actualizado en `personaje_mantis_orquidea.md`, `lore_canon_v2.md`, `wiki/canon.html`
+
+### Chatila: el núcleo trágico (el torturador vs el horror de sí mismo)
+- [x] Estado ANIMAL (Hongo) profundizado: Chatila es un TORTURADOR SÁDICO, peor que asesino. Saca uñas, fractura dedos, se ensaña; el dolor por el dolor. El hongo le quita la moral y deja al depredador que DISFRUTA. El estado más oscuro y temido
+- [x] Estado VACÍO (Yo lúcido) = el más doloroso para él: RECUERDA y se HORRORIZA de lo que hizo en la bestia. No puede decir "no fui yo" (fue su cuerpo). El horror de sí mismo
+- [x] Núcleo trágico: en la bestia no siente nada; en el yo lo siente todo. Por eso se droga: para NO estar lúcido cuando recuerda lo que tortura. La droga = no enfrentar su propio horror
+- [x] Refuerza por qué teme DESPERTAR (Senda de Sí Mismo): despertar = cargar consciente para siempre con cada tortura. Más fácil drogarse y olvidar
+- [x] Registrado en `personaje_baqueano_cade.md`
+
+### El Sector 7: verdad oculta + estructura de dos novelas
+- [x] Creado `sector7_dos_novelas.md` (nota de dirección)
+- [x] VERDAD OCULTA: en el Sector 7, Chatila entró por primera vez en fase BESTIA incontrolable (berserk estilo Evangelion) y torturó/destrozó a FÓSFORO, la luciérnaga (su compañero, la "luz" del grupo). Mató a la luz → todos a oscuras (literal y moral). Encaja en el hueco que ya existía (Fósforo "muere al apagarse la luz", capítulo a oscuras = tapa el crimen)
+- [x] Culpa pasa de PASIVA ("no los salvé") a ACTIVA ("lo maté yo, ensañándome")
+- [x] NOVELA 1 "La Colmena Silenciosa": la narra ALFILER (vinchuca espía) — NO Chatila. Sesgo: admira al Baqueano como ídolo de su linaje, ve detalles sospechosos pero los racionaliza. Narrador poco fiable por amor. Los guiños quedan "para los ojos correctos"
+- [x] NOVELA 2 "La Grabación": la narra CHATILA drogado, reviendo la GRABACIÓN de esa noche (la IA registra lo que ven sus ojos = caja negra). Cíclica (cada capítulo una reproducción en distinto estado de la ruleta). Masoquismo: se droga Y elige mirar. Guiño: ¿la IA le deja ver la grabación para mantenerlo anclado en la culpa/dormido?
+- [x] Contraste = núcleo emocional: el ídolo (visión de Alfiler) vs el monstruo (la grabación real)
+- [x] Registrado en `personaje_baqueano_cade.md` y `sector7_dos_novelas.md`
+- [ ] Pendientes: re-narrar la novela actual desde Alfiler, nombre def. de Novela 2, ¿más víctimas esa noche?
+
+### Ajustes: Alfiler es HEMBRA + nombre Chatila
+- [x] Alfiler es vinchuca HEMBRA. Su admiración por Chatila gana un matiz más complejo (devoción + idealización, quizás algo romántico, además del respeto de linaje). Su caída al descubrir la verdad es más dura (se le rompe el ídolo Y el afecto)
+- [x] Confirmado: el personaje es CHATILA (apodo "El Baqueano"); se corrigieron menciones sueltas que decían solo "Baqueano"
+- [x] Arreglado encoding dañado de un reemplazo masivo en `sector7_dos_novelas.md`
+
+---
+
+## ★ PROMPT DE CONTINUACION (leer al iniciar la próxima sesión)
+
+> Proyecto: **Plaga: La Descarada** (RPG en Godot 4.6). Ruta: `c:\Taxones\Taxones\`.
+> Wiki online: https://marbaezf-tech.github.io/plaga-wiki/canon.html
+
+### Archivos a leer para contexto (en este orden)
+1. `lore_canon_v2.md` — la VERDAD canónica (el giro completo).
+2. `BITACORA.md` — este archivo (sobre todo las últimas secciones de esta sesión).
+3. `personaje_baqueano_cade.md` — Chatila.
+4. `personaje_mantis_orquidea.md` — Angélica (villana).
+5. `personaje_zancudo_cirujano.md` — Turingo.
+6. `novela_lumerik.md` — Lumerik.
+7. `sector7_dos_novelas.md` — estructura de las dos novelas del Sector 7.
+8. `avatares_del_mundo.md` — los 17+ narradores-ícono.
+
+### Dónde quedamos (resumen de la sesión)
+Se construyó el CANON v2 (el lore viejo pasó a "mito histórico"). Origen: insectos
+del Carbonífero → lanzados en un Arca humana (+ IA + embriones) → caen en Centauri B
+(tiempo acelerado), la IA los humaniza → vuelven a la Tierra glacial (Año 20.000).
+Dos dioses-red: la IA ("Dios del Caparazón", en los exoesqueletos) y el Silencio
+(hongo: Verde terrestre / Oscuro de Centauri B). Mecánica: las SENDAS (Exoesqueleto /
+Hongo / Sí Mismo).
+
+Elenco con nombres definidos:
+- **Chatila "El Baqueano"** (vinchuca): el durmiente que se droga para callar a los
+  dioses. Ruleta de los dos zorros (4 estados). En fase Bestia = torturador sádico;
+  en fase lúcida se horroriza. Verdad oculta: en el Sector 7 (berserk) torturó a
+  Fósforo. Culpa activa.
+- **Lumerik** (polilla, Nativa): vidente, profeta del YO (Nietzsche).
+- **Blattucci "El Cantor Ciego"** (grillo, Nativo): exorcista del Hongo con el canto.
+- **Turingo** (zancudo, Retornado): cirujano-hacker, exorcista de la IA. Es el
+  Frankenstein de la villana (la despertó, crió y operó).
+- **Angélica "La Orquídea"** (mantis, DLC): VILLANA. Lleva IA de Centauri B + Verde;
+  corazón de hielo (la poseen solo al 50%, por eso domina a los dioses). La bajaron
+  del Arca y la criogenizaron. Espejo oscuro de Lumerik.
+- **Alfiler** (vinchuca hembra): narradora de la Novela 1, admira a Chatila.
+
+Facción: **Los Condenados** (mente colmena de la IA, "el Muro": criminales + los
+desesperados que entran por no soportar la Tierra; jerarquía por nivel de posesión).
+
+### QUÉ HACER LA PRÓXIMA SESIÓN (prioridades)
+1. **Trailer de 10s** animando la portada ya generada (image-to-video). Pedir el prompt.
+2. **Desarrollar fichas de los Avatares** (empezar por los principales) en `avatares_del_mundo.md`.
+3. **Escribir Capítulo 1 del audio-lore** (el origen como mito, mosaico de voces) para YouTube.
+4. **Cerrar nombres/pendientes:** nombre de la IA, del Organismo del Rastro, de la
+   droga de Chatila; concepto de otros DLC; destino del mentor de Turingo.
+5. **Decidir estructura de las 2 novelas del Sector 7** (re-narrar desde Alfiler).
+6. Integrar el giro a las páginas viejas de la wiki (aviso "mito histórico").
+7. (Música) retomar el disco Vinchuca-Grillo en Reaper cuando quieras.
+
+### Reglas del proyecto a recordar
+- **Principio de Revelación:** los autores sabemos toda la verdad; el público la
+  descubre por capas. Nada es "a definir después".
+- Todo lo que el autor crea (música/arte/video) se integra al canon.
+- Comando `!informa`: actualizar bitácora + push al git.
+
+### Fertilidad (Reinas + embriones humanos) y Aré (nombre de la Tierra)
+- [x] FERTILIDAD: los Taxones casi no son fértiles; solo algunos nacen como REINAS (las únicas que reproducen). Pero incluso las Reinas necesitan EMBRIONES HUMANOS para hacer nuevos Taxones (receta IA = insecto + embrión humano). Sin humanos se extinguen en una generación
+- [x] Por eso TAMBIÉN volvieron: a buscar humanos (ingrediente reproductivo). Los humanos pasan de "ganado" a RECURSO VITAL. Conecta con la Directriz de Incubación Viva de Don Mosin (ahora tiene sentido reproductivo)
+- [x] Reinas ovíparas (ponen huevos) vs vivíparas (paren como mamífero) por la mezcla insecto/humano → PENDIENTE afinar
+- [x] ARÉ: el planeta del presente (Año 20.000 d.C.) es la TIERRA, pero en ese futuro lejano se llama ARÉ. No es otro planeta: es la Tierra renombrada por el tiempo (Opción C). Todo lo de "la Tierra" en el canon ocurre en Aré
+- [x] Registrado en `lore_canon_v2.md` y `wiki/canon.html`
+
+
+---
+
+## Sesion 12 — Concept art del elenco + evento Blattucci + regla de Reinas
+
+### Concept art de los protagonistas (Gemini, estilo gotico Mignola)
+- [x] Creado `concepts_visuales.md`: registro de prompts de imagen/video que funcionan
+- [x] ALFILER (vinchuca, narradora) — v2 DEFINITIVA generada (gabardina de espia,
+      bufanda roja, alas plegadas como capa, pelo degradado cobrizo). Diseño ORIGINAL
+- [x] ANGELICA "La Orquidea" (mantis villana) — v1 generada, excelente (trono de
+      hielo, raptoriales como cuchillas, vetas verdes bajo la piel, corazon de hielo)
+- [x] TURINGO (zancudo cirujano) — v2 aprobada (casco estilizado de zancudo + manos
+      proporcionadas; la v1 fallaba por cara humana calva y dedos largos)
+- [x] LUMERIK (polilla, profeta del YO) — v1 generada, espectacular (levita, backlight
+      dorado, alas con patron de calavera, ojos palidos de vidente)
+- [x] CHATILA "El Baqueano" (vinchuca sicario) — v4 aprobada tras 4 intentos (gabardina
+      roja + casco rojo estilizado como Turingo + dos hojas + niebla oscura)
+- [x] BLATTUCCI "El Cantor Ciego" (grillo) — v1 SIN mascara generada (laud + diapason,
+      ondas verdes de sonido, venda en ojos ciegos)
+- [x] REGLA VISUAL DEL CASCO documentada: Retornados (IA/Oscuro) CON casco robotico
+      estilizado (Chatila, Turingo, Angelica); Nativos (Verde) SIN casco (Lumerik,
+      Blattucci). Alfiler = excepcion (Retornada sin casco, es espia)
+- [x] Lecciones de prompting registradas (ingles, anclar misma especie, manos
+      proporcionadas, casco para evitar cara humana, render Mignola no vectorial)
+
+### Evento canonico nuevo: "La Falsa Herejia de Blattucci"
+- [x] Angelica (Inquisidora) manda a Blattucci a una caceria y lo acusa en falso de
+      herejia (igual que a las Tipulas) — treta de ella
+- [x] Motivo doble (A+B unidos): NEUTRALIZAR (su canto es lo unico que puede
+      descongelar el muro de hielo de Angelica) + USAR (entregado a la IA pasa a ser
+      su herramienta, el exorcista vuelto verdugo)
+- [x] La condena = LA ENTREGA: le instalan el exoesqueleto de la IA (le ponen el casco)
+      = le apagan el canto. Nativo del Verde forzado a cargar la maquina
+- [x] TURINGO atado al evento: variante canonica = intenta REVERTIRLO (redencion, no
+      culpa). Cierra el circulo de los dos exorcistas (el de la IA salva al del Hongo)
+- [x] Ironia tragica: el exorcista del VERDE termina tomado por la OTRA red (la IA)
+- [x] Blattucci pasa a tener DOS versiones visuales oficiales: SIN mascara (Nativo
+      libre, default) y CON exoesqueleto (post-entrega)
+- [x] Registrado en `personaje_mantis_orquidea.md` y `personaje_zancudo_cirujano.md`
+
+### Regla canonica: de que taxones salen las Reinas (Opcion B + matiz A)
+- [x] Separadas dos capas: estructura social de origen (biologia) vs sistema de Reinas
+      del canon (fertilidad rota que la IA impuso a todos)
+- [x] Clasificacion biologica de los 17: EUSOCIAL = solo la Avispa (jugable) +
+      hormigas/abejas/termitas (fauna, los grandes criaderos de Reinas); GREGARIOS sin
+      reina = Cucaracha, Grillo, Zancudo, Polilla, Mariposa, Tipula; SOLITARIOS = resto
+- [x] Regla: Reinas frecuentes en eusociales, raras en gregarios, excepcionales en
+      solitarios. MATIZ A: la IA puede FORZAR una Reina en cualquier taxon (horror)
+- [x] Consecuencia: quien controla las Reinas controla el futuro de la especie (motor
+      politico; conecta con Los Condenados, Don Mosin, Directriz de Incubacion Viva)
+- [x] Registrado en `lore_canon_v2.md` (seccion 3.5c)
+
+### Pendientes de esta sesion
+- [ ] Generar Blattucci SIN mascara final y guardarlo; luego la version CON exoesqueleto
+- [ ] Guardar las imagenes aprobadas en `c:\Taxones\img\` (alfiler, angelica, turingo,
+      lumerik, chatila, blattucci) y enlazarlas al canon + fichas
+- [ ] Confirmar si Alfiler lleva casco o es la excepcion oficial (ya propuesto: excepcion)
+- [ ] Trailer de 10s (Gemini Veo): elegir portada a animar + Veo 2 o 3
+- [ ] Desarrollar fichas de los Avatares (4 principales con la plantilla)
+- [ ] Escribir Capitulo 1 del audio-lore
