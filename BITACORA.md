@@ -68,7 +68,7 @@
 
 - [x] Panteón de Progenitores: 13 dioses + El Primer Jardinero
 
-- [x] El Tardígrado (Ramazzottius, 530M años) como narrador omnisciente
+- [x] El Tardígrado (Ámbar, 530M años) como narrador omnisciente
 
 - [x] NPCs del Gran Charco (20+ personajes con motivaciones secretas)
 
@@ -92,7 +92,7 @@
 
 - [x] Páginas referencia: sistemas, glosario, equivalencias, dashboard
 
-- [x] Narrador: Ramazzottius como voz omnisciente
+- [x] Narrador: Ámbar como voz omnisciente
 
 - [x] Sidebar unificado en todas las páginas
 
@@ -182,13 +182,13 @@
 
 - [x] Escarabajos Especiales: Charidotella (tortuga dorado), Chinitas, Pololos
 
-- [x] Nota de Ramazzottius sobre los Blandos y los Escarabajos como futuros Taxones
+- [x] Nota de Ámbar sobre los Blandos y los Escarabajos como futuros Taxones
 
 - [x] 3 Atavismos por Taxón (14 taxones × 3 = 42 atavismos asignados)
 
 - [x] 14 Poderes Signature (nivel 3) con nombre, costo y efecto
 
-- [x] Relato "La Asfixia de los Dioses" (Ramazzottius, 252M años)
+- [x] Relato "La Asfixia de los Dioses" (Ámbar, 252M años)
 
 - [x] Conflicto político: Batalla del Tubo Fluorescente (Rufino vs Roxana, Neo-Tunel Central)
 
@@ -272,7 +272,7 @@
 
 - [x] Sistemas.html: Tabla de Atavismos por Taxón + Poderes Signature
 
-- [x] Caida.html: Relato de Ramazzottius
+- [x] Caida.html: Relato de Ámbar
 
 - [x] NPCs.html: Conflicto del Neo-Tunel Central
 
@@ -1266,7 +1266,7 @@ Escape = (Velocidad propia / Velocidad enemiga) × 50%
 
 - [x] Llama 3.1 8B descargado (4.9 GB)
 
-- [x] Modelo `plaga-narrator` creado (Llama 3.1 8B + system prompt de Ramazzottius)
+- [x] Modelo `plaga-narrator` creado (Llama 3.1 8B + system prompt de Ámbar)
 
 - [x] Modelo `plaga-trained` creado (Llama 3.2 3B fine-tuned con QLoRA, 6.4 GB)
 
