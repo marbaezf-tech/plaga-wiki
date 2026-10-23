@@ -2313,3 +2313,142 @@ desesperados que entran por no soportar la Tierra; jerarquía por nivel de poses
 - [ ] Trailer de 10s (Gemini Veo): elegir portada a animar + Veo 2 o 3
 - [ ] Desarrollar fichas de los Avatares (4 principales con la plantilla)
 - [ ] Escribir Capitulo 1 del audio-lore
+
+
+---
+
+## Sesion 12b — Saga de la Tierra + Usurpadores + Mantispido (decisiones en bruto)
+
+> Capturado en crudo durante brainstorm. El agente de worldbuilding lo consolida y
+> canoniza; lo que quede como decision abierta va marcado "PROPUESTA (aprobar)".
+
+### La Saga de la Tierra (20.000 años) — nueva capa de canon
+- Guerras y casi-extincion de la humanidad a lo largo de los milenios.
+- Los RICOS empiezan a clonarse por miedo a desaparecer (origen de los clones).
+- Guerra final: un bando EXTERMINA a casi todos.
+- Para no perder la humanidad, abren el ARCA ESPEJO de la Tierra (la de la isla del
+  sur de Chile, ya en canon) -> de ahi los Taxones Nativos.
+- Presente (Año 20.000/Are): quedan humanos como GANADO (ovejas), pero NO son tontos
+  por naturaleza: fueron MODIFICADOS y ADOCTRINADOS para no pensar, solo trabajar.
+- ENGAÑO: muchos creen que la IA los programa asi. Es mentira: el responsable real es
+  otro (humanos/elites/Usurpadores). La IA carga una culpa ajena (Principio de Revel.)
+
+### Clones y la Transferencia = ILUSION (barco de Teseo)
+- Creencia de los ricos: el "yo" vive en las 3 redes neuronales reales (CEREBRO,
+  CORAZON, INTESTINO). Clonan, VACIAN al clon y se "reinstalan" en el cuerpo nuevo.
+- Cambian UN organo a la vez al envejecer/fallar (corazon, o intestino, o cerebro) ->
+  continuidad APARENTE, nunca mueren "enteros" de golpe.
+- VERDAD (solo la sabemos nosotros): no hay transferencia real. Mueren por cuotas sin
+  notarlo; tras siglos de reemplazos parciales no queda nada del original. Un collage
+  que CREE ser una persona. Espejo invertido de Lumerik (perdio todo, conservo el yo).
+- Paralelo canonico: es "La Transferencia" (final Senda Maquina) en version humana;
+  llaman al cuerpo-clon su "caparazon" (como el exoesqueleto Taxon).
+
+### Los USURPADORES (linea tipo Tremere) — para NOVELA de comedia negra
+- Ricos que, en vez de saltar a un clon humano, se transfirieron a un cuerpo de TAXON
+  (exoesqueleto de insecto). Humanos dentro de bichos. Usurpadores / sangre falsa.
+- No son Taxones de verdad (sin Arca, sin Carbonifero, sin Reina, sin linaje). Los
+  Taxones "de sangre" los despreciarian como los clanes a los Tremere.
+- Tono: COMEDIA NEGRA (advenedizos pretenciosos con aires de aristocracia, aterrados
+  de ser descubiertos).
+- PROPUESTA (aprobar): estan OCULTOS entre los Taxones; los injerto la IA o un gremio
+  de cirujanos tipo Turingo (posible culpa/gremio rival de Turingo).
+
+### Trio de la FARSA (eje tematico de la novela de comedia negra)
+- USURPADORES (humanos fingiendo ser Taxones) + TIPULAS (debiles fingiendo ser
+  temibles, ya canon: impostores/Salubri) + MANTISPIDO (bicho que finge ser otro bicho).
+- Chiste cruel: el Mantispido es confundido con una Mantis (Angelica) sin serlo; vive
+  de una reputacion que no le corresponde.
+
+### Nuevo taxon: EL MANTISPIDO (el falso depredador)
+- Base real: el mantispido PARECE mantis (patas raptoras) pero es un NEUROPTERO
+  (pariente crisopas/hormiga leon); imita a la mantis por convergencia = impostor
+  biologico nato.
+- Caricatura (1 frase): "el falso depredador" — pinta de mantis letal, pero es un don
+  nadie que sobrevive del bluff y de que lo confundan con la realeza mantis.
+- PROPUESTAS a cerrar (aprobar): jugable/DLC/NPC? rol? linaje (Nativo/Retornado/rareza)?
+
+### Formato objetivo: MANUAL DE ROL estilo Vampiro La Mascarada
+- El autor prefiere construir el mundo como un manual de rol (modular, parte por
+  parte): ambientacion, Taxones=Clanes, Sendas=Disciplinas, Avatares=narradores,
+  facciones, bestiario, historia, secretos del Narrador (Principio de Revelacion).
+- De ese documento madre salen las novelas, relatos, el audio-lore y el juego.
+
+### Tarea delegada al agente de worldbuilding
+Consolidar y canonizar todo lo anterior en `lore_canon_v2.md` sin romper el canon;
+revisar COHERENCIA global (como director de arte); proponer novelas/relatos/historias;
+y armar el ESQUELETO del manual de rol + la biblia cronologica ordenada + indice del
+mini libro de relatos. Decisiones abiertas -> marcar "PROPUESTA (aprobar)".
+
+
+---
+
+## Sesion 12c — Usurpadores/Cambiacapa + Shadaw + Ancianitis (canon cerrado)
+
+> Continuacion directa de la Sesion 12b. Todo canonizado en `lore_canon_v2.md` +
+> `personaje_shadaw_usurpador.md` (nuevo). Revision de coherencia actualizada.
+
+### Los USURPADORES / "CAMBIACAPA" (canon cerrado, 3.13)
+- [x] Nombre: Los Usurpadores (formal) / **CAMBIACAPA** (apodo chileno: chaquetero +
+      cambia de caparazon; se evito "cambiaconcha" por vulgar).
+- [x] Origen: gremio de zancudos cirujanos corruptos (el gremio del que deserto Turingo)
+      + la IA que lo tolera.
+- [x] **Alas de zancudo** = marca de casta (los que pactaron bien las conservan) ->
+      jerarquia interna.
+- [x] Estructura Tremere + Caitiff: rama organizada (alas + gremio) vs masa suelta de
+      huerfanos.
+- [x] Engaño del ganado: son los mismos ricos (se lavan las manos dos veces).
+- [x] **La Maldicion:** TODOS enloquecen (esquizofrenia, dismorfia, anorexia/bulimia,
+      Diogenes, TOC) — la mente humana no soporta el cuerpo de insecto. NADIE se salva;
+      el estatus solo compra disimulo. Gancho: desenmascararlos pillandoles el trastorno.
+- [x] Nota de tratamiento: comedia negra en la farsa social, tragedia/horror en la
+      mente rota (no burla de enfermedades reales).
+
+### SHADAW — avatar de los Usurpadores (nuevo, `personaje_shadaw_usurpador.md`)
+- [x] Villano mayor tipo Sasha Vykos + Orochimaru + **el ELLO** (Id freudiano; espejo
+      de Lumerik que es el Yo).
+- [x] +100 cuerpos de Taxon en ~3.000 años (ha probado los 18). 1o zancudo (origen del
+      simbolo de las alas), 2o escarabajo (caudillo fallido), 10o escorpion, actual =
+      vinchuca por necesidad. Lista random de 100 generada (con Mantispido incluido).
+- [x] Los 10 primeros saltos como arco psicologico (cada uno deja un trastorno).
+- [x] **Ejercito de zombis = sus propias CASCARAS abandonadas** (sombras de si mismo,
+      ~100, no se pudren; obedecen por su impronta; moverlas dispersa su voluntad =
+      debilidad).
+- [x] Motivacion tragica: busca **limpiar su alma / volver a ser UNO**; niega que lo
+      unico que se la devolveria es la MUERTE. Contradiccion fatal del Ello.
+- [x] Torre de **100 trastornos apilados** (uno por salto); su "aura sobrenatural" es
+      demencia acumulada; no puede ganar (cada salto suma otra locura).
+- [x] **El Proyecto Quimera:** arma el taxon-quimera de los 18 para poseerlo; LO LOGRA
+      (solo el puede pilotear 18 especies porque ya fue cada una). Giro tragico:
+      consigue el cuerpo perfecto y sigue sin ser uno. Estetica "fragmentado" (piezas
+      flotantes tipo criatura fragmentada de Magic).
+- [x] La obsesion por la Quimera nace en el **salto 23** (se sueña como ella); CANON: es
+      un sueño RANDOM que su TOC volvio fijacion vital (anti-epico, puro tono Descarada).
+- [x] Con Angelica: no son enemigos directos, pero sus agentes se rozan (friccion).
+
+### Ancianitis / "Peste Vieja" + Arca Espejo + Taxones inmunes (canon, 3.11)
+- [x] **ANCIANITIS** (callejero: **"Peste Vieja"**): enfermedad de envejecimiento
+      acelerado (1 dia = 1 año), CONTAGIOSA por contacto. Hunde a la humanidad.
+- [x] **Taxones INMUNES** (cuerpo insecto, otro ADN) -> invierte la jerarquia; el
+      insecto no se pudre. Da motivo real al salto Cambiacapa y a los zombis que no se
+      descomponen.
+- [x] **Arca Espejo abierta hace ~3.000 años** por los HUMANOS, buscando los EMBRIONES
+      de ~17.000 años (sangre limpia, pre-Ancianitis) para salvar la especie. Hallaron
+      Taxones Nativos en vez de embriones (chiste cruel). Resuelve el cabo A1.
+- [x] Embriones limpios = recurso mas sagrado y disputado (Taxones para Reinas / humanos
+      para purgar la peste).
+
+### Fix de coherencia
+- [x] **Angelica (B1, era 🔴):** el canibalismo NO era version vieja a borrar; es COMO
+      adquirio el Verde (se comio a una mantis portadora). Secuencia unificada. Resuelto.
+- [x] `REVISION_COHERENCIA.md` actualizado: B1 y A1 marcados RESUELTOS.
+
+### Pendientes de esta tanda
+- [ ] Alias de Shadaw por especie (18): decidir si imita nombres de los Alfas
+      legendarios (mas usurpador) o nombres propios distintos; luego tabla + registro
+      de los 100 cuerpos en la ficha.
+- [ ] Origen de la Ancianitis (endogamia/clonacion vs arma biologica) — PROPUESTA.
+- [ ] Concept visual de la Quimera (prompt base ya anotado en la ficha de Shadaw).
+- [ ] Cabos 🟡 restantes del informe: Fumigacion vs ganado (A3), aritmetica temporal
+      (A2), numero oficial de taxones (B3), separar clonadores puros vs Usurpadores (C2).
+- [ ] Aprobar Mantispido (NPC/DLC, rol, linaje) y nombrarlo.
